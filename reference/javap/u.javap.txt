@@ -1,0 +1,225 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/u.class
+  Last modified 13 de out. de 2026; size 705 bytes
+  SHA-256 checksum 4eed0e15f15c37ea129e763281450a39265bf81cb0843a7584edbfabeb703483
+abstract class u extends du
+  minor version: 3
+  major version: 45
+  flags: (0x0420) ACC_SUPER, ACC_ABSTRACT
+  this_class: #4                          // u
+  super_class: #2                         // du
+  interfaces: 0, fields: 8, methods: 6, attributes: 0
+Constant pool:
+   #1 = Class              #47            // di
+   #2 = Class              #48            // du
+   #3 = Class              #49            // g
+   #4 = Class              #50            // u
+   #5 = Fieldref           #1.#22         // di.a:Lg;
+   #6 = Fieldref           #4.#20         // u.a:B
+   #7 = Fieldref           #4.#21         // u.a:I
+   #8 = Fieldref           #4.#23         // u.a:Z
+   #9 = Fieldref           #4.#24         // u.b:B
+  #10 = Fieldref           #4.#25         // u.b:Z
+  #11 = Fieldref           #4.#26         // u.c:B
+  #12 = Fieldref           #4.#28         // u.d:B
+  #13 = Methodref          #2.#17         // du."<init>":(SSBB)V
+  #14 = Methodref          #3.#27         // g.d:(Ldu;)V
+  #15 = Methodref          #4.#18         // u.a:()V
+  #16 = Methodref          #4.#19         // u.a:(II)V
+  #17 = NameAndType        #36:#34        // "<init>":(SSBB)V
+  #18 = NameAndType        #43:#29        // a:()V
+  #19 = NameAndType        #43:#32        // a:(II)V
+  #20 = NameAndType        #43:#37        // a:B
+  #21 = NameAndType        #43:#39        // a:I
+  #22 = NameAndType        #43:#40        // a:Lg;
+  #23 = NameAndType        #43:#42        // a:Z
+  #24 = NameAndType        #44:#37        // b:B
+  #25 = NameAndType        #44:#42        // b:Z
+  #26 = NameAndType        #45:#37        // c:B
+  #27 = NameAndType        #46:#33        // d:(Ldu;)V
+  #28 = NameAndType        #46:#37        // d:B
+  #29 = Utf8               ()V
+  #30 = Utf8               (BBBBZ)V
+  #31 = Utf8               (BBSSZ)V
+  #32 = Utf8               (II)V
+  #33 = Utf8               (Ldu;)V
+  #34 = Utf8               (SSBB)V
+  #35 = Utf8               <clinit>
+  #36 = Utf8               <init>
+  #37 = Utf8               B
+  #38 = Utf8               Code
+  #39 = Utf8               I
+  #40 = Utf8               Lg;
+  #41 = Utf8               S
+  #42 = Utf8               Z
+  #43 = Utf8               a
+  #44 = Utf8               b
+  #45 = Utf8               c
+  #46 = Utf8               d
+  #47 = Utf8               di
+  #48 = Utf8               du
+  #49 = Utf8               g
+  #50 = Utf8               u
+  #51 = Utf8               StackMap
+{
+  protected static byte a;
+    descriptor: B
+    flags: (0x000c) ACC_PROTECTED, ACC_STATIC
+
+  protected static byte b;
+    descriptor: B
+    flags: (0x000c) ACC_PROTECTED, ACC_STATIC
+
+  public byte c;
+    descriptor: B
+    flags: (0x0001) ACC_PUBLIC
+
+  protected short a;
+    descriptor: S
+    flags: (0x0004) ACC_PROTECTED
+
+  protected int a;
+    descriptor: I
+    flags: (0x0004) ACC_PROTECTED
+
+  protected byte d;
+    descriptor: B
+    flags: (0x0004) ACC_PROTECTED
+
+  public boolean a;
+    descriptor: Z
+    flags: (0x0001) ACC_PUBLIC
+
+  public boolean b;
+    descriptor: Z
+    flags: (0x0001) ACC_PUBLIC
+
+  abstract void a(int, int);
+    descriptor: (II)V
+    flags: (0x0400) ACC_ABSTRACT
+
+  abstract void a();
+    descriptor: ()V
+    flags: (0x0400) ACC_ABSTRACT
+
+  u(byte, byte, byte, byte, boolean);
+    descriptor: (BBBBZ)V
+    flags: (0x0000)
+    Code:
+      stack=6, locals=6, args_size=6
+         0: aload_0
+         1: iload_3
+         2: iconst_4
+         3: ishl
+         4: i2s
+         5: iload         4
+         7: iconst_4
+         8: ishl
+         9: i2s
+        10: bipush        8
+        12: bipush        8
+        14: getstatic     #6                  // Field a:B
+        17: iadd
+        18: i2b
+        19: invokespecial #13                 // Method du."<init>":(SSBB)V
+        22: aload_0
+        23: iconst_1
+        24: putfield      #10                 // Field b:Z
+        27: aload_0
+        28: iload_1
+        29: putfield      #11                 // Field c:B
+        32: aload_0
+        33: iload_2
+        34: putfield      #12                 // Field d:B
+        37: aload_0
+        38: iconst_m1
+        39: putfield      #7                  // Field a:I
+        42: aload_0
+        43: iconst_0
+        44: putfield      #8                  // Field a:Z
+        47: return
+
+  u(byte, byte, short, short, boolean);
+    descriptor: (BBSSZ)V
+    flags: (0x0000)
+    Code:
+      stack=6, locals=6, args_size=6
+         0: aload_0
+         1: iload_3
+         2: iload         4
+         4: bipush        8
+         6: bipush        8
+         8: iload         5
+        10: ifeq          19
+        13: getstatic     #6                  // Field a:B
+        16: goto          22
+        19: getstatic     #9                  // Field b:B
+        22: iadd
+        23: i2b
+        24: invokespecial #13                 // Method du."<init>":(SSBB)V
+        27: aload_0
+        28: iload         5
+        30: putfield      #10                 // Field b:Z
+        33: aload_0
+        34: iload_1
+        35: putfield      #11                 // Field c:B
+        38: aload_0
+        39: iconst_1
+        40: putfield      #12                 // Field d:B
+        43: aload_0
+        44: iconst_m1
+        45: putfield      #7                  // Field a:I
+        48: aload_0
+        49: iconst_0
+        50: putfield      #8                  // Field a:Z
+        53: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 19
+          locals = [ this, int, int, int, int, int ]
+          stack = [ this, int, int, int, int ]
+        frame_type = 255 offset = 22
+          locals = [ this, int, int, int, int, int ]
+          stack = [ this, int, int, int, int, int ]
+
+  public final void b(int, int);
+    descriptor: (II)V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=3, locals=4, args_size=3
+         0: aload_0
+         1: dup
+         2: astore_3
+         3: dup
+         4: getfield      #7                  // Field a:I
+         7: iconst_1
+         8: iadd
+         9: putfield      #7                  // Field a:I
+        12: aload_3
+        13: invokevirtual #15                 // Method a:()V
+        16: aload_0
+        17: getfield      #8                  // Field a:Z
+        20: ifeq          31
+        23: getstatic     #5                  // Field di.a:Lg;
+        26: aload_0
+        27: invokevirtual #14                 // Method g.d:(Ldu;)V
+        30: return
+        31: aload_0
+        32: iload_1
+        33: iload_2
+        34: invokevirtual #16                 // Method a:(II)V
+        37: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 31
+          locals = [ class u, int, int, class u ]
+          stack = []
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: iconst_2
+         1: putstatic     #6                  // Field a:B
+         4: bipush        -5
+         6: putstatic     #9                  // Field b:B
+         9: return
+}

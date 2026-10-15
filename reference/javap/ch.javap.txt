@@ -1,0 +1,285 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/ch.class
+  Last modified 13 de out. de 2026; size 1008 bytes
+  SHA-256 checksum f4ab7bf077cc0082ef1bfd0557ed3d1186cc75e60854aa46af59f45d71f9e8a3
+public final class ch
+  minor version: 3
+  major version: 45
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #3                          // ch
+  super_class: #4                         // java/lang/Object
+  interfaces: 0, fields: 2, methods: 6, attributes: 0
+Constant pool:
+   #1 = String             #36            // .tdf
+   #2 = Class              #40            // "[B"
+   #3 = Class              #44            // ch
+   #4 = Class              #46            // java/lang/Object
+   #5 = Class              #47            // java/lang/String
+   #6 = Class              #48            // java/lang/System
+   #7 = Class              #49            // rpg/e
+   #8 = Fieldref           #3.#20         // ch.a:S
+   #9 = Fieldref           #3.#21         // ch.a:[Ljava/lang/Object;
+  #10 = Methodref          #3.#17         // ch.a:(I)[B
+  #11 = Methodref          #3.#19         // ch.a:([I)[[B
+  #12 = Methodref          #4.#16         // java/lang/Object."<init>":()V
+  #13 = Methodref          #5.#23         // java/lang/String.concat:(Ljava/lang/String;)Ljava/lang/String;
+  #14 = Methodref          #6.#22         // java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+  #15 = Methodref          #7.#18         // rpg/e.a:(Ljava/lang/String;)[B
+  #16 = NameAndType        #37:#26        // "<init>":()V
+  #17 = NameAndType        #42:#27        // a:(I)[B
+  #18 = NameAndType        #42:#34        // a:(Ljava/lang/String;)[B
+  #19 = NameAndType        #42:#35        // a:([I)[[B
+  #20 = NameAndType        #42:#39        // a:S
+  #21 = NameAndType        #42:#41        // a:[Ljava/lang/Object;
+  #22 = NameAndType        #43:#31        // arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+  #23 = NameAndType        #45:#32        // concat:(Ljava/lang/String;)Ljava/lang/String;
+  #24 = Class              #51            // "[I"
+  #25 = Class              #52            // "[[B"
+  #26 = Utf8               ()V
+  #27 = Utf8               (I)[B
+  #28 = Utf8               (II)[[B
+  #29 = Utf8               (III)[[B
+  #30 = Utf8               (IIII)[[B
+  #31 = Utf8               (Ljava/lang/Object;ILjava/lang/Object;II)V
+  #32 = Utf8               (Ljava/lang/String;)Ljava/lang/String;
+  #33 = Utf8               (Ljava/lang/String;)V
+  #34 = Utf8               (Ljava/lang/String;)[B
+  #35 = Utf8               ([I)[[B
+  #36 = Utf8               .tdf
+  #37 = Utf8               <init>
+  #38 = Utf8               Code
+  #39 = Utf8               S
+  #40 = Utf8               [B
+  #41 = Utf8               [Ljava/lang/Object;
+  #42 = Utf8               a
+  #43 = Utf8               arraycopy
+  #44 = Utf8               ch
+  #45 = Utf8               concat
+  #46 = Utf8               java/lang/Object
+  #47 = Utf8               java/lang/String
+  #48 = Utf8               java/lang/System
+  #49 = Utf8               rpg/e
+  #50 = Utf8               StackMap
+  #51 = Utf8               [I
+  #52 = Utf8               [[B
+{
+  private java.lang.Object[] a;
+    descriptor: [Ljava/lang/Object;
+    flags: (0x0002) ACC_PRIVATE
+
+  private short a;
+    descriptor: S
+    flags: (0x0002) ACC_PRIVATE
+
+  public ch(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=5, locals=5, args_size=2
+         0: aload_0
+         1: invokespecial #12                 // Method java/lang/Object."<init>":()V
+         4: aload_1
+         5: ldc           #1                  // String .tdf
+         7: invokevirtual #13                 // Method java/lang/String.concat:(Ljava/lang/String;)Ljava/lang/String;
+        10: invokestatic  #15                 // Method rpg/e.a:(Ljava/lang/String;)[B
+        13: astore_1
+        14: iconst_0
+        15: istore_2
+        16: aload_0
+        17: aload_1
+        18: iconst_0
+        19: iinc          2, 1
+        22: baload
+        23: sipush        255
+        26: iand
+        27: i2s
+        28: putfield      #8                  // Field a:S
+        31: aload_0
+        32: aload_0
+        33: getfield      #8                  // Field a:S
+        36: anewarray     #4                  // class java/lang/Object
+        39: putfield      #9                  // Field a:[Ljava/lang/Object;
+        42: iconst_0
+        43: istore        4
+        45: iload         4
+        47: aload_0
+        48: getfield      #8                  // Field a:S
+        51: if_icmpge     115
+        54: aload_1
+        55: iload_2
+        56: iinc          2, 1
+        59: baload
+        60: sipush        255
+        63: iand
+        64: bipush        8
+        66: ishl
+        67: dup
+        68: istore_3
+        69: aload_1
+        70: iload_2
+        71: iinc          2, 1
+        74: baload
+        75: sipush        255
+        78: iand
+        79: iadd
+        80: istore_3
+        81: aload_0
+        82: getfield      #9                  // Field a:[Ljava/lang/Object;
+        85: iload         4
+        87: iload_3
+        88: newarray       byte
+        90: aastore
+        91: aload_1
+        92: iload_2
+        93: aload_0
+        94: getfield      #9                  // Field a:[Ljava/lang/Object;
+        97: iload         4
+        99: aaload
+       100: iconst_0
+       101: iload_3
+       102: invokestatic  #14                 // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+       105: iload_2
+       106: iload_3
+       107: iadd
+       108: istore_2
+       109: iinc          4, 1
+       112: goto          45
+       115: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 45
+          locals = [ class ch, class "[B", int, top, int ]
+          stack = []
+        frame_type = 255 offset = 115
+          locals = [ class ch, class "[B", int, top, int ]
+          stack = []
+
+  public final byte[] a(int);
+    descriptor: (I)[B
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #9                  // Field a:[Ljava/lang/Object;
+         4: iload_1
+         5: aaload
+         6: checkcast     #2                  // class "[B"
+         9: areturn
+
+  public final byte[][] a(int, int);
+    descriptor: (II)[[B
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=3, args_size=3
+         0: aload_0
+         1: iconst_2
+         2: newarray       int
+         4: dup
+         5: iconst_0
+         6: iload_1
+         7: iastore
+         8: dup
+         9: iconst_1
+        10: iload_2
+        11: iastore
+        12: invokevirtual #11                 // Method a:([I)[[B
+        15: areturn
+
+  public final byte[][] a(int, int, int);
+    descriptor: (III)[[B
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=4, args_size=4
+         0: aload_0
+         1: iconst_3
+         2: newarray       int
+         4: dup
+         5: iconst_0
+         6: iload_1
+         7: iastore
+         8: dup
+         9: iconst_1
+        10: iload_2
+        11: iastore
+        12: dup
+        13: iconst_2
+        14: iload_3
+        15: iastore
+        16: invokevirtual #11                 // Method a:([I)[[B
+        19: areturn
+
+  public final byte[][] a(int, int, int, int);
+    descriptor: (IIII)[[B
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=5, args_size=5
+         0: aload_0
+         1: iconst_4
+         2: newarray       int
+         4: dup
+         5: iconst_0
+         6: iload_1
+         7: iastore
+         8: dup
+         9: iconst_1
+        10: iload_2
+        11: iastore
+        12: dup
+        13: iconst_2
+        14: iload_3
+        15: iastore
+        16: dup
+        17: iconst_3
+        18: bipush        25
+        20: iastore
+        21: invokevirtual #11                 // Method a:([I)[[B
+        24: areturn
+
+  public final byte[][] a(int[]);
+    descriptor: ([I)[[B
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=4, args_size=2
+         0: aload_1
+         1: arraylength
+         2: anewarray     #2                  // class "[B"
+         5: astore_2
+         6: iconst_0
+         7: istore_3
+         8: iload_3
+         9: aload_1
+        10: arraylength
+        11: if_icmpge     43
+        14: aload_1
+        15: iload_3
+        16: iaload
+        17: ifge          27
+        20: aload_2
+        21: iload_3
+        22: aconst_null
+        23: aastore
+        24: goto          37
+        27: aload_2
+        28: iload_3
+        29: aload_0
+        30: aload_1
+        31: iload_3
+        32: iaload
+        33: invokevirtual #10                 // Method a:(I)[B
+        36: aastore
+        37: iinc          3, 1
+        40: goto          8
+        43: aload_2
+        44: areturn
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 8
+          locals = [ class ch, class "[I", class "[[B", int ]
+          stack = []
+        frame_type = 255 offset = 27
+          locals = [ class ch, class "[I", class "[[B", int ]
+          stack = []
+        frame_type = 255 offset = 37
+          locals = [ class ch, class "[I", class "[[B", int ]
+          stack = []
+        frame_type = 255 offset = 43
+          locals = [ class ch, class "[I", class "[[B", int ]
+          stack = []
+}

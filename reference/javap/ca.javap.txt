@@ -1,0 +1,254 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/ca.class
+  Last modified 13 de out. de 2026; size 760 bytes
+  SHA-256 checksum 5fd3411e2777980a29ced057a4482a963bd4234abfd763a41bfd36a7e1b067c5
+public final class ca extends s
+  minor version: 3
+  major version: 45
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #4                          // ca
+  super_class: #6                         // s
+  interfaces: 0, fields: 1, methods: 4, attributes: 0
+Constant pool:
+   #1 = String             #33            // /hero/0/t
+   #2 = Class              #37            // "[Lcg;"
+   #3 = Class              #41            // aj
+   #4 = Class              #43            // ca
+   #5 = Class              #44            // cg
+   #6 = Class              #45            // s
+   #7 = Fieldref           #4.#24         // ca.b:[[Lcg;
+   #8 = Fieldref           #6.#20         // s.a:B
+   #9 = Fieldref           #6.#21         // s.a:[[B
+  #10 = Fieldref           #6.#22         // s.a:[[Lcg;
+  #11 = Methodref          #3.#17         // aj."<init>":(Ljava/lang/String;)V
+  #12 = Methodref          #3.#18         // aj.a:()I
+  #13 = Methodref          #3.#19         // aj.a:()[Lcg;
+  #14 = Methodref          #3.#23         // aj.b:(I)Lcg;
+  #15 = Methodref          #6.#16         // s."<init>":()V
+  #16 = NameAndType        #34:#27        // "<init>":()V
+  #17 = NameAndType        #34:#31        // "<init>":(Ljava/lang/String;)V
+  #18 = NameAndType        #40:#26        // a:()I
+  #19 = NameAndType        #40:#28        // a:()[Lcg;
+  #20 = NameAndType        #40:#35        // a:B
+  #21 = NameAndType        #40:#38        // a:[[B
+  #22 = NameAndType        #40:#39        // a:[[Lcg;
+  #23 = NameAndType        #42:#29        // b:(I)Lcg;
+  #24 = NameAndType        #42:#39        // b:[[Lcg;
+  #25 = Class              #47            // "[B"
+  #26 = Utf8               ()I
+  #27 = Utf8               ()V
+  #28 = Utf8               ()[Lcg;
+  #29 = Utf8               (I)Lcg;
+  #30 = Utf8               (I)V
+  #31 = Utf8               (Ljava/lang/String;)V
+  #32 = Utf8               (Z)V
+  #33 = Utf8               /hero/0/t
+  #34 = Utf8               <init>
+  #35 = Utf8               B
+  #36 = Utf8               Code
+  #37 = Utf8               [Lcg;
+  #38 = Utf8               [[B
+  #39 = Utf8               [[Lcg;
+  #40 = Utf8               a
+  #41 = Utf8               aj
+  #42 = Utf8               b
+  #43 = Utf8               ca
+  #44 = Utf8               cg
+  #45 = Utf8               s
+  #46 = Utf8               StackMap
+  #47 = Utf8               [B
+{
+  private cg[][] b;
+    descriptor: [[Lcg;
+    flags: (0x0002) ACC_PRIVATE
+
+  public ca();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #15                 // Method s."<init>":()V
+         4: return
+
+  public final void a();
+    descriptor: ()V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=6, args_size=1
+         0: aload_0
+         1: iconst_4
+         2: anewarray     #2                  // class "[Lcg;"
+         5: putfield      #7                  // Field b:[[Lcg;
+         8: new           #3                  // class aj
+        11: dup
+        12: ldc           #1                  // String /hero/0/t
+        14: invokespecial #11                 // Method aj."<init>":(Ljava/lang/String;)V
+        17: astore_1
+        18: aload_0
+        19: getfield      #7                  // Field b:[[Lcg;
+        22: iconst_0
+        23: aload_1
+        24: invokevirtual #13                 // Method aj.a:()[Lcg;
+        27: aastore
+        28: aload_1
+        29: invokevirtual #12                 // Method aj.a:()I
+        32: dup
+        33: istore_2
+        34: anewarray     #5                  // class cg
+        37: astore_3
+        38: aload_0
+        39: getfield      #9                  // Field s.a:[[B
+        42: iconst_0
+        43: aaload
+        44: dup
+        45: astore        4
+        47: arraylength
+        48: istore_2
+        49: iconst_0
+        50: istore        5
+        52: iload         5
+        54: iload_2
+        55: if_icmpge     80
+        58: aload_3
+        59: aload         4
+        61: iload         5
+        63: baload
+        64: aload_1
+        65: aload         4
+        67: iload         5
+        69: baload
+        70: invokevirtual #14                 // Method aj.b:(I)Lcg;
+        73: aastore
+        74: iinc          5, 1
+        77: goto          52
+        80: aload_0
+        81: getfield      #7                  // Field b:[[Lcg;
+        84: iconst_1
+        85: aload_3
+        86: aastore
+        87: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 52
+          locals = [ class ca, class aj, int, class "[Lcg;", class "[B", int ]
+          stack = []
+        frame_type = 255 offset = 80
+          locals = [ class ca, class aj, int, class "[Lcg;", class "[B", int ]
+          stack = []
+
+  public final void a(boolean);
+    descriptor: (Z)V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=3, args_size=2
+         0: iconst_2
+         1: istore_2
+         2: iload_1
+         3: ifeq          52
+         6: aload_0
+         7: getfield      #10                 // Field s.a:[[Lcg;
+        10: iconst_0
+        11: aaload
+        12: aload_0
+        13: getfield      #7                  // Field b:[[Lcg;
+        16: iconst_0
+        17: aaload
+        18: if_acmpeq     50
+        21: aload_0
+        22: getfield      #7                  // Field b:[[Lcg;
+        25: iconst_2
+        26: aload_0
+        27: getfield      #10                 // Field s.a:[[Lcg;
+        30: iconst_0
+        31: aaload
+        32: aastore
+        33: aload_0
+        34: getfield      #7                  // Field b:[[Lcg;
+        37: iconst_3
+        38: aload_0
+        39: getfield      #10                 // Field s.a:[[Lcg;
+        42: iconst_0
+        43: aload_0
+        44: getfield      #8                  // Field s.a:B
+        47: iadd
+        48: aaload
+        49: aastore
+        50: iconst_0
+        51: istore_2
+        52: aload_0
+        53: getfield      #10                 // Field s.a:[[Lcg;
+        56: iconst_0
+        57: aload_0
+        58: getfield      #7                  // Field b:[[Lcg;
+        61: iload_2
+        62: aaload
+        63: aastore
+        64: aload_0
+        65: getfield      #10                 // Field s.a:[[Lcg;
+        68: iconst_0
+        69: aload_0
+        70: getfield      #8                  // Field s.a:B
+        73: iadd
+        74: aload_0
+        75: getfield      #7                  // Field b:[[Lcg;
+        78: iload_2
+        79: iconst_1
+        80: iadd
+        81: aaload
+        82: aastore
+        83: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 50
+          locals = [ class ca, int, int ]
+          stack = []
+        frame_type = 255 offset = 52
+          locals = [ class ca, int, int ]
+          stack = []
+
+  public final void a(int);
+    descriptor: (I)V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=3, locals=2, args_size=2
+         0: iload_1
+         1: aload_0
+         2: getfield      #8                  // Field s.a:B
+         5: if_icmplt     9
+         8: return
+         9: aload_0
+        10: getfield      #10                 // Field s.a:[[Lcg;
+        13: iload_1
+        14: aaload
+        15: ifnull        25
+        18: aload_0
+        19: getfield      #10                 // Field s.a:[[Lcg;
+        22: iload_1
+        23: aconst_null
+        24: aastore
+        25: aload_0
+        26: getfield      #10                 // Field s.a:[[Lcg;
+        29: iload_1
+        30: aload_0
+        31: getfield      #8                  // Field s.a:B
+        34: iadd
+        35: aaload
+        36: ifnull        51
+        39: aload_0
+        40: getfield      #10                 // Field s.a:[[Lcg;
+        43: iload_1
+        44: aload_0
+        45: getfield      #8                  // Field s.a:B
+        48: iadd
+        49: aconst_null
+        50: aastore
+        51: return
+      StackMap: number_of_entries = 3
+        frame_type = 255 offset = 9
+          locals = [ class ca, int ]
+          stack = []
+        frame_type = 255 offset = 25
+          locals = [ class ca, int ]
+          stack = []
+        frame_type = 255 offset = 51
+          locals = [ class ca, int ]
+          stack = []
+}

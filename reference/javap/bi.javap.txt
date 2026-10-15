@@ -1,0 +1,270 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/bi.class
+  Last modified 13 de out. de 2026; size 1029 bytes
+  SHA-256 checksum 041b2f8249b86033b2ff4e02ad2169525433e1eb0921c172dd392e3b6db24fa0
+final class bi extends af
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #4                          // bi
+  super_class: #1                         // af
+  interfaces: 0, fields: 1, methods: 14, attributes: 0
+Constant pool:
+   #1 = Class              #68            // af
+   #2 = Class              #69            // al
+   #3 = Class              #70            // av
+   #4 = Class              #72            // bi
+   #5 = Class              #74            // cd
+   #6 = Class              #78            // rpg/e
+   #7 = Fieldref           #1.#37         // af.a:[B
+   #8 = Fieldref           #3.#36         // av.a:Lav;
+   #9 = Fieldref           #4.#27         // bi.O:[B
+  #10 = Fieldref           #5.#42         // cd.l:B
+  #11 = Fieldref           #5.#44         // cd.m:B
+  #12 = Methodref          #1.#26         // af."<init>":(SSSBLs;)V
+  #13 = Methodref          #1.#31         // af.a:(Lal;I)V
+  #14 = Methodref          #1.#34         // af.a:([B)V
+  #15 = Methodref          #1.#39         // af.b:([B)V
+  #16 = Methodref          #2.#29         // al.a:(BBI)V
+  #17 = Methodref          #2.#30         // al.a:(BI)Z
+  #18 = Methodref          #2.#38         // al.b:(BI)V
+  #19 = Methodref          #3.#33         // av.a:(Lbi;)V
+  #20 = Methodref          #5.#28         // cd.a:()Z
+  #21 = Methodref          #5.#32         // cd.a:(Lal;IBB)V
+  #22 = Methodref          #5.#40         // cd.c:()I
+  #23 = Methodref          #5.#41         // cd.h:(I)V
+  #24 = Methodref          #5.#43         // cd.m:()V
+  #25 = Methodref          #6.#35         // rpg/e.a:([BI)[B
+  #26 = NameAndType        #61:#58        // "<init>":(SSSBLs;)V
+  #27 = NameAndType        #65:#66        // O:[B
+  #28 = NameAndType        #67:#47        // a:()Z
+  #29 = NameAndType        #67:#49        // a:(BBI)V
+  #30 = NameAndType        #67:#51        // a:(BI)Z
+  #31 = NameAndType        #67:#54        // a:(Lal;I)V
+  #32 = NameAndType        #67:#55        // a:(Lal;IBB)V
+  #33 = NameAndType        #67:#56        // a:(Lbi;)V
+  #34 = NameAndType        #67:#59        // a:([B)V
+  #35 = NameAndType        #67:#60        // a:([BI)[B
+  #36 = NameAndType        #67:#64        // a:Lav;
+  #37 = NameAndType        #67:#66        // a:[B
+  #38 = NameAndType        #71:#50        // b:(BI)V
+  #39 = NameAndType        #71:#59        // b:([B)V
+  #40 = NameAndType        #73:#45        // c:()I
+  #41 = NameAndType        #75:#52        // h:(I)V
+  #42 = NameAndType        #76:#62        // l:B
+  #43 = NameAndType        #77:#46        // m:()V
+  #44 = NameAndType        #77:#62        // m:B
+  #45 = Utf8               ()I
+  #46 = Utf8               ()V
+  #47 = Utf8               ()Z
+  #48 = Utf8               (B)V
+  #49 = Utf8               (BBI)V
+  #50 = Utf8               (BI)V
+  #51 = Utf8               (BI)Z
+  #52 = Utf8               (I)V
+  #53 = Utf8               (II)V
+  #54 = Utf8               (Lal;I)V
+  #55 = Utf8               (Lal;IBB)V
+  #56 = Utf8               (Lbi;)V
+  #57 = Utf8               (SSSB)V
+  #58 = Utf8               (SSSBLs;)V
+  #59 = Utf8               ([B)V
+  #60 = Utf8               ([BI)[B
+  #61 = Utf8               <init>
+  #62 = Utf8               B
+  #63 = Utf8               Code
+  #64 = Utf8               Lav;
+  #65 = Utf8               O
+  #66 = Utf8               [B
+  #67 = Utf8               a
+  #68 = Utf8               af
+  #69 = Utf8               al
+  #70 = Utf8               av
+  #71 = Utf8               b
+  #72 = Utf8               bi
+  #73 = Utf8               c
+  #74 = Utf8               cd
+  #75 = Utf8               h
+  #76 = Utf8               l
+  #77 = Utf8               m
+  #78 = Utf8               rpg/e
+  #79 = Utf8               StackMap
+{
+  private byte[] O;
+    descriptor: [B
+    flags: (0x0002) ACC_PRIVATE
+
+  public bi(short, short, short, byte);
+    descriptor: (SSSB)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=6, locals=5, args_size=5
+         0: aload_0
+         1: iload_1
+         2: iload_2
+         3: iload_3
+         4: iload         4
+         6: aconst_null
+         7: invokespecial #12                 // Method af."<init>":(SSSBLs;)V
+        10: aload_0
+        11: aconst_null
+        12: putfield      #9                  // Field O:[B
+        15: aload_0
+        16: getstatic     #7                  // Field af.a:[B
+        19: bipush        13
+        21: invokestatic  #25                 // Method rpg/e.a:([BI)[B
+        24: putfield      #9                  // Field O:[B
+        27: aload_0
+        28: aload_0
+        29: getfield      #9                  // Field O:[B
+        32: invokevirtual #14                 // Method af.a:([B)V
+        35: aload_0
+        36: invokestatic  #19                 // Method av.a:(Lbi;)V
+        39: return
+
+  protected final void a();
+    descriptor: ()V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=0, locals=1, args_size=1
+         0: return
+
+  public final void l();
+    descriptor: ()V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=0, locals=1, args_size=1
+         0: return
+
+  protected final void a(byte);
+    descriptor: (B)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=0, locals=2, args_size=2
+         0: return
+
+  protected final void a(int, int);
+    descriptor: (II)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=0, locals=3, args_size=3
+         0: return
+
+  final void b(byte, int);
+    descriptor: (BI)V
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=3, locals=3, args_size=3
+         0: getstatic     #8                  // Field av.a:Lav;
+         3: iload_1
+         4: iload_2
+         5: invokevirtual #18                 // Method al.b:(BI)V
+         8: return
+
+  final void a(byte, byte, int);
+    descriptor: (BBI)V
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=4, locals=4, args_size=4
+         0: getstatic     #8                  // Field av.a:Lav;
+         3: iload_1
+         4: iload_2
+         5: iload_3
+         6: invokevirtual #16                 // Method al.a:(BBI)V
+         9: return
+
+  final boolean a(byte, int);
+    descriptor: (BI)Z
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=3, locals=3, args_size=3
+         0: getstatic     #8                  // Field av.a:Lav;
+         3: iload_1
+         4: iload_2
+         5: invokevirtual #17                 // Method al.a:(BI)Z
+         8: ireturn
+
+  protected final void a(al, int);
+    descriptor: (Lal;I)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=3, locals=3, args_size=3
+         0: getstatic     #8                  // Field av.a:Lav;
+         3: aload_1
+         4: iload_2
+         5: invokevirtual #13                 // Method af.a:(Lal;I)V
+         8: return
+
+  protected final void h(int);
+    descriptor: (I)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=2, locals=2, args_size=2
+         0: getstatic     #8                  // Field av.a:Lav;
+         3: iload_1
+         4: invokevirtual #23                 // Method cd.h:(I)V
+         7: return
+
+  protected final int c();
+    descriptor: ()I
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: getstatic     #8                  // Field av.a:Lav;
+         3: invokevirtual #22                 // Method cd.c:()I
+         6: ireturn
+
+  protected final boolean a();
+    descriptor: ()Z
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: getstatic     #8                  // Field av.a:Lav;
+         3: invokevirtual #20                 // Method cd.a:()Z
+         6: ireturn
+
+  protected final void a(al, int, byte, byte);
+    descriptor: (Lal;IBB)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=5, locals=5, args_size=5
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: iconst_4
+         4: idiv
+         5: iload_3
+         6: iload         4
+         8: invokespecial #21                 // Method cd.a:(Lal;IBB)V
+        11: aload_0
+        12: astore_1
+        13: getstatic     #8                  // Field av.a:Lav;
+        16: invokevirtual #20                 // Method cd.a:()Z
+        19: ifne          41
+        22: aload_0
+        23: iconst_0
+        24: putfield      #10                 // Field cd.l:B
+        27: getstatic     #8                  // Field av.a:Lav;
+        30: iconst_2
+        31: putfield      #10                 // Field cd.l:B
+        34: getstatic     #8                  // Field av.a:Lav;
+        37: iload_3
+        38: putfield      #11                 // Field cd.m:B
+        41: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 41
+          locals = [ class bi, class bi, int, int, int ]
+          stack = []
+
+  protected final void m();
+    descriptor: ()V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: aload_0
+         2: getfield      #9                  // Field O:[B
+         5: invokevirtual #15                 // Method af.b:([B)V
+         8: aload_0
+         9: invokespecial #24                 // Method cd.m:()V
+        12: return
+}

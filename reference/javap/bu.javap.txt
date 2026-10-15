@@ -1,0 +1,132 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/bu.class
+  Last modified 13 de out. de 2026; size 465 bytes
+  SHA-256 checksum dbbac54705ac80205b3df01f8d3ce88968aef8248a4cd3f8204a4432be78c57f
+final class bu extends at
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #2                          // bu
+  super_class: #1                         // at
+  interfaces: 0, fields: 0, methods: 4, attributes: 0
+Constant pool:
+   #1 = Class              #37            // at
+   #2 = Class              #39            // bu
+   #3 = Class              #41            // rpg/e
+   #4 = Class              #42            // s
+   #5 = Fieldref           #1.#18         // at.a:B
+   #6 = Fieldref           #1.#19         // at.a:I
+   #7 = Fieldref           #1.#21         // at.a:Z
+   #8 = Fieldref           #1.#22         // at.b:I
+   #9 = Fieldref           #1.#23         // at.c:I
+  #10 = Fieldref           #3.#20         // rpg/e.a:Ls;
+  #11 = Methodref          #1.#15         // at."<init>":(B)V
+  #12 = Methodref          #2.#15         // bu."<init>":(B)V
+  #13 = Methodref          #4.#16         // s.a:(B)B
+  #14 = Methodref          #4.#17         // s.a:(BBIII)I
+  #15 = NameAndType        #30:#26        // "<init>":(B)V
+  #16 = NameAndType        #36:#25        // a:(B)B
+  #17 = NameAndType        #36:#27        // a:(BBIII)I
+  #18 = NameAndType        #36:#31        // a:B
+  #19 = NameAndType        #36:#33        // a:I
+  #20 = NameAndType        #36:#34        // a:Ls;
+  #21 = NameAndType        #36:#35        // a:Z
+  #22 = NameAndType        #38:#33        // b:I
+  #23 = NameAndType        #40:#33        // c:I
+  #24 = Utf8               ()V
+  #25 = Utf8               (B)B
+  #26 = Utf8               (B)V
+  #27 = Utf8               (BBIII)I
+  #28 = Utf8               (BI)V
+  #29 = Utf8               (II)V
+  #30 = Utf8               <init>
+  #31 = Utf8               B
+  #32 = Utf8               Code
+  #33 = Utf8               I
+  #34 = Utf8               Ls;
+  #35 = Utf8               Z
+  #36 = Utf8               a
+  #37 = Utf8               at
+  #38 = Utf8               b
+  #39 = Utf8               bu
+  #40 = Utf8               c
+  #41 = Utf8               rpg/e
+  #42 = Utf8               s
+  #43 = Utf8               StackMap
+{
+  bu(byte);
+    descriptor: (B)V
+    flags: (0x0000)
+    Code:
+      stack=4, locals=2, args_size=2
+         0: aload_0
+         1: iload_1
+         2: invokespecial #11                 // Method at."<init>":(B)V
+         5: aload_0
+         6: aload_0
+         7: getstatic     #10                 // Field rpg/e.a:Ls;
+        10: aload_0
+        11: getfield      #5                  // Field at.a:B
+        14: invokevirtual #13                 // Method s.a:(B)B
+        17: dup_x1
+        18: putfield      #6                  // Field at.a:I
+        21: putfield      #9                  // Field at.c:I
+        24: return
+
+  bu(byte, int);
+    descriptor: (BI)V
+    flags: (0x0000)
+    Code:
+      stack=2, locals=3, args_size=3
+         0: aload_0
+         1: iload_1
+         2: invokespecial #12                 // Method "<init>":(B)V
+         5: aload_0
+         6: iload_2
+         7: putfield      #9                  // Field at.c:I
+        10: return
+
+  final void a(int, int);
+    descriptor: (II)V
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=6, locals=3, args_size=3
+         0: getstatic     #10                 // Field rpg/e.a:Ls;
+         3: aload_0
+         4: getfield      #5                  // Field at.a:B
+         7: iconst_1
+         8: aload_0
+         9: getfield      #8                  // Field at.b:I
+        12: aload_0
+        13: getfield      #6                  // Field at.a:I
+        16: irem
+        17: iload_1
+        18: iload_2
+        19: invokevirtual #14                 // Method s.a:(BBIII)I
+        22: pop
+        23: return
+
+  final void a();
+    descriptor: ()V
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: dup
+         2: getfield      #8                  // Field at.b:I
+         5: iconst_1
+         6: iadd
+         7: putfield      #8                  // Field at.b:I
+        10: aload_0
+        11: getfield      #8                  // Field at.b:I
+        14: aload_0
+        15: getfield      #9                  // Field at.c:I
+        18: if_icmplt     26
+        21: aload_0
+        22: iconst_1
+        23: putfield      #7                  // Field at.a:Z
+        26: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 26
+          locals = [ class bu ]
+          stack = []
+}

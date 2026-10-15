@@ -1,0 +1,128 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/dv.class
+  Last modified 13 de out. de 2026; size 404 bytes
+  SHA-256 checksum 69c3ee02c290764fd0c83729d237efc147ac13d191f04931ff43ff0c02f35035
+public final class dv extends as
+  minor version: 3
+  major version: 45
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #2                          // dv
+  super_class: #1                         // as
+  interfaces: 0, fields: 2, methods: 2, attributes: 0
+Constant pool:
+   #1 = Class              #23            // as
+   #2 = Class              #26            // dv
+   #3 = Class              #27            // java/lang/Exception
+   #4 = Class              #28            // java/lang/System
+   #5 = Fieldref           #2.#13         // dv.c:[B
+   #6 = Fieldref           #2.#14         // dv.d:[B
+   #7 = Methodref          #1.#10         // as."<init>":(BB)V
+   #8 = Methodref          #1.#11         // as.a:([BI)I
+   #9 = Methodref          #4.#12         // java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+  #10 = NameAndType        #18:#15        // "<init>":(BB)V
+  #11 = NameAndType        #21:#17        // a:([BI)I
+  #12 = NameAndType        #22:#16        // arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+  #13 = NameAndType        #24:#20        // c:[B
+  #14 = NameAndType        #25:#20        // d:[B
+  #15 = Utf8               (BB)V
+  #16 = Utf8               (Ljava/lang/Object;ILjava/lang/Object;II)V
+  #17 = Utf8               ([BI)I
+  #18 = Utf8               <init>
+  #19 = Utf8               Code
+  #20 = Utf8               [B
+  #21 = Utf8               a
+  #22 = Utf8               arraycopy
+  #23 = Utf8               as
+  #24 = Utf8               c
+  #25 = Utf8               d
+  #26 = Utf8               dv
+  #27 = Utf8               java/lang/Exception
+  #28 = Utf8               java/lang/System
+{
+  public byte[] c;
+    descriptor: [B
+    flags: (0x0001) ACC_PUBLIC
+
+  public byte[] d;
+    descriptor: [B
+    flags: (0x0001) ACC_PUBLIC
+
+  public dv(byte, byte);
+    descriptor: (BB)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=5, locals=3, args_size=3
+         0: aload_0
+         1: iload_1
+         2: iload_2
+         3: invokespecial #7                  // Method as."<init>":(BB)V
+         6: aload_0
+         7: iconst_2
+         8: newarray       byte
+        10: dup
+        11: iconst_0
+        12: iconst_m1
+        13: bastore
+        14: dup
+        15: iconst_1
+        16: iconst_m1
+        17: bastore
+        18: putfield      #5                  // Field c:[B
+        21: aload_0
+        22: bipush        6
+        24: newarray       byte
+        26: dup
+        27: iconst_0
+        28: iconst_m1
+        29: bastore
+        30: dup
+        31: iconst_1
+        32: iconst_m1
+        33: bastore
+        34: dup
+        35: iconst_2
+        36: iconst_m1
+        37: bastore
+        38: dup
+        39: iconst_3
+        40: iconst_m1
+        41: bastore
+        42: dup
+        43: iconst_4
+        44: iconst_m1
+        45: bastore
+        46: dup
+        47: iconst_5
+        48: iconst_m1
+        49: bastore
+        50: putfield      #6                  // Field d:[B
+        53: return
+
+  protected final int a(byte[], int);
+    descriptor: ([BI)I
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=5, locals=3, args_size=3
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: invokespecial #8                  // Method as.a:([BI)I
+         6: istore_2
+         7: aload_1
+         8: iload_2
+         9: aload_0
+        10: getfield      #6                  // Field d:[B
+        13: iconst_0
+        14: bipush        6
+        16: invokestatic  #9                  // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+        19: iinc          2, 6
+        22: aload_1
+        23: iload_2
+        24: aload_0
+        25: getfield      #5                  // Field c:[B
+        28: iconst_0
+        29: iconst_2
+        30: invokestatic  #9                  // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+        33: iinc          2, 2
+        36: iload_2
+        37: ireturn
+}

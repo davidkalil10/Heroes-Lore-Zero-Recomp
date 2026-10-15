@@ -1,0 +1,1273 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/rpg/d.class
+  Last modified 13 de out. de 2026; size 4831 bytes
+  SHA-256 checksum 3cc5b2866c64f17ee389b9a7be850fb1a54eba97500c10db83a00349870deb30
+public interface rpg.d
+  minor version: 3
+  major version: 45
+  flags: (0x0601) ACC_PUBLIC, ACC_INTERFACE, ACC_ABSTRACT
+  this_class: #89                         // rpg/d
+  super_class: #87                        // java/lang/Object
+  interfaces: 0, fields: 46, methods: 1, attributes: 0
+Constant pool:
+    #1 = String             #189          //
+    #2 = String             #190          //  ;You have finished
+    #3 = String             #191          //  Gold. Continue?
+    #4 = String             #192          //  RMB.
+    #5 = String             #193          //  RMB.;Do you want to purchase now?
+    #6 = String             #194          //  The fee for changing professions is
+    #7 = String             #195          //  for
+    #8 = String             #196          //  more
+    #9 = String             #197          //  successfully!
+   #10 = String             #198          // #
+   #11 = String             #201          // , continue?
+   #12 = String             #202          // , still need to send
+   #13 = String             #203          // . ;You do not need to buy it again.
+   #14 = String             #204          // .;
+   #15 = String             #205          // 20000 gold
+   #16 = String             #208          // ATK
+   #17 = String             #209          // Amethyst
+   #18 = String             #210          // Are you sure you want to quit?
+   #19 = String             #212          // Bought
+   #20 = String             #214          // CRITICAL
+   #21 = String             #215          // Character Conversion: Menu Keys [
+   #22 = String             #217          // Congratulations! You have activated this game!
+   #23 = String             #219          // DEF
+   #24 = String             #220          // DEXINTCONSTR
+   #25 = String             #221          // DODGE
+   #26 = String             #222          // Do you want to continue? ;Your game will exit.
+   #27 = String             #223          // Double EXP
+   #28 = String             #224          // Double Money
+   #29 = String             #226          // EXP
+   #30 = String             #228          // Failed! Please try again
+   #31 = String             #229          // Former costs
+   #32 = String             #231          // G is.
+   #33 = String             #232          // Go to www.eamobile.com to get ;more EA games for your phone!
+   #34 = String             #233          // Gold
+   #35 = String             #235          // HP
+   #36 = String             #236          // Hangul]
+   #37 = String             #238          // Increase level
+   #38 = String             #242          // LV
+   #39 = String             #243          // Level up! You have reached level
+   #40 = String             #245          // Magic combine
+   #41 = String             #247          // NULL
+   #42 = String             #248          // No
+   #43 = String             #249          // Please play game in portrait mode.
+   #44 = String             #250          // Please select the combination book.
+   #45 = String             #251          // Please start or load a game before purchasing this item.
+   #46 = String             #252          // Pocket Shop
+   #47 = String             #253          // Portrait used count =
+   #48 = String             #254          // Press Any Key To Continue
+   #49 = String             #255          // Price:
+   #50 = String             #256          // Public storage can store and transfer your gold, equipments, and items. You can select a slot, and then transfer the gold, equipments, and items stored in public storage. You can use 1,3 keys to switch between personal and public storage.
+   #51 = String             #257          // Purchase
+   #52 = String             #258          // Purchase 10 levels increase
+   #53 = String             #259          // Purchase 20000 gold
+   #54 = String             #260          // Purchase double coin earning
+   #55 = String             #261          // Purchase double exp
+   #56 = String             #262          // Purchase instant magic combo.
+   #57 = String             #263          // Purchase pocket shop
+   #58 = String             #264          // RMB
+   #59 = String             #265          // Refining Stones
+   #60 = String             #266          // Resurrect
+   #61 = String             #267          // Resurrect and invincible for 5 sec.
+   #62 = String             #268          // Room
+   #63 = String             #269          // SP
+   #64 = String             #270          // TRY AND BUY?
+   #65 = String             #271          // This combination does not require any elements.
+   #66 = String             #272          // Want to play more? You need to
+   #67 = String             #273          // Would you like to revive?
+   #68 = String             #274          // You do not have all the elements required for this combination.;You can force combine magic for 1RMB.;Do you want to purchase the combination now?
+   #69 = String             #275          // You do not have all the elements required for this combination.;You can force combine magic.;
+   #70 = String             #276          // You do not have enough gold.;
+   #71 = String             #277          // You has reached the highest level, can no longer raise
+   #72 = String             #278          // You have already purchased
+   #73 = String             #279          // You have purchased
+   #74 = String             #280          // Your current class does not allow you to equip with this equipment.
+   #75 = String             #283          // a
+   #76 = String             #287          // blank
+   #77 = String             #292          // ended up]
+   #78 = String             #304          // learning
+   #79 = String             #306          // more
+   #80 = String             #308          // number]
+   #81 = String             #311          // polishing powder
+   #82 = String             #314          // red stone
+   #83 = String             #318          // symbol]
+   #84 = String             #325          // yes
+   #85 = String             #326          // youngso]
+   #86 = Class              #281          // "[B"
+   #87 = Class              #300          // java/lang/Object
+   #88 = Class              #301          // java/lang/String
+   #89 = Class              #315          // rpg/d
+   #90 = Class              #316          // rpg/f
+   #91 = Fieldref           #89.#140      // rpg/d.A:[B
+   #92 = Fieldref           #89.#141      // rpg/d.B:[B
+   #93 = Fieldref           #89.#142      // rpg/d.C:[B
+   #94 = Fieldref           #89.#143      // rpg/d.D:[B
+   #95 = Fieldref           #89.#144      // rpg/d.E:[B
+   #96 = Fieldref           #89.#145      // rpg/d.F:[B
+   #97 = Fieldref           #89.#146      // rpg/d.G:[B
+   #98 = Fieldref           #89.#147      // rpg/d.H:[B
+   #99 = Fieldref           #89.#148      // rpg/d.I:[B
+  #100 = Fieldref           #89.#149      // rpg/d.J:[B
+  #101 = Fieldref           #89.#150      // rpg/d.K:[B
+  #102 = Fieldref           #89.#151      // rpg/d.L:[B
+  #103 = Fieldref           #89.#152      // rpg/d.M:[B
+  #104 = Fieldref           #89.#153      // rpg/d.N:[B
+  #105 = Fieldref           #89.#155      // rpg/d.a_:[B
+  #106 = Fieldref           #89.#157      // rpg/d.b:[[B
+  #107 = Fieldref           #89.#158      // rpg/d.b_:[B
+  #108 = Fieldref           #89.#159      // rpg/d.c:[[B
+  #109 = Fieldref           #89.#160      // rpg/d.d:[[B
+  #110 = Fieldref           #89.#161      // rpg/d.e:[[B
+  #111 = Fieldref           #89.#162      // rpg/d.e_:I
+  #112 = Fieldref           #89.#163      // rpg/d.f:[[B
+  #113 = Fieldref           #89.#164      // rpg/d.f_:I
+  #114 = Fieldref           #89.#165      // rpg/d.g:[B
+  #115 = Fieldref           #89.#166      // rpg/d.g:[[B
+  #116 = Fieldref           #89.#168      // rpg/d.h:[B
+  #117 = Fieldref           #89.#169      // rpg/d.h:[[B
+  #118 = Fieldref           #89.#170      // rpg/d.i:I
+  #119 = Fieldref           #89.#171      // rpg/d.i:[B
+  #120 = Fieldref           #89.#172      // rpg/d.j:[B
+  #121 = Fieldref           #89.#173      // rpg/d.k:[B
+  #122 = Fieldref           #89.#174      // rpg/d.l:[B
+  #123 = Fieldref           #89.#175      // rpg/d.m:[B
+  #124 = Fieldref           #89.#176      // rpg/d.n:[B
+  #125 = Fieldref           #89.#177      // rpg/d.o:[B
+  #126 = Fieldref           #89.#178      // rpg/d.p:[B
+  #127 = Fieldref           #89.#179      // rpg/d.q:[B
+  #128 = Fieldref           #89.#180      // rpg/d.r:[B
+  #129 = Fieldref           #89.#181      // rpg/d.s:[B
+  #130 = Fieldref           #89.#182      // rpg/d.t:[B
+  #131 = Fieldref           #89.#183      // rpg/d.u:[B
+  #132 = Fieldref           #89.#184      // rpg/d.v:[B
+  #133 = Fieldref           #89.#185      // rpg/d.w:[B
+  #134 = Fieldref           #89.#186      // rpg/d.x:[B
+  #135 = Fieldref           #89.#187      // rpg/d.y:[B
+  #136 = Fieldref           #89.#188      // rpg/d.z:[B
+  #137 = Fieldref           #90.#154      // rpg/f.a:I
+  #138 = Fieldref           #90.#156      // rpg/f.b:I
+  #139 = Methodref          #88.#167      // java/lang/String.getBytes:()[B
+  #140 = NameAndType        #207:#281     // A:[B
+  #141 = NameAndType        #211:#281     // B:[B
+  #142 = NameAndType        #213:#281     // C:[B
+  #143 = NameAndType        #218:#281     // D:[B
+  #144 = NameAndType        #225:#281     // E:[B
+  #145 = NameAndType        #227:#281     // F:[B
+  #146 = NameAndType        #230:#281     // G:[B
+  #147 = NameAndType        #234:#281     // H:[B
+  #148 = NameAndType        #237:#281     // I:[B
+  #149 = NameAndType        #239:#281     // J:[B
+  #150 = NameAndType        #240:#281     // K:[B
+  #151 = NameAndType        #241:#281     // L:[B
+  #152 = NameAndType        #244:#281     // M:[B
+  #153 = NameAndType        #246:#281     // N:[B
+  #154 = NameAndType        #283:#237     // a:I
+  #155 = NameAndType        #284:#281     // a_:[B
+  #156 = NameAndType        #285:#237     // b:I
+  #157 = NameAndType        #285:#282     // b:[[B
+  #158 = NameAndType        #286:#281     // b_:[B
+  #159 = NameAndType        #288:#282     // c:[[B
+  #160 = NameAndType        #289:#282     // d:[[B
+  #161 = NameAndType        #290:#282     // e:[[B
+  #162 = NameAndType        #291:#237     // e_:I
+  #163 = NameAndType        #293:#282     // f:[[B
+  #164 = NameAndType        #294:#237     // f_:I
+  #165 = NameAndType        #295:#281     // g:[B
+  #166 = NameAndType        #295:#282     // g:[[B
+  #167 = NameAndType        #296:#200     // getBytes:()[B
+  #168 = NameAndType        #297:#281     // h:[B
+  #169 = NameAndType        #297:#282     // h:[[B
+  #170 = NameAndType        #298:#237     // i:I
+  #171 = NameAndType        #298:#281     // i:[B
+  #172 = NameAndType        #299:#281     // j:[B
+  #173 = NameAndType        #302:#281     // k:[B
+  #174 = NameAndType        #303:#281     // l:[B
+  #175 = NameAndType        #305:#281     // m:[B
+  #176 = NameAndType        #307:#281     // n:[B
+  #177 = NameAndType        #309:#281     // o:[B
+  #178 = NameAndType        #310:#281     // p:[B
+  #179 = NameAndType        #312:#281     // q:[B
+  #180 = NameAndType        #313:#281     // r:[B
+  #181 = NameAndType        #317:#281     // s:[B
+  #182 = NameAndType        #319:#281     // t:[B
+  #183 = NameAndType        #320:#281     // u:[B
+  #184 = NameAndType        #321:#281     // v:[B
+  #185 = NameAndType        #322:#281     // w:[B
+  #186 = NameAndType        #323:#281     // x:[B
+  #187 = NameAndType        #324:#281     // y:[B
+  #188 = NameAndType        #327:#281     // z:[B
+  #189 = Utf8
+  #190 = Utf8                ;You have finished
+  #191 = Utf8                Gold. Continue?
+  #192 = Utf8                RMB.
+  #193 = Utf8                RMB.;Do you want to purchase now?
+  #194 = Utf8                The fee for changing professions is
+  #195 = Utf8                for
+  #196 = Utf8                more
+  #197 = Utf8                successfully!
+  #198 = Utf8               #
+  #199 = Utf8               ()V
+  #200 = Utf8               ()[B
+  #201 = Utf8               , continue?
+  #202 = Utf8               , still need to send
+  #203 = Utf8               . ;You do not need to buy it again.
+  #204 = Utf8               .;
+  #205 = Utf8               20000 gold
+  #206 = Utf8               <clinit>
+  #207 = Utf8               A
+  #208 = Utf8               ATK
+  #209 = Utf8               Amethyst
+  #210 = Utf8               Are you sure you want to quit?
+  #211 = Utf8               B
+  #212 = Utf8               Bought
+  #213 = Utf8               C
+  #214 = Utf8               CRITICAL
+  #215 = Utf8               Character Conversion: Menu Keys [
+  #216 = Utf8               Code
+  #217 = Utf8               Congratulations! You have activated this game!
+  #218 = Utf8               D
+  #219 = Utf8               DEF
+  #220 = Utf8               DEXINTCONSTR
+  #221 = Utf8               DODGE
+  #222 = Utf8               Do you want to continue? ;Your game will exit.
+  #223 = Utf8               Double EXP
+  #224 = Utf8               Double Money
+  #225 = Utf8               E
+  #226 = Utf8               EXP
+  #227 = Utf8               F
+  #228 = Utf8               Failed! Please try again
+  #229 = Utf8               Former costs
+  #230 = Utf8               G
+  #231 = Utf8               G is.
+  #232 = Utf8               Go to www.eamobile.com to get ;more EA games for your phone!
+  #233 = Utf8               Gold
+  #234 = Utf8               H
+  #235 = Utf8               HP
+  #236 = Utf8               Hangul]
+  #237 = Utf8               I
+  #238 = Utf8               Increase level
+  #239 = Utf8               J
+  #240 = Utf8               K
+  #241 = Utf8               L
+  #242 = Utf8               LV
+  #243 = Utf8               Level up! You have reached level
+  #244 = Utf8               M
+  #245 = Utf8               Magic combine
+  #246 = Utf8               N
+  #247 = Utf8               NULL
+  #248 = Utf8               No
+  #249 = Utf8               Please play game in portrait mode.
+  #250 = Utf8               Please select the combination book.
+  #251 = Utf8               Please start or load a game before purchasing this item.
+  #252 = Utf8               Pocket Shop
+  #253 = Utf8               Portrait used count =
+  #254 = Utf8               Press Any Key To Continue
+  #255 = Utf8               Price:
+  #256 = Utf8               Public storage can store and transfer your gold, equipments, and items. You can select a slot, and then transfer the gold, equipments, and items stored in public storage. You can use 1,3 keys to switch between personal and public storage.
+  #257 = Utf8               Purchase
+  #258 = Utf8               Purchase 10 levels increase
+  #259 = Utf8               Purchase 20000 gold
+  #260 = Utf8               Purchase double coin earning
+  #261 = Utf8               Purchase double exp
+  #262 = Utf8               Purchase instant magic combo.
+  #263 = Utf8               Purchase pocket shop
+  #264 = Utf8               RMB
+  #265 = Utf8               Refining Stones
+  #266 = Utf8               Resurrect
+  #267 = Utf8               Resurrect and invincible for 5 sec.
+  #268 = Utf8               Room
+  #269 = Utf8               SP
+  #270 = Utf8               TRY AND BUY?
+  #271 = Utf8               This combination does not require any elements.
+  #272 = Utf8               Want to play more? You need to
+  #273 = Utf8               Would you like to revive?
+  #274 = Utf8               You do not have all the elements required for this combination.;You can force combine magic for 1RMB.;Do you want to purchase the combination now?
+  #275 = Utf8               You do not have all the elements required for this combination.;You can force combine magic.;
+  #276 = Utf8               You do not have enough gold.;
+  #277 = Utf8               You has reached the highest level, can no longer raise
+  #278 = Utf8               You have already purchased
+  #279 = Utf8               You have purchased
+  #280 = Utf8               Your current class does not allow you to equip with this equipment.
+  #281 = Utf8               [B
+  #282 = Utf8               [[B
+  #283 = Utf8               a
+  #284 = Utf8               a_
+  #285 = Utf8               b
+  #286 = Utf8               b_
+  #287 = Utf8               blank
+  #288 = Utf8               c
+  #289 = Utf8               d
+  #290 = Utf8               e
+  #291 = Utf8               e_
+  #292 = Utf8               ended up]
+  #293 = Utf8               f
+  #294 = Utf8               f_
+  #295 = Utf8               g
+  #296 = Utf8               getBytes
+  #297 = Utf8               h
+  #298 = Utf8               i
+  #299 = Utf8               j
+  #300 = Utf8               java/lang/Object
+  #301 = Utf8               java/lang/String
+  #302 = Utf8               k
+  #303 = Utf8               l
+  #304 = Utf8               learning
+  #305 = Utf8               m
+  #306 = Utf8               more
+  #307 = Utf8               n
+  #308 = Utf8               number]
+  #309 = Utf8               o
+  #310 = Utf8               p
+  #311 = Utf8               polishing powder
+  #312 = Utf8               q
+  #313 = Utf8               r
+  #314 = Utf8               red stone
+  #315 = Utf8               rpg/d
+  #316 = Utf8               rpg/f
+  #317 = Utf8               s
+  #318 = Utf8               symbol]
+  #319 = Utf8               t
+  #320 = Utf8               u
+  #321 = Utf8               v
+  #322 = Utf8               w
+  #323 = Utf8               x
+  #324 = Utf8               y
+  #325 = Utf8               yes
+  #326 = Utf8               youngso]
+  #327 = Utf8               z
+{
+  public static final byte[] a_;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] b_;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] g;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] h;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] i;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] j;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] k;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] l;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] m;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] n;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] o;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] p;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] q;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[][] b;
+    descriptor: [[B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[][] c;
+    descriptor: [[B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[][] d;
+    descriptor: [[B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[][] e;
+    descriptor: [[B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] r;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[][] f;
+    descriptor: [[B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[][] g;
+    descriptor: [[B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] s;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] t;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] u;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] v;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] w;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] x;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] y;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] z;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] A;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[][] h;
+    descriptor: [[B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] B;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] C;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] D;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] E;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] F;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] G;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] H;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] I;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] J;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] K;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] L;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] M;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] N;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final int e_;
+    descriptor: I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final int f_;
+    descriptor: I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final int i;
+    descriptor: I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=4, locals=0, args_size=0
+         0: ldc           #84                 // String yes
+         2: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+         5: putstatic     #105                // Field a_:[B
+         8: ldc           #67                 // String Would you like to revive?
+        10: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        13: putstatic     #107                // Field b_:[B
+        16: ldc           #47                 // String Portrait used count =
+        18: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        21: pop
+        22: ldc           #78                 // String learning
+        24: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        27: pop
+        28: ldc           #59                 // String Refining Stones
+        30: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        33: putstatic     #114                // Field g:[B
+        36: ldc           #82                 // String red stone
+        38: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        41: putstatic     #116                // Field h:[B
+        44: ldc           #81                 // String polishing powder
+        46: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        49: putstatic     #119                // Field i:[B
+        52: ldc           #17                 // String Amethyst
+        54: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        57: putstatic     #120                // Field j:[B
+        60: ldc           #8                  // String  more
+        62: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        65: pop
+        66: ldc           #62                 // String Room
+        68: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        71: pop
+        72: ldc           #76                 // String blank
+        74: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        77: pop
+        78: ldc           #21                 // String Character Conversion: Menu Keys [
+        80: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        83: pop
+        84: ldc           #77                 // String ended up]
+        86: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        89: pop
+        90: ldc           #85                 // String youngso]
+        92: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+        95: pop
+        96: ldc           #80                 // String number]
+        98: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       101: pop
+       102: ldc           #83                 // String symbol]
+       104: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       107: pop
+       108: ldc           #36                 // String Hangul]
+       110: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       113: pop
+       114: ldc           #75                 // String a
+       116: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       119: pop
+       120: ldc           #79                 // String more
+       122: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       125: putstatic     #121                // Field k:[B
+       128: ldc           #31                 // String Former costs
+       130: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       133: pop
+       134: ldc           #32                 // String G is.
+       136: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       139: pop
+       140: ldc           #84                 // String yes
+       142: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       145: putstatic     #122                // Field l:[B
+       148: ldc           #42                 // String No
+       150: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       153: putstatic     #123                // Field m:[B
+       156: ldc           #66                 // String Want to play more? You need to
+       158: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       161: pop
+       162: ldc           #64                 // String TRY AND BUY?
+       164: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       167: pop
+       168: ldc           #38                 // String LV
+       170: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       173: putstatic     #124                // Field n:[B
+       176: ldc           #10                 // String #
+       178: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       181: putstatic     #125                // Field o:[B
+       184: ldc           #41                 // String NULL
+       186: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       189: putstatic     #126                // Field p:[B
+       192: ldc           #30                 // String Failed! Please try again
+       194: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       197: putstatic     #127                // Field q:[B
+       200: ldc           #22                 // String Congratulations! You have activated this game!
+       202: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       205: pop
+       206: iconst_2
+       207: anewarray     #86                 // class "[B"
+       210: dup
+       211: iconst_0
+       212: ldc           #72                 // String You have already purchased
+       214: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       217: aastore
+       218: dup
+       219: iconst_1
+       220: ldc           #13                 // String . ;You do not need to buy it again.
+       222: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       225: aastore
+       226: putstatic     #106                // Field b:[[B
+       229: bipush        7
+       231: anewarray     #86                 // class "[B"
+       234: dup
+       235: iconst_0
+       236: ldc           #51                 // String Purchase
+       238: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       241: aastore
+       242: dup
+       243: iconst_1
+       244: ldc           #7                  // String  for
+       246: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       249: aastore
+       250: dup
+       251: iconst_2
+       252: ldc           #4                  // String  RMB.
+       254: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       257: aastore
+       258: dup
+       259: iconst_3
+       260: ldc           #1                  // String
+       262: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       265: aastore
+       266: dup
+       267: iconst_4
+       268: ldc           #2                  // String  ;You have finished
+       270: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       273: aastore
+       274: dup
+       275: iconst_5
+       276: ldc           #12                 // String , still need to send
+       278: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       281: aastore
+       282: bipush        6
+       284: ldc           #11                 // String , continue?
+       286: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       289: aastore
+       290: iconst_3
+       291: anewarray     #86                 // class "[B"
+       294: dup
+       295: iconst_0
+       296: ldc           #51                 // String Purchase
+       298: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       301: aastore
+       302: dup
+       303: iconst_1
+       304: ldc           #7                  // String  for
+       306: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       309: aastore
+       310: dup
+       311: iconst_2
+       312: ldc           #5                  // String  RMB.;Do you want to purchase now?
+       314: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       317: aastore
+       318: putstatic     #108                // Field c:[[B
+       321: iconst_2
+       322: anewarray     #86                 // class "[B"
+       325: dup
+       326: iconst_0
+       327: ldc           #73                 // String You have purchased
+       329: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       332: aastore
+       333: dup
+       334: iconst_1
+       335: ldc           #9                  // String  successfully!
+       337: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       340: aastore
+       341: putstatic     #109                // Field d:[[B
+       344: bipush        7
+       346: anewarray     #86                 // class "[B"
+       349: dup
+       350: iconst_0
+       351: ldc           #15                 // String 20000 gold
+       353: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       356: aastore
+       357: dup
+       358: iconst_1
+       359: ldc           #27                 // String Double EXP
+       361: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       364: aastore
+       365: dup
+       366: iconst_2
+       367: ldc           #28                 // String Double Money
+       369: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       372: aastore
+       373: dup
+       374: iconst_3
+       375: ldc           #46                 // String Pocket Shop
+       377: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       380: aastore
+       381: dup
+       382: iconst_4
+       383: ldc           #37                 // String Increase level
+       385: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       388: aastore
+       389: dup
+       390: iconst_5
+       391: ldc           #40                 // String Magic combine
+       393: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       396: aastore
+       397: dup
+       398: bipush        6
+       400: ldc           #60                 // String Resurrect
+       402: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       405: aastore
+       406: putstatic     #110                // Field e:[[B
+       409: ldc           #19                 // String Bought
+       411: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       414: putstatic     #128                // Field r:[B
+       417: bipush        7
+       419: anewarray     #86                 // class "[B"
+       422: dup
+       423: iconst_0
+       424: ldc           #53                 // String Purchase 20000 gold
+       426: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       429: aastore
+       430: dup
+       431: iconst_1
+       432: ldc           #55                 // String Purchase double exp
+       434: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       437: aastore
+       438: dup
+       439: iconst_2
+       440: ldc           #54                 // String Purchase double coin earning
+       442: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       445: aastore
+       446: dup
+       447: iconst_3
+       448: ldc           #57                 // String Purchase pocket shop
+       450: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       453: aastore
+       454: dup
+       455: iconst_4
+       456: ldc           #52                 // String Purchase 10 levels increase
+       458: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       461: aastore
+       462: dup
+       463: iconst_5
+       464: ldc           #56                 // String Purchase instant magic combo.
+       466: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       469: aastore
+       470: dup
+       471: bipush        6
+       473: ldc           #61                 // String Resurrect and invincible for 5 sec.
+       475: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       478: aastore
+       479: putstatic     #112                // Field f:[[B
+       482: iconst_2
+       483: anewarray     #86                 // class "[B"
+       486: dup
+       487: iconst_0
+       488: ldc           #49                 // String Price:
+       490: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       493: aastore
+       494: dup
+       495: iconst_1
+       496: ldc           #58                 // String RMB
+       498: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       501: aastore
+       502: putstatic     #115                // Field g:[[B
+       505: ldc           #38                 // String LV
+       507: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       510: pop
+       511: ldc           #29                 // String EXP
+       513: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       516: pop
+       517: ldc           #35                 // String HP
+       519: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       522: pop
+       523: ldc           #63                 // String SP
+       525: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       528: pop
+       529: ldc           #16                 // String ATK
+       531: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       534: pop
+       535: ldc           #23                 // String DEF
+       537: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       540: pop
+       541: ldc           #20                 // String CRITICAL
+       543: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       546: pop
+       547: ldc           #25                 // String DODGE
+       549: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       552: pop
+       553: ldc           #24                 // String DEXINTCONSTR
+       555: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       558: pop
+       559: ldc           #34                 // String Gold
+       561: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       564: putstatic     #129                // Field s:[B
+       567: ldc           #50                 // String Public storage can store and transfer your gold, equipments, and items. You can select a slot, and then transfer the gold, equipments, and items stored in public storage. You can use 1,3 keys to switch between personal and public storage.
+       569: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       572: putstatic     #130                // Field t:[B
+       575: ldc           #18                 // String Are you sure you want to quit?
+       577: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       580: putstatic     #131                // Field u:[B
+       583: ldc           #74                 // String Your current class does not allow you to equip with this equipment.
+       585: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       588: putstatic     #132                // Field v:[B
+       591: ldc           #65                 // String This combination does not require any elements.
+       593: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       596: putstatic     #133                // Field w:[B
+       599: ldc           #44                 // String Please select the combination book.
+       601: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       604: putstatic     #134                // Field x:[B
+       607: ldc           #45                 // String Please start or load a game before purchasing this item.
+       609: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       612: putstatic     #135                // Field y:[B
+       615: ldc           #68                 // String You do not have all the elements required for this combination.;You can force combine magic for 1RMB.;Do you want to purchase the combination now?
+       617: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       620: putstatic     #136                // Field z:[B
+       623: ldc           #71                 // String You has reached the highest level, can no longer raise
+       625: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       628: putstatic     #91                 // Field A:[B
+       631: iconst_2
+       632: anewarray     #86                 // class "[B"
+       635: dup
+       636: iconst_0
+       637: ldc           #39                 // String Level up! You have reached level
+       639: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       642: aastore
+       643: dup
+       644: iconst_1
+       645: ldc           #14                 // String .;
+       647: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       650: aastore
+       651: putstatic     #117                // Field h:[[B
+       654: ldc           #70                 // String You do not have enough gold.;
+       656: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       659: putstatic     #92                 // Field B:[B
+       662: ldc           #69                 // String You do not have all the elements required for this combination.;You can force combine magic.;
+       664: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       667: pop
+       668: ldc           #48                 // String Press Any Key To Continue
+       670: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       673: putstatic     #93                 // Field C:[B
+       676: ldc           #43                 // String Please play game in portrait mode.
+       678: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       681: pop
+       682: bipush        15
+       684: newarray       byte
+       686: dup
+       687: iconst_0
+       688: bipush        -14
+       690: bastore
+       691: dup
+       692: iconst_1
+       693: bipush        119
+       695: bastore
+       696: dup
+       697: iconst_2
+       698: bipush        -14
+       700: bastore
+       701: dup
+       702: iconst_3
+       703: bipush        120
+       705: bastore
+       706: dup
+       707: iconst_4
+       708: bipush        -15
+       710: bastore
+       711: dup
+       712: iconst_5
+       713: bipush        48
+       715: bastore
+       716: dup
+       717: bipush        6
+       719: bipush        -14
+       721: bastore
+       722: dup
+       723: bipush        7
+       725: bipush        71
+       727: bastore
+       728: dup
+       729: bipush        8
+       731: bipush        -16
+       733: bastore
+       734: dup
+       735: bipush        9
+       737: bipush        -50
+       739: bastore
+       740: dup
+       741: bipush        10
+       743: bipush        -15
+       745: bastore
+       746: dup
+       747: bipush        11
+       749: bipush        88
+       751: bastore
+       752: dup
+       753: bipush        12
+       755: bipush        46
+       757: bastore
+       758: dup
+       759: bipush        13
+       761: bipush        46
+       763: bastore
+       764: bipush        14
+       766: bipush        46
+       768: bastore
+       769: ldc           #26                 // String Do you want to continue? ;Your game will exit.
+       771: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       774: putstatic     #94                 // Field D:[B
+       777: ldc           #33                 // String Go to www.eamobile.com to get ;more EA games for your phone!
+       779: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       782: putstatic     #95                 // Field E:[B
+       785: ldc           #6                  // String  The fee for changing professions is
+       787: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       790: putstatic     #96                 // Field F:[B
+       793: ldc           #3                  // String  Gold. Continue?
+       795: invokevirtual #139                // Method java/lang/String.getBytes:()[B
+       798: putstatic     #97                 // Field G:[B
+       801: bipush        25
+       803: newarray       byte
+       805: dup
+       806: iconst_0
+       807: iconst_0
+       808: bastore
+       809: dup
+       810: iconst_1
+       811: iconst_0
+       812: bastore
+       813: dup
+       814: iconst_2
+       815: iconst_0
+       816: bastore
+       817: dup
+       818: iconst_3
+       819: iconst_m1
+       820: bastore
+       821: dup
+       822: iconst_4
+       823: iconst_1
+       824: bastore
+       825: dup
+       826: iconst_5
+       827: iconst_m1
+       828: bastore
+       829: dup
+       830: bipush        6
+       832: iconst_1
+       833: bastore
+       834: dup
+       835: bipush        7
+       837: iconst_m1
+       838: bastore
+       839: dup
+       840: bipush        8
+       842: iconst_1
+       843: bastore
+       844: dup
+       845: bipush        9
+       847: iconst_0
+       848: bastore
+       849: dup
+       850: bipush        10
+       852: iconst_0
+       853: bastore
+       854: dup
+       855: bipush        11
+       857: bipush        -2
+       859: bastore
+       860: dup
+       861: bipush        12
+       863: iconst_2
+       864: bastore
+       865: dup
+       866: bipush        13
+       868: iconst_0
+       869: bastore
+       870: dup
+       871: bipush        14
+       873: iconst_0
+       874: bastore
+       875: dup
+       876: bipush        15
+       878: bipush        -3
+       880: bastore
+       881: dup
+       882: bipush        16
+       884: iconst_3
+       885: bastore
+       886: dup
+       887: bipush        17
+       889: iconst_m1
+       890: bastore
+       891: dup
+       892: bipush        18
+       894: iconst_1
+       895: bastore
+       896: dup
+       897: bipush        19
+       899: iconst_1
+       900: bastore
+       901: dup
+       902: bipush        20
+       904: iconst_m1
+       905: bastore
+       906: dup
+       907: bipush        21
+       909: bipush        -2
+       911: bastore
+       912: dup
+       913: bipush        22
+       915: bipush        -2
+       917: bastore
+       918: dup
+       919: bipush        23
+       921: iconst_2
+       922: bastore
+       923: dup
+       924: bipush        24
+       926: iconst_2
+       927: bastore
+       928: putstatic     #98                 // Field H:[B
+       931: bipush        25
+       933: newarray       byte
+       935: dup
+       936: iconst_0
+       937: iconst_0
+       938: bastore
+       939: dup
+       940: iconst_1
+       941: iconst_m1
+       942: bastore
+       943: dup
+       944: iconst_2
+       945: iconst_1
+       946: bastore
+       947: dup
+       948: iconst_3
+       949: iconst_0
+       950: bastore
+       951: dup
+       952: iconst_4
+       953: iconst_0
+       954: bastore
+       955: dup
+       956: iconst_5
+       957: iconst_m1
+       958: bastore
+       959: dup
+       960: bipush        6
+       962: iconst_m1
+       963: bastore
+       964: dup
+       965: bipush        7
+       967: iconst_1
+       968: bastore
+       969: dup
+       970: bipush        8
+       972: iconst_1
+       973: bastore
+       974: dup
+       975: bipush        9
+       977: bipush        -2
+       979: bastore
+       980: dup
+       981: bipush        10
+       983: iconst_2
+       984: bastore
+       985: dup
+       986: bipush        11
+       988: iconst_0
+       989: bastore
+       990: dup
+       991: bipush        12
+       993: iconst_0
+       994: bastore
+       995: dup
+       996: bipush        13
+       998: bipush        -3
+      1000: bastore
+      1001: dup
+      1002: bipush        14
+      1004: iconst_3
+      1005: bastore
+      1006: dup
+      1007: bipush        15
+      1009: iconst_0
+      1010: bastore
+      1011: dup
+      1012: bipush        16
+      1014: iconst_0
+      1015: bastore
+      1016: dup
+      1017: bipush        17
+      1019: bipush        -2
+      1021: bastore
+      1022: dup
+      1023: bipush        18
+      1025: bipush        -2
+      1027: bastore
+      1028: dup
+      1029: bipush        19
+      1031: iconst_2
+      1032: bastore
+      1033: dup
+      1034: bipush        20
+      1036: iconst_2
+      1037: bastore
+      1038: dup
+      1039: bipush        21
+      1041: iconst_m1
+      1042: bastore
+      1043: dup
+      1044: bipush        22
+      1046: iconst_1
+      1047: bastore
+      1048: dup
+      1049: bipush        23
+      1051: iconst_m1
+      1052: bastore
+      1053: dup
+      1054: bipush        24
+      1056: iconst_1
+      1057: bastore
+      1058: putstatic     #99                 // Field I:[B
+      1061: iconst_5
+      1062: newarray       byte
+      1064: dup
+      1065: iconst_0
+      1066: iconst_0
+      1067: bastore
+      1068: dup
+      1069: iconst_1
+      1070: bipush        6
+      1072: bastore
+      1073: dup
+      1074: iconst_2
+      1075: bipush        7
+      1077: bastore
+      1078: dup
+      1079: iconst_3
+      1080: iconst_5
+      1081: bastore
+      1082: dup
+      1083: iconst_4
+      1084: bipush        8
+      1086: bastore
+      1087: putstatic     #100                // Field J:[B
+      1090: iconst_5
+      1091: newarray       byte
+      1093: dup
+      1094: iconst_0
+      1095: iconst_0
+      1096: bastore
+      1097: dup
+      1098: iconst_1
+      1099: iconst_5
+      1100: bastore
+      1101: dup
+      1102: iconst_2
+      1103: bipush        8
+      1105: bastore
+      1106: dup
+      1107: iconst_3
+      1108: bipush        7
+      1110: bastore
+      1111: dup
+      1112: iconst_4
+      1113: bipush        6
+      1115: bastore
+      1116: putstatic     #101                // Field K:[B
+      1119: iconst_5
+      1120: newarray       byte
+      1122: dup
+      1123: iconst_0
+      1124: iconst_0
+      1125: bastore
+      1126: dup
+      1127: iconst_1
+      1128: iconst_4
+      1129: bastore
+      1130: dup
+      1131: iconst_2
+      1132: iconst_3
+      1133: bastore
+      1134: dup
+      1135: iconst_3
+      1136: iconst_1
+      1137: bastore
+      1138: dup
+      1139: iconst_4
+      1140: iconst_2
+      1141: bastore
+      1142: putstatic     #102                // Field L:[B
+      1145: iconst_5
+      1146: newarray       byte
+      1148: dup
+      1149: iconst_0
+      1150: iconst_0
+      1151: bastore
+      1152: dup
+      1153: iconst_1
+      1154: iconst_3
+      1155: bastore
+      1156: dup
+      1157: iconst_2
+      1158: iconst_4
+      1159: bastore
+      1160: dup
+      1161: iconst_3
+      1162: iconst_2
+      1163: bastore
+      1164: dup
+      1165: iconst_4
+      1166: iconst_1
+      1167: bastore
+      1168: putstatic     #103                // Field M:[B
+      1171: iconst_5
+      1172: newarray       byte
+      1174: dup
+      1175: iconst_0
+      1176: iconst_0
+      1177: bastore
+      1178: dup
+      1179: iconst_1
+      1180: iconst_2
+      1181: bastore
+      1182: dup
+      1183: iconst_2
+      1184: iconst_1
+      1185: bastore
+      1186: dup
+      1187: iconst_3
+      1188: iconst_4
+      1189: bastore
+      1190: dup
+      1191: iconst_4
+      1192: iconst_3
+      1193: bastore
+      1194: putstatic     #104                // Field N:[B
+      1197: getstatic     #138                // Field rpg/f.b:I
+      1200: putstatic     #111                // Field e_:I
+      1203: getstatic     #137                // Field rpg/f.a:I
+      1206: dup
+      1207: putstatic     #113                // Field f_:I
+      1210: bipush        16
+      1212: isub
+      1213: putstatic     #118                // Field i:I
+      1216: return
+}

@@ -1,0 +1,656 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/de.class
+  Last modified 13 de out. de 2026; size 2519 bytes
+  SHA-256 checksum bed63301367a4244b5182338bc9de8c9bb9ef3b59901d1e6975e233fa78dfe74
+public abstract class de extends p implements java.lang.Runnable
+  minor version: 3
+  major version: 45
+  flags: (0x0421) ACC_PUBLIC, ACC_SUPER, ACC_ABSTRACT
+  this_class: #7                          // de
+  super_class: #18                        // p
+  interfaces: 1, fields: 7, methods: 11, attributes: 0
+Constant pool:
+    #1 = Class              #163          // as
+    #2 = Class              #165          // bj
+    #3 = Class              #166          // bq
+    #4 = Class              #167          // br
+    #5 = Class              #168          // c
+    #6 = Class              #169          // ch
+    #7 = Class              #171          // de
+    #8 = Class              #172          // di
+    #9 = Class              #179          // java/io/ByteArrayOutputStream
+   #10 = Class              #180          // java/io/DataOutputStream
+   #11 = Class              #181          // java/io/OutputStream
+   #12 = Class              #182          // java/lang/Exception
+   #13 = Class              #183          // java/lang/Math
+   #14 = Class              #184          // java/lang/Runnable
+   #15 = Class              #185          // java/lang/System
+   #16 = Class              #186          // java/lang/Throwable
+   #17 = Class              #190          // n
+   #18 = Class              #191          // p
+   #19 = Class              #193          // rpg/b
+   #20 = Class              #194          // rpg/e
+   #21 = Class              #195          // rpg/g
+   #22 = Fieldref           #1.#102       // as.c:B
+   #23 = Fieldref           #2.#89        // bj.a:B
+   #24 = Fieldref           #7.#91        // de.a:Ljava/lang/String;
+   #25 = Fieldref           #7.#92        // de.a:[B
+   #26 = Fieldref           #7.#94        // de.a:[Lbj;
+   #27 = Fieldref           #7.#100       // de.b:[B
+   #28 = Fieldref           #7.#105       // de.e:Z
+   #29 = Fieldref           #7.#106       // de.f:I
+   #30 = Fieldref           #7.#107       // de.f:Z
+   #31 = Fieldref           #8.#90        // di.a:J
+   #32 = Fieldref           #8.#93        // di.a:[J
+   #33 = Fieldref           #8.#98        // di.b:J
+   #34 = Fieldref           #8.#111       // di.j:B
+   #35 = Fieldref           #17.#99       // n.b:Ln;
+   #36 = Fieldref           #20.#110      // rpg/e.h:Lch;
+   #37 = Methodref          #1.#83        // as.a:(Las;)[B
+   #38 = Methodref          #1.#86        // as.a:([B)Las;
+   #39 = Methodref          #2.#72        // bj."<init>":(B)V
+   #40 = Methodref          #2.#77        // bj.a:()I
+   #41 = Methodref          #2.#80        // bj.a:(I)Las;
+   #42 = Methodref          #2.#84        // bj.a:(Las;I)I
+   #43 = Methodref          #3.#104       // bq.e:()V
+   #44 = Methodref          #4.#76        // br."<init>":(Ln;[B)V
+   #45 = Methodref          #5.#78        // c.a:()Z
+   #46 = Methodref          #5.#79        // c.a:(B[B)[B
+   #47 = Methodref          #5.#85        // c.a:(Z)V
+   #48 = Methodref          #6.#81        // ch.a:(I)[B
+   #49 = Methodref          #7.#88        // de.a:([BZZ)V
+   #50 = Methodref          #7.#109       // de.h:()V
+   #51 = Methodref          #8.#108       // di.g:()V
+   #52 = Methodref          #8.#112       // di.l:()V
+   #53 = Methodref          #8.#113       // di.m:()V
+   #54 = Methodref          #9.#71        // java/io/ByteArrayOutputStream."<init>":()V
+   #55 = Methodref          #9.#116       // java/io/ByteArrayOutputStream.toByteArray:()[B
+   #56 = Methodref          #10.#73       // java/io/DataOutputStream."<init>":(Ljava/io/OutputStream;)V
+   #57 = Methodref          #10.#118      // java/io/DataOutputStream.writeByte:(I)V
+   #58 = Methodref          #10.#119      // java/io/DataOutputStream.writeInt:(I)V
+   #59 = Methodref          #11.#117      // java/io/OutputStream.write:([B)V
+   #60 = Methodref          #13.#114      // java/lang/Math.min:(II)I
+   #61 = Methodref          #15.#95       // java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+   #62 = Methodref          #15.#103      // java/lang/System.currentTimeMillis:()J
+   #63 = Methodref          #16.#115      // java/lang/Throwable.printStackTrace:()V
+   #64 = Methodref          #17.#101      // n.c:()V
+   #65 = Methodref          #18.#74       // p."<init>":(Ln;B)V
+   #66 = Methodref          #18.#75       // p."<init>":(Ln;BBB)V
+   #67 = Methodref          #19.#96       // rpg/b.b:()[B
+   #68 = Methodref          #19.#97       // rpg/b.b:([B)Z
+   #69 = Methodref          #21.#82       // rpg/g.a:(I[BI)V
+   #70 = Methodref          #21.#87       // rpg/g.a:([BI)I
+   #71 = NameAndType        #149:#124     // "<init>":()V
+   #72 = NameAndType        #149:#127     // "<init>":(B)V
+   #73 = NameAndType        #149:#137     // "<init>":(Ljava/io/OutputStream;)V
+   #74 = NameAndType        #149:#139     // "<init>":(Ln;B)V
+   #75 = NameAndType        #149:#140     // "<init>":(Ln;BBB)V
+   #76 = NameAndType        #149:#141     // "<init>":(Ln;[B)V
+   #77 = NameAndType        #161:#122     // a:()I
+   #78 = NameAndType        #161:#125     // a:()Z
+   #79 = NameAndType        #161:#128     // a:(B[B)[B
+   #80 = NameAndType        #161:#129     // a:(I)Las;
+   #81 = NameAndType        #161:#131     // a:(I)[B
+   #82 = NameAndType        #161:#133     // a:(I[BI)V
+   #83 = NameAndType        #161:#134     // a:(Las;)[B
+   #84 = NameAndType        #161:#135     // a:(Las;I)I
+   #85 = NameAndType        #161:#142     // a:(Z)V
+   #86 = NameAndType        #161:#143     // a:([B)Las;
+   #87 = NameAndType        #161:#146     // a:([BI)I
+   #88 = NameAndType        #161:#147     // a:([BZZ)V
+   #89 = NameAndType        #161:#150     // a:B
+   #90 = NameAndType        #161:#153     // a:J
+   #91 = NameAndType        #161:#155     // a:Ljava/lang/String;
+   #92 = NameAndType        #161:#158     // a:[B
+   #93 = NameAndType        #161:#159     // a:[J
+   #94 = NameAndType        #161:#160     // a:[Lbj;
+   #95 = NameAndType        #162:#138     // arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+   #96 = NameAndType        #164:#126     // b:()[B
+   #97 = NameAndType        #164:#145     // b:([B)Z
+   #98 = NameAndType        #164:#153     // b:J
+   #99 = NameAndType        #164:#156     // b:Ln;
+  #100 = NameAndType        #164:#158     // b:[B
+  #101 = NameAndType        #168:#124     // c:()V
+  #102 = NameAndType        #168:#150     // c:B
+  #103 = NameAndType        #170:#123     // currentTimeMillis:()J
+  #104 = NameAndType        #173:#124     // e:()V
+  #105 = NameAndType        #173:#157     // e:Z
+  #106 = NameAndType        #174:#152     // f:I
+  #107 = NameAndType        #174:#157     // f:Z
+  #108 = NameAndType        #175:#124     // g:()V
+  #109 = NameAndType        #176:#124     // h:()V
+  #110 = NameAndType        #176:#154     // h:Lch;
+  #111 = NameAndType        #178:#150     // j:B
+  #112 = NameAndType        #187:#124     // l:()V
+  #113 = NameAndType        #188:#124     // m:()V
+  #114 = NameAndType        #189:#132     // min:(II)I
+  #115 = NameAndType        #192:#124     // printStackTrace:()V
+  #116 = NameAndType        #197:#126     // toByteArray:()[B
+  #117 = NameAndType        #198:#144     // write:([B)V
+  #118 = NameAndType        #199:#130     // writeByte:(I)V
+  #119 = NameAndType        #200:#130     // writeInt:(I)V
+  #120 = Class              #158          // "[B"
+  #121 = Class              #202          // java/lang/Object
+  #122 = Utf8               ()I
+  #123 = Utf8               ()J
+  #124 = Utf8               ()V
+  #125 = Utf8               ()Z
+  #126 = Utf8               ()[B
+  #127 = Utf8               (B)V
+  #128 = Utf8               (B[B)[B
+  #129 = Utf8               (I)Las;
+  #130 = Utf8               (I)V
+  #131 = Utf8               (I)[B
+  #132 = Utf8               (II)I
+  #133 = Utf8               (I[BI)V
+  #134 = Utf8               (Las;)[B
+  #135 = Utf8               (Las;I)I
+  #136 = Utf8               (Lcm;)V
+  #137 = Utf8               (Ljava/io/OutputStream;)V
+  #138 = Utf8               (Ljava/lang/Object;ILjava/lang/Object;II)V
+  #139 = Utf8               (Ln;B)V
+  #140 = Utf8               (Ln;BBB)V
+  #141 = Utf8               (Ln;[B)V
+  #142 = Utf8               (Z)V
+  #143 = Utf8               ([B)Las;
+  #144 = Utf8               ([B)V
+  #145 = Utf8               ([B)Z
+  #146 = Utf8               ([BI)I
+  #147 = Utf8               ([BZZ)V
+  #148 = Utf8               <clinit>
+  #149 = Utf8               <init>
+  #150 = Utf8               B
+  #151 = Utf8               Code
+  #152 = Utf8               I
+  #153 = Utf8               J
+  #154 = Utf8               Lch;
+  #155 = Utf8               Ljava/lang/String;
+  #156 = Utf8               Ln;
+  #157 = Utf8               Z
+  #158 = Utf8               [B
+  #159 = Utf8               [J
+  #160 = Utf8               [Lbj;
+  #161 = Utf8               a
+  #162 = Utf8               arraycopy
+  #163 = Utf8               as
+  #164 = Utf8               b
+  #165 = Utf8               bj
+  #166 = Utf8               bq
+  #167 = Utf8               br
+  #168 = Utf8               c
+  #169 = Utf8               ch
+  #170 = Utf8               currentTimeMillis
+  #171 = Utf8               de
+  #172 = Utf8               di
+  #173 = Utf8               e
+  #174 = Utf8               f
+  #175 = Utf8               g
+  #176 = Utf8               h
+  #177 = Utf8               i
+  #178 = Utf8               j
+  #179 = Utf8               java/io/ByteArrayOutputStream
+  #180 = Utf8               java/io/DataOutputStream
+  #181 = Utf8               java/io/OutputStream
+  #182 = Utf8               java/lang/Exception
+  #183 = Utf8               java/lang/Math
+  #184 = Utf8               java/lang/Runnable
+  #185 = Utf8               java/lang/System
+  #186 = Utf8               java/lang/Throwable
+  #187 = Utf8               l
+  #188 = Utf8               m
+  #189 = Utf8               min
+  #190 = Utf8               n
+  #191 = Utf8               p
+  #192 = Utf8               printStackTrace
+  #193 = Utf8               rpg/b
+  #194 = Utf8               rpg/e
+  #195 = Utf8               rpg/g
+  #196 = Utf8               run
+  #197 = Utf8               toByteArray
+  #198 = Utf8               write
+  #199 = Utf8               writeByte
+  #200 = Utf8               writeInt
+  #201 = Utf8               StackMap
+  #202 = Utf8               java/lang/Object
+{
+  public static java.lang.String a;
+    descriptor: Ljava/lang/String;
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+
+  protected static boolean e;
+    descriptor: Z
+    flags: (0x000c) ACC_PROTECTED, ACC_STATIC
+
+  protected static int f;
+    descriptor: I
+    flags: (0x000c) ACC_PROTECTED, ACC_STATIC
+
+  protected static bj[] a;
+    descriptor: [Lbj;
+    flags: (0x000c) ACC_PROTECTED, ACC_STATIC
+
+  protected boolean f;
+    descriptor: Z
+    flags: (0x0004) ACC_PROTECTED
+
+  protected static byte[] a;
+    descriptor: [B
+    flags: (0x000c) ACC_PROTECTED, ACC_STATIC
+
+  protected static byte[] b;
+    descriptor: [B
+    flags: (0x000c) ACC_PROTECTED, ACC_STATIC
+
+  public de(n, byte);
+    descriptor: (Ln;B)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: invokespecial #65                 // Method p."<init>":(Ln;B)V
+         6: aload_0
+         7: iconst_1
+         8: putfield      #30                 // Field f:Z
+        11: return
+
+  protected final void a();
+    descriptor: ()V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=6, locals=1, args_size=1
+         0: getstatic     #32                 // Field di.a:[J
+         3: getstatic     #34                 // Field di.j:B
+         6: invokestatic  #62                 // Method java/lang/System.currentTimeMillis:()J
+         9: dup2_x2
+        10: lastore
+        11: dup2
+        12: putstatic     #31                 // Field di.a:J
+        15: putstatic     #33                 // Field di.b:J
+        18: invokestatic  #52                 // Method di.l:()V
+        21: return
+
+  public de(n, byte, byte, byte);
+    descriptor: (Ln;BBB)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=5, locals=5, args_size=5
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: iload_3
+         4: iload         4
+         6: invokespecial #66                 // Method p."<init>":(Ln;BBB)V
+         9: aload_0
+        10: iconst_1
+        11: putfield      #30                 // Field f:Z
+        14: return
+
+  public final void run();
+    descriptor: ()V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=0, locals=1, args_size=1
+         0: invokestatic  #50                 // Method h:()V
+         3: invokestatic  #53                 // Method di.m:()V
+         6: return
+
+  protected final void a(byte[], boolean, boolean);
+    descriptor: ([BZZ)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=6, locals=4, args_size=4
+         0: iload_2
+         1: ifeq          27
+         4: aload_0
+         5: invokevirtual #64                 // Method n.c:()V
+         8: aload_0
+         9: new           #4                  // class br
+        12: dup
+        13: aload_0
+        14: getstatic     #36                 // Field rpg/e.h:Lch;
+        17: iconst_4
+        18: invokevirtual #48                 // Method ch.a:(I)[B
+        21: invokespecial #44                 // Method br."<init>":(Ln;[B)V
+        24: putfield      #35                 // Field n.b:Ln;
+        27: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 27
+          locals = [ class de, class "[B", int, int ]
+          stack = []
+
+  public final void g();
+    descriptor: ()V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=4, locals=2, args_size=1
+         0: bipush        30
+         2: aconst_null
+         3: invokestatic  #46                 // Method c.a:(B[B)[B
+         6: astore_1
+         7: aload_0
+         8: aload_1
+         9: iconst_1
+        10: iconst_0
+        11: invokevirtual #49                 // Method a:([BZZ)V
+        14: return
+
+  protected static void h();
+    descriptor: ()V
+    flags: (0x000c) ACC_PROTECTED, ACC_STATIC
+    Code:
+      stack=5, locals=7, args_size=0
+         0: invokestatic  #67                 // Method rpg/b.b:()[B
+         3: dup
+         4: astore_0
+         5: ifnonnull     37
+         8: bipush        6
+        10: newarray       byte
+        12: astore_0
+        13: iconst_0
+        14: dup
+        15: putstatic     #29                 // Field f:I
+        18: aload_0
+        19: iconst_0
+        20: invokestatic  #69                 // Method rpg/g.a:(I[BI)V
+        23: aload_0
+        24: iconst_4
+        25: bipush        84
+        27: bastore
+        28: aload_0
+        29: iconst_5
+        30: iconst_0
+        31: bastore
+        32: aload_0
+        33: invokestatic  #68                 // Method rpg/b.b:([B)Z
+        36: pop
+        37: iconst_0
+        38: istore_1
+        39: aload_0
+        40: iconst_0
+        41: invokestatic  #70                 // Method rpg/g.a:([BI)I
+        44: putstatic     #29                 // Field f:I
+        47: iinc          1, 4
+        50: aload_0
+        51: iconst_4
+        52: iinc          1, 1
+        55: baload
+        56: dup
+        57: istore_2
+        58: iconst_1
+        59: isub
+        60: bipush        28
+        62: idiv
+        63: iconst_1
+        64: iadd
+        65: i2b
+        66: dup
+        67: istore_3
+        68: ifgt          73
+        71: iconst_1
+        72: istore_3
+        73: iload_3
+        74: anewarray     #2                  // class bj
+        77: putstatic     #26                 // Field a:[Lbj;
+        80: iload_2
+        81: istore_2
+        82: iconst_0
+        83: istore_3
+        84: iload_2
+        85: ifle          122
+        88: bipush        28
+        90: iload_2
+        91: invokestatic  #60                 // Method java/lang/Math.min:(II)I
+        94: istore        4
+        96: iload_2
+        97: iload         4
+        99: isub
+       100: istore_2
+       101: getstatic     #26                 // Field a:[Lbj;
+       104: iload_3
+       105: iinc          3, 1
+       108: new           #2                  // class bj
+       111: dup
+       112: iload         4
+       114: i2b
+       115: invokespecial #39                 // Method bj."<init>":(B)V
+       118: aastore
+       119: goto          84
+       122: aload_0
+       123: iconst_5
+       124: iinc          1, 1
+       127: baload
+       128: istore        4
+       130: iconst_0
+       131: istore_3
+       132: iconst_0
+       133: istore        6
+       135: iload         6
+       137: iload         4
+       139: if_icmpge     219
+       142: aload_0
+       143: iload_1
+       144: iinc          1, 1
+       147: baload
+       148: dup
+       149: istore_2
+       150: newarray       byte
+       152: astore        5
+       154: aload_0
+       155: iload_1
+       156: aload         5
+       158: iconst_0
+       159: iload_2
+       160: invokestatic  #61                 // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+       163: iload_1
+       164: iload_2
+       165: iadd
+       166: istore_1
+       167: aload         5
+       169: invokestatic  #38                 // Method as.a:([B)Las;
+       172: dup
+       173: astore_2
+       174: ifnull        213
+       177: getstatic     #26                 // Field a:[Lbj;
+       180: iload_3
+       181: aaload
+       182: aload_2
+       183: aload_2
+       184: getfield      #22                 // Field as.c:B
+       187: invokevirtual #42                 // Method bj.a:(Las;I)I
+       190: pop
+       191: getstatic     #26                 // Field a:[Lbj;
+       194: iload_3
+       195: aaload
+       196: invokevirtual #40                 // Method bj.a:()I
+       199: getstatic     #26                 // Field a:[Lbj;
+       202: iload_3
+       203: aaload
+       204: getfield      #23                 // Field bj.a:B
+       207: if_icmplt     213
+       210: iinc          3, 1
+       213: iinc          6, 1
+       216: goto          135
+       219: return
+      StackMap: number_of_entries = 7
+        frame_type = 255 offset = 37
+          locals = [ class "[B" ]
+          stack = []
+        frame_type = 255 offset = 73
+          locals = [ class "[B", int, int, int ]
+          stack = []
+        frame_type = 255 offset = 84
+          locals = [ class "[B", int, int, int ]
+          stack = []
+        frame_type = 255 offset = 122
+          locals = [ class "[B", int, int, int ]
+          stack = []
+        frame_type = 255 offset = 135
+          locals = [ class "[B", int, top, int, int, top, int ]
+          stack = []
+        frame_type = 255 offset = 213
+          locals = [ class "[B", int, class as, int, int, class "[B", int ]
+          stack = []
+        frame_type = 255 offset = 219
+          locals = [ class "[B", int, top, int, int, top, int ]
+          stack = []
+
+  protected static void i();
+    descriptor: ()V
+    flags: (0x000c) ACC_PROTECTED, ACC_STATIC
+    Code:
+      stack=3, locals=6, args_size=0
+         0: new           #9                  // class java/io/ByteArrayOutputStream
+         3: dup
+         4: invokespecial #54                 // Method java/io/ByteArrayOutputStream."<init>":()V
+         7: astore_0
+         8: new           #10                 // class java/io/DataOutputStream
+        11: dup
+        12: aload_0
+        13: invokespecial #56                 // Method java/io/DataOutputStream."<init>":(Ljava/io/OutputStream;)V
+        16: dup
+        17: astore_1
+        18: getstatic     #29                 // Field f:I
+        21: invokevirtual #58                 // Method java/io/DataOutputStream.writeInt:(I)V
+        24: aload_1
+        25: bipush        84
+        27: invokevirtual #57                 // Method java/io/DataOutputStream.writeByte:(I)V
+        30: iconst_0
+        31: istore_2
+        32: iconst_0
+        33: istore_3
+        34: iload_3
+        35: iconst_3
+        36: if_icmpge     56
+        39: iload_2
+        40: getstatic     #26                 // Field a:[Lbj;
+        43: iload_3
+        44: aaload
+        45: invokevirtual #40                 // Method bj.a:()I
+        48: iadd
+        49: istore_2
+        50: iinc          3, 1
+        53: goto          34
+        56: aload_1
+        57: iload_2
+        58: invokevirtual #57                 // Method java/io/DataOutputStream.writeByte:(I)V
+        61: iconst_0
+        62: istore_3
+        63: iload_3
+        64: iconst_3
+        65: if_icmpge     134
+        68: getstatic     #26                 // Field a:[Lbj;
+        71: iload_3
+        72: aaload
+        73: invokevirtual #40                 // Method bj.a:()I
+        76: istore_2
+        77: iconst_0
+        78: istore        5
+        80: iload         5
+        82: iload_2
+        83: if_icmpge     128
+        86: getstatic     #26                 // Field a:[Lbj;
+        89: iload_3
+        90: aaload
+        91: iload         5
+        93: invokevirtual #41                 // Method bj.a:(I)Las;
+        96: dup
+        97: astore        4
+        99: ifnull        122
+       102: aload         4
+       104: invokestatic  #37                 // Method as.a:(Las;)[B
+       107: astore        4
+       109: aload_1
+       110: aload         4
+       112: arraylength
+       113: invokevirtual #57                 // Method java/io/DataOutputStream.writeByte:(I)V
+       116: aload_1
+       117: aload         4
+       119: invokevirtual #59                 // Method java/io/OutputStream.write:([B)V
+       122: iinc          5, 1
+       125: goto          80
+       128: iinc          3, 1
+       131: goto          63
+       134: aload_0
+       135: invokevirtual #55                 // Method java/io/ByteArrayOutputStream.toByteArray:()[B
+       138: invokestatic  #68                 // Method rpg/b.b:([B)Z
+       141: pop
+       142: return
+       143: dup
+       144: astore_0
+       145: invokevirtual #63                 // Method java/lang/Throwable.printStackTrace:()V
+       148: return
+      Exception table:
+         from    to  target type
+             0   142   143   Class java/lang/Exception
+      StackMap: number_of_entries = 8
+        frame_type = 255 offset = 34
+          locals = [ class java/io/ByteArrayOutputStream, class java/io/DataOutputStream, int, int ]
+          stack = []
+        frame_type = 255 offset = 56
+          locals = [ class java/io/ByteArrayOutputStream, class java/io/DataOutputStream, int, int ]
+          stack = []
+        frame_type = 255 offset = 63
+          locals = [ class java/io/ByteArrayOutputStream, class java/io/DataOutputStream, int, int ]
+          stack = []
+        frame_type = 255 offset = 80
+          locals = [ class java/io/ByteArrayOutputStream, class java/io/DataOutputStream, int, int, top, int ]
+          stack = []
+        frame_type = 255 offset = 122
+          locals = [ class java/io/ByteArrayOutputStream, class java/io/DataOutputStream, int, int, class java/lang/Object, int ]
+          stack = []
+        frame_type = 255 offset = 128
+          locals = [ class java/io/ByteArrayOutputStream, class java/io/DataOutputStream, int, int, top, int ]
+          stack = []
+        frame_type = 255 offset = 134
+          locals = [ class java/io/ByteArrayOutputStream, class java/io/DataOutputStream, int, int ]
+          stack = []
+        frame_type = 255 offset = 143
+          locals = []
+          stack = [ class java/lang/Exception ]
+
+  public static final void j();
+    descriptor: ()V
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=1, locals=0, args_size=0
+         0: invokestatic  #45                 // Method c.a:()Z
+         3: ifeq          10
+         6: iconst_0
+         7: invokestatic  #47                 // Method c.a:(Z)V
+        10: invokestatic  #51                 // Method di.g:()V
+        13: aconst_null
+        14: putstatic     #26                 // Field a:[Lbj;
+        17: invokestatic  #43                 // Method bq.e:()V
+        20: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 10
+          locals = []
+          stack = []
+
+  protected void b(cm);
+    descriptor: (Lcm;)V
+    flags: (0x0004) ACC_PROTECTED
+    Code:
+      stack=0, locals=2, args_size=2
+         0: return
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: aconst_null
+         1: putstatic     #24                 // Field a:Ljava/lang/String;
+         4: iconst_0
+         5: putstatic     #28                 // Field e:Z
+         8: iconst_0
+         9: putstatic     #29                 // Field f:I
+        12: aconst_null
+        13: putstatic     #26                 // Field a:[Lbj;
+        16: aconst_null
+        17: putstatic     #25                 // Field a:[B
+        20: aconst_null
+        21: putstatic     #27                 // Field b:[B
+        24: return
+}

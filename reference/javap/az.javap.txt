@@ -1,0 +1,99 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/az.class
+  Last modified 13 de out. de 2026; size 429 bytes
+  SHA-256 checksum c547ff5914bf208272476ee1761ebee5432840822e6233e752a70e1c111f6dcc
+public abstract class az
+  minor version: 3
+  major version: 45
+  flags: (0x0421) ACC_PUBLIC, ACC_SUPER, ACC_ABSTRACT
+  this_class: #1                          // az
+  super_class: #4                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 6, attributes: 0
+Constant pool:
+   #1 = Class              #30            // az
+   #2 = Class              #33            // cm
+   #3 = Class              #34            // ct
+   #4 = Class              #36            // java/lang/Object
+   #5 = Class              #37            // javax/microedition/lcdui/Canvas
+   #6 = Fieldref           #3.#15         // ct.a:Ljavax/microedition/lcdui/Canvas;
+   #7 = Methodref          #1.#18         // az.d:(Lcm;)V
+   #8 = Methodref          #2.#14         // cm.a:()Lcm;
+   #9 = Methodref          #2.#16         // cm.b:(IIII)V
+  #10 = Methodref          #2.#17         // cm.c:(IIII)V
+  #11 = Methodref          #4.#13         // java/lang/Object."<init>":()V
+  #12 = Methodref          #5.#19         // javax/microedition/lcdui/Canvas.repaint:()V
+  #13 = NameAndType        #26:#21        // "<init>":()V
+  #14 = NameAndType        #29:#20        // a:()Lcm;
+  #15 = NameAndType        #29:#28        // a:Ljavax/microedition/lcdui/Canvas;
+  #16 = NameAndType        #31:#24        // b:(IIII)V
+  #17 = NameAndType        #32:#24        // c:(IIII)V
+  #18 = NameAndType        #35:#25        // d:(Lcm;)V
+  #19 = NameAndType        #38:#21        // repaint:()V
+  #20 = Utf8               ()Lcm;
+  #21 = Utf8               ()V
+  #22 = Utf8               (II)V
+  #23 = Utf8               (II)Z
+  #24 = Utf8               (IIII)V
+  #25 = Utf8               (Lcm;)V
+  #26 = Utf8               <init>
+  #27 = Utf8               Code
+  #28 = Utf8               Ljavax/microedition/lcdui/Canvas;
+  #29 = Utf8               a
+  #30 = Utf8               az
+  #31 = Utf8               b
+  #32 = Utf8               c
+  #33 = Utf8               cm
+  #34 = Utf8               ct
+  #35 = Utf8               d
+  #36 = Utf8               java/lang/Object
+  #37 = Utf8               javax/microedition/lcdui/Canvas
+  #38 = Utf8               repaint
+{
+  public az();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #11                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  protected abstract void d(cm);
+    descriptor: (Lcm;)V
+    flags: (0x0404) ACC_PROTECTED, ACC_ABSTRACT
+
+  protected abstract boolean a(int, int);
+    descriptor: (II)Z
+    flags: (0x0404) ACC_PROTECTED, ACC_ABSTRACT
+
+  public abstract void a();
+    descriptor: ()V
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+
+  public abstract void b();
+    descriptor: ()V
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+
+  public final void a(int, int);
+    descriptor: (II)V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=3, args_size=3
+         0: invokestatic  #8                  // Method cm.a:()Lcm;
+         3: iconst_0
+         4: iconst_0
+         5: iload_1
+         6: iload_2
+         7: invokevirtual #9                  // Method cm.b:(IIII)V
+        10: invokestatic  #8                  // Method cm.a:()Lcm;
+        13: iconst_0
+        14: iconst_0
+        15: iload_1
+        16: iload_2
+        17: invokevirtual #10                 // Method cm.c:(IIII)V
+        20: aload_0
+        21: invokestatic  #8                  // Method cm.a:()Lcm;
+        24: invokevirtual #7                  // Method d:(Lcm;)V
+        27: getstatic     #6                  // Field ct.a:Ljavax/microedition/lcdui/Canvas;
+        30: invokevirtual #12                 // Method javax/microedition/lcdui/Canvas.repaint:()V
+        33: return
+}

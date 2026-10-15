@@ -1,0 +1,54 @@
+Summary for C:\Users\david\Desktop\Projetos_Flutter\heroes_lore_zero_recomp\reference\heroes_zero.jar
+Decompiled with CFR 0.152
+
+
+a
+----------------------------
+
+a(javax.microedition.midlet.MIDlet )
+  Unable to fully structure code
+  Could not resolve type clashes
+
+
+df
+----------------------------
+
+c()
+  Unable to fully structure code
+
+
+di
+----------------------------
+
+b(byte boolean )
+  Loose catch block
+c(byte )
+  Loose catch block
+
+
+ds
+----------------------------
+
+a(java.lang.String[] )
+  Loose catch block
+
+
+o
+----------------------------
+
+a(byte[] )
+  Loose catch block
+
+
+rpg.e
+----------------------------
+
+a(java.lang.String )
+  Loose catch block
+
+
+v
+----------------------------
+
+a()
+  Unable to fully structure code

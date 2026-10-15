@@ -1,0 +1,244 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/cb.class
+  Last modified 13 de out. de 2026; size 778 bytes
+  SHA-256 checksum 1f910dfd9e93bccd7957024f146ab9e8ab5b850fde507a2b79d160d8e64b5cd5
+final class cb
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #1                          // cb
+  super_class: #3                         // java/lang/Object
+  interfaces: 0, fields: 4, methods: 2, attributes: 0
+Constant pool:
+   #1 = Class              #34            // cb
+   #2 = Class              #35            // db
+   #3 = Class              #36            // java/lang/Object
+   #4 = Class              #37            // java/lang/System
+   #5 = Class              #38            // m
+   #6 = Fieldref           #1.#15         // cb.a:Lm;
+   #7 = Fieldref           #1.#16         // cb.a:S
+   #8 = Fieldref           #1.#17         // cb.a:[B
+   #9 = Fieldref           #1.#18         // cb.a:[S
+  #10 = Methodref          #3.#13         // java/lang/Object."<init>":()V
+  #11 = Methodref          #4.#19         // java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+  #12 = Methodref          #5.#14         // m.a:([B)Lm;
+  #13 = NameAndType        #26:#21        // "<init>":()V
+  #14 = NameAndType        #32:#24        // a:([B)Lm;
+  #15 = NameAndType        #32:#28        // a:Lm;
+  #16 = NameAndType        #32:#29        // a:S
+  #17 = NameAndType        #32:#30        // a:[B
+  #18 = NameAndType        #32:#31        // a:[S
+  #19 = NameAndType        #33:#23        // arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+  #20 = Class              #30            // "[B"
+  #21 = Utf8               ()V
+  #22 = Utf8               (Ldb;)V
+  #23 = Utf8               (Ljava/lang/Object;ILjava/lang/Object;II)V
+  #24 = Utf8               ([B)Lm;
+  #25 = Utf8               ([BII)I
+  #26 = Utf8               <init>
+  #27 = Utf8               Code
+  #28 = Utf8               Lm;
+  #29 = Utf8               S
+  #30 = Utf8               [B
+  #31 = Utf8               [S
+  #32 = Utf8               a
+  #33 = Utf8               arraycopy
+  #34 = Utf8               cb
+  #35 = Utf8               db
+  #36 = Utf8               java/lang/Object
+  #37 = Utf8               java/lang/System
+  #38 = Utf8               m
+  #39 = Utf8               StackMap
+{
+  private byte[] a;
+    descriptor: [B
+    flags: (0x0002) ACC_PRIVATE
+
+  public short[] a;
+    descriptor: [S
+    flags: (0x0001) ACC_PUBLIC
+
+  public short a;
+    descriptor: S
+    flags: (0x0001) ACC_PUBLIC
+
+  public m a;
+    descriptor: Lm;
+    flags: (0x0001) ACC_PUBLIC
+
+  cb(db);
+    descriptor: (Ldb;)V
+    flags: (0x0000)
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: invokespecial #10                 // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: aconst_null
+         6: putfield      #8                  // Field a:[B
+         9: aload_0
+        10: aconst_null
+        11: putfield      #9                  // Field a:[S
+        14: aload_0
+        15: iconst_0
+        16: putfield      #7                  // Field a:S
+        19: aload_0
+        20: aconst_null
+        21: putfield      #6                  // Field a:Lm;
+        24: return
+
+  public final int a(byte[], int, int);
+    descriptor: ([BII)I
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=7, args_size=4
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: iinc          2, 1
+         6: baload
+         7: i2s
+         8: putfield      #7                  // Field a:S
+        11: aload_0
+        12: getfield      #7                  // Field a:S
+        15: ifge          31
+        18: aload_0
+        19: sipush        256
+        22: aload_0
+        23: getfield      #7                  // Field a:S
+        26: iadd
+        27: i2s
+        28: putfield      #7                  // Field a:S
+        31: aload_0
+        32: aload_0
+        33: getfield      #7                  // Field a:S
+        36: iconst_1
+        37: iadd
+        38: newarray       short
+        40: putfield      #9                  // Field a:[S
+        43: iconst_0
+        44: istore        4
+        46: aload_0
+        47: getfield      #9                  // Field a:[S
+        50: iconst_0
+        51: iconst_0
+        52: sastore
+        53: iconst_0
+        54: istore        5
+        56: iload         5
+        58: aload_0
+        59: getfield      #7                  // Field a:S
+        62: if_icmpge     156
+        65: aload_1
+        66: iload_2
+        67: baload
+        68: ifge          81
+        71: sipush        256
+        74: aload_1
+        75: iload_2
+        76: baload
+        77: iadd
+        78: goto          84
+        81: aload_1
+        82: iload_2
+        83: baload
+        84: i2s
+        85: istore        6
+        87: iload_3
+        88: iconst_1
+        89: if_icmple     124
+        92: iinc          2, 1
+        95: iload         6
+        97: aload_1
+        98: iload_2
+        99: baload
+       100: ifge          113
+       103: sipush        256
+       106: aload_1
+       107: iload_2
+       108: baload
+       109: iadd
+       110: goto          116
+       113: aload_1
+       114: iload_2
+       115: baload
+       116: i2s
+       117: bipush        8
+       119: ishl
+       120: iadd
+       121: i2s
+       122: istore        6
+       124: iload         4
+       126: iload         6
+       128: iadd
+       129: i2s
+       130: istore        4
+       132: aload_0
+       133: getfield      #9                  // Field a:[S
+       136: iload         5
+       138: iconst_1
+       139: iadd
+       140: iload         4
+       142: sastore
+       143: iinc          2, 1
+       146: iload         5
+       148: iconst_1
+       149: iadd
+       150: i2s
+       151: istore        5
+       153: goto          56
+       156: aload_0
+       157: aconst_null
+       158: putfield      #8                  // Field a:[B
+       161: iload         4
+       163: ifle          191
+       166: aload_0
+       167: iload         4
+       169: newarray       byte
+       171: putfield      #8                  // Field a:[B
+       174: aload_1
+       175: iload_2
+       176: aload_0
+       177: getfield      #8                  // Field a:[B
+       180: iconst_0
+       181: iload         4
+       183: invokestatic  #11                 // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+       186: iload_2
+       187: iload         4
+       189: iadd
+       190: istore_2
+       191: aload_0
+       192: aload_0
+       193: getfield      #8                  // Field a:[B
+       196: invokestatic  #12                 // Method m.a:([B)Lm;
+       199: putfield      #6                  // Field a:Lm;
+       202: iload_2
+       203: ireturn
+      StackMap: number_of_entries = 9
+        frame_type = 255 offset = 31
+          locals = [ class cb, class "[B", int, int ]
+          stack = []
+        frame_type = 255 offset = 56
+          locals = [ class cb, class "[B", int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 81
+          locals = [ class cb, class "[B", int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 84
+          locals = [ class cb, class "[B", int, int, int, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 113
+          locals = [ class cb, class "[B", int, int, int, int, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 116
+          locals = [ class cb, class "[B", int, int, int, int, int ]
+          stack = [ int, int ]
+        frame_type = 255 offset = 124
+          locals = [ class cb, class "[B", int, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 156
+          locals = [ class cb, class "[B", int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 191
+          locals = [ class cb, class "[B", int, int, int, int ]
+          stack = []
+}

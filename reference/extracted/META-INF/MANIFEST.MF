@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+MIDlet-Name: Heroes Lore Zero
+MIDlet-Version: 4.4.56
+MIDlet-Vendor: [ANDREW-LVIV] / Electronic Arts
+MIDlet-1: Heroes Lore Zero, /icon.png, rpg.RPGHeroEx
+MicroEdition-Profile: MIDP-2.0
+MicroEdition-Configuration: CLDC-1.1
+MIDlet-Icon: /icon.png
+Created-By: Metaflow
+MIDlet-Delete-Confirm: More free games on andrew-lviv.net
+MIDlet-Description: Visit andrew-lviv.net for more games!
+MIDlet-Info-URL: http://andrew-lviv.net

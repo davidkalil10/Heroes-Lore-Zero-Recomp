@@ -1,0 +1,77 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/ea.class
+  Last modified 13 de out. de 2026; size 319 bytes
+  SHA-256 checksum 96f9b0ea51f845ee7b4c8f247380fc5c8e7cd3d585e7217174bc5b9523cb6ac8
+public class ea
+  minor version: 3
+  major version: 45
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #1                          // ea
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 2, methods: 3, attributes: 0
+Constant pool:
+   #1 = Class              #18            // ea
+   #2 = Class              #19            // java/lang/Object
+   #3 = Fieldref           #1.#7          // ea.a:Lea;
+   #4 = Fieldref           #1.#8          // ea.a:Ljava/lang/String;
+   #5 = Methodref          #2.#6          // java/lang/Object."<init>":()V
+   #6 = NameAndType        #13:#10        // "<init>":()V
+   #7 = NameAndType        #17:#15        // a:Lea;
+   #8 = NameAndType        #17:#16        // a:Ljava/lang/String;
+   #9 = Utf8               ()Ljava/lang/String;
+  #10 = Utf8               ()V
+  #11 = Utf8               (II)Z
+  #12 = Utf8               (Ljava/lang/String;)V
+  #13 = Utf8               <init>
+  #14 = Utf8               Code
+  #15 = Utf8               Lea;
+  #16 = Utf8               Ljava/lang/String;
+  #17 = Utf8               a
+  #18 = Utf8               ea
+  #19 = Utf8               java/lang/Object
+{
+  private java.lang.String a;
+    descriptor: Ljava/lang/String;
+    flags: (0x0002) ACC_PRIVATE
+
+  protected ea a;
+    descriptor: Lea;
+    flags: (0x0004) ACC_PROTECTED
+
+  public ea(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: invokespecial #5                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: aconst_null
+         6: putfield      #4                  // Field a:Ljava/lang/String;
+         9: aload_0
+        10: aconst_null
+        11: putfield      #3                  // Field a:Lea;
+        14: aload_0
+        15: aload_0
+        16: putfield      #3                  // Field a:Lea;
+        19: aload_0
+        20: aload_1
+        21: putfield      #4                  // Field a:Ljava/lang/String;
+        24: return
+
+  public java.lang.String a();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #4                  // Field a:Ljava/lang/String;
+         4: areturn
+
+  public boolean a(int, int);
+    descriptor: (II)Z
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=3, args_size=3
+         0: iconst_1
+         1: ireturn
+}

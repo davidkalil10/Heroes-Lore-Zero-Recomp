@@ -1,0 +1,121 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/rpg/f.class
+  Last modified 13 de out. de 2026; size 384 bytes
+  SHA-256 checksum 29668bccb24093d96c8b756d9a8ac3a3cba58369c55f2e5eb6dfd1a18292fda6
+public interface rpg.f
+  minor version: 3
+  major version: 45
+  flags: (0x0601) ACC_PUBLIC, ACC_INTERFACE, ACC_ABSTRACT
+  this_class: #3                          // rpg/f
+  super_class: #1                         // java/lang/Object
+  interfaces: 0, fields: 8, methods: 1, attributes: 0
+Constant pool:
+   #1 = Class              #34            // java/lang/Object
+   #2 = Class              #35            // rpg/a
+   #3 = Class              #36            // rpg/f
+   #4 = Fieldref           #2.#14         // rpg/a.a:I
+   #5 = Fieldref           #2.#15         // rpg/a.b:I
+   #6 = Fieldref           #3.#14         // rpg/f.a:I
+   #7 = Fieldref           #3.#15         // rpg/f.b:I
+   #8 = Fieldref           #3.#16         // rpg/f.c:I
+   #9 = Fieldref           #3.#17         // rpg/f.d:I
+  #10 = Fieldref           #3.#18         // rpg/f.e:I
+  #11 = Fieldref           #3.#19         // rpg/f.f:I
+  #12 = Fieldref           #3.#20         // rpg/f.g:I
+  #13 = Fieldref           #3.#21         // rpg/f.h:I
+  #14 = NameAndType        #26:#25        // a:I
+  #15 = NameAndType        #27:#25        // b:I
+  #16 = NameAndType        #28:#25        // c:I
+  #17 = NameAndType        #29:#25        // d:I
+  #18 = NameAndType        #30:#25        // e:I
+  #19 = NameAndType        #31:#25        // f:I
+  #20 = NameAndType        #32:#25        // g:I
+  #21 = NameAndType        #33:#25        // h:I
+  #22 = Utf8               ()V
+  #23 = Utf8               <clinit>
+  #24 = Utf8               Code
+  #25 = Utf8               I
+  #26 = Utf8               a
+  #27 = Utf8               b
+  #28 = Utf8               c
+  #29 = Utf8               d
+  #30 = Utf8               e
+  #31 = Utf8               f
+  #32 = Utf8               g
+  #33 = Utf8               h
+  #34 = Utf8               java/lang/Object
+  #35 = Utf8               rpg/a
+  #36 = Utf8               rpg/f
+{
+  public static final int a;
+    descriptor: I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final int b;
+    descriptor: I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final int c;
+    descriptor: I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final int d;
+    descriptor: I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final int e;
+    descriptor: I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final int f;
+    descriptor: I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final int g;
+    descriptor: I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final int h;
+    descriptor: I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=2, locals=0, args_size=0
+         0: getstatic     #4                  // Field rpg/a.a:I
+         3: bipush        10
+         5: isub
+         6: putstatic     #6                  // Field a:I
+         9: getstatic     #4                  // Field rpg/a.a:I
+        12: bipush        10
+        14: isub
+        15: putstatic     #7                  // Field b:I
+        18: getstatic     #4                  // Field rpg/a.a:I
+        21: getstatic     #7                  // Field b:I
+        24: isub
+        25: iconst_1
+        26: ishr
+        27: putstatic     #8                  // Field c:I
+        30: getstatic     #5                  // Field rpg/a.b:I
+        33: sipush        174
+        36: isub
+        37: iconst_1
+        38: ishr
+        39: putstatic     #9                  // Field d:I
+        42: getstatic     #7                  // Field b:I
+        45: putstatic     #10                 // Field e:I
+        48: getstatic     #7                  // Field b:I
+        51: bipush        10
+        53: isub
+        54: putstatic     #11                 // Field f:I
+        57: getstatic     #7                  // Field b:I
+        60: bipush        20
+        62: isub
+        63: putstatic     #12                 // Field g:I
+        66: getstatic     #4                  // Field rpg/a.a:I
+        69: bipush        20
+        71: isub
+        72: putstatic     #13                 // Field h:I
+        75: return
+}

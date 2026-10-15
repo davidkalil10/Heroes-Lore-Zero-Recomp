@@ -1,0 +1,588 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/dl.class
+  Last modified 13 de out. de 2026; size 2093 bytes
+  SHA-256 checksum df3f789eddeca1b2e11680d0edf3b20d6c0f83b0e79be8e33153cd02df941649
+final class dl extends de
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #17                         // dl
+  super_class: #15                        // de
+  interfaces: 0, fields: 2, methods: 5, attributes: 0
+Constant pool:
+    #1 = Integer            3550755
+    #2 = Integer            6684672
+    #3 = Integer            7027456
+    #4 = Integer            12386304
+    #5 = Integer            12630160
+    #6 = Integer            14597755
+    #7 = Integer            16777215
+    #8 = Class              #125          // ac
+    #9 = Class              #126          // b
+   #10 = Class              #128          // bt
+   #11 = Class              #129          // bx
+   #12 = Class              #130          // c
+   #13 = Class              #131          // ch
+   #14 = Class              #132          // cm
+   #15 = Class              #134          // de
+   #16 = Class              #135          // dj
+   #17 = Class              #136          // dl
+   #18 = Class              #142          // java/util/Vector
+   #19 = Class              #144          // n
+   #20 = Class              #145          // rpg/a
+   #21 = Class              #146          // rpg/e
+   #22 = Class              #147          // rpg/g
+   #23 = Fieldref           #17.#74       // dl.a:Lbx;
+   #24 = Fieldref           #17.#75       // dl.a:Ljava/util/Vector;
+   #25 = Fieldref           #19.#73       // n.a:B
+   #26 = Fieldref           #19.#76       // n.a:Ln;
+   #27 = Fieldref           #19.#77       // n.a_:I
+   #28 = Fieldref           #19.#79       // n.b:B
+   #29 = Fieldref           #19.#80       // n.b:Ln;
+   #30 = Fieldref           #19.#81       // n.b_:I
+   #31 = Fieldref           #20.#84       // rpg/a.c:I
+   #32 = Fieldref           #20.#85       // rpg/a.d:I
+   #33 = Fieldref           #21.#90       // rpg/e.h:Lch;
+   #34 = Methodref          #8.#69        // ac.a:(Lcm;II[BI)V
+   #35 = Methodref          #8.#70        // ac.a:(Lcm;II[BII)V
+   #36 = Methodref          #9.#67        // b.a:(Lcm;IIIII)V
+   #37 = Methodref          #10.#60       // bt."<init>":(Ln;[BBZZ)V
+   #38 = Methodref          #12.#62       // c.a:(B[B)[B
+   #39 = Methodref          #13.#64       // ch.a:(I)[B
+   #40 = Methodref          #13.#65       // ch.a:(II)[[B
+   #41 = Methodref          #14.#63       // cm.a:(I)V
+   #42 = Methodref          #15.#59       // de."<init>":(Ln;B)V
+   #43 = Methodref          #15.#72       // de.a:([BZZ)V
+   #44 = Methodref          #16.#61       // dj."<init>":(Ln;[[B)V
+   #45 = Methodref          #17.#91       // dl.k:()V
+   #46 = Methodref          #18.#58       // java/util/Vector."<init>":()V
+   #47 = Methodref          #18.#87       // java/util/Vector.elementAt:(I)Ljava/lang/Object;
+   #48 = Methodref          #18.#92       // java/util/Vector.size:()I
+   #49 = Methodref          #19.#68       // n.a:(Lcm;IIIIII)V
+   #50 = Methodref          #19.#78       // n.b:(II)Z
+   #51 = Methodref          #19.#82       // n.c:()V
+   #52 = Methodref          #19.#83       // n.c:(II)Z
+   #53 = Methodref          #19.#86       // n.e:(Lcm;IIII)V
+   #54 = Methodref          #19.#88       // n.f:(II)Z
+   #55 = Methodref          #19.#89       // n.g:(II)Z
+   #56 = Methodref          #20.#71       // rpg/a.a:(Lcm;Z)V
+   #57 = Methodref          #22.#66       // rpg/g.a:(J[BI)V
+   #58 = NameAndType        #115:#94      // "<init>":()V
+   #59 = NameAndType        #115:#111     // "<init>":(Ln;B)V
+   #60 = NameAndType        #115:#112     // "<init>":(Ln;[BBZZ)V
+   #61 = NameAndType        #115:#113     // "<init>":(Ln;[[B)V
+   #62 = NameAndType        #123:#96      // a:(B[B)[B
+   #63 = NameAndType        #123:#98      // a:(I)V
+   #64 = NameAndType        #123:#99      // a:(I)[B
+   #65 = NameAndType        #123:#101     // a:(II)[[B
+   #66 = NameAndType        #123:#102     // a:(J[BI)V
+   #67 = NameAndType        #123:#105     // a:(Lcm;IIIII)V
+   #68 = NameAndType        #123:#106     // a:(Lcm;IIIIII)V
+   #69 = NameAndType        #123:#107     // a:(Lcm;II[BI)V
+   #70 = NameAndType        #123:#108     // a:(Lcm;II[BII)V
+   #71 = NameAndType        #123:#109     // a:(Lcm;Z)V
+   #72 = NameAndType        #123:#114     // a:([BZZ)V
+   #73 = NameAndType        #123:#116     // a:B
+   #74 = NameAndType        #123:#119     // a:Lbx;
+   #75 = NameAndType        #123:#121     // a:Ljava/util/Vector;
+   #76 = NameAndType        #123:#122     // a:Ln;
+   #77 = NameAndType        #124:#118     // a_:I
+   #78 = NameAndType        #126:#100     // b:(II)Z
+   #79 = NameAndType        #126:#116     // b:B
+   #80 = NameAndType        #126:#122     // b:Ln;
+   #81 = NameAndType        #127:#118     // b_:I
+   #82 = NameAndType        #130:#94      // c:()V
+   #83 = NameAndType        #130:#100     // c:(II)Z
+   #84 = NameAndType        #130:#118     // c:I
+   #85 = NameAndType        #133:#118     // d:I
+   #86 = NameAndType        #137:#104     // e:(Lcm;IIII)V
+   #87 = NameAndType        #138:#97      // elementAt:(I)Ljava/lang/Object;
+   #88 = NameAndType        #139:#100     // f:(II)Z
+   #89 = NameAndType        #140:#100     // g:(II)Z
+   #90 = NameAndType        #141:#120     // h:Lch;
+   #91 = NameAndType        #143:#94      // k:()V
+   #92 = NameAndType        #148:#93      // size:()I
+   #93 = Utf8               ()I
+   #94 = Utf8               ()V
+   #95 = Utf8               (BB)V
+   #96 = Utf8               (B[B)[B
+   #97 = Utf8               (I)Ljava/lang/Object;
+   #98 = Utf8               (I)V
+   #99 = Utf8               (I)[B
+  #100 = Utf8               (II)Z
+  #101 = Utf8               (II)[[B
+  #102 = Utf8               (J[BI)V
+  #103 = Utf8               (Lcm;)V
+  #104 = Utf8               (Lcm;IIII)V
+  #105 = Utf8               (Lcm;IIIII)V
+  #106 = Utf8               (Lcm;IIIIII)V
+  #107 = Utf8               (Lcm;II[BI)V
+  #108 = Utf8               (Lcm;II[BII)V
+  #109 = Utf8               (Lcm;Z)V
+  #110 = Utf8               (Ln;)V
+  #111 = Utf8               (Ln;B)V
+  #112 = Utf8               (Ln;[BBZZ)V
+  #113 = Utf8               (Ln;[[B)V
+  #114 = Utf8               ([BZZ)V
+  #115 = Utf8               <init>
+  #116 = Utf8               B
+  #117 = Utf8               Code
+  #118 = Utf8               I
+  #119 = Utf8               Lbx;
+  #120 = Utf8               Lch;
+  #121 = Utf8               Ljava/util/Vector;
+  #122 = Utf8               Ln;
+  #123 = Utf8               a
+  #124 = Utf8               a_
+  #125 = Utf8               ac
+  #126 = Utf8               b
+  #127 = Utf8               b_
+  #128 = Utf8               bt
+  #129 = Utf8               bx
+  #130 = Utf8               c
+  #131 = Utf8               ch
+  #132 = Utf8               cm
+  #133 = Utf8               d
+  #134 = Utf8               de
+  #135 = Utf8               dj
+  #136 = Utf8               dl
+  #137 = Utf8               e
+  #138 = Utf8               elementAt
+  #139 = Utf8               f
+  #140 = Utf8               g
+  #141 = Utf8               h
+  #142 = Utf8               java/util/Vector
+  #143 = Utf8               k
+  #144 = Utf8               n
+  #145 = Utf8               rpg/a
+  #146 = Utf8               rpg/e
+  #147 = Utf8               rpg/g
+  #148 = Utf8               size
+  #149 = Utf8               StackMap
+{
+  private java.util.Vector a;
+    descriptor: Ljava/util/Vector;
+    flags: (0x0002) ACC_PRIVATE
+
+  private bx a;
+    descriptor: Lbx;
+    flags: (0x0002) ACC_PRIVATE
+
+  public dl(n);
+    descriptor: (Ln;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=4, locals=3, args_size=2
+         0: aload_0
+         1: aload_1
+         2: bipush        6
+         4: invokespecial #42                 // Method de."<init>":(Ln;B)V
+         7: aload_0
+         8: new           #18                 // class java/util/Vector
+        11: dup
+        12: invokespecial #46                 // Method java/util/Vector."<init>":()V
+        15: putfield      #24                 // Field a:Ljava/util/Vector;
+        18: aload_0
+        19: aconst_null
+        20: putfield      #23                 // Field a:Lbx;
+        23: aload_0
+        24: iconst_1
+        25: istore_1
+        26: astore_1
+        27: bipush        20
+        29: aconst_null
+        30: invokestatic  #38                 // Method c.a:(B[B)[B
+        33: astore_2
+        34: aload_1
+        35: aload_2
+        36: iconst_1
+        37: iconst_0
+        38: invokevirtual #43                 // Method de.a:([BZZ)V
+        41: return
+
+  final boolean a(int, int);
+    descriptor: (II)Z
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=7, locals=3, args_size=3
+         0: aload_0
+         1: iload_1
+         2: iload_2
+         3: invokevirtual #50                 // Method n.b:(II)Z
+         6: ifeq          11
+         9: iconst_1
+        10: ireturn
+        11: iload_1
+        12: iload_2
+        13: invokestatic  #55                 // Method n.g:(II)Z
+        16: ifeq          28
+        19: aload_0
+        20: getfield      #26                 // Field n.a:Ln;
+        23: invokevirtual #51                 // Method n.c:()V
+        26: iconst_1
+        27: ireturn
+        28: iload_1
+        29: iload_2
+        30: invokestatic  #54                 // Method n.f:(II)Z
+        33: ifeq          100
+        36: aload_0
+        37: getfield      #25                 // Field n.a:B
+        40: aload_0
+        41: getfield      #24                 // Field a:Ljava/util/Vector;
+        44: invokevirtual #48                 // Method java/util/Vector.size:()I
+        47: if_icmpge     98
+        50: aload_0
+        51: aload_0
+        52: getfield      #24                 // Field a:Ljava/util/Vector;
+        55: aload_0
+        56: getfield      #25                 // Field n.a:B
+        59: invokevirtual #47                 // Method java/util/Vector.elementAt:(I)Ljava/lang/Object;
+        62: checkcast     #11                 // class bx
+        65: putfield      #23                 // Field a:Lbx;
+        68: aload_0
+        69: getfield      #23                 // Field a:Lbx;
+        72: astore_1
+        73: goto          76
+        76: aload_0
+        77: new           #16                 // class dj
+        80: dup
+        81: aload_0
+        82: getstatic     #33                 // Field rpg/e.h:Lch;
+        85: bipush        33
+        87: bipush        35
+        89: invokevirtual #40                 // Method ch.a:(II)[[B
+        92: invokespecial #44                 // Method dj."<init>":(Ln;[[B)V
+        95: putfield      #29                 // Field n.b:Ln;
+        98: iconst_1
+        99: ireturn
+       100: aload_0
+       101: iload_1
+       102: iload_2
+       103: invokevirtual #52                 // Method n.c:(II)Z
+       106: ireturn
+      StackMap: number_of_entries = 5
+        frame_type = 255 offset = 11
+          locals = [ class dl, int, int ]
+          stack = []
+        frame_type = 255 offset = 28
+          locals = [ class dl, int, int ]
+          stack = []
+        frame_type = 255 offset = 76
+          locals = [ class dl, class bx, int ]
+          stack = []
+        frame_type = 255 offset = 98
+          locals = [ class dl, top, int ]
+          stack = []
+        frame_type = 255 offset = 100
+          locals = [ class dl, int, int ]
+          stack = []
+
+  final void a(byte, byte);
+    descriptor: (BB)V
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=8, locals=4, args_size=3
+         0: aload_0
+         1: invokevirtual #51                 // Method n.c:()V
+         4: iload_1
+         5: bipush        6
+         7: if_icmpne     62
+        10: aload_0
+        11: iload_2
+        12: istore_2
+        13: dup
+        14: astore_1
+        15: getfield      #23                 // Field a:Lbx;
+        18: astore_3
+        19: goto          22
+        22: iload_2
+        23: ifne          33
+        26: aload_1
+        27: invokespecial #45                 // Method k:()V
+        30: goto          98
+        33: iload_2
+        34: iconst_1
+        35: if_icmpne     61
+        38: aload_1
+        39: new           #10                 // class bt
+        42: dup
+        43: aload_1
+        44: getstatic     #33                 // Field rpg/e.h:Lch;
+        47: bipush        45
+        49: invokevirtual #39                 // Method ch.a:(I)[B
+        52: iconst_3
+        53: iconst_1
+        54: iconst_1
+        55: invokespecial #37                 // Method bt."<init>":(Ln;[BBZZ)V
+        58: putfield      #29                 // Field n.b:Ln;
+        61: return
+        62: iload_1
+        63: iconst_3
+        64: if_icmpne     98
+        67: iload_2
+        68: ifne          98
+        71: aload_0
+        72: astore_1
+        73: bipush        8
+        75: newarray       byte
+        77: astore_2
+        78: lconst_0
+        79: aload_2
+        80: iconst_0
+        81: invokestatic  #57                 // Method rpg/g.a:(J[BI)V
+        84: bipush        22
+        86: aload_2
+        87: invokestatic  #38                 // Method c.a:(B[B)[B
+        90: astore_2
+        91: aload_1
+        92: aload_2
+        93: iconst_1
+        94: iconst_0
+        95: invokevirtual #43                 // Method de.a:([BZZ)V
+        98: return
+      StackMap: number_of_entries = 5
+        frame_type = 255 offset = 22
+          locals = [ class dl, class dl, int, class bx ]
+          stack = []
+        frame_type = 255 offset = 33
+          locals = [ class dl, class dl, int, class bx ]
+          stack = []
+        frame_type = 255 offset = 61
+          locals = [ class dl, class dl, int, class bx ]
+          stack = []
+        frame_type = 255 offset = 62
+          locals = [ class dl, int, int ]
+          stack = []
+        frame_type = 255 offset = 98
+          locals = [ class dl ]
+          stack = []
+
+  private final void k();
+    descriptor: ()V
+    flags: (0x0012) ACC_PRIVATE, ACC_FINAL
+    Code:
+      stack=4, locals=2, args_size=1
+         0: bipush        8
+         2: newarray       byte
+         4: astore_1
+         5: lconst_0
+         6: aload_1
+         7: iconst_0
+         8: invokestatic  #57                 // Method rpg/g.a:(J[BI)V
+        11: bipush        21
+        13: aload_1
+        14: invokestatic  #38                 // Method c.a:(B[B)[B
+        17: astore_1
+        18: aload_0
+        19: aload_1
+        20: iconst_1
+        21: iconst_0
+        22: invokevirtual #43                 // Method de.a:([BZZ)V
+        25: return
+
+  protected final void a(cm);
+    descriptor: (Lcm;)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=8, locals=11, args_size=2
+         0: aload_1
+         1: iconst_1
+         2: invokestatic  #56                 // Method rpg/a.a:(Lcm;Z)V
+         5: aload_1
+         6: ldc           #6                  // int 14597755
+         8: invokevirtual #41                 // Method cm.a:(I)V
+        11: aload_1
+        12: getstatic     #31                 // Field rpg/a.c:I
+        15: getstatic     #32                 // Field rpg/a.d:I
+        18: bipush        58
+        20: isub
+        21: getstatic     #33                 // Field rpg/e.h:Lch;
+        24: bipush        31
+        26: invokevirtual #39                 // Method ch.a:(I)[B
+        29: iconst_0
+        30: iconst_1
+        31: invokestatic  #35                 // Method ac.a:(Lcm;II[BII)V
+        34: aload_0
+        35: getfield      #24                 // Field a:Ljava/util/Vector;
+        38: invokevirtual #48                 // Method java/util/Vector.size:()I
+        41: istore_2
+        42: aload_0
+        43: getfield      #25                 // Field n.a:B
+        46: bipush        6
+        48: idiv
+        49: bipush        6
+        51: imul
+        52: istore        4
+        54: aload_0
+        55: getfield      #25                 // Field n.a:B
+        58: bipush        6
+        60: irem
+        61: istore        5
+        63: iconst_0
+        64: istore        6
+        66: iload         6
+        68: bipush        6
+        70: if_icmpge     242
+        73: aload_0
+        74: getfield      #30                 // Field n.b_:I
+        77: bipush        16
+        79: iadd
+        80: iload         6
+        82: bipush        13
+        84: imul
+        85: iadd
+        86: istore_3
+        87: aload_1
+        88: aload_0
+        89: getfield      #27                 // Field n.a_:I
+        92: iconst_3
+        93: iadd
+        94: iload_3
+        95: bipush        108
+        97: bipush        12
+        99: iload         5
+       101: iload         6
+       103: if_icmpne     111
+       106: ldc           #2                  // int 6684672
+       108: goto          113
+       111: ldc           #1                  // int 3550755
+       113: aload_0
+       114: getfield      #25                 // Field n.a:B
+       117: iload         6
+       119: if_icmpne     127
+       122: ldc           #4                  // int 12386304
+       124: goto          129
+       127: ldc           #3                  // int 7027456
+       129: invokestatic  #49                 // Method n.a:(Lcm;IIIIII)V
+       132: iload         4
+       134: iload_2
+       135: if_icmpge     229
+       138: aload_0
+       139: getfield      #24                 // Field a:Ljava/util/Vector;
+       142: iload         4
+       144: invokevirtual #47                 // Method java/util/Vector.elementAt:(I)Ljava/lang/Object;
+       147: checkcast     #11                 // class bx
+       150: aload_1
+       151: aload_0
+       152: getfield      #27                 // Field n.a_:I
+       155: iload_3
+       156: iload         5
+       158: iload         6
+       160: if_icmpne     167
+       163: iconst_1
+       164: goto          168
+       167: iconst_0
+       168: istore        10
+       170: istore        9
+       172: istore        8
+       174: astore        7
+       176: dup
+       177: astore_3
+       178: astore_3
+       179: goto          182
+       182: aload         7
+       184: iload         10
+       186: ifeq          194
+       189: ldc           #7                  // int 16777215
+       191: goto          196
+       194: ldc           #5                  // int 12630160
+       196: invokevirtual #41                 // Method cm.a:(I)V
+       199: aload         7
+       201: iload         8
+       203: bipush        24
+       205: iadd
+       206: iload         9
+       208: aconst_null
+       209: iconst_0
+       210: invokestatic  #34                 // Method ac.a:(Lcm;II[BI)V
+       213: aload         7
+       215: iload         8
+       217: bipush        109
+       219: iadd
+       220: iload         9
+       222: aconst_null
+       223: iconst_0
+       224: bipush        8
+       226: invokestatic  #35                 // Method ac.a:(Lcm;II[BII)V
+       229: iinc          4, 1
+       232: iload         6
+       234: iconst_1
+       235: iadd
+       236: i2b
+       237: istore        6
+       239: goto          66
+       242: aload_0
+       243: aload_1
+       244: getstatic     #31                 // Field rpg/a.c:I
+       247: bipush        52
+       249: iadd
+       250: getstatic     #32                 // Field rpg/a.d:I
+       253: bipush        55
+       255: isub
+       256: aload_0
+       257: getfield      #25                 // Field n.a:B
+       260: bipush        6
+       262: idiv
+       263: iconst_1
+       264: iadd
+       265: aload_0
+       266: getfield      #28                 // Field n.b:B
+       269: bipush        6
+       271: idiv
+       272: bipush        8
+       274: invokevirtual #36                 // Method b.a:(Lcm;IIIII)V
+       277: aload_0
+       278: aload_1
+       279: getstatic     #31                 // Field rpg/a.c:I
+       282: bipush        54
+       284: iadd
+       285: getstatic     #32                 // Field rpg/a.d:I
+       288: bipush        37
+       290: isub
+       291: aload_0
+       292: getfield      #25                 // Field n.a:B
+       295: bipush        6
+       297: idiv
+       298: aload_0
+       299: getfield      #28                 // Field n.b:B
+       302: bipush        6
+       304: idiv
+       305: invokevirtual #53                 // Method n.e:(Lcm;IIII)V
+       308: return
+      StackMap: number_of_entries = 12
+        frame_type = 255 offset = 66
+          locals = [ class dl, class cm, int, top, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 111
+          locals = [ class dl, class cm, int, int, int, int, int ]
+          stack = [ class cm, int, int, int, int ]
+        frame_type = 255 offset = 113
+          locals = [ class dl, class cm, int, int, int, int, int ]
+          stack = [ class cm, int, int, int, int, int ]
+        frame_type = 255 offset = 127
+          locals = [ class dl, class cm, int, int, int, int, int ]
+          stack = [ class cm, int, int, int, int, int ]
+        frame_type = 255 offset = 129
+          locals = [ class dl, class cm, int, int, int, int, int ]
+          stack = [ class cm, int, int, int, int, int, int ]
+        frame_type = 255 offset = 167
+          locals = [ class dl, class cm, int, int, int, int, int ]
+          stack = [ class bx, class cm, int, int ]
+        frame_type = 255 offset = 168
+          locals = [ class dl, class cm, int, int, int, int, int ]
+          stack = [ class bx, class cm, int, int, int ]
+        frame_type = 255 offset = 182
+          locals = [ class dl, class cm, int, class bx, int, int, int, class cm, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 194
+          locals = [ class dl, class cm, int, class bx, int, int, int, class cm, int, int, int ]
+          stack = [ class cm ]
+        frame_type = 255 offset = 196
+          locals = [ class dl, class cm, int, class bx, int, int, int, class cm, int, int, int ]
+          stack = [ class cm, int ]
+        frame_type = 255 offset = 229
+          locals = [ class dl, class cm, int, top, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 242
+          locals = [ class dl, class cm, int, top, int, int, int ]
+          stack = []
+}

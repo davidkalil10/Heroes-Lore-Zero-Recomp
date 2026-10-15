@@ -1,0 +1,168 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/c.class
+  Last modified 13 de out. de 2026; size 635 bytes
+  SHA-256 checksum 2c81a2c17251ec157452307e52ce79eb3d64e3c263c4949ee2444c0d1ecf1eee
+public final class c
+  minor version: 3
+  major version: 45
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #1                          // c
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 4, methods: 5, attributes: 0
+Constant pool:
+   #1 = Class              #31            // c
+   #2 = Class              #32            // java/lang/Object
+   #3 = Class              #33            // java/lang/System
+   #4 = Fieldref           #1.#11         // c.a:Ljava/io/DataInputStream;
+   #5 = Fieldref           #1.#12         // c.a:Ljava/io/InputStream;
+   #6 = Fieldref           #1.#13         // c.a:Ljava/io/OutputStream;
+   #7 = Fieldref           #1.#14         // c.a:Z
+   #8 = Methodref          #2.#10         // java/lang/Object."<init>":()V
+   #9 = Methodref          #3.#15         // java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+  #10 = NameAndType        #23:#17        // "<init>":()V
+  #11 = NameAndType        #29:#25        // a:Ljava/io/DataInputStream;
+  #12 = NameAndType        #29:#26        // a:Ljava/io/InputStream;
+  #13 = NameAndType        #29:#27        // a:Ljava/io/OutputStream;
+  #14 = NameAndType        #29:#28        // a:Z
+  #15 = NameAndType        #30:#20        // arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+  #16 = Class              #35            // "[B"
+  #17 = Utf8               ()V
+  #18 = Utf8               ()Z
+  #19 = Utf8               (B[B)[B
+  #20 = Utf8               (Ljava/lang/Object;ILjava/lang/Object;II)V
+  #21 = Utf8               (Z)V
+  #22 = Utf8               <clinit>
+  #23 = Utf8               <init>
+  #24 = Utf8               Code
+  #25 = Utf8               Ljava/io/DataInputStream;
+  #26 = Utf8               Ljava/io/InputStream;
+  #27 = Utf8               Ljava/io/OutputStream;
+  #28 = Utf8               Z
+  #29 = Utf8               a
+  #30 = Utf8               arraycopy
+  #31 = Utf8               c
+  #32 = Utf8               java/lang/Object
+  #33 = Utf8               java/lang/System
+  #34 = Utf8               StackMap
+  #35 = Utf8               [B
+{
+  private static boolean a;
+    descriptor: Z
+    flags: (0x000a) ACC_PRIVATE, ACC_STATIC
+
+  private static java.io.InputStream a;
+    descriptor: Ljava/io/InputStream;
+    flags: (0x000a) ACC_PRIVATE, ACC_STATIC
+
+  private static java.io.DataInputStream a;
+    descriptor: Ljava/io/DataInputStream;
+    flags: (0x000a) ACC_PRIVATE, ACC_STATIC
+
+  private static java.io.OutputStream a;
+    descriptor: Ljava/io/OutputStream;
+    flags: (0x000a) ACC_PRIVATE, ACC_STATIC
+
+  public c();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static final boolean a();
+    descriptor: ()Z
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=1, locals=0, args_size=0
+         0: iconst_0
+         1: ireturn
+
+  public static final void a(boolean);
+    descriptor: (Z)V
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=0, locals=1, args_size=1
+         0: return
+
+  public static final byte[] a(byte, byte[]);
+    descriptor: (B[B)[B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=5, locals=4, args_size=2
+         0: iconst_5
+         1: istore_2
+         2: aload_1
+         3: ifnull        11
+         6: iconst_5
+         7: aload_1
+         8: arraylength
+         9: iadd
+        10: istore_2
+        11: iload_2
+        12: newarray       byte
+        14: dup
+        15: astore_3
+        16: iconst_0
+        17: iload_2
+        18: bipush        24
+        20: iushr
+        21: i2b
+        22: bastore
+        23: aload_3
+        24: iconst_1
+        25: iload_2
+        26: bipush        16
+        28: ishr
+        29: i2b
+        30: bastore
+        31: aload_3
+        32: iconst_2
+        33: iload_2
+        34: bipush        8
+        36: ishr
+        37: i2b
+        38: bastore
+        39: aload_3
+        40: iconst_3
+        41: iload_2
+        42: i2b
+        43: bastore
+        44: aload_3
+        45: iconst_4
+        46: iload_0
+        47: bastore
+        48: aload_1
+        49: ifnull        61
+        52: aload_1
+        53: iconst_0
+        54: aload_3
+        55: iconst_5
+        56: aload_1
+        57: arraylength
+        58: invokestatic  #9                  // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+        61: aload_3
+        62: areturn
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 11
+          locals = [ int, class "[B", int ]
+          stack = []
+        frame_type = 255 offset = 61
+          locals = [ int, class "[B", int, class "[B" ]
+          stack = []
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: iconst_0
+         1: putstatic     #7                  // Field a:Z
+         4: aconst_null
+         5: putstatic     #5                  // Field a:Ljava/io/InputStream;
+         8: aconst_null
+         9: putstatic     #4                  // Field a:Ljava/io/DataInputStream;
+        12: aconst_null
+        13: putstatic     #6                  // Field a:Ljava/io/OutputStream;
+        16: return
+}

@@ -1,0 +1,104 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/dn.class
+  Last modified 13 de out. de 2026; size 393 bytes
+  SHA-256 checksum dd6dfb92265c7a6f7753f576ef13d70d1aa72b92f6be433477cfd54d17a88045
+final class dn extends cr
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #5                          // dn
+  super_class: #3                         // cr
+  interfaces: 0, fields: 0, methods: 2, attributes: 0
+Constant pool:
+   #1 = Class              #35            // al
+   #2 = Class              #36            // at
+   #3 = Class              #39            // cr
+   #4 = Class              #40            // di
+   #5 = Class              #41            // dn
+   #6 = Class              #42            // s
+   #7 = Fieldref           #1.#23         // al.c:B
+   #8 = Fieldref           #2.#18         // at.a:I
+   #9 = Fieldref           #2.#21         // at.b:I
+  #10 = Fieldref           #2.#22         // at.b:Z
+  #11 = Fieldref           #3.#20         // cr.a:Ls;
+  #12 = Fieldref           #3.#23         // cr.c:B
+  #13 = Fieldref           #4.#19         // di.a:Ldo;
+  #14 = Methodref          #3.#16         // cr."<init>":(BBI)V
+  #15 = Methodref          #6.#17         // s.a:(BBIII)I
+  #16 = NameAndType        #27:#24        // "<init>":(BBI)V
+  #17 = NameAndType        #34:#25        // a:(BBIII)I
+  #18 = NameAndType        #34:#30        // a:I
+  #19 = NameAndType        #34:#31        // a:Ldo;
+  #20 = NameAndType        #34:#32        // a:Ls;
+  #21 = NameAndType        #37:#30        // b:I
+  #22 = NameAndType        #37:#33        // b:Z
+  #23 = NameAndType        #38:#28        // c:B
+  #24 = Utf8               (BBI)V
+  #25 = Utf8               (BBIII)I
+  #26 = Utf8               (II)V
+  #27 = Utf8               <init>
+  #28 = Utf8               B
+  #29 = Utf8               Code
+  #30 = Utf8               I
+  #31 = Utf8               Ldo;
+  #32 = Utf8               Ls;
+  #33 = Utf8               Z
+  #34 = Utf8               a
+  #35 = Utf8               al
+  #36 = Utf8               at
+  #37 = Utf8               b
+  #38 = Utf8               c
+  #39 = Utf8               cr
+  #40 = Utf8               di
+  #41 = Utf8               dn
+  #42 = Utf8               s
+  #43 = Utf8               StackMap
+{
+  dn(byte, byte, int);
+    descriptor: (BBI)V
+    flags: (0x0000)
+    Code:
+      stack=4, locals=4, args_size=4
+         0: aload_0
+         1: iload_1
+         2: bipush        10
+         4: iload_3
+         5: invokespecial #14                 // Method cr."<init>":(BBI)V
+         8: aload_0
+         9: iload_1
+        10: bipush        45
+        12: if_icmpne     19
+        15: iconst_1
+        16: goto          20
+        19: iconst_0
+        20: putfield      #10                 // Field at.b:Z
+        23: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 19
+          locals = [ class dn, int, int, int ]
+          stack = [ class dn ]
+        frame_type = 255 offset = 20
+          locals = [ class dn, int, int, int ]
+          stack = [ class dn, int ]
+
+  final void a(int, int);
+    descriptor: (II)V
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=6, locals=3, args_size=3
+         0: aload_0
+         1: getfield      #11                 // Field cr.a:Ls;
+         4: aload_0
+         5: getfield      #12                 // Field cr.c:B
+         8: getstatic     #13                 // Field di.a:Ldo;
+        11: getfield      #7                  // Field al.c:B
+        14: aload_0
+        15: getfield      #9                  // Field at.b:I
+        18: aload_0
+        19: getfield      #8                  // Field at.a:I
+        22: irem
+        23: iload_1
+        24: iload_2
+        25: invokevirtual #15                 // Method s.a:(BBIII)I
+        28: pop
+        29: return
+}

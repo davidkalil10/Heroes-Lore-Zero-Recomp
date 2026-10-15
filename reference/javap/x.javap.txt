@@ -1,0 +1,174 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/x.class
+  Last modified 13 de out. de 2026; size 571 bytes
+  SHA-256 checksum 46576217d9cd55672bee9ce4415e2fb9f51d1ac8a6f2555347aa59347c617579
+final class x extends ea
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #8                          // x
+  super_class: #6                         // ea
+  interfaces: 0, fields: 4, methods: 4, attributes: 0
+Constant pool:
+   #1 = String             #23            //
+   #2 = String             #32            // [1]
+   #3 = String             #33            // [A]
+   #4 = String             #37            // [a]
+   #5 = Class              #34            // "[B"
+   #6 = Class              #40            // ea
+   #7 = Class              #42            // java/lang/String
+   #8 = Class              #43            // x
+   #9 = Fieldref           #8.#18         // x.a:I
+  #10 = Fieldref           #8.#19         // x.a:[I
+  #11 = Fieldref           #8.#20         // x.a:[[B
+  #12 = Fieldref           #8.#21         // x.b:I
+  #13 = Methodref          #6.#16         // ea."<init>":(Ljava/lang/String;)V
+  #14 = Methodref          #6.#17         // ea.a:()Ljava/lang/String;
+  #15 = Methodref          #7.#22         // java/lang/String.getBytes:()[B
+  #16 = NameAndType        #29:#28        // "<init>":(Ljava/lang/String;)V
+  #17 = NameAndType        #38:#24        // a:()Ljava/lang/String;
+  #18 = NameAndType        #38:#31        // a:I
+  #19 = NameAndType        #38:#35        // a:[I
+  #20 = NameAndType        #38:#36        // a:[[B
+  #21 = NameAndType        #39:#31        // b:I
+  #22 = NameAndType        #41:#25        // getBytes:()[B
+  #23 = Utf8
+  #24 = Utf8               ()Ljava/lang/String;
+  #25 = Utf8               ()[B
+  #26 = Utf8               (I)V
+  #27 = Utf8               (II)Z
+  #28 = Utf8               (Ljava/lang/String;)V
+  #29 = Utf8               <init>
+  #30 = Utf8               Code
+  #31 = Utf8               I
+  #32 = Utf8               [1]
+  #33 = Utf8               [A]
+  #34 = Utf8               [B
+  #35 = Utf8               [I
+  #36 = Utf8               [[B
+  #37 = Utf8               [a]
+  #38 = Utf8               a
+  #39 = Utf8               b
+  #40 = Utf8               ea
+  #41 = Utf8               getBytes
+  #42 = Utf8               java/lang/String
+  #43 = Utf8               x
+  #44 = Utf8               StackMap
+{
+  private int a;
+    descriptor: I
+    flags: (0x0002) ACC_PRIVATE
+
+  private int b;
+    descriptor: I
+    flags: (0x0002) ACC_PRIVATE
+
+  private final int[] a;
+    descriptor: [I
+    flags: (0x0012) ACC_PRIVATE, ACC_FINAL
+
+  private byte[][] a;
+    descriptor: [[B
+    flags: (0x0002) ACC_PRIVATE
+
+  public x(int);
+    descriptor: (I)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=5, locals=2, args_size=2
+         0: aload_0
+         1: ldc           #1                  // String
+         3: invokespecial #13                 // Method ea."<init>":(Ljava/lang/String;)V
+         6: aload_0
+         7: iconst_0
+         8: putfield      #9                  // Field a:I
+        11: aload_0
+        12: iconst_3
+        13: newarray       int
+        15: dup
+        16: iconst_0
+        17: iconst_1
+        18: iastore
+        19: dup
+        20: iconst_1
+        21: iconst_2
+        22: iastore
+        23: dup
+        24: iconst_2
+        25: iconst_3
+        26: iastore
+        27: putfield      #10                 // Field a:[I
+        30: aload_0
+        31: iconst_3
+        32: anewarray     #5                  // class "[B"
+        35: dup
+        36: iconst_0
+        37: ldc           #3                  // String [A]
+        39: invokevirtual #15                 // Method java/lang/String.getBytes:()[B
+        42: aastore
+        43: dup
+        44: iconst_1
+        45: ldc           #4                  // String [a]
+        47: invokevirtual #15                 // Method java/lang/String.getBytes:()[B
+        50: aastore
+        51: dup
+        52: iconst_2
+        53: ldc           #2                  // String [1]
+        55: invokevirtual #15                 // Method java/lang/String.getBytes:()[B
+        58: aastore
+        59: putfield      #11                 // Field a:[[B
+        62: aload_0
+        63: iload_1
+        64: putfield      #9                  // Field a:I
+        67: aload_0
+        68: iconst_0
+        69: putfield      #12                 // Field b:I
+        72: return
+
+  public final java.lang.String a();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #14                 // Method ea.a:()Ljava/lang/String;
+         4: areturn
+
+  public final boolean a(int, int);
+    descriptor: (II)Z
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=3, locals=3, args_size=3
+         0: iload_1
+         1: bipush        -6
+         3: if_icmpne     24
+         6: aload_0
+         7: dup
+         8: astore_1
+         9: aload_1
+        10: getfield      #12                 // Field b:I
+        13: iconst_1
+        14: iadd
+        15: aload_1
+        16: getfield      #10                 // Field a:[I
+        19: arraylength
+        20: irem
+        21: putfield      #12                 // Field b:I
+        24: iconst_1
+        25: ireturn
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 24
+          locals = [ class x, top, int ]
+          stack = []
+
+  public final byte[] a();
+    descriptor: ()[B
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #11                 // Field a:[[B
+         4: aload_0
+         5: getfield      #12                 // Field b:I
+         8: aaload
+         9: areturn
+}

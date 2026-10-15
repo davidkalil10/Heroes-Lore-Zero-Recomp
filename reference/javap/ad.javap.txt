@@ -1,0 +1,1072 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/ad.class
+  Last modified 13 de out. de 2026; size 3274 bytes
+  SHA-256 checksum 8450a1ca38168251e0cfc711073300e18d574c241bd418c780c2f0060610e47d
+final class ad extends cl
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #1                          // ad
+  super_class: #7                         // cl
+  interfaces: 0, fields: 2, methods: 9, attributes: 0
+Constant pool:
+    #1 = Class              #123          // ad
+    #2 = Class              #124          // af
+    #3 = Class              #125          // ak
+    #4 = Class              #126          // al
+    #5 = Class              #128          // bq
+    #6 = Class              #130          // cd
+    #7 = Class              #131          // cl
+    #8 = Class              #132          // do
+    #9 = Class              #133          // du
+   #10 = Class              #134          // g
+   #11 = Class              #137          // java/lang/Math
+   #12 = Class              #138          // k
+   #13 = Class              #140          // rpg/d
+   #14 = Class              #141          // rpg/g
+   #15 = Fieldref           #1.#71        // ad.a:Lcd;
+   #16 = Fieldref           #1.#81        // ad.b:Lcd;
+   #17 = Fieldref           #4.#85        // al.c:B
+   #18 = Fieldref           #6.#89        // cd.k:I
+   #19 = Fieldref           #7.#72        // cl.a:Ldo;
+   #20 = Fieldref           #9.#86        // du.h:S
+   #21 = Fieldref           #9.#87        // du.i:S
+   #22 = Fieldref           #13.#56       // rpg/d.N:[B
+   #23 = Methodref          #1.#57        // ad.a:()Lcd;
+   #24 = Methodref          #1.#61        // ad.a:(B)V
+   #25 = Methodref          #1.#62        // ad.a:(BIBZ)Z
+   #26 = Methodref          #1.#79        // ad.b:(BIZ)I
+   #27 = Methodref          #3.#54        // ak."<init>":(BI)V
+   #28 = Methodref          #4.#67        // al.a:(Lat;)V
+   #29 = Methodref          #4.#77        // al.b:(B)V
+   #30 = Methodref          #4.#78        // al.b:(BI)V
+   #31 = Methodref          #5.#61        // bq.a:(B)V
+   #32 = Methodref          #6.#69        // cd.a:(Ldo;BIZBBZZZ)Z
+   #33 = Methodref          #6.#74        // cd.b:()I
+   #34 = Methodref          #6.#88        // cd.k:()Z
+   #35 = Methodref          #7.#55        // cl."<init>":(Ldo;)V
+   #36 = Methodref          #7.#58        // cl.a:()Z
+   #37 = Methodref          #7.#64        // cl.a:(BIZ)I
+   #38 = Methodref          #7.#76        // cl.b:()Z
+   #39 = Methodref          #7.#82        // cl.c:(B)I
+   #40 = Methodref          #7.#83        // cl.c:(B)V
+   #41 = Methodref          #8.#59        // do.a:(B)I
+   #42 = Methodref          #8.#60        // do.a:(B)Lbm;
+   #43 = Methodref          #8.#63        // do.a:(BIBZZ)Z
+   #44 = Methodref          #8.#68        // do.a:(Lcd;BIBBZZZ)Z
+   #45 = Methodref          #8.#70        // do.a:(Z)I
+   #46 = Methodref          #8.#75        // do.b:()Lcd;
+   #47 = Methodref          #8.#84        // do.c:(Z)I
+   #48 = Methodref          #8.#90        // do.m:(I)V
+   #49 = Methodref          #10.#65       // g.a:(I)V
+   #50 = Methodref          #11.#73       // java/lang/Math.abs:(I)I
+   #51 = Methodref          #12.#76       // k.b:()Z
+   #52 = Methodref          #12.#80       // k.b:(I)V
+   #53 = Methodref          #14.#66       // rpg/g.a:(II)I
+   #54 = NameAndType        #112:#99      // "<init>":(BI)V
+   #55 = NameAndType        #112:#109     // "<init>":(Ldo;)V
+   #56 = NameAndType        #118:#120     // N:[B
+   #57 = NameAndType        #121:#93      // a:()Lcd;
+   #58 = NameAndType        #121:#94      // a:()Z
+   #59 = NameAndType        #121:#95      // a:(B)I
+   #60 = NameAndType        #121:#96      // a:(B)Lbm;
+   #61 = NameAndType        #121:#97      // a:(B)V
+   #62 = NameAndType        #121:#101     // a:(BIBZ)Z
+   #63 = NameAndType        #121:#102     // a:(BIBZZ)Z
+   #64 = NameAndType        #121:#103     // a:(BIZ)I
+   #65 = NameAndType        #121:#105     // a:(I)V
+   #66 = NameAndType        #121:#106     // a:(II)I
+   #67 = NameAndType        #121:#107     // a:(Lat;)V
+   #68 = NameAndType        #121:#108     // a:(Lcd;BIBBZZZ)Z
+   #69 = NameAndType        #121:#110     // a:(Ldo;BIZBBZZZ)Z
+   #70 = NameAndType        #121:#111     // a:(Z)I
+   #71 = NameAndType        #121:#116     // a:Lcd;
+   #72 = NameAndType        #121:#117     // a:Ldo;
+   #73 = NameAndType        #122:#104     // abs:(I)I
+   #74 = NameAndType        #127:#92      // b:()I
+   #75 = NameAndType        #127:#93      // b:()Lcd;
+   #76 = NameAndType        #127:#94      // b:()Z
+   #77 = NameAndType        #127:#97      // b:(B)V
+   #78 = NameAndType        #127:#99      // b:(BI)V
+   #79 = NameAndType        #127:#103     // b:(BIZ)I
+   #80 = NameAndType        #127:#105     // b:(I)V
+   #81 = NameAndType        #127:#116     // b:Lcd;
+   #82 = NameAndType        #129:#95      // c:(B)I
+   #83 = NameAndType        #129:#97      // c:(B)V
+   #84 = NameAndType        #129:#111     // c:(Z)I
+   #85 = NameAndType        #129:#113     // c:B
+   #86 = NameAndType        #135:#119     // h:S
+   #87 = NameAndType        #136:#119     // i:S
+   #88 = NameAndType        #138:#94      // k:()Z
+   #89 = NameAndType        #138:#115     // k:I
+   #90 = NameAndType        #139:#105     // m:(I)V
+   #91 = Utf8               ()B
+   #92 = Utf8               ()I
+   #93 = Utf8               ()Lcd;
+   #94 = Utf8               ()Z
+   #95 = Utf8               (B)I
+   #96 = Utf8               (B)Lbm;
+   #97 = Utf8               (B)V
+   #98 = Utf8               (B)Z
+   #99 = Utf8               (BI)V
+  #100 = Utf8               (BI)Z
+  #101 = Utf8               (BIBZ)Z
+  #102 = Utf8               (BIBZZ)Z
+  #103 = Utf8               (BIZ)I
+  #104 = Utf8               (I)I
+  #105 = Utf8               (I)V
+  #106 = Utf8               (II)I
+  #107 = Utf8               (Lat;)V
+  #108 = Utf8               (Lcd;BIBBZZZ)Z
+  #109 = Utf8               (Ldo;)V
+  #110 = Utf8               (Ldo;BIZBBZZZ)Z
+  #111 = Utf8               (Z)I
+  #112 = Utf8               <init>
+  #113 = Utf8               B
+  #114 = Utf8               Code
+  #115 = Utf8               I
+  #116 = Utf8               Lcd;
+  #117 = Utf8               Ldo;
+  #118 = Utf8               N
+  #119 = Utf8               S
+  #120 = Utf8               [B
+  #121 = Utf8               a
+  #122 = Utf8               abs
+  #123 = Utf8               ad
+  #124 = Utf8               af
+  #125 = Utf8               ak
+  #126 = Utf8               al
+  #127 = Utf8               b
+  #128 = Utf8               bq
+  #129 = Utf8               c
+  #130 = Utf8               cd
+  #131 = Utf8               cl
+  #132 = Utf8               do
+  #133 = Utf8               du
+  #134 = Utf8               g
+  #135 = Utf8               h
+  #136 = Utf8               i
+  #137 = Utf8               java/lang/Math
+  #138 = Utf8               k
+  #139 = Utf8               m
+  #140 = Utf8               rpg/d
+  #141 = Utf8               rpg/g
+  #142 = Utf8               StackMap
+{
+  private cd a;
+    descriptor: Lcd;
+    flags: (0x0002) ACC_PRIVATE
+
+  private cd b;
+    descriptor: Lcd;
+    flags: (0x0002) ACC_PRIVATE
+
+  ad(do);
+    descriptor: (Ldo;)V
+    flags: (0x0000)
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: invokespecial #35                 // Method cl."<init>":(Ldo;)V
+         5: return
+
+  public final boolean a(byte, int);
+    descriptor: (BI)Z
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=10, locals=6, args_size=3
+         0: iload_1
+         1: tableswitch   { // 0 to 9
+
+                       0: 56
+
+                       1: 1042
+
+                       2: 1042
+
+                       3: 1042
+
+                       4: 109
+
+                       5: 258
+
+                       6: 439
+
+                       7: 592
+
+                       8: 733
+
+                       9: 816
+                 default: 1042
+            }
+        56: aload_0
+        57: iload_2
+        58: istore_2
+        59: astore_1
+        60: iconst_0
+        61: istore_3
+        62: iconst_0
+        63: istore        4
+        65: iload_2
+        66: ifne          79
+        69: iconst_1
+        70: istore_3
+        71: aload_1
+        72: iconst_0
+        73: invokevirtual #40                 // Method cl.c:(B)V
+        76: goto          89
+        79: iload_2
+        80: iconst_2
+        81: if_icmpne     89
+        84: iconst_1
+        85: dup
+        86: istore        4
+        88: istore_3
+        89: iload_3
+        90: ifeq          106
+        93: aload_1
+        94: iconst_0
+        95: iconst_m1
+        96: aload_1
+        97: astore        5
+        99: iconst_4
+       100: iload         4
+       102: invokespecial #25                 // Method a:(BIBZ)Z
+       105: pop
+       106: goto          1042
+       109: aload_0
+       110: iload_2
+       111: istore_2
+       112: astore_1
+       113: iconst_0
+       114: istore_3
+       115: iconst_0
+       116: istore        4
+       118: aload_1
+       119: astore        5
+       121: iconst_4
+       122: istore        5
+       124: iload_2
+       125: tableswitch   { // 0 to 6
+
+                       0: 183
+
+                       1: 208
+
+                       2: 168
+
+                       3: 208
+
+                       4: 203
+
+                       5: 208
+
+                       6: 188
+                 default: 208
+            }
+       168: aload_1
+       169: getfield      #19                 // Field cl.a:Ldo;
+       172: iconst_3
+       173: invokevirtual #42                 // Method do.a:(B)Lbm;
+       176: ifnull        183
+       179: bipush        12
+       181: istore        5
+       183: iconst_1
+       184: istore_3
+       185: goto          208
+       188: aload_1
+       189: getfield      #19                 // Field cl.a:Ldo;
+       192: iconst_5
+       193: invokevirtual #42                 // Method do.a:(B)Lbm;
+       196: ifnull        203
+       199: bipush        13
+       201: istore        5
+       203: iconst_1
+       204: dup
+       205: istore        4
+       207: istore_3
+       208: iload_3
+       209: ifeq          255
+       212: aload_1
+       213: iconst_4
+       214: aload_1
+       215: getfield      #19                 // Field cl.a:Ldo;
+       218: iconst_1
+       219: invokevirtual #41                 // Method do.a:(B)I
+       222: iconst_0
+       223: invokevirtual #37                 // Method cl.a:(BIZ)I
+       226: dup
+       227: istore_2
+       228: aload_1
+       229: getfield      #19                 // Field cl.a:Ldo;
+       232: iload         4
+       234: invokevirtual #47                 // Method do.c:(Z)I
+       237: iadd
+       238: istore_2
+       239: aload_1
+       240: iconst_4
+       241: iload_2
+       242: iload         5
+       244: iload         4
+       246: invokespecial #25                 // Method a:(BIBZ)Z
+       249: pop
+       250: aload_1
+       251: iconst_4
+       252: invokevirtual #24                 // Method a:(B)V
+       255: goto          1042
+       258: aload_0
+       259: iload_2
+       260: istore_2
+       261: astore_1
+       262: iload_2
+       263: lookupswitch  { // 4
+
+                       0: 304
+
+                       9: 354
+
+                      10: 361
+
+                      12: 428
+                 default: 436
+            }
+       304: aload_1
+       305: iconst_5
+       306: invokevirtual #24                 // Method a:(B)V
+       309: aload_1
+       310: aload_1
+       311: invokespecial #23                 // Method a:()Lcd;
+       314: putfield      #16                 // Field b:Lcd;
+       317: aload_1
+       318: getfield      #16                 // Field b:Lcd;
+       321: ifnull        436
+       324: aload_1
+       325: getfield      #16                 // Field b:Lcd;
+       328: bipush        14
+       330: invokevirtual #52                 // Method k.b:(I)V
+       333: aload_1
+       334: getfield      #16                 // Field b:Lcd;
+       337: new           #3                  // class ak
+       340: dup
+       341: bipush        14
+       343: bipush        14
+       345: invokespecial #27                 // Method ak."<init>":(BI)V
+       348: invokevirtual #28                 // Method al.a:(Lat;)V
+       351: goto          1042
+       354: iconst_1
+       355: invokestatic  #49                 // Method g.a:(I)V
+       358: goto          1042
+       361: aload_1
+       362: getfield      #19                 // Field cl.a:Ldo;
+       365: bipush        -3
+       367: invokevirtual #48                 // Method do.m:(I)V
+       370: aload_1
+       371: getfield      #16                 // Field b:Lcd;
+       374: ifnull        421
+       377: aload_1
+       378: iconst_5
+       379: aload_1
+       380: getfield      #19                 // Field cl.a:Ldo;
+       383: iconst_0
+       384: invokevirtual #45                 // Method do.a:(Z)I
+       387: iconst_0
+       388: invokespecial #26                 // Method b:(BIZ)I
+       391: istore_3
+       392: aload_1
+       393: getfield      #16                 // Field b:Lcd;
+       396: aload_1
+       397: getfield      #19                 // Field cl.a:Ldo;
+       400: iconst_5
+       401: iload_3
+       402: iconst_0
+       403: aload_1
+       404: getfield      #19                 // Field cl.a:Ldo;
+       407: getfield      #17                 // Field al.c:B
+       410: aload_1
+       411: astore        5
+       413: iconst_4
+       414: iconst_0
+       415: iconst_0
+       416: iconst_0
+       417: invokevirtual #32                 // Method cd.a:(Ldo;BIZBBZZZ)Z
+       420: pop
+       421: iconst_1
+       422: invokestatic  #31                 // Method bq.a:(B)V
+       425: goto          1042
+       428: aload_1
+       429: getfield      #19                 // Field cl.a:Ldo;
+       432: iconst_1
+       433: invokevirtual #48                 // Method do.m:(I)V
+       436: goto          1042
+       439: aload_0
+       440: iload_2
+       441: istore_2
+       442: astore_1
+       443: iconst_0
+       444: istore_3
+       445: iload_2
+       446: tableswitch   { // 1 to 5
+
+                       1: 480
+
+                       2: 534
+
+                       3: 506
+
+                       4: 534
+
+                       5: 508
+                 default: 534
+            }
+       480: aload_1
+       481: aload_1
+       482: invokespecial #23                 // Method a:()Lcd;
+       485: putfield      #16                 // Field b:Lcd;
+       488: aload_1
+       489: getfield      #19                 // Field cl.a:Ldo;
+       492: getstatic     #22                 // Field rpg/d.N:[B
+       495: aload_1
+       496: getfield      #19                 // Field cl.a:Ldo;
+       499: getfield      #17                 // Field al.c:B
+       502: baload
+       503: invokevirtual #29                 // Method al.b:(B)V
+       506: iconst_1
+       507: istore_3
+       508: aload_1
+       509: bipush        6
+       511: aload_1
+       512: getfield      #19                 // Field cl.a:Ldo;
+       515: iload_3
+       516: invokevirtual #45                 // Method do.a:(Z)I
+       519: iload_3
+       520: invokespecial #26                 // Method b:(BIZ)I
+       523: istore        4
+       525: aload_1
+       526: bipush        6
+       528: invokevirtual #24                 // Method a:(B)V
+       531: goto          537
+       534: goto          1042
+       537: aload_1
+       538: getfield      #16                 // Field b:Lcd;
+       541: ifnonnull     552
+       544: aload_1
+       545: aload_1
+       546: invokespecial #23                 // Method a:()Lcd;
+       549: putfield      #16                 // Field b:Lcd;
+       552: aload_1
+       553: getfield      #16                 // Field b:Lcd;
+       556: ifnull        589
+       559: aload_1
+       560: getfield      #19                 // Field cl.a:Ldo;
+       563: aload_1
+       564: getfield      #16                 // Field b:Lcd;
+       567: bipush        6
+       569: iload         4
+       571: aload_1
+       572: getfield      #19                 // Field cl.a:Ldo;
+       575: getfield      #17                 // Field al.c:B
+       578: aload_1
+       579: astore        5
+       581: iconst_4
+       582: iconst_0
+       583: iconst_0
+       584: iconst_0
+       585: invokevirtual #44                 // Method do.a:(Lcd;BIBBZZZ)Z
+       588: pop
+       589: goto          1042
+       592: aload_0
+       593: iload_2
+       594: istore_2
+       595: astore_1
+       596: iconst_0
+       597: istore        4
+       599: iload_2
+       600: tableswitch   { // 0 to 12
+
+                       0: 668
+
+                       1: 688
+
+                       2: 682
+
+                       3: 688
+
+                       4: 673
+
+                       5: 688
+
+                       6: 682
+
+                       7: 688
+
+                       8: 673
+
+                       9: 688
+
+                      10: 682
+
+                      11: 688
+
+                      12: 673
+                 default: 688
+            }
+       668: aload_1
+       669: invokespecial #23                 // Method a:()Lcd;
+       672: pop
+       673: aload_1
+       674: bipush        7
+       676: invokevirtual #24                 // Method a:(B)V
+       679: goto          691
+       682: iconst_1
+       683: istore        4
+       685: goto          691
+       688: goto          1042
+       691: aload_1
+       692: bipush        7
+       694: aload_1
+       695: getfield      #19                 // Field cl.a:Ldo;
+       698: iload         4
+       700: invokevirtual #45                 // Method do.a:(Z)I
+       703: iconst_0
+       704: invokevirtual #37                 // Method cl.a:(BIZ)I
+       707: dup
+       708: istore_3
+       709: ifle          730
+       712: aload_1
+       713: getfield      #19                 // Field cl.a:Ldo;
+       716: bipush        7
+       718: iload_3
+       719: aload_1
+       720: astore        5
+       722: iconst_4
+       723: iload         4
+       725: iconst_0
+       726: invokevirtual #43                 // Method do.a:(BIBZZ)Z
+       729: pop
+       730: goto          1042
+       733: aload_0
+       734: iload_2
+       735: istore_2
+       736: astore_1
+       737: iload_2
+       738: lookupswitch  { // 3
+
+                       0: 772
+
+                       2: 781
+
+                       5: 788
+                 default: 813
+            }
+       772: aload_1
+       773: bipush        8
+       775: invokevirtual #24                 // Method a:(B)V
+       778: goto          1042
+       781: iconst_1
+       782: invokestatic  #49                 // Method g.a:(I)V
+       785: goto          1042
+       788: aload_1
+       789: aload_1
+       790: invokespecial #23                 // Method a:()Lcd;
+       793: putfield      #15                 // Field a:Lcd;
+       796: aload_1
+       797: getfield      #15                 // Field a:Lcd;
+       800: ifnull        813
+       803: aload_1
+       804: getfield      #15                 // Field a:Lcd;
+       807: bipush        16
+       809: iconst_1
+       810: invokevirtual #30                 // Method al.b:(BI)V
+       813: goto          1042
+       816: aload_0
+       817: iload_2
+       818: istore_2
+       819: astore_1
+       820: iload_2
+       821: lookupswitch  { // 4
+
+                       0: 864
+
+                      11: 915
+
+                      12: 927
+
+                      13: 1034
+                 default: 1042
+            }
+       864: aload_1
+       865: bipush        9
+       867: invokevirtual #24                 // Method a:(B)V
+       870: aload_1
+       871: aload_1
+       872: invokespecial #23                 // Method a:()Lcd;
+       875: putfield      #16                 // Field b:Lcd;
+       878: aload_1
+       879: getfield      #16                 // Field b:Lcd;
+       882: ifnull        1042
+       885: aload_1
+       886: getfield      #16                 // Field b:Lcd;
+       889: bipush        14
+       891: invokevirtual #52                 // Method k.b:(I)V
+       894: aload_1
+       895: getfield      #16                 // Field b:Lcd;
+       898: new           #3                  // class ak
+       901: dup
+       902: bipush        14
+       904: bipush        14
+       906: invokespecial #27                 // Method ak."<init>":(BI)V
+       909: invokevirtual #28                 // Method al.a:(Lat;)V
+       912: goto          1042
+       915: aload_1
+       916: getfield      #19                 // Field cl.a:Ldo;
+       919: bipush        -3
+       921: invokevirtual #48                 // Method do.m:(I)V
+       924: goto          1042
+       927: aload_1
+       928: getfield      #16                 // Field b:Lcd;
+       931: ifnull        1027
+       934: aload_1
+       935: getfield      #16                 // Field b:Lcd;
+       938: instanceof    #2                  // class af
+       941: ifeq          950
+       944: bipush        -90
+       946: istore_3
+       947: goto          999
+       950: aload_1
+       951: bipush        9
+       953: invokevirtual #39                 // Method cl.c:(B)I
+       956: istore        4
+       958: iconst_0
+       959: bipush        99
+       961: invokestatic  #53                 // Method rpg/g.a:(II)I
+       964: iload         4
+       966: if_icmpge     988
+       969: aload_1
+       970: getfield      #16                 // Field b:Lcd;
+       973: getfield      #18                 // Field cd.k:I
+       976: aload_1
+       977: getfield      #16                 // Field b:Lcd;
+       980: invokevirtual #33                 // Method cd.b:()I
+       983: iadd
+       984: istore_3
+       985: goto          999
+       988: aload_1
+       989: getfield      #19                 // Field cl.a:Ldo;
+       992: iconst_0
+       993: invokevirtual #47                 // Method do.c:(Z)I
+       996: iconst_1
+       997: ishl
+       998: istore_3
+       999: aload_1
+      1000: getfield      #16                 // Field b:Lcd;
+      1003: aload_1
+      1004: getfield      #19                 // Field cl.a:Ldo;
+      1007: bipush        9
+      1009: iload_3
+      1010: iconst_0
+      1011: aload_1
+      1012: getfield      #19                 // Field cl.a:Ldo;
+      1015: getfield      #17                 // Field al.c:B
+      1018: bipush        15
+      1020: iconst_0
+      1021: iconst_0
+      1022: iconst_0
+      1023: invokevirtual #32                 // Method cd.a:(Ldo;BIZBBZZZ)Z
+      1026: pop
+      1027: iconst_1
+      1028: invokestatic  #31                 // Method bq.a:(B)V
+      1031: goto          1042
+      1034: aload_1
+      1035: getfield      #19                 // Field cl.a:Ldo;
+      1038: iconst_1
+      1039: invokevirtual #48                 // Method do.m:(I)V
+      1042: iconst_1
+      1043: ireturn
+      StackMap: number_of_entries = 48
+        frame_type = 255 offset = 56
+          locals = [ class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 79
+          locals = [ class ad, class ad, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 89
+          locals = [ class ad, class ad, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 106
+          locals = [ class ad, class ad, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 109
+          locals = [ class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 168
+          locals = [ class ad, class ad, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 183
+          locals = [ class ad, class ad, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 188
+          locals = [ class ad, class ad, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 203
+          locals = [ class ad, class ad, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 208
+          locals = [ class ad, class ad, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 255
+          locals = [ class ad, class ad, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 258
+          locals = [ class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 304
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 354
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 361
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 421
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 428
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 436
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 439
+          locals = [ class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 480
+          locals = [ class ad, class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 506
+          locals = [ class ad, class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 508
+          locals = [ class ad, class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 534
+          locals = [ class ad, class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 537
+          locals = [ class ad, class ad, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 552
+          locals = [ class ad, class ad, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 589
+          locals = [ class ad, class ad, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 592
+          locals = [ class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 668
+          locals = [ class ad, class ad, int, top, int ]
+          stack = []
+        frame_type = 255 offset = 673
+          locals = [ class ad, class ad, int, top, int ]
+          stack = []
+        frame_type = 255 offset = 682
+          locals = [ class ad, class ad, int, top, int ]
+          stack = []
+        frame_type = 255 offset = 688
+          locals = [ class ad, class ad, int, top, int ]
+          stack = []
+        frame_type = 255 offset = 691
+          locals = [ class ad, class ad, int, top, int ]
+          stack = []
+        frame_type = 255 offset = 730
+          locals = [ class ad, class ad, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 733
+          locals = [ class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 772
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 781
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 788
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 813
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 816
+          locals = [ class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 864
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 915
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 927
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 950
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 988
+          locals = [ class ad, class ad, int, top, int ]
+          stack = []
+        frame_type = 255 offset = 999
+          locals = [ class ad, class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 1027
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 1034
+          locals = [ class ad, class ad, int ]
+          stack = []
+        frame_type = 255 offset = 1042
+          locals = [ class ad, top, int ]
+          stack = []
+
+  private int b(byte, int, boolean);
+    descriptor: (BIZ)I
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=4, locals=4, args_size=4
+         0: aload_0
+         1: iload_1
+         2: iload_2
+         3: iconst_0
+         4: invokevirtual #37                 // Method cl.a:(BIZ)I
+         7: dup
+         8: istore_1
+         9: aload_0
+        10: getfield      #19                 // Field cl.a:Ldo;
+        13: iload_3
+        14: invokevirtual #47                 // Method do.c:(Z)I
+        17: iadd
+        18: dup
+        19: istore_1
+        20: ireturn
+
+  private cd a();
+    descriptor: ()Lcd;
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=2, locals=4, args_size=1
+         0: aload_0
+         1: getfield      #15                 // Field a:Lcd;
+         4: ifnull        147
+         7: aload_0
+         8: getfield      #15                 // Field a:Lcd;
+        11: invokevirtual #34                 // Method cd.k:()Z
+        14: ifeq          147
+        17: aload_0
+        18: getfield      #15                 // Field a:Lcd;
+        21: invokevirtual #51                 // Method k.b:()Z
+        24: ifeq          35
+        27: aload_0
+        28: aconst_null
+        29: putfield      #15                 // Field a:Lcd;
+        32: goto          147
+        35: aload_0
+        36: getfield      #19                 // Field cl.a:Ldo;
+        39: getfield      #20                 // Field du.h:S
+        42: aload_0
+        43: getfield      #15                 // Field a:Lcd;
+        46: getfield      #20                 // Field du.h:S
+        49: isub
+        50: dup
+        51: istore_1
+        52: invokestatic  #50                 // Method java/lang/Math.abs:(I)I
+        55: dup
+        56: istore_2
+        57: bipush        96
+        59: if_icmpgt     147
+        62: aload_0
+        63: getfield      #19                 // Field cl.a:Ldo;
+        66: getfield      #21                 // Field du.i:S
+        69: aload_0
+        70: getfield      #15                 // Field a:Lcd;
+        73: getfield      #21                 // Field du.i:S
+        76: isub
+        77: dup
+        78: istore_2
+        79: invokestatic  #50                 // Method java/lang/Math.abs:(I)I
+        82: dup
+        83: istore_3
+        84: bipush        96
+        86: if_icmpgt     147
+        89: iload_2
+        90: iload_1
+        91: if_icmpgt     98
+        94: iload_1
+        95: ifne          117
+        98: aload_0
+        99: getfield      #19                 // Field cl.a:Ldo;
+       102: iload_2
+       103: ifle          110
+       106: iconst_1
+       107: goto          111
+       110: iconst_2
+       111: putfield      #17                 // Field al.c:B
+       114: goto          142
+       117: iload_2
+       118: iload_1
+       119: if_icmpgt     126
+       122: iload_2
+       123: ifne          142
+       126: aload_0
+       127: getfield      #19                 // Field cl.a:Ldo;
+       130: iload_1
+       131: ifle          138
+       134: iconst_3
+       135: goto          139
+       138: iconst_4
+       139: putfield      #17                 // Field al.c:B
+       142: aload_0
+       143: getfield      #15                 // Field a:Lcd;
+       146: areturn
+       147: aload_0
+       148: aload_0
+       149: getfield      #19                 // Field cl.a:Ldo;
+       152: invokevirtual #46                 // Method do.b:()Lcd;
+       155: putfield      #16                 // Field b:Lcd;
+       158: aload_0
+       159: getfield      #16                 // Field b:Lcd;
+       162: areturn
+      StackMap: number_of_entries = 10
+        frame_type = 255 offset = 35
+          locals = [ class ad ]
+          stack = []
+        frame_type = 255 offset = 98
+          locals = [ class ad, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 110
+          locals = [ class ad, int, int, int ]
+          stack = [ class do ]
+        frame_type = 255 offset = 111
+          locals = [ class ad, int, int, int ]
+          stack = [ class do, int ]
+        frame_type = 255 offset = 117
+          locals = [ class ad, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 126
+          locals = [ class ad, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 138
+          locals = [ class ad, int, int, int ]
+          stack = [ class do ]
+        frame_type = 255 offset = 139
+          locals = [ class ad, int, int, int ]
+          stack = [ class do, int ]
+        frame_type = 255 offset = 142
+          locals = [ class ad, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 147
+          locals = [ class ad ]
+          stack = []
+
+  private boolean a(byte, int, byte, boolean);
+    descriptor: (BIBZ)Z
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=9, locals=5, args_size=5
+         0: iload         4
+         2: ifeq          14
+         5: aload_0
+         6: invokevirtual #38                 // Method cl.b:()Z
+         9: ifne          14
+        12: iconst_0
+        13: ireturn
+        14: aload_0
+        15: aload_0
+        16: invokespecial #23                 // Method a:()Lcd;
+        19: putfield      #16                 // Field b:Lcd;
+        22: aload_0
+        23: getfield      #16                 // Field b:Lcd;
+        26: ifnull        55
+        29: aload_0
+        30: getfield      #19                 // Field cl.a:Ldo;
+        33: aload_0
+        34: getfield      #16                 // Field b:Lcd;
+        37: iload_1
+        38: iload_2
+        39: aload_0
+        40: getfield      #19                 // Field cl.a:Ldo;
+        43: getfield      #17                 // Field al.c:B
+        46: iload_3
+        47: iconst_0
+        48: iload         4
+        50: iconst_0
+        51: invokevirtual #44                 // Method do.a:(Lcd;BIBBZZZ)Z
+        54: ireturn
+        55: iconst_0
+        56: ireturn
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 14
+          locals = [ class ad, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 55
+          locals = [ class ad, int, int, int, int ]
+          stack = []
+
+  protected final byte a();
+    descriptor: ()B
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: iconst_4
+         1: ireturn
+
+  public final boolean a(byte);
+    descriptor: (B)Z
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=1, locals=2, args_size=2
+         0: aload_0
+         1: invokevirtual #36                 // Method cl.a:()Z
+         4: ireturn
+
+  protected final void a(byte);
+    descriptor: (B)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=1, locals=3, args_size=2
+         0: bipush        9
+         2: istore_2
+         3: iload_1
+         4: tableswitch   { // 5 to 9
+
+                       5: 40
+
+                       6: 42
+
+                       7: 42
+
+                       8: 40
+
+                       9: 40
+                 default: 42
+            }
+        40: iconst_0
+        41: istore_2
+        42: iload_2
+        43: invokestatic  #31                 // Method bq.a:(B)V
+        46: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 40
+          locals = [ class ad, int, int ]
+          stack = []
+        frame_type = 255 offset = 42
+          locals = [ class ad, int, int ]
+          stack = []
+
+  public final boolean b(byte);
+    descriptor: (B)Z
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=1, locals=2, args_size=2
+         0: iconst_0
+         1: ireturn
+}

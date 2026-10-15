@@ -1,0 +1,158 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/cj.class
+  Last modified 13 de out. de 2026; size 585 bytes
+  SHA-256 checksum b1bf44c0d1600703600be91faa8b31d34eb33398223feb85d9e410ac9f199286
+final class cj extends p
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #2                          // cj
+  super_class: #4                         // p
+  interfaces: 0, fields: 1, methods: 3, attributes: 0
+Constant pool:
+   #1 = Class              #51            // ch
+   #2 = Class              #52            // cj
+   #3 = Class              #55            // n
+   #4 = Class              #56            // p
+   #5 = Class              #57            // rpg/e
+   #6 = Fieldref           #2.#22         // cj.a:Las;
+   #7 = Fieldref           #3.#23         // n.a:Ln;
+   #8 = Fieldref           #3.#24         // n.a_:I
+   #9 = Fieldref           #3.#28         // n.b_:I
+  #10 = Fieldref           #5.#27         // rpg/e.b:Lch;
+  #11 = Methodref          #1.#20         // ch.a:(I)[B
+  #12 = Methodref          #3.#21         // n.a:(Lcm;ZZ[BZ)V
+  #13 = Methodref          #3.#25         // n.b:(II)Z
+  #14 = Methodref          #3.#29         // n.c:()V
+  #15 = Methodref          #3.#30         // n.f:(II)Z
+  #16 = Methodref          #3.#31         // n.g:(II)Z
+  #17 = Methodref          #4.#19         // p."<init>":(Ln;BBB)V
+  #18 = Methodref          #4.#26         // p.b:(Lcm;IILas;)V
+  #19 = NameAndType        #40:#38        // "<init>":(Ln;BBB)V
+  #20 = NameAndType        #46:#33        // a:(I)[B
+  #21 = NameAndType        #46:#37        // a:(Lcm;ZZ[BZ)V
+  #22 = NameAndType        #46:#43        // a:Las;
+  #23 = NameAndType        #46:#45        // a:Ln;
+  #24 = NameAndType        #47:#42        // a_:I
+  #25 = NameAndType        #48:#34        // b:(II)Z
+  #26 = NameAndType        #48:#36        // b:(Lcm;IILas;)V
+  #27 = NameAndType        #48:#44        // b:Lch;
+  #28 = NameAndType        #49:#42        // b_:I
+  #29 = NameAndType        #50:#32        // c:()V
+  #30 = NameAndType        #53:#34        // f:(II)Z
+  #31 = NameAndType        #54:#34        // g:(II)Z
+  #32 = Utf8               ()V
+  #33 = Utf8               (I)[B
+  #34 = Utf8               (II)Z
+  #35 = Utf8               (Lcm;)V
+  #36 = Utf8               (Lcm;IILas;)V
+  #37 = Utf8               (Lcm;ZZ[BZ)V
+  #38 = Utf8               (Ln;BBB)V
+  #39 = Utf8               (Ln;Las;)V
+  #40 = Utf8               <init>
+  #41 = Utf8               Code
+  #42 = Utf8               I
+  #43 = Utf8               Las;
+  #44 = Utf8               Lch;
+  #45 = Utf8               Ln;
+  #46 = Utf8               a
+  #47 = Utf8               a_
+  #48 = Utf8               b
+  #49 = Utf8               b_
+  #50 = Utf8               c
+  #51 = Utf8               ch
+  #52 = Utf8               cj
+  #53 = Utf8               f
+  #54 = Utf8               g
+  #55 = Utf8               n
+  #56 = Utf8               p
+  #57 = Utf8               rpg/e
+  #58 = Utf8               StackMap
+{
+  private as a;
+    descriptor: Las;
+    flags: (0x0002) ACC_PRIVATE
+
+  public cj(n, as);
+    descriptor: (Ln;Las;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=5, locals=3, args_size=3
+         0: aload_0
+         1: aload_1
+         2: iconst_0
+         3: iconst_0
+         4: iconst_0
+         5: invokespecial #17                 // Method p."<init>":(Ln;BBB)V
+         8: aload_0
+         9: aconst_null
+        10: putfield      #6                  // Field a:Las;
+        13: aload_0
+        14: aload_2
+        15: putfield      #6                  // Field a:Las;
+        18: return
+
+  final boolean a(int, int);
+    descriptor: (II)Z
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0
+         1: iload_1
+         2: iload_2
+         3: invokevirtual #13                 // Method n.b:(II)Z
+         6: ifeq          11
+         9: iconst_1
+        10: ireturn
+        11: iload_1
+        12: iload_2
+        13: invokestatic  #16                 // Method n.g:(II)Z
+        16: ifne          27
+        19: iload_1
+        20: iload_2
+        21: invokestatic  #15                 // Method n.f:(II)Z
+        24: ifeq          34
+        27: aload_0
+        28: getfield      #7                  // Field n.a:Ln;
+        31: invokevirtual #14                 // Method n.c:()V
+        34: iconst_1
+        35: ireturn
+      StackMap: number_of_entries = 3
+        frame_type = 255 offset = 11
+          locals = [ class cj, int, int ]
+          stack = []
+        frame_type = 255 offset = 27
+          locals = [ class cj, int, int ]
+          stack = []
+        frame_type = 255 offset = 34
+          locals = [ class cj, int, int ]
+          stack = []
+
+  protected final void a(cm);
+    descriptor: (Lcm;)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=6, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: iconst_0
+         3: iconst_1
+         4: getstatic     #10                 // Field rpg/e.b:Lch;
+         7: bipush        29
+         9: invokevirtual #11                 // Method ch.a:(I)[B
+        12: iconst_0
+        13: invokevirtual #12                 // Method n.a:(Lcm;ZZ[BZ)V
+        16: aload_0
+        17: aload_1
+        18: aload_0
+        19: getfield      #8                  // Field n.a_:I
+        22: aload_0
+        23: getfield      #9                  // Field n.b_:I
+        26: bipush        13
+        28: iadd
+        29: iconst_1
+        30: iadd
+        31: aload_0
+        32: getfield      #6                  // Field a:Las;
+        35: invokevirtual #18                 // Method p.b:(Lcm;IILas;)V
+        38: return
+}

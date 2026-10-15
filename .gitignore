@@ -1,0 +1,52 @@
+# Build artifacts
+build/
+build_switch/
+dist_windows/
+AppDir/
+squashfs-root/
+romfs/
+*.AppImage
+*.exe
+*.dll
+*.so
+*.a
+*.o
+*.obj
+*.bmp
+*.log
+*.err
+screenshot_frame_*.bmp
+screenshot_frame_*.png
+
+# Third-party cloned repositories (baixados sob demanda pelo CI)
+third_party/SDL2/
+third_party/SDL2_mixer/
+
+# Android build outputs
+.gradle/
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+android/.cxx/
+android/app/.cxx/
+android/app/src/main/assets/
+*.apk
+*.aab
+
+# Nintendo Switch build outputs
+*.nro
+*.nacp
+*.elf
+
+# IDE e Configurações locais
+.idea/
+.vscode/
+*.user
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+__pycache__/
+*.pyc
+hl_settings.ini
+reference/extracted/rms/

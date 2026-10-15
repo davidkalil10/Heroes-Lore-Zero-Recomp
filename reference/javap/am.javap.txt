@@ -1,0 +1,285 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/am.class
+  Last modified 13 de out. de 2026; size 1224 bytes
+  SHA-256 checksum 9aae350063d19c7083cc06c6f5056adc7391971b35338f50509c63294d702098
+public final class am implements dy
+  minor version: 3
+  major version: 45
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #6                          // am
+  super_class: #8                         // java/lang/Object
+  interfaces: 1, fields: 3, methods: 3, attributes: 0
+Constant pool:
+   #1 = String             #45            //
+   #2 = String             #57            // /
+   #3 = String             #58            // /en/
+   #4 = String             #59            // /en/cif/h
+   #5 = String             #60            // 0
+   #6 = Class              #67            // am
+   #7 = Class              #71            // dy
+   #8 = Class              #72            // java/lang/Object
+   #9 = Class              #73            // java/lang/StringBuffer
+  #10 = Class              #74            // java/lang/System
+  #11 = Class              #75            // rpg/e
+  #12 = Class              #76            // s
+  #13 = Fieldref           #6.#35         // am.a:[B
+  #14 = Fieldref           #6.#36         // am.a:[Ls;
+  #15 = Fieldref           #6.#41         // am.b:[B
+  #16 = Fieldref           #12.#37        // s.a:[[B
+  #17 = Methodref          #6.#32         // am.a:(Ls;[B[B[B)V
+  #18 = Methodref          #8.#29         // java/lang/Object."<init>":()V
+  #19 = Methodref          #9.#29         // java/lang/StringBuffer."<init>":()V
+  #20 = Methodref          #9.#38         // java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+  #21 = Methodref          #9.#39         // java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+  #22 = Methodref          #9.#42         // java/lang/StringBuffer.toString:()Ljava/lang/String;
+  #23 = Methodref          #10.#40        // java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+  #24 = Methodref          #11.#31        // rpg/e.a:(Ljava/lang/String;)[B
+  #25 = Methodref          #11.#33        // rpg/e.a:([BI)[B
+  #26 = Methodref          #12.#29        // s."<init>":()V
+  #27 = Methodref          #12.#30        // s.a:(ILjava/lang/String;[B)V
+  #28 = Methodref          #12.#34        // s.a:([BZ)V
+  #29 = NameAndType        #61:#47        // "<init>":()V
+  #30 = NameAndType        #66:#49        // a:(ILjava/lang/String;[B)V
+  #31 = NameAndType        #66:#52        // a:(Ljava/lang/String;)[B
+  #32 = NameAndType        #66:#53        // a:(Ls;[B[B[B)V
+  #33 = NameAndType        #66:#55        // a:([BI)[B
+  #34 = NameAndType        #66:#56        // a:([BZ)V
+  #35 = NameAndType        #66:#63        // a:[B
+  #36 = NameAndType        #66:#64        // a:[Ls;
+  #37 = NameAndType        #66:#65        // a:[[B
+  #38 = NameAndType        #68:#48        // append:(I)Ljava/lang/StringBuffer;
+  #39 = NameAndType        #68:#51        // append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+  #40 = NameAndType        #69:#50        // arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+  #41 = NameAndType        #70:#63        // b:[B
+  #42 = NameAndType        #77:#46        // toString:()Ljava/lang/String;
+  #43 = Class              #63            // "[B"
+  #44 = Class              #79            // java/lang/String
+  #45 = Utf8
+  #46 = Utf8               ()Ljava/lang/String;
+  #47 = Utf8               ()V
+  #48 = Utf8               (I)Ljava/lang/StringBuffer;
+  #49 = Utf8               (ILjava/lang/String;[B)V
+  #50 = Utf8               (Ljava/lang/Object;ILjava/lang/Object;II)V
+  #51 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuffer;
+  #52 = Utf8               (Ljava/lang/String;)[B
+  #53 = Utf8               (Ls;[B[B[B)V
+  #54 = Utf8               ([BB[B)V
+  #55 = Utf8               ([BI)[B
+  #56 = Utf8               ([BZ)V
+  #57 = Utf8               /
+  #58 = Utf8               /en/
+  #59 = Utf8               /en/cif/h
+  #60 = Utf8               0
+  #61 = Utf8               <init>
+  #62 = Utf8               Code
+  #63 = Utf8               [B
+  #64 = Utf8               [Ls;
+  #65 = Utf8               [[B
+  #66 = Utf8               a
+  #67 = Utf8               am
+  #68 = Utf8               append
+  #69 = Utf8               arraycopy
+  #70 = Utf8               b
+  #71 = Utf8               dy
+  #72 = Utf8               java/lang/Object
+  #73 = Utf8               java/lang/StringBuffer
+  #74 = Utf8               java/lang/System
+  #75 = Utf8               rpg/e
+  #76 = Utf8               s
+  #77 = Utf8               toString
+  #78 = Utf8               StackMap
+  #79 = Utf8               java/lang/String
+{
+  public static s[] a;
+    descriptor: [Ls;
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+
+  public static byte[] a;
+    descriptor: [B
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+
+  public static byte[] b;
+    descriptor: [B
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+
+  public am();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #18                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static final void a(byte[], byte, byte[]);
+    descriptor: ([BB[B)V
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=5, locals=5, args_size=3
+         0: aload_0
+         1: iconst_0
+         2: baload
+         3: istore_3
+         4: new           #9                  // class java/lang/StringBuffer
+         7: dup
+         8: invokespecial #19                 // Method java/lang/StringBuffer."<init>":()V
+        11: ldc           #4                  // String /en/cif/h
+        13: invokevirtual #21                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        16: iload_3
+        17: bipush        10
+        19: if_icmpge     27
+        22: ldc           #5                  // String 0
+        24: goto          29
+        27: ldc           #1                  // String
+        29: invokevirtual #21                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        32: iload_3
+        33: invokevirtual #20                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+        36: invokevirtual #22                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+        39: invokestatic  #24                 // Method rpg/e.a:(Ljava/lang/String;)[B
+        42: astore_3
+        43: getstatic     #14                 // Field a:[Ls;
+        46: iload_1
+        47: new           #12                 // class s
+        50: dup
+        51: invokespecial #26                 // Method s."<init>":()V
+        54: aastore
+        55: getstatic     #14                 // Field a:[Ls;
+        58: iload_1
+        59: aaload
+        60: aload_3
+        61: iconst_1
+        62: invokevirtual #28                 // Method s.a:([BZ)V
+        65: iconst_4
+        66: newarray       byte
+        68: astore_3
+        69: aload_0
+        70: iconst_1
+        71: aload_3
+        72: iconst_0
+        73: iconst_4
+        74: invokestatic  #23                 // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+        77: iconst_4
+        78: newarray       byte
+        80: astore        4
+        82: aload_0
+        83: iconst_5
+        84: aload         4
+        86: iconst_0
+        87: iconst_4
+        88: invokestatic  #23                 // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+        91: getstatic     #14                 // Field a:[Ls;
+        94: iload_1
+        95: aaload
+        96: aload_3
+        97: aload         4
+        99: aload_2
+       100: invokestatic  #17                 // Method a:(Ls;[B[B[B)V
+       103: getstatic     #14                 // Field a:[Ls;
+       106: iload_1
+       107: aaload
+       108: aconst_null
+       109: putfield      #16                 // Field s.a:[[B
+       112: getstatic     #13                 // Field a:[B
+       115: iload_1
+       116: aload_0
+       117: bipush        9
+       119: baload
+       120: bastore
+       121: getstatic     #15                 // Field b:[B
+       124: iload_1
+       125: aload_0
+       126: bipush        10
+       128: baload
+       129: bastore
+       130: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 27
+          locals = [ class "[B", int, class "[B", int ]
+          stack = [ class java/lang/StringBuffer ]
+        frame_type = 255 offset = 29
+          locals = [ class "[B", int, class "[B", int ]
+          stack = [ class java/lang/StringBuffer, class java/lang/String ]
+
+  private static void a(s, byte[], byte[], byte[]);
+    descriptor: (Ls;[B[B[B)V
+    flags: (0x000a) ACC_PRIVATE, ACC_STATIC
+    Code:
+      stack=4, locals=7, args_size=4
+         0: iconst_0
+         1: istore        5
+         3: iload         5
+         5: aload_2
+         6: arraylength
+         7: if_icmpge     108
+        10: aload_2
+        11: iload         5
+        13: baload
+        14: ifeq          102
+        17: new           #9                  // class java/lang/StringBuffer
+        20: dup
+        21: invokespecial #19                 // Method java/lang/StringBuffer."<init>":()V
+        24: ldc           #3                  // String /en/
+        26: invokevirtual #21                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        29: iload         5
+        31: invokevirtual #20                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+        34: ldc           #2                  // String /
+        36: invokevirtual #21                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        39: aload_2
+        40: iload         5
+        42: baload
+        43: bipush        10
+        45: if_icmpge     53
+        48: ldc           #5                  // String 0
+        50: goto          55
+        53: ldc           #1                  // String
+        55: invokevirtual #21                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        58: aload_2
+        59: iload         5
+        61: baload
+        62: invokevirtual #20                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+        65: invokevirtual #22                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+        68: astore        4
+        70: aconst_null
+        71: astore        6
+        73: aload_1
+        74: iload         5
+        76: baload
+        77: ifle          92
+        80: aload_3
+        81: aload_1
+        82: iload         5
+        84: baload
+        85: iconst_1
+        86: isub
+        87: invokestatic  #25                 // Method rpg/e.a:([BI)[B
+        90: astore        6
+        92: aload_0
+        93: iload         5
+        95: aload         4
+        97: aload         6
+        99: invokevirtual #27                 // Method s.a:(ILjava/lang/String;[B)V
+       102: iinc          5, 1
+       105: goto          3
+       108: aload_0
+       109: aconst_null
+       110: putfield      #16                 // Field s.a:[[B
+       113: return
+      StackMap: number_of_entries = 6
+        frame_type = 255 offset = 3
+          locals = [ class s, class "[B", class "[B", class "[B", top, int ]
+          stack = []
+        frame_type = 255 offset = 53
+          locals = [ class s, class "[B", class "[B", class "[B", top, int ]
+          stack = [ class java/lang/StringBuffer ]
+        frame_type = 255 offset = 55
+          locals = [ class s, class "[B", class "[B", class "[B", top, int ]
+          stack = [ class java/lang/StringBuffer, class java/lang/String ]
+        frame_type = 255 offset = 92
+          locals = [ class s, class "[B", class "[B", class "[B", class java/lang/String, int, class "[B" ]
+          stack = []
+        frame_type = 255 offset = 102
+          locals = [ class s, class "[B", class "[B", class "[B", top, int ]
+          stack = []
+        frame_type = 255 offset = 108
+          locals = [ class s, class "[B", class "[B", class "[B", top, int ]
+          stack = []
+}

@@ -1,0 +1,68 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/ba.class
+  Last modified 13 de out. de 2026; size 231 bytes
+  SHA-256 checksum 8d2102ce50b6df82285998c92ac0f6564cb049aa7ab39d802ebd65a64bbbc7d0
+public final class ba extends as
+  minor version: 3
+  major version: 45
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #2                          // ba
+  super_class: #1                         // as
+  interfaces: 0, fields: 1, methods: 2, attributes: 0
+Constant pool:
+   #1 = Class              #16            // as
+   #2 = Class              #17            // ba
+   #3 = Class              #19            // java/lang/Exception
+   #4 = Fieldref           #2.#9          // ba.d:B
+   #5 = Methodref          #1.#7          // as."<init>":(BB)V
+   #6 = Methodref          #1.#8          // as.a:([BI)I
+   #7 = NameAndType        #12:#10        // "<init>":(BB)V
+   #8 = NameAndType        #15:#11        // a:([BI)I
+   #9 = NameAndType        #18:#13        // d:B
+  #10 = Utf8               (BB)V
+  #11 = Utf8               ([BI)I
+  #12 = Utf8               <init>
+  #13 = Utf8               B
+  #14 = Utf8               Code
+  #15 = Utf8               a
+  #16 = Utf8               as
+  #17 = Utf8               ba
+  #18 = Utf8               d
+  #19 = Utf8               java/lang/Exception
+{
+  public byte d;
+    descriptor: B
+    flags: (0x0001) ACC_PUBLIC
+
+  public ba(byte, byte);
+    descriptor: (BB)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0
+         1: iload_1
+         2: iload_2
+         3: invokespecial #5                  // Method as."<init>":(BB)V
+         6: aload_0
+         7: iconst_m1
+         8: putfield      #4                  // Field d:B
+        11: return
+
+  protected final int a(byte[], int);
+    descriptor: ([BI)I
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: invokespecial #6                  // Method as.a:([BI)I
+         6: istore_2
+         7: aload_0
+         8: aload_1
+         9: iload_2
+        10: iinc          2, 1
+        13: baload
+        14: putfield      #4                  // Field d:B
+        17: iload_2
+        18: ireturn
+}

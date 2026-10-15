@@ -1,0 +1,279 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/ah.class
+  Last modified 13 de out. de 2026; size 1507 bytes
+  SHA-256 checksum 019c94068b58278da57cc768e28fb48df3865e995f667406caaa3f9dddaff26d
+public final class ah
+  minor version: 3
+  major version: 45
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #3                          // ah
+  super_class: #7                         // java/lang/Object
+  interfaces: 0, fields: 2, methods: 3, attributes: 0
+Constant pool:
+   #1 = String             #64            // .
+   #2 = String             #65            // /
+   #3 = Class              #72            // ah
+   #4 = Class              #82            // java/io/InputStream
+   #5 = Class              #83            // java/lang/Class
+   #6 = Class              #84            // java/lang/Exception
+   #7 = Class              #85            // java/lang/Object
+   #8 = Class              #86            // java/lang/String
+   #9 = Class              #87            // java/lang/StringBuffer
+  #10 = Class              #88            // java/lang/Throwable
+  #11 = Class              #89            // javax/microedition/rms/RecordStore
+  #12 = Fieldref           #3.#33         // ah.a:Ljava/lang/String;
+  #13 = Fieldref           #3.#34         // ah.a:[B
+  #14 = Methodref          #4.#36         // java/io/InputStream.available:()I
+  #15 = Methodref          #4.#37         // java/io/InputStream.close:()V
+  #16 = Methodref          #4.#46         // java/io/InputStream.read:([B)I
+  #17 = Methodref          #5.#42         // java/lang/Class.getResourceAsStream:(Ljava/lang/String;)Ljava/io/InputStream;
+  #18 = Methodref          #7.#32         // java/lang/Object."<init>":()V
+  #19 = Methodref          #7.#39         // java/lang/Object.getClass:()Ljava/lang/Class;
+  #20 = Methodref          #8.#43         // java/lang/String.indexOf:(Ljava/lang/String;)I
+  #21 = Methodref          #8.#47         // java/lang/String.startsWith:(Ljava/lang/String;)Z
+  #22 = Methodref          #8.#48         // java/lang/String.substring:(I)Ljava/lang/String;
+  #23 = Methodref          #8.#49         // java/lang/String.substring:(II)Ljava/lang/String;
+  #24 = Methodref          #9.#32         // java/lang/StringBuffer."<init>":()V
+  #25 = Methodref          #9.#35         // java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+  #26 = Methodref          #9.#50         // java/lang/StringBuffer.toString:()Ljava/lang/String;
+  #27 = Methodref          #10.#45        // java/lang/Throwable.printStackTrace:()V
+  #28 = Methodref          #11.#38        // javax/microedition/rms/RecordStore.closeRecordStore:()V
+  #29 = Methodref          #11.#40        // javax/microedition/rms/RecordStore.getNumRecords:()I
+  #30 = Methodref          #11.#41        // javax/microedition/rms/RecordStore.getRecord:(I)[B
+  #31 = Methodref          #11.#44        // javax/microedition/rms/RecordStore.openRecordStore:(Ljava/lang/String;Z)Ljavax/microedition/rms/RecordStore;
+  #32 = NameAndType        #67:#54        // "<init>":()V
+  #33 = NameAndType        #71:#69        // a:Ljava/lang/String;
+  #34 = NameAndType        #71:#70        // a:[B
+  #35 = NameAndType        #73:#60        // append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+  #36 = NameAndType        #74:#51        // available:()I
+  #37 = NameAndType        #75:#54        // close:()V
+  #38 = NameAndType        #76:#54        // closeRecordStore:()V
+  #39 = NameAndType        #77:#52        // getClass:()Ljava/lang/Class;
+  #40 = NameAndType        #78:#51        // getNumRecords:()I
+  #41 = NameAndType        #79:#56        // getRecord:(I)[B
+  #42 = NameAndType        #80:#59        // getResourceAsStream:(Ljava/lang/String;)Ljava/io/InputStream;
+  #43 = NameAndType        #81:#58        // indexOf:(Ljava/lang/String;)I
+  #44 = NameAndType        #90:#62        // openRecordStore:(Ljava/lang/String;Z)Ljavax/microedition/rms/RecordStore;
+  #45 = NameAndType        #91:#54        // printStackTrace:()V
+  #46 = NameAndType        #92:#63        // read:([B)I
+  #47 = NameAndType        #93:#61        // startsWith:(Ljava/lang/String;)Z
+  #48 = NameAndType        #94:#55        // substring:(I)Ljava/lang/String;
+  #49 = NameAndType        #94:#57        // substring:(II)Ljava/lang/String;
+  #50 = NameAndType        #95:#53        // toString:()Ljava/lang/String;
+  #51 = Utf8               ()I
+  #52 = Utf8               ()Ljava/lang/Class;
+  #53 = Utf8               ()Ljava/lang/String;
+  #54 = Utf8               ()V
+  #55 = Utf8               (I)Ljava/lang/String;
+  #56 = Utf8               (I)[B
+  #57 = Utf8               (II)Ljava/lang/String;
+  #58 = Utf8               (Ljava/lang/String;)I
+  #59 = Utf8               (Ljava/lang/String;)Ljava/io/InputStream;
+  #60 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuffer;
+  #61 = Utf8               (Ljava/lang/String;)Z
+  #62 = Utf8               (Ljava/lang/String;Z)Ljavax/microedition/rms/RecordStore;
+  #63 = Utf8               ([B)I
+  #64 = Utf8               .
+  #65 = Utf8               /
+  #66 = Utf8               <clinit>
+  #67 = Utf8               <init>
+  #68 = Utf8               Code
+  #69 = Utf8               Ljava/lang/String;
+  #70 = Utf8               [B
+  #71 = Utf8               a
+  #72 = Utf8               ah
+  #73 = Utf8               append
+  #74 = Utf8               available
+  #75 = Utf8               close
+  #76 = Utf8               closeRecordStore
+  #77 = Utf8               getClass
+  #78 = Utf8               getNumRecords
+  #79 = Utf8               getRecord
+  #80 = Utf8               getResourceAsStream
+  #81 = Utf8               indexOf
+  #82 = Utf8               java/io/InputStream
+  #83 = Utf8               java/lang/Class
+  #84 = Utf8               java/lang/Exception
+  #85 = Utf8               java/lang/Object
+  #86 = Utf8               java/lang/String
+  #87 = Utf8               java/lang/StringBuffer
+  #88 = Utf8               java/lang/Throwable
+  #89 = Utf8               javax/microedition/rms/RecordStore
+  #90 = Utf8               openRecordStore
+  #91 = Utf8               printStackTrace
+  #92 = Utf8               read
+  #93 = Utf8               startsWith
+  #94 = Utf8               substring
+  #95 = Utf8               toString
+  #96 = Utf8               StackMap
+{
+  public static java.lang.String a;
+    descriptor: Ljava/lang/String;
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+
+  public static byte[] a;
+    descriptor: [B
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+
+  public ah();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #18                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean a(java.lang.String);
+    descriptor: (Ljava/lang/String;)Z
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=4, locals=2, args_size=1
+         0: aload_0
+         1: ifnonnull     6
+         4: iconst_0
+         5: ireturn
+         6: aload_0
+         7: invokevirtual #19                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+        10: aload_0
+        11: invokevirtual #17                 // Method java/lang/Class.getResourceAsStream:(Ljava/lang/String;)Ljava/io/InputStream;
+        14: dup
+        15: astore_1
+        16: ifnull        42
+        19: aload_1
+        20: invokevirtual #14                 // Method java/io/InputStream.available:()I
+        23: newarray       byte
+        25: putstatic     #13                 // Field a:[B
+        28: aload_1
+        29: getstatic     #13                 // Field a:[B
+        32: invokevirtual #16                 // Method java/io/InputStream.read:([B)I
+        35: pop
+        36: aload_1
+        37: invokevirtual #15                 // Method java/io/InputStream.close:()V
+        40: iconst_1
+        41: ireturn
+        42: goto          54
+        45: astore_1
+        46: aconst_null
+        47: putstatic     #13                 // Field a:[B
+        50: aload_1
+        51: invokevirtual #27                 // Method java/lang/Throwable.printStackTrace:()V
+        54: aload_0
+        55: ldc           #2                  // String /
+        57: invokevirtual #21                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+        60: ifeq          72
+        63: aload_0
+        64: iconst_1
+        65: invokevirtual #22                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+        68: astore_0
+        69: goto          54
+        72: aload_0
+        73: ldc           #2                  // String /
+        75: invokevirtual #20                 // Method java/lang/String.indexOf:(Ljava/lang/String;)I
+        78: dup
+        79: istore_1
+        80: ifle          121
+        83: new           #9                  // class java/lang/StringBuffer
+        86: dup
+        87: invokespecial #24                 // Method java/lang/StringBuffer."<init>":()V
+        90: aload_0
+        91: iconst_0
+        92: iload_1
+        93: invokevirtual #23                 // Method java/lang/String.substring:(II)Ljava/lang/String;
+        96: invokevirtual #25                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        99: ldc           #1                  // String .
+       101: invokevirtual #25                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+       104: aload_0
+       105: iload_1
+       106: iconst_1
+       107: iadd
+       108: invokevirtual #22                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+       111: invokevirtual #25                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+       114: invokevirtual #26                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+       117: astore_0
+       118: goto          72
+       121: aload_0
+       122: iconst_1
+       123: invokestatic  #31                 // Method javax/microedition/rms/RecordStore.openRecordStore:(Ljava/lang/String;Z)Ljavax/microedition/rms/RecordStore;
+       126: dup
+       127: astore_1
+       128: invokevirtual #29                 // Method javax/microedition/rms/RecordStore.getNumRecords:()I
+       131: ifne          144
+       134: aload_1
+       135: invokevirtual #28                 // Method javax/microedition/rms/RecordStore.closeRecordStore:()V
+       138: goto          142
+       141: pop
+       142: iconst_0
+       143: ireturn
+       144: aload_1
+       145: iconst_1
+       146: invokevirtual #30                 // Method javax/microedition/rms/RecordStore.getRecord:(I)[B
+       149: putstatic     #13                 // Field a:[B
+       152: aload_0
+       153: putstatic     #12                 // Field a:Ljava/lang/String;
+       156: aload_1
+       157: invokevirtual #28                 // Method javax/microedition/rms/RecordStore.closeRecordStore:()V
+       160: goto          164
+       163: pop
+       164: iconst_1
+       165: ireturn
+       166: dup
+       167: astore_1
+       168: invokevirtual #27                 // Method java/lang/Throwable.printStackTrace:()V
+       171: iconst_0
+       172: ireturn
+      Exception table:
+         from    to  target type
+             6    41    45   Class java/lang/Exception
+           134   138   141   Class java/lang/Exception
+           156   160   163   Class java/lang/Exception
+           121   143   166   Class java/lang/Exception
+           144   165   166   Class java/lang/Exception
+      StackMap: number_of_entries = 12
+        frame_type = 255 offset = 6
+          locals = [ class java/lang/String ]
+          stack = []
+        frame_type = 255 offset = 42
+          locals = [ class java/lang/String, class java/io/InputStream ]
+          stack = []
+        frame_type = 255 offset = 45
+          locals = [ class java/lang/String ]
+          stack = [ class java/lang/Exception ]
+        frame_type = 255 offset = 54
+          locals = [ class java/lang/String, class java/lang/Object ]
+          stack = []
+        frame_type = 255 offset = 72
+          locals = [ class java/lang/String ]
+          stack = []
+        frame_type = 255 offset = 121
+          locals = [ class java/lang/String, int ]
+          stack = []
+        frame_type = 255 offset = 141
+          locals = [ class java/lang/String, class javax/microedition/rms/RecordStore ]
+          stack = [ class java/lang/Exception ]
+        frame_type = 255 offset = 142
+          locals = [ class java/lang/String, class javax/microedition/rms/RecordStore ]
+          stack = []
+        frame_type = 255 offset = 144
+          locals = [ class java/lang/String, class javax/microedition/rms/RecordStore ]
+          stack = []
+        frame_type = 255 offset = 163
+          locals = [ class java/lang/String, class javax/microedition/rms/RecordStore ]
+          stack = [ class java/lang/Exception ]
+        frame_type = 255 offset = 164
+          locals = [ class java/lang/String, class javax/microedition/rms/RecordStore ]
+          stack = []
+        frame_type = 255 offset = 166
+          locals = [ class java/lang/String ]
+          stack = [ class java/lang/Exception ]
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: aconst_null
+         1: putstatic     #12                 // Field a:Ljava/lang/String;
+         4: aconst_null
+         5: putstatic     #13                 // Field a:[B
+         8: return
+}

@@ -1,0 +1,448 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/rpg/g.class
+  Last modified 13 de out. de 2026; size 1288 bytes
+  SHA-256 checksum ad12beca5482c7c2a0cd75a78e73ec1af5e9c6af7e67199db4d102517243425e
+public final class rpg.g
+  minor version: 3
+  major version: 45
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #5                          // rpg/g
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 1, methods: 14, attributes: 0
+Constant pool:
+   #1 = Class              #50            // java/lang/Math
+   #2 = Class              #51            // java/lang/Object
+   #3 = Class              #52            // java/lang/System
+   #4 = Class              #53            // java/util/Random
+   #5 = Class              #55            // rpg/g
+   #6 = Long               1000l
+   #8 = Long               4294967295l
+  #10 = Fieldref           #5.#22         // rpg/g.a:Ljava/util/Random;
+  #11 = Methodref          #1.#23         // java/lang/Math.abs:(I)I
+  #12 = Methodref          #2.#19         // java/lang/Object."<init>":()V
+  #13 = Methodref          #3.#24         // java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+  #14 = Methodref          #3.#25         // java/lang/System.currentTimeMillis:()J
+  #15 = Methodref          #4.#19         // java/util/Random."<init>":()V
+  #16 = Methodref          #4.#26         // java/util/Random.nextInt:()I
+  #17 = Methodref          #5.#20         // rpg/g.a:(I[BI)V
+  #18 = Methodref          #5.#21         // rpg/g.a:([BI)I
+  #19 = NameAndType        #42:#29        // "<init>":()V
+  #20 = NameAndType        #45:#32        // a:(I[BI)V
+  #21 = NameAndType        #45:#37        // a:([BI)I
+  #22 = NameAndType        #45:#44        // a:Ljava/util/Random;
+  #23 = NameAndType        #46:#30        // abs:(I)I
+  #24 = NameAndType        #47:#34        // arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+  #25 = NameAndType        #49:#28        // currentTimeMillis:()J
+  #26 = NameAndType        #54:#27        // nextInt:()I
+  #27 = Utf8               ()I
+  #28 = Utf8               ()J
+  #29 = Utf8               ()V
+  #30 = Utf8               (I)I
+  #31 = Utf8               (II)I
+  #32 = Utf8               (I[BI)V
+  #33 = Utf8               (J[BI)V
+  #34 = Utf8               (Ljava/lang/Object;ILjava/lang/Object;II)V
+  #35 = Utf8               (Ljava/util/Random;II)I
+  #36 = Utf8               (S[BI)V
+  #37 = Utf8               ([BI)I
+  #38 = Utf8               ([BI)J
+  #39 = Utf8               ([BI)S
+  #40 = Utf8               ([B[B)[B
+  #41 = Utf8               <clinit>
+  #42 = Utf8               <init>
+  #43 = Utf8               Code
+  #44 = Utf8               Ljava/util/Random;
+  #45 = Utf8               a
+  #46 = Utf8               abs
+  #47 = Utf8               arraycopy
+  #48 = Utf8               b
+  #49 = Utf8               currentTimeMillis
+  #50 = Utf8               java/lang/Math
+  #51 = Utf8               java/lang/Object
+  #52 = Utf8               java/lang/System
+  #53 = Utf8               java/util/Random
+  #54 = Utf8               nextInt
+  #55 = Utf8               rpg/g
+  #56 = Utf8               StackMap
+{
+  private static java.util.Random a;
+    descriptor: Ljava/util/Random;
+    flags: (0x000a) ACC_PRIVATE, ACC_STATIC
+
+  public rpg.g();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #12                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static final byte[] a(byte[], byte[]);
+    descriptor: ([B[B)[B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=5, locals=3, args_size=2
+         0: aload_0
+         1: arraylength
+         2: aload_1
+         3: arraylength
+         4: iadd
+         5: newarray       byte
+         7: astore_2
+         8: aload_0
+         9: iconst_0
+        10: aload_2
+        11: iconst_0
+        12: aload_0
+        13: arraylength
+        14: invokestatic  #13                 // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+        17: aload_1
+        18: iconst_0
+        19: aload_2
+        20: aload_0
+        21: arraylength
+        22: aload_1
+        23: arraylength
+        24: invokestatic  #13                 // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+        27: aload_2
+        28: areturn
+
+  public static long a(byte[], int);
+    descriptor: ([BI)J
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=6, locals=2, args_size=2
+         0: aload_0
+         1: iload_1
+         2: invokestatic  #18                 // Method a:([BI)I
+         5: i2l
+         6: bipush        32
+         8: lshl
+         9: aload_0
+        10: iload_1
+        11: iconst_4
+        12: iadd
+        13: invokestatic  #18                 // Method a:([BI)I
+        16: i2l
+        17: ldc2_w        #8                  // long 4294967295l
+        20: land
+        21: lor
+        22: lreturn
+
+  public static final int a(byte[], int);
+    descriptor: ([BI)I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=4, locals=2, args_size=2
+         0: aload_0
+         1: iload_1
+         2: baload
+         3: sipush        255
+         6: iand
+         7: bipush        24
+         9: ishl
+        10: aload_0
+        11: iload_1
+        12: iconst_1
+        13: iadd
+        14: baload
+        15: sipush        255
+        18: iand
+        19: bipush        16
+        21: ishl
+        22: ior
+        23: aload_0
+        24: iload_1
+        25: iconst_2
+        26: iadd
+        27: baload
+        28: sipush        255
+        31: iand
+        32: bipush        8
+        34: ishl
+        35: ior
+        36: aload_0
+        37: iload_1
+        38: iconst_3
+        39: iadd
+        40: baload
+        41: sipush        255
+        44: iand
+        45: ior
+        46: ireturn
+
+  public static final int b(byte[], int);
+    descriptor: ([BI)I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=4, locals=2, args_size=2
+         0: aload_0
+         1: iload_1
+         2: iconst_3
+         3: iadd
+         4: baload
+         5: sipush        255
+         8: iand
+         9: bipush        24
+        11: ishl
+        12: aload_0
+        13: iload_1
+        14: iconst_2
+        15: iadd
+        16: baload
+        17: sipush        255
+        20: iand
+        21: bipush        16
+        23: ishl
+        24: ior
+        25: aload_0
+        26: iload_1
+        27: iconst_1
+        28: iadd
+        29: baload
+        30: sipush        255
+        33: iand
+        34: bipush        8
+        36: ishl
+        37: ior
+        38: aload_0
+        39: iload_1
+        40: baload
+        41: sipush        255
+        44: iand
+        45: ior
+        46: ireturn
+
+  public static final short a(byte[], int);
+    descriptor: ([BI)S
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=3, locals=2, args_size=2
+         0: aload_0
+         1: iload_1
+         2: iconst_1
+         3: iadd
+         4: baload
+         5: sipush        255
+         8: iand
+         9: bipush        8
+        11: ishl
+        12: aload_0
+        13: iload_1
+        14: baload
+        15: sipush        255
+        18: iand
+        19: ior
+        20: i2s
+        21: ireturn
+
+  public static final short b(byte[], int);
+    descriptor: ([BI)S
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=4, locals=2, args_size=2
+         0: aload_0
+         1: iload_1
+         2: baload
+         3: sipush        255
+         6: iand
+         7: bipush        8
+         9: ishl
+        10: aload_0
+        11: iload_1
+        12: iconst_1
+        13: iadd
+        14: baload
+        15: sipush        255
+        18: iand
+        19: ior
+        20: i2s
+        21: ireturn
+
+  public static final void a(int, byte[], int);
+    descriptor: (I[BI)V
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=5, locals=4, args_size=3
+         0: iconst_4
+         1: newarray       byte
+         3: dup
+         4: iconst_0
+         5: iconst_0
+         6: bastore
+         7: dup
+         8: iconst_1
+         9: iconst_0
+        10: bastore
+        11: dup
+        12: iconst_2
+        13: iconst_0
+        14: bastore
+        15: dup
+        16: iconst_3
+        17: iconst_0
+        18: bastore
+        19: astore_3
+        20: iload_0
+        21: istore_0
+        22: aload_3
+        23: iconst_0
+        24: iload_0
+        25: bipush        24
+        27: iushr
+        28: i2b
+        29: bastore
+        30: aload_3
+        31: iconst_1
+        32: iload_0
+        33: bipush        16
+        35: ishr
+        36: i2b
+        37: bastore
+        38: aload_3
+        39: iconst_2
+        40: iload_0
+        41: bipush        8
+        43: ishr
+        44: i2b
+        45: bastore
+        46: aload_3
+        47: iconst_3
+        48: iload_0
+        49: i2b
+        50: bastore
+        51: aload_3
+        52: iconst_0
+        53: aload_1
+        54: iload_2
+        55: iconst_4
+        56: invokestatic  #13                 // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+        59: return
+
+  public static final void a(short, byte[], int);
+    descriptor: (S[BI)V
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=4, locals=3, args_size=3
+         0: aload_1
+         1: iload_2
+         2: iload_0
+         3: bipush        8
+         5: ishr
+         6: i2b
+         7: bastore
+         8: aload_1
+         9: iload_2
+        10: iconst_1
+        11: iadd
+        12: iload_0
+        13: i2b
+        14: bastore
+        15: return
+
+  public static void a(long, byte[], int);
+    descriptor: (J[BI)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=4, locals=5, args_size=3
+         0: lload_0
+         1: bipush        32
+         3: lshr
+         4: l2i
+         5: dup
+         6: istore        4
+         8: aload_2
+         9: iload_3
+        10: invokestatic  #17                 // Method a:(I[BI)V
+        13: lload_0
+        14: l2i
+        15: dup
+        16: istore        4
+        18: aload_2
+        19: iload_3
+        20: iconst_4
+        21: iadd
+        22: invokestatic  #17                 // Method a:(I[BI)V
+        25: return
+
+  public static final synchronized int a(int, int);
+    descriptor: (II)I
+    flags: (0x0039) ACC_PUBLIC, ACC_STATIC, ACC_FINAL, ACC_SYNCHRONIZED
+    Code:
+      stack=2, locals=2, args_size=2
+         0: iload_1
+         1: iload_0
+         2: isub
+         3: iconst_1
+         4: iadd
+         5: dup
+         6: istore_1
+         7: ifne          12
+        10: iconst_0
+        11: ireturn
+        12: getstatic     #10                 // Field a:Ljava/util/Random;
+        15: invokevirtual #16                 // Method java/util/Random.nextInt:()I
+        18: invokestatic  #11                 // Method java/lang/Math.abs:(I)I
+        21: iload_1
+        22: irem
+        23: istore_1
+        24: iload_0
+        25: iload_1
+        26: iadd
+        27: ireturn
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 12
+          locals = [ int, int ]
+          stack = []
+
+  public static final int a(java.util.Random, int, int);
+    descriptor: (Ljava/util/Random;II)I
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=2, locals=3, args_size=3
+         0: iload_2
+         1: iload_1
+         2: isub
+         3: iconst_1
+         4: iadd
+         5: dup
+         6: istore_2
+         7: ifne          12
+        10: iconst_0
+        11: ireturn
+        12: aload_0
+        13: invokevirtual #16                 // Method java/util/Random.nextInt:()I
+        16: invokestatic  #11                 // Method java/lang/Math.abs:(I)I
+        19: iload_2
+        20: irem
+        21: istore_0
+        22: iload_1
+        23: iload_0
+        24: iadd
+        25: ireturn
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 12
+          locals = [ class java/util/Random, int, int ]
+          stack = []
+
+  public static final long a();
+    descriptor: ()J
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=4, locals=0, args_size=0
+         0: invokestatic  #14                 // Method java/lang/System.currentTimeMillis:()J
+         3: ldc2_w        #6                  // long 1000l
+         6: ldiv
+         7: lreturn
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=2, locals=0, args_size=0
+         0: new           #4                  // class java/util/Random
+         3: dup
+         4: invokespecial #15                 // Method java/util/Random."<init>":()V
+         7: putstatic     #10                 // Field a:Ljava/util/Random;
+        10: return
+}

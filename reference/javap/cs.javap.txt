@@ -1,0 +1,703 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/cs.class
+  Last modified 13 de out. de 2026; size 2248 bytes
+  SHA-256 checksum 2a07af2c098a167f6ddd08a9e2d3281667bbf5d2414caf5a1120df7c69d062ea
+class cs extends af
+  minor version: 3
+  major version: 45
+  flags: (0x0020) ACC_SUPER
+  this_class: #5                          // cs
+  super_class: #1                         // af
+  interfaces: 0, fields: 2, methods: 10, attributes: 0
+Constant pool:
+    #1 = Class              #130          // af
+    #2 = Class              #131          // al
+    #3 = Class              #134          // cd
+    #4 = Class              #135          // cq
+    #5 = Class              #136          // cs
+    #6 = Class              #137          // di
+    #7 = Class              #138          // dt
+    #8 = Class              #139          // du
+    #9 = Class              #142          // g
+   #10 = Class              #145          // k
+   #11 = Class              #147          // rpg/e
+   #12 = Class              #148          // s
+   #13 = Class              #149          // t
+   #14 = Fieldref           #1.#67        // af.a:B
+   #15 = Fieldref           #1.#71        // af.a:[B
+   #16 = Fieldref           #1.#79        // af.b:I
+   #17 = Fieldref           #1.#80        // af.b:[B
+   #18 = Fieldref           #1.#84        // af.c:[B
+   #19 = Fieldref           #2.#78        // al.b:B
+   #20 = Fieldref           #3.#69        // cd.a:Ls;
+   #21 = Fieldref           #3.#86        // cd.f:I
+   #22 = Fieldref           #3.#87        // cd.f:Z
+   #23 = Fieldref           #3.#90        // cd.g:Z
+   #24 = Fieldref           #3.#91        // cd.h:B
+   #25 = Fieldref           #3.#94        // cd.k:I
+   #26 = Fieldref           #5.#72        // cs.a:[Laf;
+   #27 = Fieldref           #5.#89        // cs.g:B
+   #28 = Fieldref           #6.#68        // di.a:Lg;
+   #29 = Fieldref           #7.#69        // dt.a:Ls;
+   #30 = Fieldref           #7.#73        // dt.a:[Ldt;
+   #31 = Fieldref           #8.#92        // du.h:S
+   #32 = Fieldref           #8.#93        // du.i:S
+   #33 = Fieldref           #8.#96        // du.t:B
+   #34 = Fieldref           #10.#70       // k.a:S
+   #35 = Methodref          #1.#58        // af."<init>":(SSSBLs;)V
+   #36 = Methodref          #2.#75        // al.b:(B)V
+   #37 = Methodref          #2.#82        // al.c:(B)V
+   #38 = Methodref          #2.#88        // al.g:()Z
+   #39 = Methodref          #3.#60        // cd.a:()S
+   #40 = Methodref          #3.#62        // cd.a:()[Lal;
+   #41 = Methodref          #3.#64        // cd.a:(B)V
+   #42 = Methodref          #3.#77        // cd.b:(Lal;IB)Z
+   #43 = Methodref          #3.#81        // cd.c:()I
+   #44 = Methodref          #3.#95        // cd.m:()V
+   #45 = Methodref          #4.#59        // cq.A:()V
+   #46 = Methodref          #4.#97        // cq.z:()V
+   #47 = Methodref          #5.#61        // cs.a:()Z
+   #48 = Methodref          #5.#97        // cs.z:()V
+   #49 = Methodref          #9.#65        // g.a:(I)V
+   #50 = Methodref          #9.#76        // g.b:(II)V
+   #51 = Methodref          #9.#83        // g.c:(II)V
+   #52 = Methodref          #9.#85        // g.e:(Ldu;)V
+   #53 = Methodref          #10.#74       // k.b:()Z
+   #54 = Methodref          #11.#66       // rpg/e.a:([BI)[B
+   #55 = Methodref          #12.#63       // s.a:(B)B
+   #56 = Methodref          #13.#57       // t."<init>":(BSSLs;BZLcd;IBB)V
+   #57 = NameAndType        #117:#106     // "<init>":(BSSLs;BZLcd;IBB)V
+   #58 = NameAndType        #117:#114     // "<init>":(SSSBLs;)V
+   #59 = NameAndType        #118:#101     // A:()V
+   #60 = NameAndType        #129:#100     // a:()S
+   #61 = NameAndType        #129:#102     // a:()Z
+   #62 = NameAndType        #129:#103     // a:()[Lal;
+   #63 = NameAndType        #129:#104     // a:(B)B
+   #64 = NameAndType        #129:#105     // a:(B)V
+   #65 = NameAndType        #129:#107     // a:(I)V
+   #66 = NameAndType        #129:#115     // a:([BI)[B
+   #67 = NameAndType        #129:#119     // a:B
+   #68 = NameAndType        #129:#122     // a:Lg;
+   #69 = NameAndType        #129:#123     // a:Ls;
+   #70 = NameAndType        #129:#124     // a:S
+   #71 = NameAndType        #129:#126     // a:[B
+   #72 = NameAndType        #129:#127     // a:[Laf;
+   #73 = NameAndType        #129:#128     // a:[Ldt;
+   #74 = NameAndType        #132:#102     // b:()Z
+   #75 = NameAndType        #132:#105     // b:(B)V
+   #76 = NameAndType        #132:#109     // b:(II)V
+   #77 = NameAndType        #132:#111     // b:(Lal;IB)Z
+   #78 = NameAndType        #132:#119     // b:B
+   #79 = NameAndType        #132:#121     // b:I
+   #80 = NameAndType        #132:#126     // b:[B
+   #81 = NameAndType        #133:#99      // c:()I
+   #82 = NameAndType        #133:#105     // c:(B)V
+   #83 = NameAndType        #133:#109     // c:(II)V
+   #84 = NameAndType        #133:#126     // c:[B
+   #85 = NameAndType        #140:#112     // e:(Ldu;)V
+   #86 = NameAndType        #141:#121     // f:I
+   #87 = NameAndType        #141:#125     // f:Z
+   #88 = NameAndType        #142:#102     // g:()Z
+   #89 = NameAndType        #142:#119     // g:B
+   #90 = NameAndType        #142:#125     // g:Z
+   #91 = NameAndType        #143:#119     // h:B
+   #92 = NameAndType        #143:#124     // h:S
+   #93 = NameAndType        #144:#124     // i:S
+   #94 = NameAndType        #145:#121     // k:I
+   #95 = NameAndType        #146:#101     // m:()V
+   #96 = NameAndType        #149:#119     // t:B
+   #97 = NameAndType        #150:#101     // z:()V
+   #98 = Class              #152          // "[Lal;"
+   #99 = Utf8               ()I
+  #100 = Utf8               ()S
+  #101 = Utf8               ()V
+  #102 = Utf8               ()Z
+  #103 = Utf8               ()[Lal;
+  #104 = Utf8               (B)B
+  #105 = Utf8               (B)V
+  #106 = Utf8               (BSSLs;BZLcd;IBB)V
+  #107 = Utf8               (I)V
+  #108 = Utf8               (I)Z
+  #109 = Utf8               (II)V
+  #110 = Utf8               (Laf;B)V
+  #111 = Utf8               (Lal;IB)Z
+  #112 = Utf8               (Ldu;)V
+  #113 = Utf8               (SSSB)V
+  #114 = Utf8               (SSSBLs;)V
+  #115 = Utf8               ([BI)[B
+  #116 = Utf8               <clinit>
+  #117 = Utf8               <init>
+  #118 = Utf8               A
+  #119 = Utf8               B
+  #120 = Utf8               Code
+  #121 = Utf8               I
+  #122 = Utf8               Lg;
+  #123 = Utf8               Ls;
+  #124 = Utf8               S
+  #125 = Utf8               Z
+  #126 = Utf8               [B
+  #127 = Utf8               [Laf;
+  #128 = Utf8               [Ldt;
+  #129 = Utf8               a
+  #130 = Utf8               af
+  #131 = Utf8               al
+  #132 = Utf8               b
+  #133 = Utf8               c
+  #134 = Utf8               cd
+  #135 = Utf8               cq
+  #136 = Utf8               cs
+  #137 = Utf8               di
+  #138 = Utf8               dt
+  #139 = Utf8               du
+  #140 = Utf8               e
+  #141 = Utf8               f
+  #142 = Utf8               g
+  #143 = Utf8               h
+  #144 = Utf8               i
+  #145 = Utf8               k
+  #146 = Utf8               m
+  #147 = Utf8               rpg/e
+  #148 = Utf8               s
+  #149 = Utf8               t
+  #150 = Utf8               z
+  #151 = Utf8               StackMap
+  #152 = Utf8               [Lal;
+{
+  public static byte g;
+    descriptor: B
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+
+  protected static af[] a;
+    descriptor: [Laf;
+    flags: (0x000c) ACC_PROTECTED, ACC_STATIC
+
+  protected cs(short, short, short, byte);
+    descriptor: (SSSB)V
+    flags: (0x0004) ACC_PROTECTED
+    Code:
+      stack=7, locals=5, args_size=5
+         0: aload_0
+         1: iload_1
+         2: iload_2
+         3: iload_3
+         4: iload         4
+         6: getstatic     #30                 // Field dt.a:[Ldt;
+         9: iload         4
+        11: aaload
+        12: getfield      #29                 // Field dt.a:Ls;
+        15: invokespecial #35                 // Method af."<init>":(SSSBLs;)V
+        18: aload_0
+        19: getstatic     #15                 // Field af.a:[B
+        22: bipush        8
+        24: invokestatic  #54                 // Method rpg/e.a:([BI)[B
+        27: putfield      #17                 // Field af.b:[B
+        30: aload_0
+        31: getstatic     #15                 // Field af.a:[B
+        34: bipush        9
+        36: invokestatic  #54                 // Method rpg/e.a:([BI)[B
+        39: putfield      #18                 // Field af.c:[B
+        42: iload         4
+        44: putstatic     #27                 // Field g:B
+        47: aload_0
+        48: iconst_m1
+        49: putfield      #16                 // Field af.b:I
+        52: getstatic     #26                 // Field a:[Laf;
+        55: ifnonnull     65
+        58: iconst_3
+        59: anewarray     #1                  // class af
+        62: putstatic     #26                 // Field a:[Laf;
+        65: aload_0
+        66: iconst_1
+        67: invokevirtual #37                 // Method al.c:(B)V
+        70: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 65
+          locals = [ class cs, int, int, int, int ]
+          stack = []
+
+  public static final void a(af, byte);
+    descriptor: (Laf;B)V
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=3, locals=2, args_size=2
+         0: getstatic     #26                 // Field a:[Laf;
+         3: ifnonnull     13
+         6: iconst_3
+         7: anewarray     #4                  // class cq
+        10: putstatic     #26                 // Field a:[Laf;
+        13: getstatic     #26                 // Field a:[Laf;
+        16: iload_1
+        17: aload_0
+        18: aastore
+        19: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 13
+          locals = [ class af, int ]
+          stack = []
+
+  protected void a();
+    descriptor: ()V
+    flags: (0x0004) ACC_PROTECTED
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #19                 // Field al.b:B
+         4: lookupswitch  { // 2
+
+                       3: 32
+
+                       6: 41
+                 default: 50
+            }
+        32: aload_0
+        33: bipush        14
+        35: putfield      #24                 // Field cd.h:B
+        38: goto          55
+        41: aload_0
+        42: bipush        7
+        44: putfield      #24                 // Field cd.h:B
+        47: goto          55
+        50: aload_0
+        51: iconst_0
+        52: putfield      #24                 // Field cd.h:B
+        55: aload_0
+        56: aload_0
+        57: getfield      #20                 // Field cd.a:Ls;
+        60: aload_0
+        61: getfield      #24                 // Field cd.h:B
+        64: invokevirtual #55                 // Method s.a:(B)B
+        67: putfield      #21                 // Field cd.f:I
+        70: return
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 32
+          locals = [ class cs ]
+          stack = []
+        frame_type = 255 offset = 41
+          locals = [ class cs ]
+          stack = []
+        frame_type = 255 offset = 50
+          locals = [ class cs ]
+          stack = []
+        frame_type = 255 offset = 55
+          locals = [ class cs ]
+          stack = []
+
+  protected final boolean a();
+    descriptor: ()Z
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=2, locals=1, args_size=1
+         0: getstatic     #26                 // Field a:[Laf;
+         3: iconst_0
+         4: aaload
+         5: ifnull        19
+         8: getstatic     #26                 // Field a:[Laf;
+        11: iconst_0
+        12: aaload
+        13: invokevirtual #53                 // Method k.b:()Z
+        16: ifeq          77
+        19: getstatic     #26                 // Field a:[Laf;
+        22: iconst_1
+        23: aaload
+        24: ifnull        38
+        27: getstatic     #26                 // Field a:[Laf;
+        30: iconst_1
+        31: aaload
+        32: invokevirtual #53                 // Method k.b:()Z
+        35: ifeq          77
+        38: getstatic     #26                 // Field a:[Laf;
+        41: iconst_2
+        42: aaload
+        43: ifnull        57
+        46: getstatic     #26                 // Field a:[Laf;
+        49: iconst_2
+        50: aaload
+        51: invokevirtual #53                 // Method k.b:()Z
+        54: ifeq          77
+        57: aload_0
+        58: getfield      #22                 // Field cd.f:Z
+        61: ifne          77
+        64: aload_0
+        65: iconst_0
+        66: putfield      #25                 // Field cd.k:I
+        69: aload_0
+        70: bipush        6
+        72: invokevirtual #41                 // Method cd.a:(B)V
+        75: iconst_1
+        76: ireturn
+        77: iconst_0
+        78: ireturn
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 19
+          locals = [ class cs ]
+          stack = []
+        frame_type = 255 offset = 38
+          locals = [ class cs ]
+          stack = []
+        frame_type = 255 offset = 57
+          locals = [ class cs ]
+          stack = []
+        frame_type = 255 offset = 77
+          locals = [ class cs ]
+          stack = []
+
+  protected final void k();
+    descriptor: ()V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=2, locals=2, args_size=1
+         0: aload_0
+         1: invokevirtual #47                 // Method a:()Z
+         4: ifne          123
+         7: aload_0
+         8: getfield      #34                 // Field k.a:S
+        11: ifgt          123
+        14: aload_0
+        15: getfield      #22                 // Field cd.f:Z
+        18: ifne          123
+        21: aload_0
+        22: invokespecial #48                 // Method z:()V
+        25: aload_0
+        26: getfield      #14                 // Field af.a:B
+        29: tableswitch   { // 0 to 3
+
+                       0: 60
+
+                       1: 60
+
+                       2: 60
+
+                       3: 86
+                 default: 123
+            }
+        60: getstatic     #26                 // Field a:[Laf;
+        63: aload_0
+        64: getfield      #14                 // Field af.a:B
+        67: aaload
+        68: ifnull        123
+        71: getstatic     #26                 // Field a:[Laf;
+        74: aload_0
+        75: getfield      #14                 // Field af.a:B
+        78: aaload
+        79: checkcast     #4                  // class cq
+        82: invokevirtual #46                 // Method cq.z:()V
+        85: return
+        86: iconst_0
+        87: istore_1
+        88: iload_1
+        89: iconst_3
+        90: if_icmpge     118
+        93: getstatic     #26                 // Field a:[Laf;
+        96: iload_1
+        97: aaload
+        98: ifnull        112
+       101: getstatic     #26                 // Field a:[Laf;
+       104: iload_1
+       105: aaload
+       106: checkcast     #4                  // class cq
+       109: invokevirtual #45                 // Method cq.A:()V
+       112: iinc          1, 1
+       115: goto          88
+       118: aload_0
+       119: iconst_3
+       120: invokevirtual #41                 // Method cd.a:(B)V
+       123: return
+      StackMap: number_of_entries = 6
+        frame_type = 255 offset = 60
+          locals = [ class cs ]
+          stack = []
+        frame_type = 255 offset = 86
+          locals = [ class cs ]
+          stack = []
+        frame_type = 255 offset = 88
+          locals = [ class cs, int ]
+          stack = []
+        frame_type = 255 offset = 112
+          locals = [ class cs, int ]
+          stack = []
+        frame_type = 255 offset = 118
+          locals = [ class cs, int ]
+          stack = []
+        frame_type = 255 offset = 123
+          locals = [ class cs ]
+          stack = []
+
+  private void z();
+    descriptor: ()V
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: aload_0
+         2: getfield      #16                 // Field af.b:I
+         5: iconst_1
+         6: iadd
+         7: aload_0
+         8: getfield      #17                 // Field af.b:[B
+        11: arraylength
+        12: irem
+        13: putfield      #16                 // Field af.b:I
+        16: aload_0
+        17: aload_0
+        18: getfield      #17                 // Field af.b:[B
+        21: aload_0
+        22: getfield      #16                 // Field af.b:I
+        25: baload
+        26: putfield      #14                 // Field af.a:B
+        29: aload_0
+        30: aload_0
+        31: getfield      #18                 // Field af.c:[B
+        34: aload_0
+        35: getfield      #14                 // Field af.a:B
+        38: baload
+        39: i2s
+        40: putfield      #34                 // Field k.a:S
+        43: aload_0
+        44: getfield      #14                 // Field af.a:B
+        47: tableswitch   { // 0 to 2
+
+                       0: 72
+
+                       1: 72
+
+                       2: 72
+                 default: 116
+            }
+        72: getstatic     #26                 // Field a:[Laf;
+        75: aload_0
+        76: getfield      #14                 // Field af.a:B
+        79: aaload
+        80: ifnull        111
+        83: getstatic     #26                 // Field a:[Laf;
+        86: aload_0
+        87: getfield      #14                 // Field af.a:B
+        90: aaload
+        91: invokevirtual #43                 // Method cd.c:()I
+        94: ifle          111
+        97: getstatic     #26                 // Field a:[Laf;
+       100: aload_0
+       101: getfield      #14                 // Field af.a:B
+       104: aaload
+       105: getfield      #23                 // Field cd.g:Z
+       108: ifeq          116
+       111: aload_0
+       112: astore_0
+       113: goto          0
+       116: return
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 0
+          locals = [ class cs ]
+          stack = []
+        frame_type = 255 offset = 72
+          locals = [ class cs ]
+          stack = []
+        frame_type = 255 offset = 111
+          locals = [ class cs ]
+          stack = []
+        frame_type = 255 offset = 116
+          locals = [ class cs ]
+          stack = []
+
+  protected boolean a(int);
+    descriptor: (I)Z
+    flags: (0x0004) ACC_PROTECTED
+    Code:
+      stack=11, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #14                 // Field af.a:B
+         4: iconst_3
+         5: if_icmpne     132
+         8: iload_1
+         9: tableswitch   { // 10 to 14
+
+                      10: 44
+
+                      11: 51
+
+                      12: 92
+
+                      13: 103
+
+                      14: 114
+                 default: 122
+            }
+        44: iconst_1
+        45: invokestatic  #49                 // Method g.a:(I)V
+        48: goto          122
+        51: getstatic     #28                 // Field di.a:Lg;
+        54: iconst_2
+        55: iconst_2
+        56: invokevirtual #51                 // Method g.c:(II)V
+        59: new           #13                 // class t
+        62: iconst_0
+        63: aload_0
+        64: getfield      #31                 // Field du.h:S
+        67: aload_0
+        68: getfield      #32                 // Field du.i:S
+        71: bipush        112
+        73: iadd
+        74: i2s
+        75: aload_0
+        76: getfield      #20                 // Field cd.a:Ls;
+        79: bipush        22
+        81: iconst_0
+        82: aconst_null
+        83: iconst_0
+        84: iconst_0
+        85: iconst_0
+        86: invokespecial #56                 // Method t."<init>":(BSSLs;BZLcd;IBB)V
+        89: goto          122
+        92: getstatic     #28                 // Field di.a:Lg;
+        95: iconst_2
+        96: iconst_1
+        97: invokevirtual #51                 // Method g.c:(II)V
+       100: goto          122
+       103: getstatic     #28                 // Field di.a:Lg;
+       106: iconst_2
+       107: iconst_3
+       108: invokevirtual #50                 // Method g.b:(II)V
+       111: goto          122
+       114: getstatic     #28                 // Field di.a:Lg;
+       117: iconst_2
+       118: iconst_4
+       119: invokevirtual #51                 // Method g.c:(II)V
+       122: iload_1
+       123: bipush        11
+       125: if_icmpne     130
+       128: iconst_1
+       129: ireturn
+       130: iconst_0
+       131: ireturn
+       132: iconst_0
+       133: ireturn
+      StackMap: number_of_entries = 8
+        frame_type = 255 offset = 44
+          locals = [ class cs, int ]
+          stack = []
+        frame_type = 255 offset = 51
+          locals = [ class cs, int ]
+          stack = []
+        frame_type = 255 offset = 92
+          locals = [ class cs, int ]
+          stack = []
+        frame_type = 255 offset = 103
+          locals = [ class cs, int ]
+          stack = []
+        frame_type = 255 offset = 114
+          locals = [ class cs, int ]
+          stack = []
+        frame_type = 255 offset = 122
+          locals = [ class cs, int ]
+          stack = []
+        frame_type = 255 offset = 130
+          locals = [ class cs, int ]
+          stack = []
+        frame_type = 255 offset = 132
+          locals = [ class cs, int ]
+          stack = []
+
+  protected void b();
+    descriptor: ()V
+    flags: (0x0004) ACC_PROTECTED
+    Code:
+      stack=4, locals=3, args_size=1
+         0: invokestatic  #40                 // Method cd.a:()[Lal;
+         3: astore_1
+         4: iconst_0
+         5: istore_2
+         6: iload_2
+         7: iconst_2
+         8: if_icmpge     68
+        11: aload_1
+        12: iload_2
+        13: aaload
+        14: ifnull        62
+        17: aload_1
+        18: iload_2
+        19: aaload
+        20: getfield      #33                 // Field du.t:B
+        23: aload_0
+        24: getfield      #33                 // Field du.t:B
+        27: bipush        7
+        29: iadd
+        30: if_icmpgt     62
+        33: aload_0
+        34: aload_1
+        35: iload_2
+        36: aaload
+        37: aload_0
+        38: invokevirtual #39                 // Method cd.a:()S
+        41: iconst_2
+        42: invokevirtual #42                 // Method cd.b:(Lal;IB)Z
+        45: pop
+        46: aload_1
+        47: iload_2
+        48: aaload
+        49: invokevirtual #38                 // Method al.g:()Z
+        52: ifeq          62
+        55: aload_1
+        56: iload_2
+        57: aaload
+        58: iconst_2
+        59: invokevirtual #36                 // Method al.b:(B)V
+        62: iinc          2, 1
+        65: goto          6
+        68: return
+      StackMap: number_of_entries = 3
+        frame_type = 255 offset = 6
+          locals = [ class cs, class "[Lal;", int ]
+          stack = []
+        frame_type = 255 offset = 62
+          locals = [ class cs, class "[Lal;", int ]
+          stack = []
+        frame_type = 255 offset = 68
+          locals = [ class cs, class "[Lal;", int ]
+          stack = []
+
+  protected final void m();
+    descriptor: ()V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=3, locals=1, args_size=1
+         0: getstatic     #26                 // Field a:[Laf;
+         3: iconst_0
+         4: aaload
+         5: invokevirtual #44                 // Method cd.m:()V
+         8: getstatic     #26                 // Field a:[Laf;
+        11: iconst_1
+        12: aaload
+        13: invokevirtual #44                 // Method cd.m:()V
+        16: getstatic     #26                 // Field a:[Laf;
+        19: iconst_2
+        20: aaload
+        21: invokevirtual #44                 // Method cd.m:()V
+        24: getstatic     #28                 // Field di.a:Lg;
+        27: aload_0
+        28: invokevirtual #52                 // Method g.e:(Ldu;)V
+        31: getstatic     #28                 // Field di.a:Lg;
+        34: getstatic     #26                 // Field a:[Laf;
+        37: iconst_0
+        38: aaload
+        39: invokevirtual #52                 // Method g.e:(Ldu;)V
+        42: getstatic     #28                 // Field di.a:Lg;
+        45: getstatic     #26                 // Field a:[Laf;
+        48: iconst_1
+        49: aaload
+        50: invokevirtual #52                 // Method g.e:(Ldu;)V
+        53: getstatic     #28                 // Field di.a:Lg;
+        56: getstatic     #26                 // Field a:[Laf;
+        59: iconst_2
+        60: aaload
+        61: invokevirtual #52                 // Method g.e:(Ldu;)V
+        64: aconst_null
+        65: putstatic     #26                 // Field a:[Laf;
+        68: return
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: aconst_null
+         1: putstatic     #26                 // Field a:[Laf;
+         4: return
+}

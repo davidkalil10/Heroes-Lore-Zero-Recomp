@@ -1,0 +1,225 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/b.class
+  Last modified 13 de out. de 2026; size 732 bytes
+  SHA-256 checksum 834c2a5e977a16aa915110a23053cb742b4b9a368f3eca97090306ad16e24d62
+abstract class b extends n
+  minor version: 3
+  major version: 45
+  flags: (0x0420) ACC_SUPER, ACC_ABSTRACT
+  this_class: #2                          // b
+  super_class: #5                         // n
+  interfaces: 0, fields: 0, methods: 5, attributes: 0
+Constant pool:
+   #1 = Integer            16777215
+   #2 = Class              #43            // b
+   #3 = Class              #44            // br
+   #4 = Class              #45            // cm
+   #5 = Class              #47            // n
+   #6 = Class              #48            // rpg/e
+   #7 = Fieldref           #5.#25         // n.b:Ln;
+   #8 = Fieldref           #6.#27         // rpg/e.w:Lcg;
+   #9 = Methodref          #2.#18         // b."<init>":(Ln;BBB)V
+  #10 = Methodref          #3.#19         // br."<init>":(Ln;[BC)V
+  #11 = Methodref          #4.#21         // cm.a:(I)V
+  #12 = Methodref          #4.#22         // cm.a:(Lcg;III)V
+  #13 = Methodref          #4.#23         // cm.b:(IIII)V
+  #14 = Methodref          #4.#26         // cm.e:(IIII)V
+  #15 = Methodref          #5.#18         // n."<init>":(Ln;BBB)V
+  #16 = Methodref          #5.#20         // n.a:(I)I
+  #17 = Methodref          #5.#24         // n.b:(Lcm;IIIII)V
+  #18 = NameAndType        #38:#35        // "<init>":(Ln;BBB)V
+  #19 = NameAndType        #38:#36        // "<init>":(Ln;[BC)V
+  #20 = NameAndType        #42:#28        // a:(I)I
+  #21 = NameAndType        #42:#29        // a:(I)V
+  #22 = NameAndType        #42:#31        // a:(Lcg;III)V
+  #23 = NameAndType        #43:#30        // b:(IIII)V
+  #24 = NameAndType        #43:#33        // b:(Lcm;IIIII)V
+  #25 = NameAndType        #43:#41        // b:Ln;
+  #26 = NameAndType        #46:#30        // e:(IIII)V
+  #27 = NameAndType        #49:#40        // w:Lcg;
+  #28 = Utf8               (I)I
+  #29 = Utf8               (I)V
+  #30 = Utf8               (IIII)V
+  #31 = Utf8               (Lcg;III)V
+  #32 = Utf8               (Lcm;II)V
+  #33 = Utf8               (Lcm;IIIII)V
+  #34 = Utf8               (Ln;B)V
+  #35 = Utf8               (Ln;BBB)V
+  #36 = Utf8               (Ln;[BC)V
+  #37 = Utf8               ([B)V
+  #38 = Utf8               <init>
+  #39 = Utf8               Code
+  #40 = Utf8               Lcg;
+  #41 = Utf8               Ln;
+  #42 = Utf8               a
+  #43 = Utf8               b
+  #44 = Utf8               br
+  #45 = Utf8               cm
+  #46 = Utf8               e
+  #47 = Utf8               n
+  #48 = Utf8               rpg/e
+  #49 = Utf8               w
+  #50 = Utf8               StackMap
+{
+  b(n, byte, byte, byte);
+    descriptor: (Ln;BBB)V
+    flags: (0x0000)
+    Code:
+      stack=5, locals=5, args_size=5
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: iload_3
+         4: iload         4
+         6: invokespecial #15                 // Method n."<init>":(Ln;BBB)V
+         9: return
+
+  b(n, byte);
+    descriptor: (Ln;B)V
+    flags: (0x0000)
+    Code:
+      stack=5, locals=3, args_size=3
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: iconst_1
+         4: iconst_1
+         5: invokespecial #9                  // Method "<init>":(Ln;BBB)V
+         8: return
+
+  protected final void a(cm, int, int, int, int, int);
+    descriptor: (Lcm;IIIII)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=6, locals=9, args_size=7
+         0: iload         4
+         2: invokestatic  #16                 // Method n.a:(I)I
+         5: istore        7
+         7: iload_2
+         8: istore        8
+        10: iload         6
+        12: bipush        8
+        14: if_icmpne     35
+        17: iload_2
+        18: iload         7
+        20: bipush        7
+        22: iadd
+        23: iload         5
+        25: invokestatic  #16                 // Method n.a:(I)I
+        28: iadd
+        29: isub
+        30: istore        8
+        32: goto          58
+        35: iload         6
+        37: iconst_1
+        38: if_icmpne     58
+        41: iload_2
+        42: iload         7
+        44: bipush        7
+        46: iadd
+        47: iload         5
+        49: invokestatic  #16                 // Method n.a:(I)I
+        52: iadd
+        53: iconst_1
+        54: ishr
+        55: isub
+        56: istore        8
+        58: aload_1
+        59: iload         4
+        61: iload         8
+        63: iload_3
+        64: iconst_4
+        65: iconst_0
+        66: invokestatic  #17                 // Method n.b:(Lcm;IIIII)V
+        69: aload_1
+        70: iload         8
+        72: iload         7
+        74: iadd
+        75: iload_3
+        76: bipush        7
+        78: bipush        7
+        80: invokevirtual #13                 // Method cm.b:(IIII)V
+        83: aload_1
+        84: getstatic     #8                  // Field rpg/e.w:Lcg;
+        87: iload         8
+        89: iload         7
+        91: iadd
+        92: bipush        7
+        94: isub
+        95: iload_3
+        96: bipush        20
+        98: invokevirtual #12                 // Method cm.a:(Lcg;III)V
+       101: aload_1
+       102: iload         5
+       104: iload         8
+       106: iload         7
+       108: iadd
+       109: bipush        7
+       111: iadd
+       112: iload_3
+       113: iconst_4
+       114: iconst_0
+       115: invokestatic  #17                 // Method n.b:(Lcm;IIIII)V
+       118: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 35
+          locals = [ class b, class cm, int, int, int, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 58
+          locals = [ class b, class cm, int, int, int, int, int, int, int ]
+          stack = []
+
+  protected static void a(cm, int, int);
+    descriptor: (Lcm;II)V
+    flags: (0x000c) ACC_PROTECTED, ACC_STATIC
+    Code:
+      stack=6, locals=4, args_size=3
+         0: aload_0
+         1: ldc           #1                  // int 16777215
+         3: invokevirtual #11                 // Method cm.a:(I)V
+         6: iconst_0
+         7: istore_3
+         8: iload_3
+         9: iconst_3
+        10: if_icmpge     37
+        13: aload_0
+        14: iload_1
+        15: iload_3
+        16: iconst_2
+        17: ishl
+        18: iadd
+        19: iload_2
+        20: iload_1
+        21: iload_3
+        22: iconst_2
+        23: ishl
+        24: iadd
+        25: iconst_2
+        26: iadd
+        27: iload_2
+        28: invokevirtual #14                 // Method cm.e:(IIII)V
+        31: iinc          3, 1
+        34: goto          8
+        37: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 8
+          locals = [ class cm, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 37
+          locals = [ class cm, int, int, int ]
+          stack = []
+
+  protected final void a(byte[]);
+    descriptor: ([B)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=6, locals=2, args_size=2
+         0: aload_0
+         1: new           #3                  // class br
+         4: dup
+         5: aload_0
+         6: aload_1
+         7: iconst_0
+         8: invokespecial #10                 // Method br."<init>":(Ln;[BC)V
+        11: putfield      #7                  // Field n.b:Ln;
+        14: return
+}

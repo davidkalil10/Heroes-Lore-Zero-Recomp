@@ -1,0 +1,164 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/ar.class
+  Last modified 13 de out. de 2026; size 675 bytes
+  SHA-256 checksum 6f4e7680456460c08bf798c440e841fb01298cc946157123fc59154e7e5c3d69
+public final class ar implements java.lang.Runnable
+  minor version: 3
+  major version: 45
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #1                          // ar
+  super_class: #3                         // java/lang/Object
+  interfaces: 1, fields: 4, methods: 2, attributes: 0
+Constant pool:
+   #1 = Class              #34            // ar
+   #2 = Class              #36            // java/lang/Exception
+   #3 = Class              #37            // java/lang/Object
+   #4 = Class              #38            // java/lang/Runnable
+   #5 = Class              #39            // java/lang/Thread
+   #6 = Long               100000l
+   #8 = Fieldref           #1.#18         // ar.a:Ljava/lang/Object;
+   #9 = Fieldref           #1.#19         // ar.a:Ljava/lang/Thread;
+  #10 = Fieldref           #1.#20         // ar.a:Z
+  #11 = Fieldref           #1.#21         // ar.b:Z
+  #12 = Methodref          #3.#16         // java/lang/Object."<init>":()V
+  #13 = Methodref          #3.#23         // java/lang/Object.wait:(J)V
+  #14 = Methodref          #5.#17         // java/lang/Thread."<init>":(Ljava/lang/Runnable;)V
+  #15 = Methodref          #5.#22         // java/lang/Thread.start:()V
+  #16 = NameAndType        #28:#25        // "<init>":()V
+  #17 = NameAndType        #28:#27        // "<init>":(Ljava/lang/Runnable;)V
+  #18 = NameAndType        #33:#30        // a:Ljava/lang/Object;
+  #19 = NameAndType        #33:#31        // a:Ljava/lang/Thread;
+  #20 = NameAndType        #33:#32        // a:Z
+  #21 = NameAndType        #35:#32        // b:Z
+  #22 = NameAndType        #41:#25        // start:()V
+  #23 = NameAndType        #42:#26        // wait:(J)V
+  #24 = Class              #44            // java/lang/Throwable
+  #25 = Utf8               ()V
+  #26 = Utf8               (J)V
+  #27 = Utf8               (Ljava/lang/Runnable;)V
+  #28 = Utf8               <init>
+  #29 = Utf8               Code
+  #30 = Utf8               Ljava/lang/Object;
+  #31 = Utf8               Ljava/lang/Thread;
+  #32 = Utf8               Z
+  #33 = Utf8               a
+  #34 = Utf8               ar
+  #35 = Utf8               b
+  #36 = Utf8               java/lang/Exception
+  #37 = Utf8               java/lang/Object
+  #38 = Utf8               java/lang/Runnable
+  #39 = Utf8               java/lang/Thread
+  #40 = Utf8               run
+  #41 = Utf8               start
+  #42 = Utf8               wait
+  #43 = Utf8               StackMap
+  #44 = Utf8               java/lang/Throwable
+{
+  private boolean a;
+    descriptor: Z
+    flags: (0x0002) ACC_PRIVATE
+
+  private java.lang.Thread a;
+    descriptor: Ljava/lang/Thread;
+    flags: (0x0002) ACC_PRIVATE
+
+  private java.lang.Object a;
+    descriptor: Ljava/lang/Object;
+    flags: (0x0002) ACC_PRIVATE
+
+  private boolean b;
+    descriptor: Z
+    flags: (0x0002) ACC_PRIVATE
+
+  public ar();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=4, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #12                 // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: iconst_0
+         6: putfield      #11                 // Field b:Z
+         9: aload_0
+        10: iconst_0
+        11: putfield      #11                 // Field b:Z
+        14: aload_0
+        15: new           #3                  // class java/lang/Object
+        18: dup
+        19: invokespecial #12                 // Method java/lang/Object."<init>":()V
+        22: putfield      #8                  // Field a:Ljava/lang/Object;
+        25: aload_0
+        26: new           #5                  // class java/lang/Thread
+        29: dup
+        30: aload_0
+        31: invokespecial #14                 // Method java/lang/Thread."<init>":(Ljava/lang/Runnable;)V
+        34: putfield      #9                  // Field a:Ljava/lang/Thread;
+        37: aload_0
+        38: getfield      #9                  // Field a:Ljava/lang/Thread;
+        41: invokevirtual #15                 // Method java/lang/Thread.start:()V
+        44: aload_0
+        45: iconst_1
+        46: putfield      #10                 // Field a:Z
+        49: return
+
+  public final void run();
+    descriptor: ()V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=3, locals=3, args_size=1
+         0: aload_0
+         1: getfield      #10                 // Field a:Z
+         4: ifeq          49
+         7: aload_0
+         8: getfield      #8                  // Field a:Ljava/lang/Object;
+        11: dup
+        12: astore_1
+        13: monitorenter
+        14: aload_0
+        15: getfield      #8                  // Field a:Ljava/lang/Object;
+        18: ldc2_w        #6                  // long 100000l
+        21: invokevirtual #13                 // Method java/lang/Object.wait:(J)V
+        24: goto          14
+        27: astore_2
+        28: aload_1
+        29: monitorexit
+        30: aload_2
+        31: athrow
+        32: pop
+        33: aload_0
+        34: iconst_0
+        35: putfield      #11                 // Field b:Z
+        38: goto          0
+        41: astore_1
+        42: aload_0
+        43: iconst_0
+        44: putfield      #11                 // Field b:Z
+        47: aload_1
+        48: athrow
+        49: return
+      Exception table:
+         from    to  target type
+            14    27    27   any
+            27    30    27   any
+             7    32    32   Class java/lang/Exception
+             7    32    41   any
+      StackMap: number_of_entries = 6
+        frame_type = 255 offset = 0
+          locals = [ class ar ]
+          stack = []
+        frame_type = 255 offset = 14
+          locals = [ class ar, class java/lang/Object ]
+          stack = []
+        frame_type = 255 offset = 27
+          locals = [ class ar, class java/lang/Object ]
+          stack = [ class java/lang/Throwable ]
+        frame_type = 255 offset = 32
+          locals = [ class ar ]
+          stack = [ class java/lang/Exception ]
+        frame_type = 255 offset = 41
+          locals = [ class ar ]
+          stack = [ class java/lang/Throwable ]
+        frame_type = 255 offset = 49
+          locals = [ class ar ]
+          stack = []
+}

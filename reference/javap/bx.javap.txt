@@ -1,0 +1,43 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/bx.class
+  Last modified 13 de out. de 2026; size 162 bytes
+  SHA-256 checksum 8e37f4d069acc6484119403d1f696c621e336f10465905c2c0519ab31ae56a20
+final class bx implements rpg.d
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #1                          // bx
+  super_class: #2                         // java/lang/Object
+  interfaces: 1, fields: 1, methods: 1, attributes: 0
+Constant pool:
+   #1 = Class              #13            // bx
+   #2 = Class              #14            // java/lang/Object
+   #3 = Class              #15            // rpg/d
+   #4 = Fieldref           #1.#7          // bx.a:[B
+   #5 = Methodref          #2.#6          // java/lang/Object."<init>":()V
+   #6 = NameAndType        #9:#8          // "<init>":()V
+   #7 = NameAndType        #12:#11        // a:[B
+   #8 = Utf8               ()V
+   #9 = Utf8               <init>
+  #10 = Utf8               Code
+  #11 = Utf8               [B
+  #12 = Utf8               a
+  #13 = Utf8               bx
+  #14 = Utf8               java/lang/Object
+  #15 = Utf8               rpg/d
+{
+  private byte[] a;
+    descriptor: [B
+    flags: (0x0002) ACC_PRIVATE
+
+  bx();
+    descriptor: ()V
+    flags: (0x0000)
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #5                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: aconst_null
+         6: putfield      #4                  // Field a:[B
+         9: return
+}

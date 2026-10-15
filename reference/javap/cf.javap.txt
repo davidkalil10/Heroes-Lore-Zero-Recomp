@@ -1,0 +1,613 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/cf.class
+  Last modified 13 de out. de 2026; size 2714 bytes
+  SHA-256 checksum 08241f1bac7efbcb3c32128760d96daa031208356c8aa50d4587828ebd6a16f8
+final class cf extends b
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #19                         // cf
+  super_class: #17                        // b
+  interfaces: 0, fields: 8, methods: 6, attributes: 0
+Constant pool:
+    #1 = Integer            16777215
+    #2 = String             #118          //
+    #3 = String             #138          // /sks/back.png
+    #4 = String             #139          // /sks/no.png
+    #5 = String             #140          // /sks/yes.png
+    #6 = String             #153          // MoreGames_Impl
+    #7 = String             #154          // MoreGames_WAP_URI
+    #8 = String             #155          // Tj
+    #9 = String             #156          // URL
+   #10 = String             #171          // excpeton occured
+   #11 = String             #175          // inside the platform Request method
+   #12 = String             #184          // off
+   #13 = String             #191          // static
+   #14 = String             #195          // wap
+   #15 = String             #196          // wapstatic
+   #16 = Class              #160          // ac
+   #17 = Class              #162          // b
+   #18 = Class              #163          // bq
+   #19 = Class              #165          // cf
+   #20 = Class              #166          // cg
+   #21 = Class              #167          // cm
+   #22 = Class              #176          // java/io/PrintStream
+   #23 = Class              #177          // java/lang/Exception
+   #24 = Class              #178          // java/lang/String
+   #25 = Class              #179          // java/lang/StringBuffer
+   #26 = Class              #180          // java/lang/System
+   #27 = Class              #181          // javax/microedition/midlet/MIDlet
+   #28 = Class              #182          // n
+   #29 = Class              #188          // rpg/RPGHeroEx
+   #30 = Class              #189          // rpg/a
+   #31 = Class              #190          // rpg/d
+   #32 = Fieldref           #19.#86       // cf.a:Ljava/lang/String;
+   #33 = Fieldref           #19.#89       // cf.a:[B
+   #34 = Fieldref           #19.#96       // cf.b:Lcg;
+   #35 = Fieldref           #19.#97       // cf.b:Ljava/lang/String;
+   #36 = Fieldref           #19.#100      // cf.c:Lcg;
+   #37 = Fieldref           #19.#101      // cf.c:Ljava/lang/String;
+   #38 = Fieldref           #19.#103      // cf.d:Lcg;
+   #39 = Fieldref           #19.#104      // cf.e:Z
+   #40 = Fieldref           #26.#110      // java/lang/System.out:Ljava/io/PrintStream;
+   #41 = Fieldref           #28.#84       // n.a:B
+   #42 = Fieldref           #28.#87       // n.a:Ln;
+   #43 = Fieldref           #29.#88       // rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+   #44 = Fieldref           #30.#85       // rpg/a.a:I
+   #45 = Fieldref           #30.#95       // rpg/a.b:I
+   #46 = Fieldref           #30.#99       // rpg/a.c:I
+   #47 = Fieldref           #30.#102      // rpg/a.d:I
+   #48 = Fieldref           #31.#76       // rpg/d.D:[B
+   #49 = Fieldref           #31.#77       // rpg/d.E:[B
+   #50 = Methodref          #16.#80       // ac.a:(Lcm;II[BII)V
+   #51 = Methodref          #17.#75       // b."<init>":(Ln;B)V
+   #52 = Methodref          #18.#93       // bq.b:()V
+   #53 = Methodref          #20.#82       // cg.a:(Ljava/lang/String;)Lcg;
+   #54 = Methodref          #21.#78       // cm.a:(I)V
+   #55 = Methodref          #21.#79       // cm.a:(Lcg;III)V
+   #56 = Methodref          #22.#112      // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #57 = Methodref          #24.#105      // java/lang/String.equals:(Ljava/lang/Object;)Z
+   #58 = Methodref          #24.#113      // java/lang/String.toLowerCase:()Ljava/lang/String;
+   #59 = Methodref          #24.#115      // java/lang/String.trim:()Ljava/lang/String;
+   #60 = Methodref          #25.#74       // java/lang/StringBuffer."<init>":()V
+   #61 = Methodref          #25.#90       // java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+   #62 = Methodref          #25.#91       // java/lang/StringBuffer.append:(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+   #63 = Methodref          #25.#92       // java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+   #64 = Methodref          #25.#114      // java/lang/StringBuffer.toString:()Ljava/lang/String;
+   #65 = Methodref          #27.#108      // javax/microedition/midlet/MIDlet.getAppProperty:(Ljava/lang/String;)Ljava/lang/String;
+   #66 = Methodref          #27.#109      // javax/microedition/midlet/MIDlet.notifyDestroyed:()V
+   #67 = Methodref          #27.#111      // javax/microedition/midlet/MIDlet.platformRequest:(Ljava/lang/String;)Z
+   #68 = Methodref          #28.#94       // n.b:(II)Z
+   #69 = Methodref          #28.#98       // n.c:()V
+   #70 = Methodref          #28.#106      // n.f:(II)Z
+   #71 = Methodref          #28.#107      // n.g:(II)Z
+   #72 = Methodref          #29.#83       // rpg/RPGHeroEx.a:(Ljava/lang/String;)V
+   #73 = Methodref          #30.#81       // rpg/a.a:(Lcm;Z)V
+   #74 = NameAndType        #142:#120     // "<init>":()V
+   #75 = NameAndType        #142:#137     // "<init>":(Ln;B)V
+   #76 = NameAndType        #145:#158     // D:[B
+   #77 = NameAndType        #146:#158     // E:[B
+   #78 = NameAndType        #159:#123     // a:(I)V
+   #79 = NameAndType        #159:#125     // a:(Lcg;III)V
+   #80 = NameAndType        #159:#127     // a:(Lcm;II[BII)V
+   #81 = NameAndType        #159:#128     // a:(Lcm;Z)V
+   #82 = NameAndType        #159:#131     // a:(Ljava/lang/String;)Lcg;
+   #83 = NameAndType        #159:#134     // a:(Ljava/lang/String;)V
+   #84 = NameAndType        #159:#143     // a:B
+   #85 = NameAndType        #159:#147     // a:I
+   #86 = NameAndType        #159:#150     // a:Ljava/lang/String;
+   #87 = NameAndType        #159:#151     // a:Ln;
+   #88 = NameAndType        #159:#152     // a:Lrpg/RPGHeroEx;
+   #89 = NameAndType        #159:#158     // a:[B
+   #90 = NameAndType        #161:#122     // append:(I)Ljava/lang/StringBuffer;
+   #91 = NameAndType        #161:#129     // append:(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+   #92 = NameAndType        #161:#133     // append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+   #93 = NameAndType        #162:#120     // b:()V
+   #94 = NameAndType        #162:#124     // b:(II)Z
+   #95 = NameAndType        #162:#147     // b:I
+   #96 = NameAndType        #162:#148     // b:Lcg;
+   #97 = NameAndType        #162:#150     // b:Ljava/lang/String;
+   #98 = NameAndType        #164:#120     // c:()V
+   #99 = NameAndType        #164:#147     // c:I
+  #100 = NameAndType        #164:#148     // c:Lcg;
+  #101 = NameAndType        #164:#150     // c:Ljava/lang/String;
+  #102 = NameAndType        #168:#147     // d:I
+  #103 = NameAndType        #168:#148     // d:Lcg;
+  #104 = NameAndType        #169:#157     // e:Z
+  #105 = NameAndType        #170:#130     // equals:(Ljava/lang/Object;)Z
+  #106 = NameAndType        #172:#124     // f:(II)Z
+  #107 = NameAndType        #173:#124     // g:(II)Z
+  #108 = NameAndType        #174:#132     // getAppProperty:(Ljava/lang/String;)Ljava/lang/String;
+  #109 = NameAndType        #183:#120     // notifyDestroyed:()V
+  #110 = NameAndType        #185:#149     // out:Ljava/io/PrintStream;
+  #111 = NameAndType        #186:#135     // platformRequest:(Ljava/lang/String;)Z
+  #112 = NameAndType        #187:#134     // println:(Ljava/lang/String;)V
+  #113 = NameAndType        #192:#119     // toLowerCase:()Ljava/lang/String;
+  #114 = NameAndType        #193:#119     // toString:()Ljava/lang/String;
+  #115 = NameAndType        #194:#119     // trim:()Ljava/lang/String;
+  #116 = Class              #198          // java/lang/Object
+  #117 = Class              #199          // java/lang/Throwable
+  #118 = Utf8
+  #119 = Utf8               ()Ljava/lang/String;
+  #120 = Utf8               ()V
+  #121 = Utf8               (BB)V
+  #122 = Utf8               (I)Ljava/lang/StringBuffer;
+  #123 = Utf8               (I)V
+  #124 = Utf8               (II)Z
+  #125 = Utf8               (Lcg;III)V
+  #126 = Utf8               (Lcm;)V
+  #127 = Utf8               (Lcm;II[BII)V
+  #128 = Utf8               (Lcm;Z)V
+  #129 = Utf8               (Ljava/lang/Object;)Ljava/lang/StringBuffer;
+  #130 = Utf8               (Ljava/lang/Object;)Z
+  #131 = Utf8               (Ljava/lang/String;)Lcg;
+  #132 = Utf8               (Ljava/lang/String;)Ljava/lang/String;
+  #133 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuffer;
+  #134 = Utf8               (Ljava/lang/String;)V
+  #135 = Utf8               (Ljava/lang/String;)Z
+  #136 = Utf8               (Ln;)V
+  #137 = Utf8               (Ln;B)V
+  #138 = Utf8               /sks/back.png
+  #139 = Utf8               /sks/no.png
+  #140 = Utf8               /sks/yes.png
+  #141 = Utf8               <clinit>
+  #142 = Utf8               <init>
+  #143 = Utf8               B
+  #144 = Utf8               Code
+  #145 = Utf8               D
+  #146 = Utf8               E
+  #147 = Utf8               I
+  #148 = Utf8               Lcg;
+  #149 = Utf8               Ljava/io/PrintStream;
+  #150 = Utf8               Ljava/lang/String;
+  #151 = Utf8               Ln;
+  #152 = Utf8               Lrpg/RPGHeroEx;
+  #153 = Utf8               MoreGames_Impl
+  #154 = Utf8               MoreGames_WAP_URI
+  #155 = Utf8               Tj
+  #156 = Utf8               URL
+  #157 = Utf8               Z
+  #158 = Utf8               [B
+  #159 = Utf8               a
+  #160 = Utf8               ac
+  #161 = Utf8               append
+  #162 = Utf8               b
+  #163 = Utf8               bq
+  #164 = Utf8               c
+  #165 = Utf8               cf
+  #166 = Utf8               cg
+  #167 = Utf8               cm
+  #168 = Utf8               d
+  #169 = Utf8               e
+  #170 = Utf8               equals
+  #171 = Utf8               excpeton occured
+  #172 = Utf8               f
+  #173 = Utf8               g
+  #174 = Utf8               getAppProperty
+  #175 = Utf8               inside the platform Request method
+  #176 = Utf8               java/io/PrintStream
+  #177 = Utf8               java/lang/Exception
+  #178 = Utf8               java/lang/String
+  #179 = Utf8               java/lang/StringBuffer
+  #180 = Utf8               java/lang/System
+  #181 = Utf8               javax/microedition/midlet/MIDlet
+  #182 = Utf8               n
+  #183 = Utf8               notifyDestroyed
+  #184 = Utf8               off
+  #185 = Utf8               out
+  #186 = Utf8               platformRequest
+  #187 = Utf8               println
+  #188 = Utf8               rpg/RPGHeroEx
+  #189 = Utf8               rpg/a
+  #190 = Utf8               rpg/d
+  #191 = Utf8               static
+  #192 = Utf8               toLowerCase
+  #193 = Utf8               toString
+  #194 = Utf8               trim
+  #195 = Utf8               wap
+  #196 = Utf8               wapstatic
+  #197 = Utf8               StackMap
+  #198 = Utf8               java/lang/Object
+  #199 = Utf8               java/lang/Throwable
+{
+  private byte[] a;
+    descriptor: [B
+    flags: (0x0002) ACC_PRIVATE
+
+  private java.lang.String b;
+    descriptor: Ljava/lang/String;
+    flags: (0x0002) ACC_PRIVATE
+
+  private cg b;
+    descriptor: Lcg;
+    flags: (0x0002) ACC_PRIVATE
+
+  private cg c;
+    descriptor: Lcg;
+    flags: (0x0002) ACC_PRIVATE
+
+  private cg d;
+    descriptor: Lcg;
+    flags: (0x0002) ACC_PRIVATE
+
+  public static java.lang.String a;
+    descriptor: Ljava/lang/String;
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+
+  private static java.lang.String c;
+    descriptor: Ljava/lang/String;
+    flags: (0x000a) ACC_PRIVATE, ACC_STATIC
+
+  private static boolean e;
+    descriptor: Z
+    flags: (0x000a) ACC_PRIVATE, ACC_STATIC
+
+  cf(n);
+    descriptor: (Ln;)V
+    flags: (0x0000)
+    Code:
+      stack=3, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: iconst_3
+         3: invokespecial #51                 // Method b."<init>":(Ln;B)V
+         6: aload_0
+         7: aconst_null
+         8: putfield      #35                 // Field b:Ljava/lang/String;
+        11: aload_0
+        12: aconst_null
+        13: putfield      #34                 // Field b:Lcg;
+        16: aload_0
+        17: aconst_null
+        18: putfield      #36                 // Field c:Lcg;
+        21: aload_0
+        22: aconst_null
+        23: putfield      #38                 // Field d:Lcg;
+        26: aload_0
+        27: iconst_0
+        28: putfield      #41                 // Field n.a:B
+        31: getstatic     #32                 // Field a:Ljava/lang/String;
+        34: ifnull        91
+        37: getstatic     #32                 // Field a:Ljava/lang/String;
+        40: ldc           #12                 // String off
+        42: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        45: ifne          91
+        48: getstatic     #32                 // Field a:Ljava/lang/String;
+        51: ldc           #13                 // String static
+        53: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        56: ifeq          69
+        59: aload_0
+        60: getstatic     #49                 // Field rpg/d.E:[B
+        63: putfield      #33                 // Field a:[B
+        66: goto          91
+        69: aload_0
+        70: getstatic     #48                 // Field rpg/d.D:[B
+        73: putfield      #33                 // Field a:[B
+        76: aload_0
+        77: getstatic     #43                 // Field rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+        80: ldc           #7                  // String MoreGames_WAP_URI
+        82: invokevirtual #65                 // Method javax/microedition/midlet/MIDlet.getAppProperty:(Ljava/lang/String;)Ljava/lang/String;
+        85: invokevirtual #59                 // Method java/lang/String.trim:()Ljava/lang/String;
+        88: putfield      #35                 // Field b:Ljava/lang/String;
+        91: aload_0
+        92: astore_1
+        93: aload_1
+        94: ldc           #4                  // String /sks/no.png
+        96: invokestatic  #53                 // Method cg.a:(Ljava/lang/String;)Lcg;
+        99: putfield      #36                 // Field c:Lcg;
+       102: aload_1
+       103: ldc           #5                  // String /sks/yes.png
+       105: invokestatic  #53                 // Method cg.a:(Ljava/lang/String;)Lcg;
+       108: putfield      #34                 // Field b:Lcg;
+       111: aload_1
+       112: ldc           #3                  // String /sks/back.png
+       114: invokestatic  #53                 // Method cg.a:(Ljava/lang/String;)Lcg;
+       117: putfield      #38                 // Field d:Lcg;
+       120: return
+       121: pop
+       122: return
+      Exception table:
+         from    to  target type
+            93   120   121   Class java/lang/Exception
+      StackMap: number_of_entries = 3
+        frame_type = 255 offset = 69
+          locals = [ class cf, class n ]
+          stack = []
+        frame_type = 255 offset = 91
+          locals = [ class cf, class n ]
+          stack = []
+        frame_type = 255 offset = 121
+          locals = [ class cf, class cf ]
+          stack = [ class java/lang/Exception ]
+
+  final boolean a(int, int);
+    descriptor: (II)Z
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0
+         1: iload_1
+         2: iload_2
+         3: invokevirtual #68                 // Method n.b:(II)Z
+         6: ifeq          11
+         9: iconst_1
+        10: ireturn
+        11: iload_1
+        12: iload_2
+        13: invokestatic  #71                 // Method n.g:(II)Z
+        16: ifeq          37
+        19: aload_0
+        20: getfield      #42                 // Field n.a:Ln;
+        23: bipush        6
+        25: putfield      #41                 // Field n.a:B
+        28: aload_0
+        29: getfield      #42                 // Field n.a:Ln;
+        32: invokevirtual #69                 // Method n.c:()V
+        35: iconst_1
+        36: ireturn
+        37: iload_1
+        38: iload_2
+        39: invokestatic  #70                 // Method n.f:(II)Z
+        42: ifeq          149
+        45: getstatic     #32                 // Field a:Ljava/lang/String;
+        48: ldc           #13                 // String static
+        50: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        53: ifne          145
+        56: aload_0
+        57: getfield      #35                 // Field b:Ljava/lang/String;
+        60: astore_1
+        61: getstatic     #40                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        64: ldc           #11                 // String inside the platform Request method
+        66: invokevirtual #56                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        69: invokestatic  #52                 // Method bq.b:()V
+        72: getstatic     #43                 // Field rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+        75: aload_1
+        76: invokevirtual #67                 // Method javax/microedition/midlet/MIDlet.platformRequest:(Ljava/lang/String;)Z
+        79: pop
+        80: getstatic     #43                 // Field rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+        83: invokevirtual #66                 // Method javax/microedition/midlet/MIDlet.notifyDestroyed:()V
+        86: getstatic     #43                 // Field rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+        89: invokevirtual #66                 // Method javax/microedition/midlet/MIDlet.notifyDestroyed:()V
+        92: goto          147
+        95: astore_1
+        96: getstatic     #40                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        99: new           #25                 // class java/lang/StringBuffer
+       102: dup
+       103: invokespecial #60                 // Method java/lang/StringBuffer."<init>":()V
+       106: ldc           #10                 // String excpeton occured
+       108: invokevirtual #63                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+       111: aload_1
+       112: invokevirtual #62                 // Method java/lang/StringBuffer.append:(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+       115: invokevirtual #64                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+       118: invokevirtual #56                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       121: getstatic     #43                 // Field rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+       124: invokevirtual #66                 // Method javax/microedition/midlet/MIDlet.notifyDestroyed:()V
+       127: getstatic     #43                 // Field rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+       130: invokevirtual #66                 // Method javax/microedition/midlet/MIDlet.notifyDestroyed:()V
+       133: goto          147
+       136: astore_1
+       137: getstatic     #43                 // Field rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+       140: invokevirtual #66                 // Method javax/microedition/midlet/MIDlet.notifyDestroyed:()V
+       143: aload_1
+       144: athrow
+       145: iconst_1
+       146: ireturn
+       147: iconst_1
+       148: ireturn
+       149: iconst_1
+       150: ireturn
+      Exception table:
+         from    to  target type
+            69    86    95   Class java/lang/Exception
+            69    86   136   any
+            95   127   136   any
+      StackMap: number_of_entries = 7
+        frame_type = 255 offset = 11
+          locals = [ class cf, int, int ]
+          stack = []
+        frame_type = 255 offset = 37
+          locals = [ class cf, int, int ]
+          stack = []
+        frame_type = 255 offset = 95
+          locals = [ class cf, class java/lang/String, int ]
+          stack = [ class java/lang/Exception ]
+        frame_type = 255 offset = 136
+          locals = [ class cf, class java/lang/Object, int ]
+          stack = [ class java/lang/Throwable ]
+        frame_type = 255 offset = 145
+          locals = [ class cf, int, int ]
+          stack = []
+        frame_type = 255 offset = 147
+          locals = [ class cf, class java/lang/Object, int ]
+          stack = []
+        frame_type = 255 offset = 149
+          locals = [ class cf, int, int ]
+          stack = []
+
+  protected final void a(cm);
+    descriptor: (Lcm;)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=6, locals=3, args_size=2
+         0: aload_1
+         1: iconst_1
+         2: invokestatic  #73                 // Method rpg/a.a:(Lcm;Z)V
+         5: getstatic     #47                 // Field rpg/a.d:I
+         8: istore_2
+         9: aload_1
+        10: ldc           #1                  // int 16777215
+        12: invokevirtual #54                 // Method cm.a:(I)V
+        15: aload_1
+        16: getstatic     #46                 // Field rpg/a.c:I
+        19: iload_2
+        20: iconst_3
+        21: iadd
+        22: aload_0
+        23: getfield      #33                 // Field a:[B
+        26: iconst_0
+        27: iconst_1
+        28: invokestatic  #50                 // Method ac.a:(Lcm;II[BII)V
+        31: getstatic     #32                 // Field a:Ljava/lang/String;
+        34: ldc           #13                 // String static
+        36: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        39: ifeq          59
+        42: aload_1
+        43: aload_0
+        44: getfield      #38                 // Field d:Lcg;
+        47: getstatic     #44                 // Field rpg/a.a:I
+        50: getstatic     #45                 // Field rpg/a.b:I
+        53: bipush        40
+        55: invokevirtual #55                 // Method cm.a:(Lcg;III)V
+        58: return
+        59: aload_1
+        60: aload_0
+        61: getfield      #34                 // Field b:Lcg;
+        64: iconst_0
+        65: getstatic     #45                 // Field rpg/a.b:I
+        68: bipush        36
+        70: invokevirtual #55                 // Method cm.a:(Lcg;III)V
+        73: aload_1
+        74: aload_0
+        75: getfield      #36                 // Field c:Lcg;
+        78: getstatic     #44                 // Field rpg/a.a:I
+        81: getstatic     #45                 // Field rpg/a.b:I
+        84: bipush        40
+        86: invokevirtual #55                 // Method cm.a:(Lcg;III)V
+        89: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 59
+          locals = [ class cf, class cm, int ]
+          stack = []
+
+  final void a(byte, byte);
+    descriptor: (BB)V
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=4, locals=3, args_size=3
+         0: aload_0
+         1: invokevirtual #69                 // Method n.c:()V
+         4: iload_1
+         5: iconst_3
+         6: if_icmpne     48
+         9: iload_2
+        10: ifne          48
+        13: getstatic     #43                 // Field rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+        16: new           #25                 // class java/lang/StringBuffer
+        19: dup
+        20: invokespecial #60                 // Method java/lang/StringBuffer."<init>":()V
+        23: ldc           #8                  // String Tj
+        25: invokevirtual #63                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        28: aload_0
+        29: getfield      #41                 // Field n.a:B
+        32: iconst_1
+        33: iadd
+        34: invokevirtual #61                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+        37: ldc           #9                  // String URL
+        39: invokevirtual #63                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        42: invokevirtual #64                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+        45: invokevirtual #72                 // Method rpg/RPGHeroEx.a:(Ljava/lang/String;)V
+        48: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 48
+          locals = [ class cf, int, int ]
+          stack = []
+
+  public static void a();
+    descriptor: ()V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=0, args_size=0
+         0: getstatic     #43                 // Field rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+         3: ldc           #6                  // String MoreGames_Impl
+         5: invokevirtual #65                 // Method javax/microedition/midlet/MIDlet.getAppProperty:(Ljava/lang/String;)Ljava/lang/String;
+         8: dup
+         9: putstatic     #32                 // Field a:Ljava/lang/String;
+        12: ifnonnull     21
+        15: ldc           #12                 // String off
+        17: putstatic     #32                 // Field a:Ljava/lang/String;
+        20: return
+        21: getstatic     #32                 // Field a:Ljava/lang/String;
+        24: invokevirtual #58                 // Method java/lang/String.toLowerCase:()Ljava/lang/String;
+        27: dup
+        28: putstatic     #32                 // Field a:Ljava/lang/String;
+        31: ldc           #13                 // String static
+        33: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        36: ifne          67
+        39: getstatic     #32                 // Field a:Ljava/lang/String;
+        42: ldc           #14                 // String wap
+        44: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        47: ifne          67
+        50: getstatic     #32                 // Field a:Ljava/lang/String;
+        53: ldc           #15                 // String wapstatic
+        55: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        58: ifne          67
+        61: ldc           #12                 // String off
+        63: putstatic     #32                 // Field a:Ljava/lang/String;
+        66: return
+        67: getstatic     #43                 // Field rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+        70: ldc           #7                  // String MoreGames_WAP_URI
+        72: invokevirtual #65                 // Method javax/microedition/midlet/MIDlet.getAppProperty:(Ljava/lang/String;)Ljava/lang/String;
+        75: putstatic     #37                 // Field c:Ljava/lang/String;
+        78: getstatic     #32                 // Field a:Ljava/lang/String;
+        81: ldc           #14                 // String wap
+        83: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        86: ifeq          120
+        89: getstatic     #39                 // Field e:Z
+        92: ifeq          115
+        95: getstatic     #37                 // Field c:Ljava/lang/String;
+        98: ifnull        115
+       101: getstatic     #37                 // Field c:Ljava/lang/String;
+       104: invokevirtual #59                 // Method java/lang/String.trim:()Ljava/lang/String;
+       107: ldc           #2                  // String
+       109: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       112: ifeq          120
+       115: ldc           #12                 // String off
+       117: putstatic     #32                 // Field a:Ljava/lang/String;
+       120: getstatic     #32                 // Field a:Ljava/lang/String;
+       123: ldc           #15                 // String wapstatic
+       125: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       128: ifeq          162
+       131: getstatic     #39                 // Field e:Z
+       134: ifeq          157
+       137: getstatic     #37                 // Field c:Ljava/lang/String;
+       140: ifnull        157
+       143: getstatic     #37                 // Field c:Ljava/lang/String;
+       146: invokevirtual #59                 // Method java/lang/String.trim:()Ljava/lang/String;
+       149: ldc           #2                  // String
+       151: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       154: ifeq          162
+       157: ldc           #13                 // String static
+       159: putstatic     #32                 // Field a:Ljava/lang/String;
+       162: return
+      StackMap: number_of_entries = 6
+        frame_type = 255 offset = 21
+          locals = []
+          stack = []
+        frame_type = 255 offset = 67
+          locals = []
+          stack = []
+        frame_type = 255 offset = 115
+          locals = []
+          stack = []
+        frame_type = 255 offset = 120
+          locals = []
+          stack = []
+        frame_type = 255 offset = 157
+          locals = []
+          stack = []
+        frame_type = 255 offset = 162
+          locals = []
+          stack = []
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: aconst_null
+         1: putstatic     #32                 // Field a:Ljava/lang/String;
+         4: aconst_null
+         5: putstatic     #37                 // Field c:Ljava/lang/String;
+         8: iconst_1
+         9: putstatic     #39                 // Field e:Z
+        12: return
+}

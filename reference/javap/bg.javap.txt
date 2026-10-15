@@ -1,0 +1,1417 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/bg.class
+  Last modified 13 de out. de 2026; size 3293 bytes
+  SHA-256 checksum 8ae71bb5e565b5cbb1053501f0cdaa0b6cbd7ae7aeca16016d2e16d10ab80c39
+public final class bg
+  minor version: 3
+  major version: 45
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #74                         // bg
+  super_class: #75                        // java/lang/Object
+  interfaces: 0, fields: 1, methods: 9, attributes: 0
+Constant pool:
+    #1 = Integer            -2147483648
+    #2 = Integer            -2054922799
+    #3 = Integer            -2022574463
+    #4 = Integer            -1990404162
+    #5 = Integer            -1958414417
+    #6 = Integer            -1926607734
+    #7 = Integer            -1894986606
+    #8 = Integer            -1732584194
+    #9 = Integer            -1560198380
+   #10 = Integer            -1530992060
+   #11 = Integer            -1502002290
+   #12 = Integer            -1473231341
+   #13 = Integer            -1444681467
+   #14 = Integer            -1416354905
+   #15 = Integer            -1120210379
+   #16 = Integer            -1094730640
+   #17 = Integer            -1069501632
+   #18 = Integer            -1044525330
+   #19 = Integer            -1019803690
+   #20 = Integer            -995338651
+   #21 = Integer            -722521979
+   #22 = Integer            -701558691
+   #23 = Integer            -680876936
+   #24 = Integer            -660478335
+   #25 = Integer            -640364487
+   #26 = Integer            -421815835
+   #27 = Integer            -405537848
+   #28 = Integer            -389564586
+   #29 = Integer            -373897302
+   #30 = Integer            -358537222
+   #31 = Integer            -343485551
+   #32 = Integer            -271733879
+   #33 = Integer            -198630844
+   #34 = Integer            -187363961
+   #35 = Integer            -176418897
+   #36 = Integer            -165796510
+   #37 = Integer            -155497632
+   #38 = Integer            -145523070
+   #39 = Integer            -57434055
+   #40 = Integer            -51403784
+   #41 = Integer            -45705983
+   #42 = Integer            -40341101
+   #43 = Integer            -35309556
+   #44 = Integer            -30611744
+   #45 = Integer            -1051523
+   #46 = Integer            -378558
+   #47 = Integer            -42063
+   #48 = Integer            38016083
+   #49 = Integer            76029189
+   #50 = Integer            271733878
+   #51 = Integer            530742520
+   #52 = Integer            568446438
+   #53 = Integer            606105819
+   #54 = Integer            643717713
+   #55 = Integer            681279174
+   #56 = Integer            718787259
+   #57 = Integer            1126891415
+   #58 = Integer            1163531501
+   #59 = Integer            1200080426
+   #60 = Integer            1236535329
+   #61 = Integer            1272893353
+   #62 = Integer            1309151649
+   #63 = Integer            1700485571
+   #64 = Integer            1732584193
+   #65 = Integer            1735328473
+   #66 = Integer            1770035416
+   #67 = Integer            1804603682
+   #68 = Integer            1839030562
+   #69 = Integer            1873313359
+   #70 = Integer            2147483647
+   #71 = String             #110          //
+   #72 = String             #124          // 0123456789abcdef
+   #73 = Class              #128          // "[I"
+   #74 = Class              #132          // bg
+   #75 = Class              #136          // java/lang/Object
+   #76 = Class              #137          // java/lang/String
+   #77 = Class              #138          // java/lang/StringBuffer
+   #78 = Fieldref           #74.#100      // bg.a:Ljava/lang/String;
+   #79 = Methodref          #74.#96       // bg.a:(I)Ljava/lang/String;
+   #80 = Methodref          #74.#97       // bg.a:(II)I
+   #81 = Methodref          #74.#98       // bg.a:(IIIIII)I
+   #82 = Methodref          #74.#99       // bg.a:(IIIIIII)I
+   #83 = Methodref          #74.#103      // bg.b:(IIIIIII)I
+   #84 = Methodref          #74.#104      // bg.c:(IIIIIII)I
+   #85 = Methodref          #74.#106      // bg.d:(IIIIIII)I
+   #86 = Methodref          #75.#94       // java/lang/Object."<init>":()V
+   #87 = Methodref          #76.#105      // java/lang/String.charAt:(I)C
+   #88 = Methodref          #76.#107      // java/lang/String.length:()I
+   #89 = Methodref          #76.#109      // java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+   #90 = Methodref          #77.#95       // java/lang/StringBuffer."<init>":(Ljava/lang/String;)V
+   #91 = Methodref          #77.#101      // java/lang/StringBuffer.append:(C)Ljava/lang/StringBuffer;
+   #92 = Methodref          #77.#102      // java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+   #93 = Methodref          #77.#108      // java/lang/StringBuffer.toString:()Ljava/lang/String;
+   #94 = NameAndType        #125:#113     // "<init>":()V
+   #95 = NameAndType        #125:#123     // "<init>":(Ljava/lang/String;)V
+   #96 = NameAndType        #129:#116     // a:(I)Ljava/lang/String;
+   #97 = NameAndType        #129:#117     // a:(II)I
+   #98 = NameAndType        #129:#118     // a:(IIIIII)I
+   #99 = NameAndType        #129:#119     // a:(IIIIIII)I
+  #100 = NameAndType        #129:#127     // a:Ljava/lang/String;
+  #101 = NameAndType        #130:#114     // append:(C)Ljava/lang/StringBuffer;
+  #102 = NameAndType        #130:#122     // append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+  #103 = NameAndType        #131:#119     // b:(IIIIIII)I
+  #104 = NameAndType        #133:#119     // c:(IIIIIII)I
+  #105 = NameAndType        #134:#115     // charAt:(I)C
+  #106 = NameAndType        #135:#119     // d:(IIIIIII)I
+  #107 = NameAndType        #139:#111     // length:()I
+  #108 = NameAndType        #140:#112     // toString:()Ljava/lang/String;
+  #109 = NameAndType        #141:#120     // valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+  #110 = Utf8
+  #111 = Utf8               ()I
+  #112 = Utf8               ()Ljava/lang/String;
+  #113 = Utf8               ()V
+  #114 = Utf8               (C)Ljava/lang/StringBuffer;
+  #115 = Utf8               (I)C
+  #116 = Utf8               (I)Ljava/lang/String;
+  #117 = Utf8               (II)I
+  #118 = Utf8               (IIIIII)I
+  #119 = Utf8               (IIIIIII)I
+  #120 = Utf8               (Ljava/lang/Object;)Ljava/lang/String;
+  #121 = Utf8               (Ljava/lang/String;)Ljava/lang/String;
+  #122 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuffer;
+  #123 = Utf8               (Ljava/lang/String;)V
+  #124 = Utf8               0123456789abcdef
+  #125 = Utf8               <init>
+  #126 = Utf8               Code
+  #127 = Utf8               Ljava/lang/String;
+  #128 = Utf8               [I
+  #129 = Utf8               a
+  #130 = Utf8               append
+  #131 = Utf8               b
+  #132 = Utf8               bg
+  #133 = Utf8               c
+  #134 = Utf8               charAt
+  #135 = Utf8               d
+  #136 = Utf8               java/lang/Object
+  #137 = Utf8               java/lang/String
+  #138 = Utf8               java/lang/StringBuffer
+  #139 = Utf8               length
+  #140 = Utf8               toString
+  #141 = Utf8               valueOf
+  #142 = Utf8               StackMap
+{
+  private java.lang.String a;
+    descriptor: Ljava/lang/String;
+    flags: (0x0002) ACC_PRIVATE
+
+  public bg();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #86                 // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: ldc           #72                 // String 0123456789abcdef
+         7: putfield      #78                 // Field a:Ljava/lang/String;
+        10: return
+
+  private java.lang.String a(int);
+    descriptor: (I)Ljava/lang/String;
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=5, locals=4, args_size=2
+         0: ldc           #71                 // String
+         2: astore_2
+         3: iconst_0
+         4: istore_3
+         5: goto          64
+         8: new           #77                 // class java/lang/StringBuffer
+        11: dup
+        12: aload_2
+        13: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        16: invokespecial #90                 // Method java/lang/StringBuffer."<init>":(Ljava/lang/String;)V
+        19: aload_0
+        20: getfield      #78                 // Field a:Ljava/lang/String;
+        23: iload_1
+        24: iload_3
+        25: iconst_3
+        26: ishl
+        27: iconst_4
+        28: iadd
+        29: ishr
+        30: bipush        15
+        32: iand
+        33: invokevirtual #87                 // Method java/lang/String.charAt:(I)C
+        36: invokevirtual #91                 // Method java/lang/StringBuffer.append:(C)Ljava/lang/StringBuffer;
+        39: aload_0
+        40: getfield      #78                 // Field a:Ljava/lang/String;
+        43: iload_1
+        44: iload_3
+        45: iconst_3
+        46: ishl
+        47: ishr
+        48: bipush        15
+        50: iand
+        51: invokevirtual #87                 // Method java/lang/String.charAt:(I)C
+        54: invokevirtual #91                 // Method java/lang/StringBuffer.append:(C)Ljava/lang/StringBuffer;
+        57: invokevirtual #93                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+        60: astore_2
+        61: iinc          3, 1
+        64: iload_3
+        65: iconst_3
+        66: if_icmple     8
+        69: aload_2
+        70: areturn
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 8
+          locals = [ class bg, int, class java/lang/String, int ]
+          stack = []
+        frame_type = 255 offset = 64
+          locals = [ class bg, int, class java/lang/String, int ]
+          stack = []
+
+  private static int a(int, int);
+    descriptor: (II)I
+    flags: (0x000a) ACC_PRIVATE, ACC_STATIC
+    Code:
+      stack=3, locals=2, args_size=2
+         0: iload_0
+         1: ldc           #70                 // int 2147483647
+         3: iand
+         4: iload_1
+         5: ldc           #70                 // int 2147483647
+         7: iand
+         8: iadd
+         9: iload_0
+        10: ldc           #1                  // int -2147483648
+        12: iand
+        13: ixor
+        14: iload_1
+        15: ldc           #1                  // int -2147483648
+        17: iand
+        18: ixor
+        19: ireturn
+
+  private int a(int, int, int, int, int, int);
+    descriptor: (IIIIII)I
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=4, locals=7, args_size=7
+         0: iload_2
+         1: iload_1
+         2: invokestatic  #80                 // Method a:(II)I
+         5: iload         4
+         7: iload         6
+         9: invokestatic  #80                 // Method a:(II)I
+        12: invokestatic  #80                 // Method a:(II)I
+        15: iload         5
+        17: istore_2
+        18: dup
+        19: istore_1
+        20: iload_2
+        21: ishl
+        22: iload_1
+        23: bipush        32
+        25: iload_2
+        26: isub
+        27: iushr
+        28: ior
+        29: iload_3
+        30: invokestatic  #80                 // Method a:(II)I
+        33: ireturn
+
+  private int a(int, int, int, int, int, int, int);
+    descriptor: (IIIIIII)I
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=7, locals=8, args_size=8
+         0: aload_0
+         1: iload_2
+         2: iload_3
+         3: iand
+         4: iload_2
+         5: iconst_m1
+         6: ixor
+         7: iload         4
+         9: iand
+        10: ior
+        11: iload_1
+        12: iload_2
+        13: iload         5
+        15: iload         6
+        17: iload         7
+        19: invokespecial #81                 // Method a:(IIIIII)I
+        22: ireturn
+
+  private int b(int, int, int, int, int, int, int);
+    descriptor: (IIIIIII)I
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=7, locals=8, args_size=8
+         0: aload_0
+         1: iload_2
+         2: iload         4
+         4: iand
+         5: iload_3
+         6: iload         4
+         8: iconst_m1
+         9: ixor
+        10: iand
+        11: ior
+        12: iload_1
+        13: iload_2
+        14: iload         5
+        16: iload         6
+        18: iload         7
+        20: invokespecial #81                 // Method a:(IIIIII)I
+        23: ireturn
+
+  private int c(int, int, int, int, int, int, int);
+    descriptor: (IIIIIII)I
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=7, locals=8, args_size=8
+         0: aload_0
+         1: iload_2
+         2: iload_3
+         3: ixor
+         4: iload         4
+         6: ixor
+         7: iload_1
+         8: iload_2
+         9: iload         5
+        11: iload         6
+        13: iload         7
+        15: invokespecial #81                 // Method a:(IIIIII)I
+        18: ireturn
+
+  private int d(int, int, int, int, int, int, int);
+    descriptor: (IIIIIII)I
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=7, locals=8, args_size=8
+         0: aload_0
+         1: iload_3
+         2: iload_2
+         3: iload         4
+         5: iconst_m1
+         6: ixor
+         7: ior
+         8: ixor
+         9: iload_1
+        10: iload_2
+        11: iload         5
+        13: iload         6
+        15: iload         7
+        17: invokespecial #81                 // Method a:(IIIIII)I
+        20: ireturn
+
+  public final java.lang.String a(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/String;
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=8, locals=11, args_size=2
+         0: aload_1
+         1: dup
+         2: astore_1
+         3: invokevirtual #88                 // Method java/lang/String.length:()I
+         6: bipush        8
+         8: iadd
+         9: bipush        6
+        11: ishr
+        12: iconst_1
+        13: iadd
+        14: dup
+        15: istore_2
+        16: iconst_4
+        17: ishl
+        18: newarray       int
+        20: astore_3
+        21: iconst_0
+        22: istore        4
+        24: goto          35
+        27: aload_3
+        28: iload         4
+        30: iconst_0
+        31: iastore
+        32: iinc          4, 1
+        35: iload         4
+        37: iload_2
+        38: iconst_4
+        39: ishl
+        40: if_icmplt     27
+        43: iconst_0
+        44: istore        4
+        46: goto          74
+        49: aload_3
+        50: iload         4
+        52: iconst_2
+        53: ishr
+        54: dup2
+        55: iaload
+        56: aload_1
+        57: iload         4
+        59: invokevirtual #87                 // Method java/lang/String.charAt:(I)C
+        62: iload         4
+        64: iconst_4
+        65: irem
+        66: iconst_3
+        67: ishl
+        68: ishl
+        69: ior
+        70: iastore
+        71: iinc          4, 1
+        74: iload         4
+        76: aload_1
+        77: invokevirtual #88                 // Method java/lang/String.length:()I
+        80: if_icmplt     49
+        83: aload_3
+        84: iload         4
+        86: iconst_2
+        87: ishr
+        88: dup2
+        89: iaload
+        90: sipush        128
+        93: iload         4
+        95: iconst_4
+        96: irem
+        97: iconst_3
+        98: ishl
+        99: ishl
+       100: ior
+       101: iastore
+       102: aload_3
+       103: iload_2
+       104: iconst_4
+       105: ishl
+       106: iconst_2
+       107: isub
+       108: aload_1
+       109: invokevirtual #88                 // Method java/lang/String.length:()I
+       112: iconst_3
+       113: ishl
+       114: iastore
+       115: aload_3
+       116: astore_1
+       117: ldc           #64                 // int 1732584193
+       119: istore_2
+       120: ldc           #32                 // int -271733879
+       122: istore_3
+       123: ldc           #8                  // int -1732584194
+       125: istore        4
+       127: ldc           #50                 // int 271733878
+       129: istore        5
+       131: iconst_0
+       132: istore        6
+       134: goto          1586
+       137: iload_2
+       138: istore        7
+       140: iload_3
+       141: istore        8
+       143: iload         4
+       145: istore        9
+       147: iload         5
+       149: istore        10
+       151: aload_0
+       152: iload_2
+       153: iload_3
+       154: iload         4
+       156: iload         5
+       158: aload_1
+       159: iload         6
+       161: iaload
+       162: bipush        7
+       164: ldc           #23                 // int -680876936
+       166: invokespecial #82                 // Method a:(IIIIIII)I
+       169: istore_2
+       170: aload_0
+       171: iload         5
+       173: iload_2
+       174: iload_3
+       175: iload         4
+       177: aload_1
+       178: iload         6
+       180: iconst_1
+       181: iadd
+       182: iaload
+       183: bipush        12
+       185: ldc           #28                 // int -389564586
+       187: invokespecial #82                 // Method a:(IIIIIII)I
+       190: istore        5
+       192: aload_0
+       193: iload         4
+       195: iload         5
+       197: iload_2
+       198: iload_3
+       199: aload_1
+       200: iload         6
+       202: iconst_2
+       203: iadd
+       204: iaload
+       205: bipush        17
+       207: ldc           #53                 // int 606105819
+       209: invokespecial #82                 // Method a:(IIIIIII)I
+       212: istore        4
+       214: aload_0
+       215: iload_3
+       216: iload         4
+       218: iload         5
+       220: iload_2
+       221: aload_1
+       222: iload         6
+       224: iconst_3
+       225: iadd
+       226: iaload
+       227: bipush        22
+       229: ldc           #18                 // int -1044525330
+       231: invokespecial #82                 // Method a:(IIIIIII)I
+       234: istore_3
+       235: aload_0
+       236: iload_2
+       237: iload_3
+       238: iload         4
+       240: iload         5
+       242: aload_1
+       243: iload         6
+       245: iconst_4
+       246: iadd
+       247: iaload
+       248: bipush        7
+       250: ldc           #35                 // int -176418897
+       252: invokespecial #82                 // Method a:(IIIIIII)I
+       255: istore_2
+       256: aload_0
+       257: iload         5
+       259: iload_2
+       260: iload_3
+       261: iload         4
+       263: aload_1
+       264: iload         6
+       266: iconst_5
+       267: iadd
+       268: iaload
+       269: bipush        12
+       271: ldc           #59                 // int 1200080426
+       273: invokespecial #82                 // Method a:(IIIIIII)I
+       276: istore        5
+       278: aload_0
+       279: iload         4
+       281: iload         5
+       283: iload_2
+       284: iload_3
+       285: aload_1
+       286: iload         6
+       288: bipush        6
+       290: iadd
+       291: iaload
+       292: bipush        17
+       294: ldc           #12                 // int -1473231341
+       296: invokespecial #82                 // Method a:(IIIIIII)I
+       299: istore        4
+       301: aload_0
+       302: iload_3
+       303: iload         4
+       305: iload         5
+       307: iload_2
+       308: aload_1
+       309: iload         6
+       311: bipush        7
+       313: iadd
+       314: iaload
+       315: bipush        22
+       317: ldc           #41                 // int -45705983
+       319: invokespecial #82                 // Method a:(IIIIIII)I
+       322: istore_3
+       323: aload_0
+       324: iload_2
+       325: iload_3
+       326: iload         4
+       328: iload         5
+       330: aload_1
+       331: iload         6
+       333: bipush        8
+       335: iadd
+       336: iaload
+       337: bipush        7
+       339: ldc           #66                 // int 1770035416
+       341: invokespecial #82                 // Method a:(IIIIIII)I
+       344: istore_2
+       345: aload_0
+       346: iload         5
+       348: iload_2
+       349: iload_3
+       350: iload         4
+       352: aload_1
+       353: iload         6
+       355: bipush        9
+       357: iadd
+       358: iaload
+       359: bipush        12
+       361: ldc           #5                  // int -1958414417
+       363: invokespecial #82                 // Method a:(IIIIIII)I
+       366: istore        5
+       368: aload_0
+       369: iload         4
+       371: iload         5
+       373: iload_2
+       374: iload_3
+       375: aload_1
+       376: iload         6
+       378: bipush        10
+       380: iadd
+       381: iaload
+       382: bipush        17
+       384: ldc           #47                 // int -42063
+       386: invokespecial #82                 // Method a:(IIIIIII)I
+       389: istore        4
+       391: aload_0
+       392: iload_3
+       393: iload         4
+       395: iload         5
+       397: iload_2
+       398: aload_1
+       399: iload         6
+       401: bipush        11
+       403: iadd
+       404: iaload
+       405: bipush        22
+       407: ldc           #4                  // int -1990404162
+       409: invokespecial #82                 // Method a:(IIIIIII)I
+       412: istore_3
+       413: aload_0
+       414: iload_2
+       415: iload_3
+       416: iload         4
+       418: iload         5
+       420: aload_1
+       421: iload         6
+       423: bipush        12
+       425: iadd
+       426: iaload
+       427: bipush        7
+       429: ldc           #67                 // int 1804603682
+       431: invokespecial #82                 // Method a:(IIIIIII)I
+       434: istore_2
+       435: aload_0
+       436: iload         5
+       438: iload_2
+       439: iload_3
+       440: iload         4
+       442: aload_1
+       443: iload         6
+       445: bipush        13
+       447: iadd
+       448: iaload
+       449: bipush        12
+       451: ldc           #42                 // int -40341101
+       453: invokespecial #82                 // Method a:(IIIIIII)I
+       456: istore        5
+       458: aload_0
+       459: iload         4
+       461: iload         5
+       463: iload_2
+       464: iload_3
+       465: aload_1
+       466: iload         6
+       468: bipush        14
+       470: iadd
+       471: iaload
+       472: bipush        17
+       474: ldc           #11                 // int -1502002290
+       476: invokespecial #82                 // Method a:(IIIIIII)I
+       479: istore        4
+       481: aload_0
+       482: iload_3
+       483: iload         4
+       485: iload         5
+       487: iload_2
+       488: aload_1
+       489: iload         6
+       491: bipush        15
+       493: iadd
+       494: iaload
+       495: bipush        22
+       497: ldc           #60                 // int 1236535329
+       499: invokespecial #82                 // Method a:(IIIIIII)I
+       502: istore_3
+       503: aload_0
+       504: iload_2
+       505: iload_3
+       506: iload         4
+       508: iload         5
+       510: aload_1
+       511: iload         6
+       513: iconst_1
+       514: iadd
+       515: iaload
+       516: iconst_5
+       517: ldc           #36                 // int -165796510
+       519: invokespecial #83                 // Method b:(IIIIIII)I
+       522: istore_2
+       523: aload_0
+       524: iload         5
+       526: iload_2
+       527: iload_3
+       528: iload         4
+       530: aload_1
+       531: iload         6
+       533: bipush        6
+       535: iadd
+       536: iaload
+       537: bipush        9
+       539: ldc           #17                 // int -1069501632
+       541: invokespecial #83                 // Method b:(IIIIIII)I
+       544: istore        5
+       546: aload_0
+       547: iload         4
+       549: iload         5
+       551: iload_2
+       552: iload_3
+       553: aload_1
+       554: iload         6
+       556: bipush        11
+       558: iadd
+       559: iaload
+       560: bipush        14
+       562: ldc           #54                 // int 643717713
+       564: invokespecial #83                 // Method b:(IIIIIII)I
+       567: istore        4
+       569: aload_0
+       570: iload_3
+       571: iload         4
+       573: iload         5
+       575: iload_2
+       576: aload_1
+       577: iload         6
+       579: iaload
+       580: bipush        20
+       582: ldc           #29                 // int -373897302
+       584: invokespecial #83                 // Method b:(IIIIIII)I
+       587: istore_3
+       588: aload_0
+       589: iload_2
+       590: iload_3
+       591: iload         4
+       593: iload         5
+       595: aload_1
+       596: iload         6
+       598: iconst_5
+       599: iadd
+       600: iaload
+       601: iconst_5
+       602: ldc           #22                 // int -701558691
+       604: invokespecial #83                 // Method b:(IIIIIII)I
+       607: istore_2
+       608: aload_0
+       609: iload         5
+       611: iload_2
+       612: iload_3
+       613: iload         4
+       615: aload_1
+       616: iload         6
+       618: bipush        10
+       620: iadd
+       621: iaload
+       622: bipush        9
+       624: ldc           #48                 // int 38016083
+       626: invokespecial #83                 // Method b:(IIIIIII)I
+       629: istore        5
+       631: aload_0
+       632: iload         4
+       634: iload         5
+       636: iload_2
+       637: iload_3
+       638: aload_1
+       639: iload         6
+       641: bipush        15
+       643: iadd
+       644: iaload
+       645: bipush        14
+       647: ldc           #24                 // int -660478335
+       649: invokespecial #83                 // Method b:(IIIIIII)I
+       652: istore        4
+       654: aload_0
+       655: iload_3
+       656: iload         4
+       658: iload         5
+       660: iload_2
+       661: aload_1
+       662: iload         6
+       664: iconst_4
+       665: iadd
+       666: iaload
+       667: bipush        20
+       669: ldc           #27                 // int -405537848
+       671: invokespecial #83                 // Method b:(IIIIIII)I
+       674: istore_3
+       675: aload_0
+       676: iload_2
+       677: iload_3
+       678: iload         4
+       680: iload         5
+       682: aload_1
+       683: iload         6
+       685: bipush        9
+       687: iadd
+       688: iaload
+       689: iconst_5
+       690: ldc           #52                 // int 568446438
+       692: invokespecial #83                 // Method b:(IIIIIII)I
+       695: istore_2
+       696: aload_0
+       697: iload         5
+       699: iload_2
+       700: iload_3
+       701: iload         4
+       703: aload_1
+       704: iload         6
+       706: bipush        14
+       708: iadd
+       709: iaload
+       710: bipush        9
+       712: ldc           #19                 // int -1019803690
+       714: invokespecial #83                 // Method b:(IIIIIII)I
+       717: istore        5
+       719: aload_0
+       720: iload         4
+       722: iload         5
+       724: iload_2
+       725: iload_3
+       726: aload_1
+       727: iload         6
+       729: iconst_3
+       730: iadd
+       731: iaload
+       732: bipush        14
+       734: ldc           #34                 // int -187363961
+       736: invokespecial #83                 // Method b:(IIIIIII)I
+       739: istore        4
+       741: aload_0
+       742: iload_3
+       743: iload         4
+       745: iload         5
+       747: iload_2
+       748: aload_1
+       749: iload         6
+       751: bipush        8
+       753: iadd
+       754: iaload
+       755: bipush        20
+       757: ldc           #58                 // int 1163531501
+       759: invokespecial #83                 // Method b:(IIIIIII)I
+       762: istore_3
+       763: aload_0
+       764: iload_2
+       765: iload_3
+       766: iload         4
+       768: iload         5
+       770: aload_1
+       771: iload         6
+       773: bipush        13
+       775: iadd
+       776: iaload
+       777: iconst_5
+       778: ldc           #13                 // int -1444681467
+       780: invokespecial #83                 // Method b:(IIIIIII)I
+       783: istore_2
+       784: aload_0
+       785: iload         5
+       787: iload_2
+       788: iload_3
+       789: iload         4
+       791: aload_1
+       792: iload         6
+       794: iconst_2
+       795: iadd
+       796: iaload
+       797: bipush        9
+       799: ldc           #40                 // int -51403784
+       801: invokespecial #83                 // Method b:(IIIIIII)I
+       804: istore        5
+       806: aload_0
+       807: iload         4
+       809: iload         5
+       811: iload_2
+       812: iload_3
+       813: aload_1
+       814: iload         6
+       816: bipush        7
+       818: iadd
+       819: iaload
+       820: bipush        14
+       822: ldc           #65                 // int 1735328473
+       824: invokespecial #83                 // Method b:(IIIIIII)I
+       827: istore        4
+       829: aload_0
+       830: iload_3
+       831: iload         4
+       833: iload         5
+       835: iload_2
+       836: aload_1
+       837: iload         6
+       839: bipush        12
+       841: iadd
+       842: iaload
+       843: bipush        20
+       845: ldc           #6                  // int -1926607734
+       847: invokespecial #83                 // Method b:(IIIIIII)I
+       850: istore_3
+       851: aload_0
+       852: iload_2
+       853: iload_3
+       854: iload         4
+       856: iload         5
+       858: aload_1
+       859: iload         6
+       861: iconst_5
+       862: iadd
+       863: iaload
+       864: iconst_4
+       865: ldc           #46                 // int -378558
+       867: invokespecial #84                 // Method c:(IIIIIII)I
+       870: istore_2
+       871: aload_0
+       872: iload         5
+       874: iload_2
+       875: iload_3
+       876: iload         4
+       878: aload_1
+       879: iload         6
+       881: bipush        8
+       883: iadd
+       884: iaload
+       885: bipush        11
+       887: ldc           #3                  // int -2022574463
+       889: invokespecial #84                 // Method c:(IIIIIII)I
+       892: istore        5
+       894: aload_0
+       895: iload         4
+       897: iload         5
+       899: iload_2
+       900: iload_3
+       901: aload_1
+       902: iload         6
+       904: bipush        11
+       906: iadd
+       907: iaload
+       908: bipush        16
+       910: ldc           #68                 // int 1839030562
+       912: invokespecial #84                 // Method c:(IIIIIII)I
+       915: istore        4
+       917: aload_0
+       918: iload_3
+       919: iload         4
+       921: iload         5
+       923: iload_2
+       924: aload_1
+       925: iload         6
+       927: bipush        14
+       929: iadd
+       930: iaload
+       931: bipush        23
+       933: ldc           #43                 // int -35309556
+       935: invokespecial #84                 // Method c:(IIIIIII)I
+       938: istore_3
+       939: aload_0
+       940: iload_2
+       941: iload_3
+       942: iload         4
+       944: iload         5
+       946: aload_1
+       947: iload         6
+       949: iconst_1
+       950: iadd
+       951: iaload
+       952: iconst_4
+       953: ldc           #10                 // int -1530992060
+       955: invokespecial #84                 // Method c:(IIIIIII)I
+       958: istore_2
+       959: aload_0
+       960: iload         5
+       962: iload_2
+       963: iload_3
+       964: iload         4
+       966: aload_1
+       967: iload         6
+       969: iconst_4
+       970: iadd
+       971: iaload
+       972: bipush        11
+       974: ldc           #61                 // int 1272893353
+       976: invokespecial #84                 // Method c:(IIIIIII)I
+       979: istore        5
+       981: aload_0
+       982: iload         4
+       984: iload         5
+       986: iload_2
+       987: iload_3
+       988: aload_1
+       989: iload         6
+       991: bipush        7
+       993: iadd
+       994: iaload
+       995: bipush        16
+       997: ldc           #37                 // int -155497632
+       999: invokespecial #84                 // Method c:(IIIIIII)I
+      1002: istore        4
+      1004: aload_0
+      1005: iload_3
+      1006: iload         4
+      1008: iload         5
+      1010: iload_2
+      1011: aload_1
+      1012: iload         6
+      1014: bipush        10
+      1016: iadd
+      1017: iaload
+      1018: bipush        23
+      1020: ldc           #16                 // int -1094730640
+      1022: invokespecial #84                 // Method c:(IIIIIII)I
+      1025: istore_3
+      1026: aload_0
+      1027: iload_2
+      1028: iload_3
+      1029: iload         4
+      1031: iload         5
+      1033: aload_1
+      1034: iload         6
+      1036: bipush        13
+      1038: iadd
+      1039: iaload
+      1040: iconst_4
+      1041: ldc           #55                 // int 681279174
+      1043: invokespecial #84                 // Method c:(IIIIIII)I
+      1046: istore_2
+      1047: aload_0
+      1048: iload         5
+      1050: iload_2
+      1051: iload_3
+      1052: iload         4
+      1054: aload_1
+      1055: iload         6
+      1057: iaload
+      1058: bipush        11
+      1060: ldc           #30                 // int -358537222
+      1062: invokespecial #84                 // Method c:(IIIIIII)I
+      1065: istore        5
+      1067: aload_0
+      1068: iload         4
+      1070: iload         5
+      1072: iload_2
+      1073: iload_3
+      1074: aload_1
+      1075: iload         6
+      1077: iconst_3
+      1078: iadd
+      1079: iaload
+      1080: bipush        16
+      1082: ldc           #21                 // int -722521979
+      1084: invokespecial #84                 // Method c:(IIIIIII)I
+      1087: istore        4
+      1089: aload_0
+      1090: iload_3
+      1091: iload         4
+      1093: iload         5
+      1095: iload_2
+      1096: aload_1
+      1097: iload         6
+      1099: bipush        6
+      1101: iadd
+      1102: iaload
+      1103: bipush        23
+      1105: ldc           #49                 // int 76029189
+      1107: invokespecial #84                 // Method c:(IIIIIII)I
+      1110: istore_3
+      1111: aload_0
+      1112: iload_2
+      1113: iload_3
+      1114: iload         4
+      1116: iload         5
+      1118: aload_1
+      1119: iload         6
+      1121: bipush        9
+      1123: iadd
+      1124: iaload
+      1125: iconst_4
+      1126: ldc           #25                 // int -640364487
+      1128: invokespecial #84                 // Method c:(IIIIIII)I
+      1131: istore_2
+      1132: aload_0
+      1133: iload         5
+      1135: iload_2
+      1136: iload_3
+      1137: iload         4
+      1139: aload_1
+      1140: iload         6
+      1142: bipush        12
+      1144: iadd
+      1145: iaload
+      1146: bipush        11
+      1148: ldc           #26                 // int -421815835
+      1150: invokespecial #84                 // Method c:(IIIIIII)I
+      1153: istore        5
+      1155: aload_0
+      1156: iload         4
+      1158: iload         5
+      1160: iload_2
+      1161: iload_3
+      1162: aload_1
+      1163: iload         6
+      1165: bipush        15
+      1167: iadd
+      1168: iaload
+      1169: bipush        16
+      1171: ldc           #51                 // int 530742520
+      1173: invokespecial #84                 // Method c:(IIIIIII)I
+      1176: istore        4
+      1178: aload_0
+      1179: iload_3
+      1180: iload         4
+      1182: iload         5
+      1184: iload_2
+      1185: aload_1
+      1186: iload         6
+      1188: iconst_2
+      1189: iadd
+      1190: iaload
+      1191: bipush        23
+      1193: ldc           #20                 // int -995338651
+      1195: invokespecial #84                 // Method c:(IIIIIII)I
+      1198: istore_3
+      1199: aload_0
+      1200: iload_2
+      1201: iload_3
+      1202: iload         4
+      1204: iload         5
+      1206: aload_1
+      1207: iload         6
+      1209: iaload
+      1210: bipush        6
+      1212: ldc           #33                 // int -198630844
+      1214: invokespecial #85                 // Method d:(IIIIIII)I
+      1217: istore_2
+      1218: aload_0
+      1219: iload         5
+      1221: iload_2
+      1222: iload_3
+      1223: iload         4
+      1225: aload_1
+      1226: iload         6
+      1228: bipush        7
+      1230: iadd
+      1231: iaload
+      1232: bipush        10
+      1234: ldc           #57                 // int 1126891415
+      1236: invokespecial #85                 // Method d:(IIIIIII)I
+      1239: istore        5
+      1241: aload_0
+      1242: iload         4
+      1244: iload         5
+      1246: iload_2
+      1247: iload_3
+      1248: aload_1
+      1249: iload         6
+      1251: bipush        14
+      1253: iadd
+      1254: iaload
+      1255: bipush        15
+      1257: ldc           #14                 // int -1416354905
+      1259: invokespecial #85                 // Method d:(IIIIIII)I
+      1262: istore        4
+      1264: aload_0
+      1265: iload_3
+      1266: iload         4
+      1268: iload         5
+      1270: iload_2
+      1271: aload_1
+      1272: iload         6
+      1274: iconst_5
+      1275: iadd
+      1276: iaload
+      1277: bipush        21
+      1279: ldc           #39                 // int -57434055
+      1281: invokespecial #85                 // Method d:(IIIIIII)I
+      1284: istore_3
+      1285: aload_0
+      1286: iload_2
+      1287: iload_3
+      1288: iload         4
+      1290: iload         5
+      1292: aload_1
+      1293: iload         6
+      1295: bipush        12
+      1297: iadd
+      1298: iaload
+      1299: bipush        6
+      1301: ldc           #63                 // int 1700485571
+      1303: invokespecial #85                 // Method d:(IIIIIII)I
+      1306: istore_2
+      1307: aload_0
+      1308: iload         5
+      1310: iload_2
+      1311: iload_3
+      1312: iload         4
+      1314: aload_1
+      1315: iload         6
+      1317: iconst_3
+      1318: iadd
+      1319: iaload
+      1320: bipush        10
+      1322: ldc           #7                  // int -1894986606
+      1324: invokespecial #85                 // Method d:(IIIIIII)I
+      1327: istore        5
+      1329: aload_0
+      1330: iload         4
+      1332: iload         5
+      1334: iload_2
+      1335: iload_3
+      1336: aload_1
+      1337: iload         6
+      1339: bipush        10
+      1341: iadd
+      1342: iaload
+      1343: bipush        15
+      1345: ldc           #45                 // int -1051523
+      1347: invokespecial #85                 // Method d:(IIIIIII)I
+      1350: istore        4
+      1352: aload_0
+      1353: iload_3
+      1354: iload         4
+      1356: iload         5
+      1358: iload_2
+      1359: aload_1
+      1360: iload         6
+      1362: iconst_1
+      1363: iadd
+      1364: iaload
+      1365: bipush        21
+      1367: ldc           #2                  // int -2054922799
+      1369: invokespecial #85                 // Method d:(IIIIIII)I
+      1372: istore_3
+      1373: aload_0
+      1374: iload_2
+      1375: iload_3
+      1376: iload         4
+      1378: iload         5
+      1380: aload_1
+      1381: iload         6
+      1383: bipush        8
+      1385: iadd
+      1386: iaload
+      1387: bipush        6
+      1389: ldc           #69                 // int 1873313359
+      1391: invokespecial #85                 // Method d:(IIIIIII)I
+      1394: istore_2
+      1395: aload_0
+      1396: iload         5
+      1398: iload_2
+      1399: iload_3
+      1400: iload         4
+      1402: aload_1
+      1403: iload         6
+      1405: bipush        15
+      1407: iadd
+      1408: iaload
+      1409: bipush        10
+      1411: ldc           #44                 // int -30611744
+      1413: invokespecial #85                 // Method d:(IIIIIII)I
+      1416: istore        5
+      1418: aload_0
+      1419: iload         4
+      1421: iload         5
+      1423: iload_2
+      1424: iload_3
+      1425: aload_1
+      1426: iload         6
+      1428: bipush        6
+      1430: iadd
+      1431: iaload
+      1432: bipush        15
+      1434: ldc           #9                  // int -1560198380
+      1436: invokespecial #85                 // Method d:(IIIIIII)I
+      1439: istore        4
+      1441: aload_0
+      1442: iload_3
+      1443: iload         4
+      1445: iload         5
+      1447: iload_2
+      1448: aload_1
+      1449: iload         6
+      1451: bipush        13
+      1453: iadd
+      1454: iaload
+      1455: bipush        21
+      1457: ldc           #62                 // int 1309151649
+      1459: invokespecial #85                 // Method d:(IIIIIII)I
+      1462: istore_3
+      1463: aload_0
+      1464: iload_2
+      1465: iload_3
+      1466: iload         4
+      1468: iload         5
+      1470: aload_1
+      1471: iload         6
+      1473: iconst_4
+      1474: iadd
+      1475: iaload
+      1476: bipush        6
+      1478: ldc           #38                 // int -145523070
+      1480: invokespecial #85                 // Method d:(IIIIIII)I
+      1483: istore_2
+      1484: aload_0
+      1485: iload         5
+      1487: iload_2
+      1488: iload_3
+      1489: iload         4
+      1491: aload_1
+      1492: iload         6
+      1494: bipush        11
+      1496: iadd
+      1497: iaload
+      1498: bipush        10
+      1500: ldc           #15                 // int -1120210379
+      1502: invokespecial #85                 // Method d:(IIIIIII)I
+      1505: istore        5
+      1507: aload_0
+      1508: iload         4
+      1510: iload         5
+      1512: iload_2
+      1513: iload_3
+      1514: aload_1
+      1515: iload         6
+      1517: iconst_2
+      1518: iadd
+      1519: iaload
+      1520: bipush        15
+      1522: ldc           #56                 // int 718787259
+      1524: invokespecial #85                 // Method d:(IIIIIII)I
+      1527: istore        4
+      1529: aload_0
+      1530: iload_3
+      1531: iload         4
+      1533: iload         5
+      1535: iload_2
+      1536: aload_1
+      1537: iload         6
+      1539: bipush        9
+      1541: iadd
+      1542: iaload
+      1543: bipush        21
+      1545: ldc           #31                 // int -343485551
+      1547: invokespecial #85                 // Method d:(IIIIIII)I
+      1550: istore_3
+      1551: iload_2
+      1552: iload         7
+      1554: invokestatic  #80                 // Method a:(II)I
+      1557: istore_2
+      1558: iload_3
+      1559: iload         8
+      1561: invokestatic  #80                 // Method a:(II)I
+      1564: istore_3
+      1565: iload         4
+      1567: iload         9
+      1569: invokestatic  #80                 // Method a:(II)I
+      1572: istore        4
+      1574: iload         5
+      1576: iload         10
+      1578: invokestatic  #80                 // Method a:(II)I
+      1581: istore        5
+      1583: iinc          6, 16
+      1586: iload         6
+      1588: aload_1
+      1589: arraylength
+      1590: if_icmplt     137
+      1593: new           #77                 // class java/lang/StringBuffer
+      1596: dup
+      1597: aload_0
+      1598: iload_2
+      1599: invokespecial #79                 // Method a:(I)Ljava/lang/String;
+      1602: invokestatic  #89                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+      1605: invokespecial #90                 // Method java/lang/StringBuffer."<init>":(Ljava/lang/String;)V
+      1608: aload_0
+      1609: iload_3
+      1610: invokespecial #79                 // Method a:(I)Ljava/lang/String;
+      1613: invokevirtual #92                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      1616: aload_0
+      1617: iload         4
+      1619: invokespecial #79                 // Method a:(I)Ljava/lang/String;
+      1622: invokevirtual #92                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      1625: aload_0
+      1626: iload         5
+      1628: invokespecial #79                 // Method a:(I)Ljava/lang/String;
+      1631: invokevirtual #92                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      1634: invokevirtual #93                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+      1637: areturn
+      StackMap: number_of_entries = 6
+        frame_type = 255 offset = 27
+          locals = [ class bg, class java/lang/String, int, class "[I", int ]
+          stack = []
+        frame_type = 255 offset = 35
+          locals = [ class bg, class java/lang/String, int, class "[I", int ]
+          stack = []
+        frame_type = 255 offset = 49
+          locals = [ class bg, class java/lang/String, int, class "[I", int ]
+          stack = []
+        frame_type = 255 offset = 74
+          locals = [ class bg, class java/lang/String, int, class "[I", int ]
+          stack = []
+        frame_type = 255 offset = 137
+          locals = [ class bg, class "[I", int, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 1586
+          locals = [ class bg, class "[I", int, int, int, int, int ]
+          stack = []
+}

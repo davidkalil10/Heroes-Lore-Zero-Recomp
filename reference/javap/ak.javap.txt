@@ -1,0 +1,252 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/ak.class
+  Last modified 13 de out. de 2026; size 749 bytes
+  SHA-256 checksum 8483d7e51e43da5b9f015b8864fa6a1917029e8881c2b8181f454aa368f5599a
+final class ak extends at
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #1                          // ak
+  super_class: #2                         // at
+  interfaces: 0, fields: 3, methods: 6, attributes: 0
+Constant pool:
+   #1 = Class              #46            // ak
+   #2 = Class              #47            // at
+   #3 = Class              #51            // rpg/e
+   #4 = Class              #52            // s
+   #5 = Fieldref           #1.#25         // ak.a:[B
+   #6 = Fieldref           #1.#27         // ak.c:B
+   #7 = Fieldref           #1.#29         // ak.d:B
+   #8 = Fieldref           #2.#21         // at.a:B
+   #9 = Fieldref           #2.#22         // at.a:I
+  #10 = Fieldref           #2.#24         // at.a:Z
+  #11 = Fieldref           #2.#26         // at.b:I
+  #12 = Fieldref           #2.#28         // at.c:I
+  #13 = Fieldref           #3.#23         // rpg/e.a:Lca;
+  #14 = Methodref          #1.#18         // ak."<init>":(B)V
+  #15 = Methodref          #2.#18         // at."<init>":(B)V
+  #16 = Methodref          #4.#19         // s.a:(B)B
+  #17 = Methodref          #4.#20         // s.a:(BBIII)I
+  #18 = NameAndType        #38:#32        // "<init>":(B)V
+  #19 = NameAndType        #45:#31        // a:(B)B
+  #20 = NameAndType        #45:#34        // a:(BBIII)I
+  #21 = NameAndType        #45:#39        // a:B
+  #22 = NameAndType        #45:#41        // a:I
+  #23 = NameAndType        #45:#42        // a:Lca;
+  #24 = NameAndType        #45:#43        // a:Z
+  #25 = NameAndType        #45:#44        // a:[B
+  #26 = NameAndType        #48:#41        // b:I
+  #27 = NameAndType        #49:#39        // c:B
+  #28 = NameAndType        #49:#41        // c:I
+  #29 = NameAndType        #50:#39        // d:B
+  #30 = Utf8               ()V
+  #31 = Utf8               (B)B
+  #32 = Utf8               (B)V
+  #33 = Utf8               (BB)V
+  #34 = Utf8               (BBIII)I
+  #35 = Utf8               (BI)V
+  #36 = Utf8               (II)V
+  #37 = Utf8               <clinit>
+  #38 = Utf8               <init>
+  #39 = Utf8               B
+  #40 = Utf8               Code
+  #41 = Utf8               I
+  #42 = Utf8               Lca;
+  #43 = Utf8               Z
+  #44 = Utf8               [B
+  #45 = Utf8               a
+  #46 = Utf8               ak
+  #47 = Utf8               at
+  #48 = Utf8               b
+  #49 = Utf8               c
+  #50 = Utf8               d
+  #51 = Utf8               rpg/e
+  #52 = Utf8               s
+  #53 = Utf8               StackMap
+{
+  private static final byte[] a;
+    descriptor: [B
+    flags: (0x001a) ACC_PRIVATE, ACC_STATIC, ACC_FINAL
+
+  private byte c;
+    descriptor: B
+    flags: (0x0002) ACC_PRIVATE
+
+  private byte d;
+    descriptor: B
+    flags: (0x0002) ACC_PRIVATE
+
+  ak(byte);
+    descriptor: (B)V
+    flags: (0x0000)
+    Code:
+      stack=4, locals=2, args_size=2
+         0: aload_0
+         1: iload_1
+         2: invokespecial #15                 // Method at."<init>":(B)V
+         5: aload_0
+         6: iconst_0
+         7: putfield      #6                  // Field c:B
+        10: aload_0
+        11: iconst_1
+        12: putfield      #7                  // Field d:B
+        15: aload_0
+        16: aload_0
+        17: getfield      #8                  // Field at.a:B
+        20: bipush        11
+        22: isub
+        23: i2b
+        24: putfield      #6                  // Field c:B
+        27: aload_0
+        28: getstatic     #13                 // Field rpg/e.a:Lca;
+        31: getstatic     #5                  // Field a:[B
+        34: aload_0
+        35: getfield      #6                  // Field c:B
+        38: baload
+        39: invokevirtual #16                 // Method s.a:(B)B
+        42: putfield      #9                  // Field at.a:I
+        45: aload_0
+        46: aload_0
+        47: getfield      #9                  // Field at.a:I
+        50: putfield      #12                 // Field at.c:I
+        53: return
+
+  ak(byte, int);
+    descriptor: (BI)V
+    flags: (0x0000)
+    Code:
+      stack=2, locals=3, args_size=3
+         0: aload_0
+         1: iload_1
+         2: invokespecial #14                 // Method "<init>":(B)V
+         5: aload_0
+         6: iload_2
+         7: putfield      #12                 // Field at.c:I
+        10: return
+
+  ak(byte, byte);
+    descriptor: (BB)V
+    flags: (0x0000)
+    Code:
+      stack=2, locals=3, args_size=3
+         0: aload_0
+         1: iload_1
+         2: invokespecial #14                 // Method "<init>":(B)V
+         5: aload_0
+         6: getfield      #8                  // Field at.a:B
+         9: bipush        15
+        11: if_icmpne     19
+        14: aload_0
+        15: iload_2
+        16: putfield      #7                  // Field d:B
+        19: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 19
+          locals = [ class ak, int, int ]
+          stack = []
+
+  final void a(int, int);
+    descriptor: (II)V
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=6, locals=3, args_size=3
+         0: getstatic     #13                 // Field rpg/e.a:Lca;
+         3: getstatic     #5                  // Field a:[B
+         6: aload_0
+         7: getfield      #6                  // Field c:B
+        10: baload
+        11: aload_0
+        12: getfield      #7                  // Field d:B
+        15: aload_0
+        16: getfield      #11                 // Field at.b:I
+        19: aload_0
+        20: getfield      #9                  // Field at.a:I
+        23: irem
+        24: iload_1
+        25: iload_2
+        26: invokevirtual #17                 // Method s.a:(BBIII)I
+        29: pop
+        30: return
+
+  final void a();
+    descriptor: ()V
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: dup
+         2: getfield      #11                 // Field at.b:I
+         5: iconst_1
+         6: iadd
+         7: putfield      #11                 // Field at.b:I
+        10: aload_0
+        11: getfield      #11                 // Field at.b:I
+        14: aload_0
+        15: getfield      #12                 // Field at.c:I
+        18: if_icmplt     26
+        21: aload_0
+        22: iconst_1
+        23: putfield      #10                 // Field at.a:Z
+        26: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 26
+          locals = [ class ak ]
+          stack = []
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=4, locals=0, args_size=0
+         0: bipush        12
+         2: newarray       byte
+         4: dup
+         5: iconst_0
+         6: bipush        17
+         8: bastore
+         9: dup
+        10: iconst_1
+        11: bipush        19
+        13: bastore
+        14: dup
+        15: iconst_2
+        16: bipush        8
+        18: bastore
+        19: dup
+        20: iconst_3
+        21: bipush        18
+        23: bastore
+        24: dup
+        25: iconst_4
+        26: bipush        17
+        28: bastore
+        29: dup
+        30: iconst_5
+        31: bipush        9
+        33: bastore
+        34: dup
+        35: bipush        6
+        37: bipush        16
+        39: bastore
+        40: dup
+        41: bipush        7
+        43: bipush        16
+        45: bastore
+        46: dup
+        47: bipush        8
+        49: bipush        17
+        51: bastore
+        52: dup
+        53: bipush        9
+        55: bipush        18
+        57: bastore
+        58: dup
+        59: bipush        10
+        61: bipush        19
+        63: bastore
+        64: dup
+        65: bipush        11
+        67: bipush        13
+        69: bastore
+        70: putstatic     #5                  // Field a:[B
+        73: return
+}

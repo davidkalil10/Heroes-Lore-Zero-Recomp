@@ -1,0 +1,200 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/rpg/RPGHeroEx.class
+  Last modified 13 de out. de 2026; size 1049 bytes
+  SHA-256 checksum 37c9b8b9a8c86185b5828635afbc67fc60c491e200f582d487d5d085e820511d
+public class rpg.RPGHeroEx extends javax.microedition.midlet.MIDlet
+  minor version: 3
+  major version: 45
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #6                          // rpg/RPGHeroEx
+  super_class: #5                         // javax/microedition/midlet/MIDlet
+  interfaces: 0, fields: 1, methods: 6, attributes: 0
+Constant pool:
+   #1 = Class              #53            // bq
+   #2 = Class              #58            // java/lang/Exception
+   #3 = Class              #59            // java/lang/String
+   #4 = Class              #60            // java/lang/Throwable
+   #5 = Class              #61            // javax/microedition/midlet/MIDlet
+   #6 = Class              #67            // rpg/RPGHeroEx
+   #7 = Class              #68            // rpg/c
+   #8 = Fieldref           #6.#26         // rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+   #9 = Fieldref           #7.#30         // rpg/c.f:Z
+  #10 = Methodref          #1.#27         // bq.b:()V
+  #11 = Methodref          #3.#32         // java/lang/String.length:()I
+  #12 = Methodref          #3.#36         // java/lang/String.trim:()Ljava/lang/String;
+  #13 = Methodref          #4.#35         // java/lang/Throwable.printStackTrace:()V
+  #14 = Methodref          #5.#23         // javax/microedition/midlet/MIDlet."<init>":()V
+  #15 = Methodref          #5.#31         // javax/microedition/midlet/MIDlet.getAppProperty:(Ljava/lang/String;)Ljava/lang/String;
+  #16 = Methodref          #5.#33         // javax/microedition/midlet/MIDlet.notifyDestroyed:()V
+  #17 = Methodref          #5.#34         // javax/microedition/midlet/MIDlet.platformRequest:(Ljava/lang/String;)Z
+  #18 = Methodref          #6.#29         // rpg/RPGHeroEx.destroyApp:(Z)V
+  #19 = Methodref          #7.#24         // rpg/c.a:()Lrpg/c;
+  #20 = Methodref          #7.#25         // rpg/c.a:()V
+  #21 = Methodref          #7.#27         // rpg/c.b:()V
+  #22 = Methodref          #7.#28         // rpg/c.c:()V
+  #23 = NameAndType        #47:#41        // "<init>":()V
+  #24 = NameAndType        #51:#40        // a:()Lrpg/c;
+  #25 = NameAndType        #51:#41        // a:()V
+  #26 = NameAndType        #51:#49        // a:Lrpg/RPGHeroEx;
+  #27 = NameAndType        #52:#41        // b:()V
+  #28 = NameAndType        #54:#41        // c:()V
+  #29 = NameAndType        #55:#45        // destroyApp:(Z)V
+  #30 = NameAndType        #56:#50        // f:Z
+  #31 = NameAndType        #57:#42        // getAppProperty:(Ljava/lang/String;)Ljava/lang/String;
+  #32 = NameAndType        #62:#38        // length:()I
+  #33 = NameAndType        #63:#41        // notifyDestroyed:()V
+  #34 = NameAndType        #65:#44        // platformRequest:(Ljava/lang/String;)Z
+  #35 = NameAndType        #66:#41        // printStackTrace:()V
+  #36 = NameAndType        #70:#39        // trim:()Ljava/lang/String;
+  #37 = Class              #72            // java/lang/Object
+  #38 = Utf8               ()I
+  #39 = Utf8               ()Ljava/lang/String;
+  #40 = Utf8               ()Lrpg/c;
+  #41 = Utf8               ()V
+  #42 = Utf8               (Ljava/lang/String;)Ljava/lang/String;
+  #43 = Utf8               (Ljava/lang/String;)V
+  #44 = Utf8               (Ljava/lang/String;)Z
+  #45 = Utf8               (Z)V
+  #46 = Utf8               <clinit>
+  #47 = Utf8               <init>
+  #48 = Utf8               Code
+  #49 = Utf8               Lrpg/RPGHeroEx;
+  #50 = Utf8               Z
+  #51 = Utf8               a
+  #52 = Utf8               b
+  #53 = Utf8               bq
+  #54 = Utf8               c
+  #55 = Utf8               destroyApp
+  #56 = Utf8               f
+  #57 = Utf8               getAppProperty
+  #58 = Utf8               java/lang/Exception
+  #59 = Utf8               java/lang/String
+  #60 = Utf8               java/lang/Throwable
+  #61 = Utf8               javax/microedition/midlet/MIDlet
+  #62 = Utf8               length
+  #63 = Utf8               notifyDestroyed
+  #64 = Utf8               pauseApp
+  #65 = Utf8               platformRequest
+  #66 = Utf8               printStackTrace
+  #67 = Utf8               rpg/RPGHeroEx
+  #68 = Utf8               rpg/c
+  #69 = Utf8               startApp
+  #70 = Utf8               trim
+  #71 = Utf8               StackMap
+  #72 = Utf8               java/lang/Object
+{
+  public static rpg.RPGHeroEx a;
+    descriptor: Lrpg/RPGHeroEx;
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+
+  public rpg.RPGHeroEx();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #14                 // Method javax/microedition/midlet/MIDlet."<init>":()V
+         4: return
+
+  protected void startApp();
+    descriptor: ()V
+    flags: (0x0004) ACC_PROTECTED
+    Code:
+      stack=1, locals=1, args_size=1
+         0: getstatic     #8                  // Field a:Lrpg/RPGHeroEx;
+         3: ifnonnull     17
+         6: aload_0
+         7: putstatic     #8                  // Field a:Lrpg/RPGHeroEx;
+        10: invokestatic  #19                 // Method rpg/c.a:()Lrpg/c;
+        13: invokevirtual #22                 // Method rpg/c.c:()V
+        16: return
+        17: invokestatic  #10                 // Method bq.b:()V
+        20: invokestatic  #19                 // Method rpg/c.a:()Lrpg/c;
+        23: ifnull        32
+        26: invokestatic  #19                 // Method rpg/c.a:()Lrpg/c;
+        29: invokevirtual #21                 // Method rpg/c.b:()V
+        32: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 17
+          locals = [ class rpg/RPGHeroEx ]
+          stack = []
+        frame_type = 255 offset = 32
+          locals = [ class rpg/RPGHeroEx ]
+          stack = []
+
+  protected void pauseApp();
+    descriptor: ()V
+    flags: (0x0004) ACC_PROTECTED
+    Code:
+      stack=1, locals=1, args_size=1
+         0: invokestatic  #19                 // Method rpg/c.a:()Lrpg/c;
+         3: ifnull        12
+         6: invokestatic  #19                 // Method rpg/c.a:()Lrpg/c;
+         9: invokevirtual #20                 // Method rpg/c.a:()V
+        12: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 12
+          locals = [ class rpg/RPGHeroEx ]
+          stack = []
+
+  public void destroyApp(boolean);
+    descriptor: (Z)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=2, args_size=2
+         0: iconst_0
+         1: putstatic     #9                  // Field rpg/c.f:Z
+         4: aload_0
+         5: invokevirtual #16                 // Method javax/microedition/midlet/MIDlet.notifyDestroyed:()V
+         8: return
+
+  public final void a(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: invokevirtual #15                 // Method javax/microedition/midlet/MIDlet.getAppProperty:(Ljava/lang/String;)Ljava/lang/String;
+         5: dup
+         6: astore_1
+         7: ifnull        28
+        10: aload_1
+        11: invokevirtual #12                 // Method java/lang/String.trim:()Ljava/lang/String;
+        14: invokevirtual #11                 // Method java/lang/String.length:()I
+        17: bipush        7
+        19: if_icmple     28
+        22: aload_0
+        23: aload_1
+        24: invokevirtual #17                 // Method javax/microedition/midlet/MIDlet.platformRequest:(Ljava/lang/String;)Z
+        27: pop
+        28: goto          36
+        31: dup
+        32: astore_1
+        33: invokevirtual #13                 // Method java/lang/Throwable.printStackTrace:()V
+        36: aload_0
+        37: iconst_1
+        38: invokevirtual #18                 // Method destroyApp:(Z)V
+        41: return
+      Exception table:
+         from    to  target type
+             0    28    31   Class java/lang/Exception
+      StackMap: number_of_entries = 3
+        frame_type = 255 offset = 28
+          locals = [ class rpg/RPGHeroEx, class java/lang/String ]
+          stack = []
+        frame_type = 255 offset = 31
+          locals = [ class rpg/RPGHeroEx, class java/lang/String ]
+          stack = [ class java/lang/Exception ]
+        frame_type = 255 offset = 36
+          locals = [ class rpg/RPGHeroEx, class java/lang/Object ]
+          stack = []
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: aconst_null
+         1: putstatic     #8                  // Field a:Lrpg/RPGHeroEx;
+         4: return
+}

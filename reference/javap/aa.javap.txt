@@ -1,0 +1,134 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/aa.class
+  Last modified 13 de out. de 2026; size 445 bytes
+  SHA-256 checksum 8aef62dff2ff9c420d8c3e9f34e7172abd95feee38a8ac6483131f084254ec50
+final class aa extends at
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #1                          // aa
+  super_class: #2                         // at
+  interfaces: 0, fields: 2, methods: 3, attributes: 0
+Constant pool:
+   #1 = Class              #35            // aa
+   #2 = Class              #36            // at
+   #3 = Class              #39            // s
+   #4 = Fieldref           #1.#17         // aa.a:Ls;
+   #5 = Fieldref           #1.#20         // aa.c:B
+   #6 = Fieldref           #2.#16         // at.a:I
+   #7 = Fieldref           #2.#18         // at.a:Z
+   #8 = Fieldref           #2.#19         // at.b:I
+   #9 = Fieldref           #2.#21         // at.c:I
+  #10 = Methodref          #2.#13         // at."<init>":(B)V
+  #11 = Methodref          #3.#14         // s.a:(B)B
+  #12 = Methodref          #3.#15         // s.a:(BBIII)I
+  #13 = NameAndType        #28:#24        // "<init>":(B)V
+  #14 = NameAndType        #34:#23        // a:(B)B
+  #15 = NameAndType        #34:#25        // a:(BBIII)I
+  #16 = NameAndType        #34:#31        // a:I
+  #17 = NameAndType        #34:#32        // a:Ls;
+  #18 = NameAndType        #34:#33        // a:Z
+  #19 = NameAndType        #37:#31        // b:I
+  #20 = NameAndType        #38:#29        // c:B
+  #21 = NameAndType        #38:#31        // c:I
+  #22 = Utf8               ()V
+  #23 = Utf8               (B)B
+  #24 = Utf8               (B)V
+  #25 = Utf8               (BBIII)I
+  #26 = Utf8               (II)V
+  #27 = Utf8               (Ls;B)V
+  #28 = Utf8               <init>
+  #29 = Utf8               B
+  #30 = Utf8               Code
+  #31 = Utf8               I
+  #32 = Utf8               Ls;
+  #33 = Utf8               Z
+  #34 = Utf8               a
+  #35 = Utf8               aa
+  #36 = Utf8               at
+  #37 = Utf8               b
+  #38 = Utf8               c
+  #39 = Utf8               s
+  #40 = Utf8               StackMap
+{
+  private s a;
+    descriptor: Ls;
+    flags: (0x0002) ACC_PRIVATE
+
+  private byte c;
+    descriptor: B
+    flags: (0x0002) ACC_PRIVATE
+
+  aa(s, byte);
+    descriptor: (Ls;B)V
+    flags: (0x0000)
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0
+         1: bipush        -20
+         3: invokespecial #10                 // Method at."<init>":(B)V
+         6: aload_0
+         7: iconst_0
+         8: putfield      #5                  // Field c:B
+        11: aload_0
+        12: aload_1
+        13: putfield      #4                  // Field a:Ls;
+        16: aload_0
+        17: iload_2
+        18: putfield      #5                  // Field c:B
+        21: aload_0
+        22: aload_0
+        23: getfield      #4                  // Field a:Ls;
+        26: iload_2
+        27: invokevirtual #11                 // Method s.a:(B)B
+        30: putfield      #6                  // Field at.a:I
+        33: aload_0
+        34: iconst_1
+        35: putfield      #9                  // Field at.c:I
+        38: return
+
+  final void a(int, int);
+    descriptor: (II)V
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=6, locals=3, args_size=3
+         0: aload_0
+         1: getfield      #4                  // Field a:Ls;
+         4: aload_0
+         5: getfield      #5                  // Field c:B
+         8: iconst_1
+         9: aload_0
+        10: getfield      #8                  // Field at.b:I
+        13: aload_0
+        14: getfield      #6                  // Field at.a:I
+        17: irem
+        18: iload_1
+        19: iload_2
+        20: invokevirtual #12                 // Method s.a:(BBIII)I
+        23: pop
+        24: return
+
+  final void a();
+    descriptor: ()V
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: dup
+         2: getfield      #8                  // Field at.b:I
+         5: iconst_1
+         6: iadd
+         7: putfield      #8                  // Field at.b:I
+        10: aload_0
+        11: getfield      #8                  // Field at.b:I
+        14: aload_0
+        15: getfield      #6                  // Field at.a:I
+        18: if_icmplt     26
+        21: aload_0
+        22: iconst_1
+        23: putfield      #7                  // Field at.a:Z
+        26: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 26
+          locals = [ class aa ]
+          stack = []
+}

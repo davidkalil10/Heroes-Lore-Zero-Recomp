@@ -1,0 +1,87 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/dy.class
+  Last modified 13 de out. de 2026; size 209 bytes
+  SHA-256 checksum d32376af112a801b0352b376381c55df085d2e5518222c90d4684511428c3cc9
+public interface dy
+  minor version: 3
+  major version: 45
+  flags: (0x0601) ACC_PUBLIC, ACC_INTERFACE, ACC_ABSTRACT
+  this_class: #1                          // dy
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 2, methods: 1, attributes: 0
+Constant pool:
+   #1 = Class              #11            // dy
+   #2 = Class              #14            // java/lang/Object
+   #3 = Fieldref           #1.#5          // dy.e:[B
+   #4 = Fieldref           #1.#6          // dy.f:[B
+   #5 = NameAndType        #12:#10        // e:[B
+   #6 = NameAndType        #13:#10        // f:[B
+   #7 = Utf8               ()V
+   #8 = Utf8               <clinit>
+   #9 = Utf8               Code
+  #10 = Utf8               [B
+  #11 = Utf8               dy
+  #12 = Utf8               e
+  #13 = Utf8               f
+  #14 = Utf8               java/lang/Object
+{
+  public static final byte[] e;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  public static final byte[] f;
+    descriptor: [B
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=4, locals=0, args_size=0
+         0: iconst_2
+         1: newarray       byte
+         3: dup
+         4: iconst_0
+         5: iconst_4
+         6: bastore
+         7: dup
+         8: iconst_1
+         9: iconst_1
+        10: bastore
+        11: putstatic     #3                  // Field e:[B
+        14: bipush        8
+        16: newarray       byte
+        18: dup
+        19: iconst_0
+        20: iconst_0
+        21: bastore
+        22: dup
+        23: iconst_1
+        24: iconst_m1
+        25: bastore
+        26: dup
+        27: iconst_2
+        28: iconst_0
+        29: bastore
+        30: dup
+        31: iconst_3
+        32: iconst_1
+        33: bastore
+        34: dup
+        35: iconst_4
+        36: iconst_m1
+        37: bastore
+        38: dup
+        39: iconst_5
+        40: iconst_0
+        41: bastore
+        42: dup
+        43: bipush        6
+        45: iconst_1
+        46: bastore
+        47: dup
+        48: bipush        7
+        50: iconst_0
+        51: bastore
+        52: putstatic     #4                  // Field f:[B
+        55: return
+}

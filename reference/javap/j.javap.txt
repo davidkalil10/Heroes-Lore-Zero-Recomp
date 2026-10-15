@@ -1,0 +1,470 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/j.class
+  Last modified 13 de out. de 2026; size 2534 bytes
+  SHA-256 checksum 76916ae84d4ad149dbe3961a87c8e0b3574649d9679eedb5e77fa649f830a078
+final class j extends b
+  minor version: 3
+  major version: 45
+  flags: (0x0030) ACC_FINAL, ACC_SUPER
+  this_class: #12                         // j
+  super_class: #9                         // b
+  interfaces: 0, fields: 4, methods: 3, attributes: 0
+Constant pool:
+    #1 = Integer            13421772
+    #2 = Integer            14597755
+    #3 = String             #116          // ;;;|CREDITS&;EA Korea Studio;EA China Studio;;;Last revised by EA Hyderabad:;\\Engineering Lead&;Mahender Domakonda;;\\Engineers&;Rajesh Gorantla;Vishwajeet Jadhav;Ranjith Akuthota
+    #4 = String             #117          // ;Customer Service: Send email to help@eamobile.com;Copyright 2012 Electronic Arts Inc, EA, the EA logo and Heroes Lore are trademarks of Electronic Arts Inc. All other trademarks are the property of their respective owners.;Copyright 2012 Electronic Arts Inc, All trademarks are the property of their respective owners.;Copyright 2012 Electronic Arts Inc, EA, the EA logo and heroes Lore are trademarks of Electronic Arts Inc.
+    #5 = String             #121          // Heroes Lore Zero Copyright 2012 Electronic Arts Inc.;Published by Electronic Arts Inc.;
+    #6 = String             #126          // MIDlet-Version
+    #7 = String             #127          // Version:
+    #8 = Class              #132          // ac
+    #9 = Class              #135          // b
+   #10 = Class              #137          // ch
+   #11 = Class              #138          // cm
+   #12 = Class              #146          // j
+   #13 = Class              #147          // java/lang/String
+   #14 = Class              #148          // java/lang/StringBuffer
+   #15 = Class              #149          // java/lang/System
+   #16 = Class              #150          // javax/microedition/midlet/MIDlet
+   #17 = Class              #151          // n
+   #18 = Class              #152          // rpg/RPGHeroEx
+   #19 = Class              #153          // rpg/a
+   #20 = Class              #154          // rpg/d
+   #21 = Class              #155          // rpg/e
+   #22 = Class              #156          // rpg/f
+   #23 = Fieldref           #12.#74       // j.a:[B
+   #24 = Fieldref           #12.#75       // j.a:[S
+   #25 = Fieldref           #12.#82       // j.b:[B
+   #26 = Fieldref           #12.#88       // j.e:I
+   #27 = Fieldref           #17.#70       // n.a:B
+   #28 = Fieldref           #17.#72       // n.a:Ln;
+   #29 = Fieldref           #17.#76       // n.a_:I
+   #30 = Fieldref           #17.#80       // n.b:B
+   #31 = Fieldref           #18.#73       // rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+   #32 = Fieldref           #19.#71       // rpg/a.a:I
+   #33 = Fieldref           #19.#85       // rpg/a.c:I
+   #34 = Fieldref           #19.#86       // rpg/a.d:I
+   #35 = Fieldref           #20.#89       // rpg/d.e_:I
+   #36 = Fieldref           #21.#91       // rpg/e.f:Lch;
+   #37 = Fieldref           #22.#81       // rpg/f.b:I
+   #38 = Fieldref           #22.#86       // rpg/f.d:I
+   #39 = Methodref          #8.#66        // ac.a:(Lcm;IIII[BIII)V
+   #40 = Methodref          #8.#67        // ac.a:(Lcm;II[BII)V
+   #41 = Methodref          #8.#69        // ac.a:([BIII)I
+   #42 = Methodref          #9.#61        // b."<init>":(Ln;B)V
+   #43 = Methodref          #9.#65        // b.a:(Lcm;IIIII)V
+   #44 = Methodref          #10.#63       // ch.a:(I)[B
+   #45 = Methodref          #11.#62       // cm.a:(I)V
+   #46 = Methodref          #13.#94       // java/lang/String.getBytes:()[B
+   #47 = Methodref          #14.#60       // java/lang/StringBuffer."<init>":()V
+   #48 = Methodref          #14.#77       // java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+   #49 = Methodref          #14.#95       // java/lang/StringBuffer.toString:()Ljava/lang/String;
+   #50 = Methodref          #15.#78       // java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+   #51 = Methodref          #16.#93       // javax/microedition/midlet/MIDlet.getAppProperty:(Ljava/lang/String;)Ljava/lang/String;
+   #52 = Methodref          #17.#64       // n.a:(Lcm;I)V
+   #53 = Methodref          #17.#79       // n.b:(II)Z
+   #54 = Methodref          #17.#83       // n.c:()V
+   #55 = Methodref          #17.#84       // n.c:(II)Z
+   #56 = Methodref          #17.#87       // n.e:(Lcm;IIII)V
+   #57 = Methodref          #17.#90       // n.f:(II)Z
+   #58 = Methodref          #17.#92       // n.g:(II)Z
+   #59 = Methodref          #19.#68       // rpg/a.a:(Lcm;Z)V
+   #60 = NameAndType        #118:#98      // "<init>":()V
+   #61 = NameAndType        #118:#114     // "<init>":(Ln;B)V
+   #62 = NameAndType        #130:#100     // a:(I)V
+   #63 = NameAndType        #130:#101     // a:(I)[B
+   #64 = NameAndType        #130:#104     // a:(Lcm;I)V
+   #65 = NameAndType        #130:#106     // a:(Lcm;IIIII)V
+   #66 = NameAndType        #130:#107     // a:(Lcm;IIII[BIII)V
+   #67 = NameAndType        #130:#108     // a:(Lcm;II[BII)V
+   #68 = NameAndType        #130:#109     // a:(Lcm;Z)V
+   #69 = NameAndType        #130:#115     // a:([BIII)I
+   #70 = NameAndType        #130:#119     // a:B
+   #71 = NameAndType        #130:#122     // a:I
+   #72 = NameAndType        #130:#124     // a:Ln;
+   #73 = NameAndType        #130:#125     // a:Lrpg/RPGHeroEx;
+   #74 = NameAndType        #130:#128     // a:[B
+   #75 = NameAndType        #130:#129     // a:[S
+   #76 = NameAndType        #131:#122     // a_:I
+   #77 = NameAndType        #133:#112     // append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+   #78 = NameAndType        #134:#110     // arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+   #79 = NameAndType        #135:#102     // b:(II)Z
+   #80 = NameAndType        #135:#119     // b:B
+   #81 = NameAndType        #135:#122     // b:I
+   #82 = NameAndType        #135:#128     // b:[B
+   #83 = NameAndType        #136:#98      // c:()V
+   #84 = NameAndType        #136:#102     // c:(II)Z
+   #85 = NameAndType        #136:#122     // c:I
+   #86 = NameAndType        #139:#122     // d:I
+   #87 = NameAndType        #140:#105     // e:(Lcm;IIII)V
+   #88 = NameAndType        #140:#122     // e:I
+   #89 = NameAndType        #141:#122     // e_:I
+   #90 = NameAndType        #142:#102     // f:(II)Z
+   #91 = NameAndType        #142:#123     // f:Lch;
+   #92 = NameAndType        #143:#102     // g:(II)Z
+   #93 = NameAndType        #144:#111     // getAppProperty:(Ljava/lang/String;)Ljava/lang/String;
+   #94 = NameAndType        #145:#99      // getBytes:()[B
+   #95 = NameAndType        #157:#97      // toString:()Ljava/lang/String;
+   #96 = Class              #129          // "[S"
+   #97 = Utf8               ()Ljava/lang/String;
+   #98 = Utf8               ()V
+   #99 = Utf8               ()[B
+  #100 = Utf8               (I)V
+  #101 = Utf8               (I)[B
+  #102 = Utf8               (II)Z
+  #103 = Utf8               (Lcm;)V
+  #104 = Utf8               (Lcm;I)V
+  #105 = Utf8               (Lcm;IIII)V
+  #106 = Utf8               (Lcm;IIIII)V
+  #107 = Utf8               (Lcm;IIII[BIII)V
+  #108 = Utf8               (Lcm;II[BII)V
+  #109 = Utf8               (Lcm;Z)V
+  #110 = Utf8               (Ljava/lang/Object;ILjava/lang/Object;II)V
+  #111 = Utf8               (Ljava/lang/String;)Ljava/lang/String;
+  #112 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuffer;
+  #113 = Utf8               (Ln;)V
+  #114 = Utf8               (Ln;B)V
+  #115 = Utf8               ([BIII)I
+  #116 = Utf8               ;;;|CREDITS&;EA Korea Studio;EA China Studio;;;Last revised by EA Hyderabad:;\\Engineering Lead&;Mahender Domakonda;;\\Engineers&;Rajesh Gorantla;Vishwajeet Jadhav;Ranjith Akuthota
+  #117 = Utf8               ;Customer Service: Send email to help@eamobile.com;Copyright 2012 Electronic Arts Inc, EA, the EA logo and Heroes Lore are trademarks of Electronic Arts Inc. All other trademarks are the property of their respective owners.;Copyright 2012 Electronic Arts Inc, All trademarks are the property of their respective owners.;Copyright 2012 Electronic Arts Inc, EA, the EA logo and heroes Lore are trademarks of Electronic Arts Inc.
+  #118 = Utf8               <init>
+  #119 = Utf8               B
+  #120 = Utf8               Code
+  #121 = Utf8               Heroes Lore Zero Copyright 2012 Electronic Arts Inc.;Published by Electronic Arts Inc.;
+  #122 = Utf8               I
+  #123 = Utf8               Lch;
+  #124 = Utf8               Ln;
+  #125 = Utf8               Lrpg/RPGHeroEx;
+  #126 = Utf8               MIDlet-Version
+  #127 = Utf8               Version:
+  #128 = Utf8               [B
+  #129 = Utf8               [S
+  #130 = Utf8               a
+  #131 = Utf8               a_
+  #132 = Utf8               ac
+  #133 = Utf8               append
+  #134 = Utf8               arraycopy
+  #135 = Utf8               b
+  #136 = Utf8               c
+  #137 = Utf8               ch
+  #138 = Utf8               cm
+  #139 = Utf8               d
+  #140 = Utf8               e
+  #141 = Utf8               e_
+  #142 = Utf8               f
+  #143 = Utf8               g
+  #144 = Utf8               getAppProperty
+  #145 = Utf8               getBytes
+  #146 = Utf8               j
+  #147 = Utf8               java/lang/String
+  #148 = Utf8               java/lang/StringBuffer
+  #149 = Utf8               java/lang/System
+  #150 = Utf8               javax/microedition/midlet/MIDlet
+  #151 = Utf8               n
+  #152 = Utf8               rpg/RPGHeroEx
+  #153 = Utf8               rpg/a
+  #154 = Utf8               rpg/d
+  #155 = Utf8               rpg/e
+  #156 = Utf8               rpg/f
+  #157 = Utf8               toString
+  #158 = Utf8               StackMap
+{
+  private byte[] a;
+    descriptor: [B
+    flags: (0x0002) ACC_PRIVATE
+
+  private byte[] b;
+    descriptor: [B
+    flags: (0x0002) ACC_PRIVATE
+
+  private short[] a;
+    descriptor: [S
+    flags: (0x0002) ACC_PRIVATE
+
+  private int e;
+    descriptor: I
+    flags: (0x0002) ACC_PRIVATE
+
+  j(n);
+    descriptor: (Ln;)V
+    flags: (0x0000)
+    Code:
+      stack=5, locals=5, args_size=2
+         0: aload_0
+         1: aload_1
+         2: iconst_1
+         3: invokespecial #42                 // Method b."<init>":(Ln;B)V
+         6: aload_0
+         7: getstatic     #37                 // Field rpg/f.b:I
+        10: putfield      #26                 // Field e:I
+        13: aload_0
+        14: dup
+        15: astore_1
+        16: getstatic     #36                 // Field rpg/e.f:Lch;
+        19: iconst_0
+        20: invokevirtual #44                 // Method ch.a:(I)[B
+        23: putfield      #23                 // Field a:[B
+        26: new           #14                 // class java/lang/StringBuffer
+        29: dup
+        30: invokespecial #47                 // Method java/lang/StringBuffer."<init>":()V
+        33: ldc           #7                  // String Version:
+        35: invokevirtual #48                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        38: getstatic     #31                 // Field rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+        41: ldc           #6                  // String MIDlet-Version
+        43: invokevirtual #51                 // Method javax/microedition/midlet/MIDlet.getAppProperty:(Ljava/lang/String;)Ljava/lang/String;
+        46: invokevirtual #48                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        49: invokevirtual #49                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+        52: astore_2
+        53: aload_1
+        54: new           #14                 // class java/lang/StringBuffer
+        57: dup
+        58: invokespecial #47                 // Method java/lang/StringBuffer."<init>":()V
+        61: ldc           #5                  // String Heroes Lore Zero Copyright 2012 Electronic Arts Inc.;Published by Electronic Arts Inc.;
+        63: invokevirtual #48                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        66: aload_2
+        67: invokevirtual #48                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        70: ldc           #4                  // String ;Customer Service: Send email to help@eamobile.com;Copyright 2012 Electronic Arts Inc, EA, the EA logo and Heroes Lore are trademarks of Electronic Arts Inc. All other trademarks are the property of their respective owners.;Copyright 2012 Electronic Arts Inc, All trademarks are the property of their respective owners.;Copyright 2012 Electronic Arts Inc, EA, the EA logo and heroes Lore are trademarks of Electronic Arts Inc.
+        72: invokevirtual #48                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        75: ldc           #3                  // String ;;;|CREDITS&;EA Korea Studio;EA China Studio;;;Last revised by EA Hyderabad:;\\Engineering Lead&;Mahender Domakonda;;\\Engineers&;Rajesh Gorantla;Vishwajeet Jadhav;Ranjith Akuthota
+        77: invokevirtual #48                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+        80: invokevirtual #49                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+        83: invokevirtual #46                 // Method java/lang/String.getBytes:()[B
+        86: putfield      #25                 // Field b:[B
+        89: bipush        20
+        91: newarray       short
+        93: astore_2
+        94: iconst_0
+        95: istore_3
+        96: iconst_0
+        97: istore        4
+        99: iload_3
+       100: aload_1
+       101: getfield      #25                 // Field b:[B
+       104: arraylength
+       105: if_icmpge     137
+       108: aload_2
+       109: iload         4
+       111: iinc          4, 1
+       114: iload_3
+       115: i2s
+       116: sastore
+       117: iload_3
+       118: aload_1
+       119: getfield      #25                 // Field b:[B
+       122: iload_3
+       123: aload_1
+       124: getfield      #26                 // Field e:I
+       127: bipush        8
+       129: invokestatic  #41                 // Method ac.a:([BIII)I
+       132: iadd
+       133: istore_3
+       134: goto          99
+       137: aload_1
+       138: iload         4
+       140: newarray       short
+       142: putfield      #24                 // Field a:[S
+       145: aload_2
+       146: iconst_0
+       147: aload_1
+       148: getfield      #24                 // Field a:[S
+       151: iconst_0
+       152: aload_1
+       153: getfield      #24                 // Field a:[S
+       156: arraylength
+       157: invokestatic  #50                 // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+       160: aload_1
+       161: aload_1
+       162: getfield      #24                 // Field a:[S
+       165: arraylength
+       166: i2b
+       167: putfield      #30                 // Field n.b:B
+       170: aload_1
+       171: iconst_0
+       172: putfield      #27                 // Field n.a:B
+       175: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 99
+          locals = [ class j, class j, class "[S", int, int ]
+          stack = []
+        frame_type = 255 offset = 137
+          locals = [ class j, class j, class "[S", int, int ]
+          stack = []
+
+  final boolean a(int, int);
+    descriptor: (II)Z
+    flags: (0x0010) ACC_FINAL
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0
+         1: iload_1
+         2: iload_2
+         3: invokevirtual #53                 // Method n.b:(II)Z
+         6: ifeq          11
+         9: iconst_1
+        10: ireturn
+        11: iload_1
+        12: iload_2
+        13: invokestatic  #57                 // Method n.f:(II)Z
+        16: ifne          27
+        19: iload_1
+        20: iload_2
+        21: invokestatic  #58                 // Method n.g:(II)Z
+        24: ifeq          50
+        27: iload_1
+        28: bipush        -7
+        30: if_icmpne     48
+        33: aload_0
+        34: getfield      #28                 // Field n.a:Ln;
+        37: iconst_5
+        38: putfield      #27                 // Field n.a:B
+        41: aload_0
+        42: getfield      #28                 // Field n.a:Ln;
+        45: invokevirtual #54                 // Method n.c:()V
+        48: iconst_1
+        49: ireturn
+        50: aload_0
+        51: iload_1
+        52: iload_2
+        53: invokevirtual #55                 // Method n.c:(II)Z
+        56: ireturn
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 11
+          locals = [ class j, int, int ]
+          stack = []
+        frame_type = 255 offset = 27
+          locals = [ class j, int, int ]
+          stack = []
+        frame_type = 255 offset = 48
+          locals = [ class j, int, int ]
+          stack = []
+        frame_type = 255 offset = 50
+          locals = [ class j, int, int ]
+          stack = []
+
+  protected final void a(cm);
+    descriptor: (Lcm;)V
+    flags: (0x0014) ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=10, locals=6, args_size=2
+         0: getstatic     #34                 // Field rpg/a.d:I
+         3: istore_2
+         4: aload_1
+         5: iconst_1
+         6: invokestatic  #59                 // Method rpg/a.a:(Lcm;Z)V
+         9: iinc          2, -36
+        12: aload_1
+        13: ldc           #2                  // int 14597755
+        15: invokevirtual #45                 // Method cm.a:(I)V
+        18: aload_1
+        19: getstatic     #33                 // Field rpg/a.c:I
+        22: getstatic     #38                 // Field rpg/f.d:I
+        25: aload_0
+        26: getfield      #23                 // Field a:[B
+        29: iconst_0
+        30: iconst_1
+        31: invokestatic  #40                 // Method ac.a:(Lcm;II[BII)V
+        34: aload_1
+        35: ldc           #1                  // int 13421772
+        37: invokevirtual #45                 // Method cm.a:(I)V
+        40: aload_0
+        41: getfield      #24                 // Field a:[S
+        44: aload_0
+        45: getfield      #27                 // Field n.a:B
+        48: saload
+        49: istore_3
+        50: aload_0
+        51: getfield      #27                 // Field n.a:B
+        54: aload_0
+        55: getfield      #30                 // Field n.b:B
+        58: iconst_1
+        59: isub
+        60: if_icmpne     72
+        63: aload_0
+        64: getfield      #25                 // Field b:[B
+        67: arraylength
+        68: i2s
+        69: goto          83
+        72: aload_0
+        73: getfield      #24                 // Field a:[S
+        76: aload_0
+        77: getfield      #27                 // Field n.a:B
+        80: iconst_1
+        81: iadd
+        82: saload
+        83: istore        4
+        85: getstatic     #32                 // Field rpg/a.a:I
+        88: aload_0
+        89: getfield      #26                 // Field e:I
+        92: isub
+        93: iconst_1
+        94: ishr
+        95: istore        5
+        97: aload_1
+        98: iload         5
+       100: iconst_5
+       101: iadd
+       102: iload_2
+       103: aload_0
+       104: getfield      #26                 // Field e:I
+       107: iconst_1
+       108: aload_0
+       109: getfield      #25                 // Field b:[B
+       112: iload_3
+       113: iconst_0
+       114: iload         4
+       116: iload_3
+       117: isub
+       118: invokestatic  #39                 // Method ac.a:(Lcm;IIII[BIII)V
+       121: aload_0
+       122: getfield      #30                 // Field n.b:B
+       125: iconst_1
+       126: if_icmple     161
+       129: aload_0
+       130: aload_1
+       131: aload_0
+       132: getfield      #29                 // Field n.a_:I
+       135: getstatic     #35                 // Field rpg/d.e_:I
+       138: iadd
+       139: bipush        10
+       141: isub
+       142: iload_2
+       143: bipush        10
+       145: isub
+       146: aload_0
+       147: getfield      #27                 // Field n.a:B
+       150: iconst_1
+       151: iadd
+       152: aload_0
+       153: getfield      #30                 // Field n.b:B
+       156: bipush        8
+       158: invokevirtual #43                 // Method b.a:(Lcm;IIIII)V
+       161: aload_0
+       162: aload_1
+       163: iload         5
+       165: aload_0
+       166: getfield      #26                 // Field e:I
+       169: iadd
+       170: iconst_2
+       171: isub
+       172: iload_2
+       173: iconst_2
+       174: isub
+       175: aload_0
+       176: getfield      #27                 // Field n.a:B
+       179: aload_0
+       180: getfield      #30                 // Field n.b:B
+       183: invokevirtual #56                 // Method n.e:(Lcm;IIII)V
+       186: aload_1
+       187: iconst_2
+       188: invokestatic  #52                 // Method n.a:(Lcm;I)V
+       191: return
+      StackMap: number_of_entries = 3
+        frame_type = 255 offset = 72
+          locals = [ class j, class cm, int, int ]
+          stack = []
+        frame_type = 255 offset = 83
+          locals = [ class j, class cm, int, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 161
+          locals = [ class j, class cm, int, int, int, int ]
+          stack = []
+}

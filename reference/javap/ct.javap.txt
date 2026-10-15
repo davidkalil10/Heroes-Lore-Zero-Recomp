@@ -1,0 +1,162 @@
+Classfile /C:/Users/david/Desktop/Projetos_Flutter/heroes_lore_zero_recomp/reference/extracted/ct.class
+  Last modified 13 de out. de 2026; size 940 bytes
+  SHA-256 checksum 5ee817490708d31e3a12147c1d77156307198a545b35dcfa9367d59b48ca08bd
+public final class ct
+  minor version: 3
+  major version: 45
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #1                          // ct
+  super_class: #3                         // java/lang/Object
+  interfaces: 0, fields: 3, methods: 5, attributes: 0
+Constant pool:
+   #1 = Class              #45            // ct
+   #2 = Class              #46            // f
+   #3 = Class              #49            // java/lang/Object
+   #4 = Class              #50            // javax/microedition/lcdui/Canvas
+   #5 = Class              #51            // javax/microedition/lcdui/Display
+   #6 = Class              #52            // rpg/RPGHeroEx
+   #7 = Fieldref           #1.#21         // ct.a:Lct;
+   #8 = Fieldref           #1.#22         // ct.a:Ljavax/microedition/lcdui/Canvas;
+   #9 = Fieldref           #1.#23         // ct.a:Ljavax/microedition/lcdui/Display;
+  #10 = Fieldref           #6.#24         // rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+  #11 = Methodref          #1.#19         // ct."<init>":(Ljavax/microedition/lcdui/Display;)V
+  #12 = Methodref          #2.#18         // f."<init>":()V
+  #13 = Methodref          #2.#20         // f.a:(Laz;)Z
+  #14 = Methodref          #3.#18         // java/lang/Object."<init>":()V
+  #15 = Methodref          #4.#26         // javax/microedition/lcdui/Canvas.getGameAction:(I)I
+  #16 = Methodref          #5.#25         // javax/microedition/lcdui/Display.getDisplay:(Ljavax/microedition/midlet/MIDlet;)Ljavax/microedition/lcdui/Display;
+  #17 = Methodref          #5.#27         // javax/microedition/lcdui/Display.setCurrent:(Ljavax/microedition/lcdui/Displayable;)V
+  #18 = NameAndType        #38:#30        // "<init>":()V
+  #19 = NameAndType        #38:#34        // "<init>":(Ljavax/microedition/lcdui/Display;)V
+  #20 = NameAndType        #44:#33        // a:(Laz;)Z
+  #21 = NameAndType        #44:#40        // a:Lct;
+  #22 = NameAndType        #44:#41        // a:Ljavax/microedition/lcdui/Canvas;
+  #23 = NameAndType        #44:#42        // a:Ljavax/microedition/lcdui/Display;
+  #24 = NameAndType        #44:#43        // a:Lrpg/RPGHeroEx;
+  #25 = NameAndType        #47:#36        // getDisplay:(Ljavax/microedition/midlet/MIDlet;)Ljavax/microedition/lcdui/Display;
+  #26 = NameAndType        #48:#31        // getGameAction:(I)I
+  #27 = NameAndType        #53:#35        // setCurrent:(Ljavax/microedition/lcdui/Displayable;)V
+  #28 = Class              #55            // az
+  #29 = Utf8               ()Lct;
+  #30 = Utf8               ()V
+  #31 = Utf8               (I)I
+  #32 = Utf8               (Laz;)V
+  #33 = Utf8               (Laz;)Z
+  #34 = Utf8               (Ljavax/microedition/lcdui/Display;)V
+  #35 = Utf8               (Ljavax/microedition/lcdui/Displayable;)V
+  #36 = Utf8               (Ljavax/microedition/midlet/MIDlet;)Ljavax/microedition/lcdui/Display;
+  #37 = Utf8               <clinit>
+  #38 = Utf8               <init>
+  #39 = Utf8               Code
+  #40 = Utf8               Lct;
+  #41 = Utf8               Ljavax/microedition/lcdui/Canvas;
+  #42 = Utf8               Ljavax/microedition/lcdui/Display;
+  #43 = Utf8               Lrpg/RPGHeroEx;
+  #44 = Utf8               a
+  #45 = Utf8               ct
+  #46 = Utf8               f
+  #47 = Utf8               getDisplay
+  #48 = Utf8               getGameAction
+  #49 = Utf8               java/lang/Object
+  #50 = Utf8               javax/microedition/lcdui/Canvas
+  #51 = Utf8               javax/microedition/lcdui/Display
+  #52 = Utf8               rpg/RPGHeroEx
+  #53 = Utf8               setCurrent
+  #54 = Utf8               StackMap
+  #55 = Utf8               az
+{
+  public static javax.microedition.lcdui.Display a;
+    descriptor: Ljavax/microedition/lcdui/Display;
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+
+  private static ct a;
+    descriptor: Lct;
+    flags: (0x000a) ACC_PRIVATE, ACC_STATIC
+
+  public static javax.microedition.lcdui.Canvas a;
+    descriptor: Ljavax/microedition/lcdui/Canvas;
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+
+  private ct(javax.microedition.lcdui.Display);
+    descriptor: (Ljavax/microedition/lcdui/Display;)V
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=1, locals=2, args_size=2
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: aload_1
+         5: putstatic     #9                  // Field a:Ljavax/microedition/lcdui/Display;
+         8: return
+
+  public static int a(int);
+    descriptor: (I)I
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: getstatic     #8                  // Field a:Ljavax/microedition/lcdui/Canvas;
+         3: ifnull        14
+         6: getstatic     #8                  // Field a:Ljavax/microedition/lcdui/Canvas;
+         9: iload_0
+        10: invokevirtual #15                 // Method javax/microedition/lcdui/Canvas.getGameAction:(I)I
+        13: ireturn
+        14: iload_0
+        15: ireturn
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 14
+          locals = [ int ]
+          stack = []
+
+  public static void a(az);
+    descriptor: (Laz;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: invokestatic  #13                 // Method f.a:(Laz;)Z
+         4: ifeq          16
+         7: getstatic     #9                  // Field a:Ljavax/microedition/lcdui/Display;
+        10: getstatic     #8                  // Field a:Ljavax/microedition/lcdui/Canvas;
+        13: invokevirtual #17                 // Method javax/microedition/lcdui/Display.setCurrent:(Ljavax/microedition/lcdui/Displayable;)V
+        16: return
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 16
+          locals = [ class az ]
+          stack = []
+
+  public static ct a();
+    descriptor: ()Lct;
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=0, args_size=0
+         0: getstatic     #7                  // Field a:Lct;
+         3: ifnonnull     32
+         6: new           #1                  // class ct
+         9: dup
+        10: getstatic     #10                 // Field rpg/RPGHeroEx.a:Lrpg/RPGHeroEx;
+        13: invokestatic  #16                 // Method javax/microedition/lcdui/Display.getDisplay:(Ljavax/microedition/midlet/MIDlet;)Ljavax/microedition/lcdui/Display;
+        16: invokespecial #11                 // Method "<init>":(Ljavax/microedition/lcdui/Display;)V
+        19: putstatic     #7                  // Field a:Lct;
+        22: new           #2                  // class f
+        25: dup
+        26: invokespecial #12                 // Method f."<init>":()V
+        29: putstatic     #8                  // Field a:Ljavax/microedition/lcdui/Canvas;
+        32: getstatic     #7                  // Field a:Lct;
+        35: areturn
+      StackMap: number_of_entries = 1
+        frame_type = 255 offset = 32
+          locals = []
+          stack = []
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: aconst_null
+         1: putstatic     #9                  // Field a:Ljavax/microedition/lcdui/Display;
+         4: aconst_null
+         5: putstatic     #7                  // Field a:Lct;
+         8: aconst_null
+         9: putstatic     #8                  // Field a:Ljavax/microedition/lcdui/Canvas;
+        12: return
+}
