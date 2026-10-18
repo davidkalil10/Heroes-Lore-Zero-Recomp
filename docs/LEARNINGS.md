@@ -288,3 +288,52 @@
     - O job `release` está condicionado a: `startsWith(github.ref, 'refs/tags/') || (github.event_name == 'workflow_dispatch' && inputs.create_release == true)`.
     - Desta forma, em pushes normais no branch `main` as 4 plataformas são compiladas e seus artefatos são disponibilizados para download e teste, sem publicar releases públicas prematuras antes da validação do usuário.
 
+## Sessão 10 (Mapeamento de Gamepads Físicos, Virtual Touch e Refinamentos Switch/Mobile)
+- **Mapeamento de Gamepads Físicos (Nintendo Switch & PC/Xbox):**
+  - **Nintendo Switch (Layout Físico Nintendo):**
+    - `A` (Físico Leste / `SDL_CONTROLLER_BUTTON_B`): Código 53 (`'5'` / Atacar / Confirmar menus).
+    - `B` (Físico Sul / `SDL_CONTROLLER_BUTTON_A`): Código -7 (RSK / Cancelar / Voltar).
+    - `X` (Físico Norte / `SDL_CONTROLLER_BUTTON_Y`): Código 49 (`'1'` / Habilidade 1).
+    - `Y` (Físico Oeste / `SDL_CONTROLLER_BUTTON_X`): Código 51 (`'3'` / Habilidade 2).
+    - `L` (Shoulder / `LEFTSHOULDER`): Código 55 (`'7'` / Habilidade 3).
+    - `R` (Shoulder / `RIGHTSHOULDER`): Código 57 (`'9'` / Habilidade 4).
+    - `ZL` (Gatilho / `TRIGGERLEFT`): Código 35 (`'#'` / Poção MP / Pular Diálogo).
+    - `ZR` (Gatilho / `TRIGGERRIGHT`): Código 48 (`'0'` / Poção HP).
+    - `START` / `+`: Código -7 (Menu Principal do jogo).
+    - `SELECT` / `-`: Tecla de atalho duplo inteligente:
+      - Em combos com `START` -> Alterna Proporção (Auto <-> 3:4 <-> 16:9).
+      - Em combos com `R3` -> Alterna Moldura (Soltia <-> Ardósia <-> Preto).
+      - Ao ser solto isoladamente sem uso de combo:
+        - Se estiver em cutscene/diálogo (`isCutsceneActive(vm) == true`): Envia tecla 35 (`'#'`) para avançar o diálogo sem esforço.
+        - Se estiver em exploração livre: Envia tecla 42 (`'*'`) para abrir o Minimapa da região.
+    - `L3`: Minimapa da Região (`'*'` = 42).
+    - `R3`: Ciclo de Poções / Pular Diálogo (`'#'` = 35) isolado, ou ciclo de FPS em combos.
+  - **Xbox / PlayStation / PC padrão:**
+    - `A` / `Cross`: Código 53 (`'5'`).
+    - `B` / `Circle`: Código -7 (RSK).
+    - `X` / `Square`: Código 49 (`'1'`).
+    - `Y` / `Triangle`: Código 51 (`'3'`).
+    - `LB` / `L1`: Código 55 (`'7'`).
+    - `RB` / `R1`: Código 57 (`'9'`).
+    - `LT` / `L2`: Código 35 (`'#'`).
+    - `RT` / `R2`: Código 48 (`'0'`).
+
+- **Ergonomia dos Controles Virtuais (Mobile e Handheld):**
+  - **Modo Retrato (Vertical / TATE):**
+    - Elevação do viewport para o topo da tela (`gameY = std::max(0, (int)(winH * 0.015f))`), deixando 100% da área útil do jogo desobstruída em smartphones 19.5:9 / 20:9.
+    - Botões de sistema `[ MENU ]` (-7) e `[ MAPA ]` (42) colocados lado a lado imediatamente acima do D-Pad, eliminando a necessidade de esticar a mão para o topo da tela.
+    - Cluster de ação no quadrante direito com geometria em arco ergonômica ajustada em torno do botão `5` (centro grande): `1` e `7` na coluna esquerda, `3` no topo, `9` na direita-cima, e `0` (Item/Poção HP) na direita-baixo.
+    - Setas horizontais `<` (-101) e `>` (35 / '#') centralizadas no rodapé.
+  - **Modo Paisagem (Horizontal):**
+    - Coluna esquerda: `[ MENU ]` no topo, setas de poção no meio, D-Pad espaçoso na base.
+    - Coluna direita: `[ MAPA ]` e `0` no topo, cluster de ataque e 4 habilidades na base.
+
+- **Refinamentos para Nintendo Switch:**
+  - **Detecção de Dock:**
+    - Através de `appletGetOperationMode() == AppletOperationMode_Console`.
+    - Ao conectar na TV, os controles virtuais de toque são 100% ocultados e a imagem é centralizada na tela da TV em 1080p.
+    - Exibição de mensagem OSD na tela quando o console é acoplado ou desacoplado.
+  - **Correção de Congelamento de Modais no Modo Retrato (TATE):**
+    - No modo retrato com rotação ativada (`s_screenRotation != 0`), as janelas modais (`Updater::drawModal` e `CloudSave::drawModal`) agora são renderizadas diretamente dentro do render target intermediário `s_rotateTarget` (720x1280) antes do unbind, corrigindo o problema de tela congelada ao abrir diálogos em modo vertical.
+
+

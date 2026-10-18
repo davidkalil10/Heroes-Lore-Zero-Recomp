@@ -51,6 +51,8 @@
 
 namespace hl {
 
+std::string describeThrowable(VM& vm, Object* ex);
+
 static SDL_Window* s_window = nullptr;
 static SDL_Renderer* s_renderer = nullptr;
 static SDL_Texture* s_screenTexture = nullptr;
@@ -154,30 +156,35 @@ static int mapControllerButton(Uint8 btn) {
 
     // Botões de Ação Frontais
 #ifdef __SWITCH__
-    // Switch: o SDL usa layout posicional Xbox (A = botão de baixo = "B" do Switch).
-    // Trocamos para seguir os rótulos físicos do Switch: A (direita) confirma, B (baixo) cancela.
-    case SDL_CONTROLLER_BUTTON_B: return 53; // Switch A -> Atacar / Interagir / Confirmar ('5')
-    case SDL_CONTROLLER_BUTTON_A: return -7; // Switch B -> Status / Cancelar (RSK)
-    case SDL_CONTROLLER_BUTTON_Y: return 49; // Switch X (topo) -> Ataque 1 do Guardião ('1')
-    case SDL_CONTROLLER_BUTTON_X: return 51; // Switch Y (esquerda) -> Ataque 2 do Guardião ('3')
+    // No Nintendo Switch (Layout Nintendo / Rótulos Físicos):
+    // SDL mapeia os botões pelo layout posicional Xbox:
+    // SDL_CONTROLLER_BUTTON_B é a posição física Leste (o botão "A" do Switch).
+    // SDL_CONTROLLER_BUTTON_A é a posição física Sul (o botão "B" do Switch).
+    // SDL_CONTROLLER_BUTTON_Y é a posição física Norte (o botão "X" do Switch).
+    // SDL_CONTROLLER_BUTTON_X é a posição física Oeste (o botão "Y" do Switch).
+    case SDL_CONTROLLER_BUTTON_B: return 53; // Switch A físico (leste) -> Atacar / Interagir / Confirmar ('5')
+    case SDL_CONTROLLER_BUTTON_A: return -7; // Switch B físico (sul) -> Cancelar / Voltar em menus (-7)
+    case SDL_CONTROLLER_BUTTON_Y: return 49; // Switch X físico (norte) -> Habilidade 1 ('1')
+    case SDL_CONTROLLER_BUTTON_X: return 51; // Switch Y físico (oeste) -> Habilidade 2 ('3')
 #else
+    // Xbox / PlayStation / PC padrão:
     case SDL_CONTROLLER_BUTTON_A: return 53; // A (Xbox) / X (PS) -> Atacar com Arma / Interagir / Confirmar ('5')
-    case SDL_CONTROLLER_BUTTON_B: return -7; // B (Xbox) / O (PS) -> Status / Cancelar (RSK)
-    case SDL_CONTROLLER_BUTTON_X: return 49; // X (Xbox) / Quad (PS) -> Ataque 1 do Guardião ('1')
-    case SDL_CONTROLLER_BUTTON_Y: return 51; // Y (Xbox) / Tri (PS) -> Ataque 2 do Guardião ('3')
+    case SDL_CONTROLLER_BUTTON_B: return -7; // B (Xbox) / O (PS) -> Cancelar / Voltar em menus (-7)
+    case SDL_CONTROLLER_BUTTON_X: return 49; // X (Xbox) / Quad (PS) -> Habilidade 1 ('1')
+    case SDL_CONTROLLER_BUTTON_Y: return 51; // Y (Xbox) / Tri (PS) -> Habilidade 2 ('3')
 #endif
 
     // Botões de Ombro (Shoulders)
-    case SDL_CONTROLLER_BUTTON_LEFTSHOULDER: return 55;  // L1 -> Ataque Secundário / Habilidade ('7')
-    case SDL_CONTROLLER_BUTTON_RIGHTSHOULDER: return 57; // R1 -> Usar Poção / Item Rápido ('9')
+    case SDL_CONTROLLER_BUTTON_LEFTSHOULDER: return 55;  // L1 / LB / L -> Habilidade 3 ('7')
+    case SDL_CONTROLLER_BUTTON_RIGHTSHOULDER: return 57; // R1 / RB / R -> Habilidade 4 ('9')
 
     // Menus de Sistema e Mapa
-    case SDL_CONTROLLER_BUTTON_START: return -8; // Start / + -> Menu Principal / Inventário (CLR)
-    case SDL_CONTROLLER_BUTTON_BACK: return 35;  // Back / Select / - -> Pular Diálogo ('#') / Próxima Poção
+    case SDL_CONTROLLER_BUTTON_START: return -7; // Start / + -> Menu Principal do Jogo (-7)
+    case SDL_CONTROLLER_BUTTON_BACK: return 42;  // Back / Select / - -> Minimapa da Região ('*' = 42)
 
     // Cliques dos Analógicos
-    case SDL_CONTROLLER_BUTTON_LEFTSTICK: return 48;  // L3 -> Abrir Minimapa da Região ('0')
-    case SDL_CONTROLLER_BUTTON_RIGHTSTICK: return 35; // R3 -> Próxima Poção ('#')
+    case SDL_CONTROLLER_BUTTON_LEFTSTICK: return 42;  // L3 -> Minimapa da Região ('*' = 42)
+    case SDL_CONTROLLER_BUTTON_RIGHTSTICK: return 35; // R3 -> Ciclar Poção / Pular Diálogo ('#' = 35)
 
     default: return 0;
   }
@@ -408,51 +415,6 @@ static void setVmInstanceShort(Object* obj, const std::string& fieldName, int16_
   }
 }
 
-static Object* getVmStaticObjectByDesc(VM& vm, const std::string& className, const std::string& fieldName, const std::string& desc) {
-  auto it = vm.classes.find(className);
-  if (it == vm.classes.end()) return nullptr;
-  ClassInfo* cls = it->second;
-
-  std::vector<std::string> candidateNames = { fieldName };
-  if (fieldName.rfind("var_", 0) == 0) {
-    candidateNames.push_back(fieldName.substr(4));
-  }
-
-  for (const auto& name : candidateNames) {
-    for (auto& f : cls->fields) {
-      if (f.name == name && f.desc == desc && f.isStatic && f.isRef) {
-        if (f.index >= 0 && f.index < (int)cls->statics.size()) {
-          return cls->statics[f.index].o;
-        }
-      }
-    }
-  }
-  return nullptr;
-}
-
-static void invalidateCbHierarchy(Object* obj) {
-  while (obj && obj->kind == K_INST) {
-    setVmInstanceBool(obj, "a", true);
-    setVmInstanceBool(obj, "var_boolean_a", true);
-    setVmInstanceBool(obj, "b", true);
-    setVmInstanceBool(obj, "var_boolean_b", true);
-
-    Object* nextCb = nullptr;
-    Instance* inst = static_cast<Instance*>(obj);
-    for (ClassInfo* cur = inst->cls; cur; cur = cur->super) {
-      for (auto& f : cur->fields) {
-        if (!f.isStatic && f.isRef && f.desc == "Lcb;" && (f.name == "b" || f.name == "var_cb_b")) {
-          if (f.index >= 0 && f.index < (int)inst->f.size()) {
-            nextCb = inst->f[f.index].o;
-            break;
-          }
-        }
-      }
-      if (nextCb) break;
-    }
-    obj = nextCb;
-  }
-}
 
 static void updateJavaViewportVariables(VM& vm) {
   // 1. rpg/a: dimensões fundamentais do jogo J2ME (largura dinâmica, altura nativa 320)
@@ -1274,10 +1236,34 @@ struct GamepadLayout {
   std::vector<TouchButtonDef> buttons;
 };
 
+static bool isSwitchDocked() {
+#ifdef __SWITCH__
+  return (appletGetOperationMode() == AppletOperationMode_Console);
+#else
+  return false;
+#endif
+}
+
 static GamepadLayout calculateLayout(int winW, int winH) {
   GamepadLayout layout;
   layout.isPortrait = (winH > winW);
   layout.dpadR = 0;
+
+  // No Nintendo Switch em modo Dock (TV), não há controles de toque na TV:
+  // Ocultamos todos os botões virtuais sem exceção (D-Pad, ações, MENU, MAPA, olho, rotação, etc.)
+  if (isSwitchDocked()) {
+    float scaleX = (float)winW / (float)g_screenWidth;
+    float scaleY = (float)winH / (float)g_screenHeight;
+    float scale = std::min(scaleX, scaleY);
+    int gameW = (int)((float)g_screenWidth * scale);
+    int gameH = (int)((float)g_screenHeight * scale);
+    int gameX = (winW - gameW) / 2;
+    int gameY = (winH - gameH) / 2;
+    layout.gameRect = { gameX, gameY, gameW, gameH };
+    layout.controllerBgRect = { 0, 0, 0, 0 };
+    layout.dpadR = 0;
+    return layout;
+  }
 
   if (layout.isPortrait) {
     // Modo Retrato (Smartphone em pé / TATE)
@@ -1288,15 +1274,9 @@ static GamepadLayout calculateLayout(int winW, int winH) {
     int gameH = (int)((float)g_screenHeight * scale);
     int gameX = (winW - gameW) / 2;
 
-    // Barra de Sistema no topo (MENU e MAPA) com proporção ampla e abaixo da status bar
-    int pillW = (int)(winW * 0.28f);
-    int pillH = (int)(pillW * (100.0f / 240.0f));
-    int topY = std::max((int)(winH * 0.070f), pillH / 2 + 36);
-
-    // Subir a tela do jogo logo abaixo dos botões superiores com margem confortável
-    int topLimit = topY + pillH / 2 + (int)(winW * 0.025f);
-    int maxGameY = (winH - gameH) / 2;
-    int gameY = std::max(0, std::min(topLimit, maxGameY));
+    // Subir a tela do jogo para o topo absoluto da tela (com margem sutil para notch/status bar)
+    // Liberando a parte inferior para que os botões virtuais fiquem 100% fora da área do jogo
+    int gameY = std::max(0, (int)(winH * 0.015f));
     layout.gameRect = { gameX, gameY, gameW, gameH };
     layout.controllerBgRect = { 0, 0, 0, 0 }; // Sem fundo opaco, overlay translúcido sobre o jogo!
 
@@ -1305,6 +1285,7 @@ static GamepadLayout calculateLayout(int winW, int winH) {
     int toggleX = (int)(winW * 0.08f);
     int toggleY = winH - (int)(winW * 0.070f);
     int stepToggle = (int)(rToggle * 2.25f);
+    (void)stepToggle;
     int curUtilX = toggleX;
 
     layout.buttons.push_back({ KEY_TOGGLE_TOUCH_UI, curUtilX, toggleY, rToggle, rToggle * 2, rToggle * 2,
@@ -1316,34 +1297,39 @@ static GamepadLayout calculateLayout(int winW, int winH) {
 #endif
 
     if (s_touchOverlayEnabled) {
-      // D-Pad e Cluster de Ação posicionados na zona inferior confortável
-      // (abaixados para dar visibilidade máxima à tela e diálogos do jogo)
+      // D-Pad posicionado na zona inferior esquerda
       layout.dpadX = (int)(winW * 0.22f);
       layout.dpadY = winH - (int)(winW * 0.31f);
       layout.dpadR = (int)(winW * 0.175f);
 
-      // Disposição clássica ergonômica em arco mantida (5 no centro, 1 e 7 na coluna esquerda, 3 no topo, 9 no topo-direito, R na direita-baixo):
+      // Disposição clássica ergonômica em arco mantida estritamente (5 no centro, 1 e 7 na coluna esquerda, 3 no topo, 9 no topo-direito, 0 na direita-baixo):
       int actX = (int)(winW * 0.74f);
       int actY = winH - (int)(winW * 0.31f);
       int r5 = (int)(winW * 0.11f);
       int rSub = (int)(r5 * 0.74f);
 
-      // 5 - Ataque (Centro, grande)
+      // 5 - Atacar / Confirmar (Centro, grande)
       layout.buttons.push_back({ 53, actX, actY, r5, r5 * 2, r5 * 2, s_texBtn5 });
-      // 1 - Skill 1 (Esquerda-cima)
-      layout.buttons.push_back({ 49, actX - (int)(r5 * 1.95f), actY - (int)(r5 * 0.95f), rSub, rSub * 2, rSub * 2, s_texBtn1 });
-      // 3 - Skill 2 (Topo)
-      layout.buttons.push_back({ 51, actX - (int)(r5 * 0.20f), actY - (int)(r5 * 2.10f), rSub, rSub * 2, rSub * 2, s_texBtn3 });
-      // 7 - Poção (Esquerda-baixo, abaixo de 1)
-      layout.buttons.push_back({ 55, actX - (int)(r5 * 1.85f), actY + (int)(r5 * 1.15f), rSub, rSub * 2, rSub * 2, s_texBtn7 });
-      // 9 - Item (Direita-cima)
-      layout.buttons.push_back({ 57, actX + (int)(r5 * 1.35f), actY - (int)(r5 * 1.65f), rSub, rSub * 2, rSub * 2, s_texBtn9 });
-      // R - Voltar / Cancelar / Status (Direita-baixo, abaixo de 9 e alinhado ao 7)
-      layout.buttons.push_back({ -7, actX + (int)(r5 * 1.35f), actY + (int)(r5 * 1.15f), rSub, rSub * 2, rSub * 2, s_texBtnRskRound ? s_texBtnRskRound : s_texBtnRsk });
+      // 1 - Skill 1
+      layout.buttons.push_back({ 49, actX - (int)(r5 * 1.50f), actY - (int)(r5 * 0.70f), rSub, rSub * 2, rSub * 2, s_texBtn1 });
+      // 3 - Skill 2
+      layout.buttons.push_back({ 51, actX - (int)(r5 * 0.75f), actY - (int)(r5 * 1.45f), rSub, rSub * 2, rSub * 2, s_texBtn3 });
+      // 7 - Skill 3
+      layout.buttons.push_back({ 55, actX - (int)(r5 * 1.45f), actY + (int)(r5 * 0.85f), rSub, rSub * 2, rSub * 2, s_texBtn7 });
+      // 9 - Skill 4
+      layout.buttons.push_back({ 57, actX + (int)(r5 * 0.90f), actY - (int)(r5 * 1.40f), rSub, rSub * 2, rSub * 2, s_texBtn9 });
+      // 0 - Item / Poção HP (Direita-baixo, alinhado ao cluster)
+      layout.buttons.push_back({ 48, actX + (int)(r5 * 1.35f), actY + (int)(r5 * 1.15f), rSub, rSub * 2, rSub * 2, s_texBtnRskRound ? s_texBtnRskRound : s_texBtnRsk });
 
-      // Barra de Sistema no topo (apenas MENU e MAPA, proporcionais e espaçados)
-      layout.buttons.push_back({ -8, (int)(winW * 0.26f), topY, 0, pillW, pillH, s_texBtnMenu });
-      layout.buttons.push_back({ 48, (int)(winW * 0.74f), topY, 0, pillW, pillH, s_texBtnMap });
+      // Botões de Sistema (MENU e MAPA) posicionados abaixo do jogo e acima do D-Pad
+      int pillW = (int)(winW * 0.21f);
+      int pillH = (int)(pillW * (100.0f / 240.0f));
+      int sysY = (layout.dpadY - layout.dpadR) - pillH / 2 - (int)(winW * 0.035f);
+      int menuX = (int)(winW * 0.14f);
+      int mapX = (int)(winW * 0.38f);
+
+      layout.buttons.push_back({ -7, menuX, sysY, 0, pillW, pillH, s_texBtnMenu });
+      layout.buttons.push_back({ 42, mapX, sysY, 0, pillW, pillH, s_texBtnMap });
 
       // Alternância de Poção (< e >) perfeitamente centralizadas no eixo horizontal da tela
       int rArrow = (int)(winW * 0.055f);
@@ -1356,11 +1342,8 @@ static GamepadLayout calculateLayout(int winW, int winH) {
   } else {
     // Modo Paisagem (Landscape)
     int gameH = winH;
-    int gameW = (int)(gameH * ((float)g_screenWidth / (float)g_screenHeight));
-    if (gameW > winW) {
-      gameW = winW;
-      gameH = (int)(gameW * ((float)g_screenHeight / (float)g_screenWidth));
-    }
+    int gameW = (g_screenWidth == SCREEN_W_WIDESCREEN) ? (int)(gameH * (568.0f / 320.0f)) : (int)(gameH * (240.0f / 320.0f));
+    if (gameW > winW) gameW = winW;
     int gameX = (winW - gameW) / 2;
     int gameY = (winH - gameH) / 2;
     layout.gameRect = { gameX, gameY, gameW, gameH };
@@ -1379,6 +1362,7 @@ static GamepadLayout calculateLayout(int winW, int winH) {
     int toggleX = (int)(controlLeftW * 0.16f);
     int toggleY = winH - (int)(winH * 0.09f);
     int stepToggleLand = (int)(rToggleLand * 2.25f);
+    (void)stepToggleLand;
     int curUtilXLand = toggleX;
 
     layout.buttons.push_back({ KEY_TOGGLE_TOUCH_UI, curUtilXLand, toggleY, rToggleLand, rToggleLand * 2, rToggleLand * 2,
@@ -1398,7 +1382,7 @@ static GamepadLayout calculateLayout(int winW, int winH) {
       // MENU proporcional e grande no topo da coluna esquerda
       int menuW = std::min(240, (int)(controlLeftW * 0.48f));
       int menuH = (int)(menuW * (100.0f / 240.0f));
-      layout.buttons.push_back({ -8, controlLeftW / 2, (int)(winH * 0.14f), 0, menuW, menuH, s_texBtnMenu });
+      layout.buttons.push_back({ -7, controlLeftW / 2, (int)(winH * 0.14f), 0, menuW, menuH, s_texBtnMenu });
 
       // Setas circulares para pocoes (< e >) na coluna ESQUERDA (entre MENU e D-Pad, super ergonomico)
       int rArrowLand = (int)(winH * 0.075f);
@@ -1406,11 +1390,11 @@ static GamepadLayout calculateLayout(int winW, int winH) {
       layout.buttons.push_back({ -101, controlLeftW / 2 - arrowSpacingLand, (int)(winH * 0.33f), rArrowLand, rArrowLand * 2, rArrowLand * 2, s_texBtnPrev });
       layout.buttons.push_back({ 35, controlLeftW / 2 + arrowSpacingLand, (int)(winH * 0.33f), rArrowLand, rArrowLand * 2, rArrowLand * 2, s_texBtnNext });
 
-      // MAPA e R no topo da coluna direita (grandes e legiveis)
+      // MAPA e 0 (Item) no topo da coluna direita (grandes e legiveis)
       int topPillW = std::min(200, (int)(controlRightW * 0.38f));
       int topPillH = (int)(topPillW * (100.0f / 240.0f));
-      layout.buttons.push_back({ 48, controlRightX + (int)(controlRightW * 0.28f), (int)(winH * 0.14f), 0, topPillW, topPillH, s_texBtnMap });
-      layout.buttons.push_back({ -7, controlRightX + (int)(controlRightW * 0.72f), (int)(winH * 0.14f), 0, topPillW, topPillH, s_texBtnRsk });
+      layout.buttons.push_back({ 42, controlRightX + (int)(controlRightW * 0.28f), (int)(winH * 0.14f), 0, topPillW, topPillH, s_texBtnMap });
+      layout.buttons.push_back({ 48, controlRightX + (int)(controlRightW * 0.72f), (int)(winH * 0.14f), 0, topPillW, topPillH, s_texBtnRsk });
 
       // Botoes de acao no formato ergonomico favorito na coluna direita (amplo e espacoso sem as setas!)
       int actX = controlRightX + (int)(controlRightW * 0.50f);
@@ -1419,10 +1403,10 @@ static GamepadLayout calculateLayout(int winW, int winH) {
       int rSub = (int)(r5 * 0.74f);
 
       layout.buttons.push_back({ 53, actX, actY, r5, r5 * 2, r5 * 2, s_texBtn5 });
-      layout.buttons.push_back({ 49, actX - (int)(r5 * 1.95f), actY - (int)(r5 * 0.95f), rSub, rSub * 2, rSub * 2, s_texBtn1 });
-      layout.buttons.push_back({ 51, actX - (int)(r5 * 0.20f), actY - (int)(r5 * 2.10f), rSub, rSub * 2, rSub * 2, s_texBtn3 });
-      layout.buttons.push_back({ 55, actX - (int)(r5 * 1.85f), actY + (int)(r5 * 1.15f), rSub, rSub * 2, rSub * 2, s_texBtn7 });
-      layout.buttons.push_back({ 57, actX + (int)(r5 * 1.35f), actY - (int)(r5 * 1.65f), rSub, rSub * 2, rSub * 2, s_texBtn9 });
+      layout.buttons.push_back({ 49, actX - (int)(r5 * 1.50f), actY - (int)(r5 * 0.70f), rSub, rSub * 2, rSub * 2, s_texBtn1 });
+      layout.buttons.push_back({ 51, actX - (int)(r5 * 0.75f), actY - (int)(r5 * 1.45f), rSub, rSub * 2, rSub * 2, s_texBtn3 });
+      layout.buttons.push_back({ 55, actX - (int)(r5 * 1.45f), actY + (int)(r5 * 0.85f), rSub, rSub * 2, rSub * 2, s_texBtn7 });
+      layout.buttons.push_back({ 57, actX + (int)(r5 * 0.90f), actY - (int)(r5 * 1.40f), rSub, rSub * 2, rSub * 2, s_texBtn9 });
     }
   }
 
@@ -1480,7 +1464,7 @@ static int hitTestTouch(float touchX, float touchY, const GamepadLayout& layout)
 }
 
 static void drawGamepad(const GamepadLayout& layout) {
-  if (!s_renderer) return;
+  if (!s_renderer || isSwitchDocked()) return;
 
   // 1. D-Pad Virtual (Translúcido / Frosted Glass Overlay) se controles habilitados
   if (s_touchOverlayEnabled && s_texDpadBase && layout.dpadR > 0) {
@@ -1553,31 +1537,86 @@ static int getHeldDirection() {
   return getGamepadHeldDirection();
 }
 
-static void cyclePotionPrev(VM& vm) {
-  if (g_display && g_display->current) {
-    vm.gilLock();
-    try {
-      Value args[1]; args[0].i = 35; Value ret[2];
-      // '#' invocado 3 vezes avança 3 slots, equivalente a recuar 1 slot (4 - 1 = 3)
-      for (int rep = 0; rep < 3; ++rep) {
-        vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-        vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-      }
-    } catch (...) {}
-    vm.gilUnlock();
+// Verifica se a tela de menu do jogo (ax / di.var_byte_d == 5) está ativa
+static bool isMenuModeActive(VM& vm) {
+  static VM* s_cachedVm = nullptr;
+  static ClassInfo* s_diCls = nullptr;
+  static FieldInfo* s_fD = nullptr;
+
+  if (s_cachedVm != &vm) {
+    s_cachedVm = &vm;
+    s_diCls = vm.findClass("di");
+    s_fD = s_diCls ? vm.findField(s_diCls, "d:B") : nullptr;
   }
+  if (!s_diCls || !s_fD || !s_fD->isStatic || s_fD->index < 0 || s_fD->index >= (int)s_diCls->statics.size()) {
+    return false;
+  }
+  return s_diCls->statics[s_fD->index].i == 5;
+}
+
+// Detecta se há diálogo ou cutscene ativa
+static bool isCutsceneActive(VM& vm) {
+  ClassInfo* ebCls = vm.findClass("eb");
+  if (ebCls) {
+    FieldInfo* f = vm.findField(ebCls, "var_boolean_f:Z");
+    if (!f) f = vm.findField(ebCls, "f:Z");
+    if (f && f->isStatic && f->index >= 0 && f->index < (int)ebCls->statics.size()) {
+      if (ebCls->statics[f->index].i != 0) return true;
+    }
+  }
+  ClassInfo* gCls = vm.findClass("g");
+  if (gCls) {
+    FieldInfo* f = vm.findField(gCls, "var_boolean_f:Z");
+    if (!f) f = vm.findField(gCls, "f:Z");
+    if (f && f->isStatic && f->index >= 0 && f->index < (int)gCls->statics.size()) {
+      if (gCls->statics[f->index].i != 0) return true;
+    }
+  }
+  return false;
+}
+
+static void sendKeyPressed(VM& vm, int key) {
+  if (key == 53 && isMenuModeActive(vm)) key = -6;
+  if (!g_display || !g_display->current) return;
+  vm.gilLock();
+  try {
+    Value args[1]; args[0].i = key; Value ret[2];
+    vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
+  } catch (JavaThrow& jt) {
+    boot_log("[Input Exception] Excecao Java em keyPressed(%d): %s\n", key, describeThrowable(vm, jt.ex).c_str());
+  } catch (const std::exception& e) {
+    boot_log("[Input Exception] std::exception em keyPressed(%d): %s\n", key, e.what());
+  } catch (...) {
+    boot_log("[Input Exception] Excecao desconhecida em keyPressed(%d)!\n", key);
+  }
+  vm.gilUnlock();
+}
+
+static void sendKeyReleased(VM& vm, int key) {
+  if (key == 53 && isMenuModeActive(vm)) key = -6;
+  if (!g_display || !g_display->current) return;
+  vm.gilLock();
+  try {
+    Value args[1]; args[0].i = key; Value ret[2];
+    vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
+  } catch (JavaThrow& jt) {
+    boot_log("[Input Exception] Excecao Java em keyReleased(%d): %s\n", key, describeThrowable(vm, jt.ex).c_str());
+  } catch (const std::exception& e) {
+    boot_log("[Input Exception] std::exception em keyReleased(%d): %s\n", key, e.what());
+  } catch (...) {
+    boot_log("[Input Exception] Excecao desconhecida em keyReleased(%d)!\n", key);
+  }
+  vm.gilUnlock();
+}
+
+static void cyclePotionPrev(VM& vm) {
+  sendKeyPressed(vm, 35);
+  sendKeyReleased(vm, 35);
 }
 
 static void cyclePotionNext(VM& vm) {
-  if (g_display && g_display->current) {
-    vm.gilLock();
-    try {
-      Value args[1]; args[0].i = 35; Value ret[2];
-      vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-      vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-    } catch (...) {}
-    vm.gilUnlock();
-  }
+  sendKeyPressed(vm, 35);
+  sendKeyReleased(vm, 35);
 }
 
 static void getTouchCoords(const SDL_TouchFingerEvent& tf, int winW, int winH, float& outX, float& outY, int& outW, int& outH) {
@@ -1600,23 +1639,6 @@ static void getTouchCoords(const SDL_TouchFingerEvent& tf, int winW, int winH, f
   outH = winH;
   outX = tf.x * winW;
   outY = tf.y * winH;
-}
-
-// Verifica se a tela de menu do jogo (ax / di.var_byte_d == 5) está ativa
-static bool isMenuModeActive(VM& vm) {
-  static VM* s_cachedVm = nullptr;
-  static ClassInfo* s_diCls = nullptr;
-  static FieldInfo* s_fD = nullptr;
-
-  if (s_cachedVm != &vm) {
-    s_cachedVm = &vm;
-    s_diCls = vm.findClass("di");
-    s_fD = s_diCls ? vm.findField(s_diCls, "d:B") : nullptr;
-  }
-  if (!s_diCls || !s_fD || !s_fD->isStatic || s_fD->index < 0 || s_fD->index >= (int)s_diCls->statics.size()) {
-    return false;
-  }
-  return s_diCls->statics[s_fD->index].i == 5;
 }
 
 bool Platform::pollEvents(VM& vm) {
@@ -1793,41 +1815,30 @@ bool Platform::pollEvents(VM& vm) {
         continue;
       }
       int key = mapControllerButton(ev.cbutton.button);
-      if (key == 53 && isMenuModeActive(vm)) key = -6;
       if (key != 0 && g_display && g_display->current) {
         if (isDirectionKey(key)) {
           if (s_activeDirection != key) {
             s_activeDirection = key;
             s_directionPressTime = SDL_GetTicks();
             s_directionLastRepeatTime = s_directionPressTime;
-            vm.gilLock();
-            try {
-              Value args[1]; args[0].i = key; Value ret[2];
-              vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-            } catch (...) {}
-            vm.gilUnlock();
+            sendKeyPressed(vm, key);
           }
         } else {
-          vm.gilLock();
-          try {
-            Value args[1]; args[0].i = key; Value ret[2];
-            vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-          } catch (...) {}
-          vm.gilUnlock();
+          sendKeyPressed(vm, key);
         }
       }
     } else if (ev.type == SDL_CONTROLLERBUTTONUP) {
       if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_BACK) {
         s_selectButtonHeld = false;
-        // Se SELECT foi solto sem uso em combo, envia comando de Pular Diálogo / Próxima Poção ('#')
+        // Se SELECT foi solto sem uso em combo, envia Pular Diálogo ('#') em cutscene ou Minimapa ('*') no jogo
         if (!s_selectUsedInCombo && g_display && g_display->current) {
-          vm.gilLock();
-          try {
-            Value args[1]; args[0].i = 35; Value ret[2];
-            vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-            vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-          } catch (...) {}
-          vm.gilUnlock();
+          if (isCutsceneActive(vm)) {
+            sendKeyPressed(vm, 35);
+            sendKeyReleased(vm, 35);
+          } else {
+            sendKeyPressed(vm, 42);
+            sendKeyReleased(vm, 42);
+          }
         }
         continue;
       } else if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_START) {
@@ -1839,7 +1850,6 @@ bool Platform::pollEvents(VM& vm) {
         continue;
       }
       int key = mapControllerButton(ev.cbutton.button);
-      if (key == 53 && isMenuModeActive(vm)) key = -6;
       if (key != 0 && g_display && g_display->current) {
         if (isDirectionKey(key)) {
           int held = getHeldDirection();
@@ -1847,28 +1857,13 @@ bool Platform::pollEvents(VM& vm) {
             s_activeDirection = held;
             s_directionPressTime = SDL_GetTicks();
             s_directionLastRepeatTime = s_directionPressTime;
-            vm.gilLock();
-            try {
-              Value args[1]; args[0].i = held; Value ret[2];
-              vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-            } catch (...) {}
-            vm.gilUnlock();
+            sendKeyPressed(vm, held);
           } else {
             s_activeDirection = 0;
-            vm.gilLock();
-            try {
-              Value args[1]; args[0].i = key; Value ret[2];
-              vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-            } catch (...) {}
-            vm.gilUnlock();
+            sendKeyReleased(vm, key);
           }
         } else {
-          vm.gilLock();
-          try {
-            Value args[1]; args[0].i = key; Value ret[2];
-            vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-          } catch (...) {}
-          vm.gilUnlock();
+          sendKeyReleased(vm, key);
         }
       }
     }
@@ -1880,7 +1875,7 @@ bool Platform::pollEvents(VM& vm) {
         if (down != s_ltHeld) {
           s_ltHeld = down;
           if (down) {
-            cyclePotionPrev(vm); // LT -> Alternar Poção / Item para a ESQUERDA (slot anterior)
+            cyclePotionNext(vm); // LT / L2 / ZL -> Poção MP / Pular Diálogo ('#' = 35)
           }
         }
       } else if (ev.caxis.axis == SDL_CONTROLLER_AXIS_TRIGGERRIGHT) {
@@ -1888,7 +1883,9 @@ bool Platform::pollEvents(VM& vm) {
         if (down != s_rtHeld) {
           s_rtHeld = down;
           if (down) {
-            cyclePotionNext(vm); // RT -> Alternar Poção / Item para a DIREITA (slot seguinte)
+            sendKeyPressed(vm, 48); // RT / R2 / ZR -> Poção HP ('0' = 48)
+          } else {
+            sendKeyReleased(vm, 48);
           }
         }
       } else if (ev.caxis.axis == SDL_CONTROLLER_AXIS_LEFTX || ev.caxis.axis == SDL_CONTROLLER_AXIS_LEFTY) {
@@ -1898,25 +1895,11 @@ bool Platform::pollEvents(VM& vm) {
             s_activeDirection = held;
             s_directionPressTime = SDL_GetTicks();
             s_directionLastRepeatTime = s_directionPressTime;
-            if (g_display && g_display->current) {
-              vm.gilLock();
-              try {
-                Value args[1]; args[0].i = held; Value ret[2];
-                vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-              } catch (...) {}
-              vm.gilUnlock();
-            }
+            sendKeyPressed(vm, held);
           } else if (s_activeDirection != 0 && getHeldDirection() == 0) {
             int oldKey = s_activeDirection;
             s_activeDirection = 0;
-            if (g_display && g_display->current) {
-              vm.gilLock();
-              try {
-                Value args[1]; args[0].i = oldKey; Value ret[2];
-                vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-              } catch (...) {}
-              vm.gilUnlock();
-            }
+            sendKeyReleased(vm, oldKey);
           }
         }
       }
@@ -1948,7 +1931,6 @@ bool Platform::pollEvents(VM& vm) {
         continue;
       }
       int key = mapKey(ev.key.keysym.sym);
-      if (key == 53 && isMenuModeActive(vm)) key = -6;
       if (key == -101) {
         if (!ev.key.repeat) {
           cyclePotionPrev(vm);
@@ -1959,29 +1941,14 @@ bool Platform::pollEvents(VM& vm) {
             s_activeDirection = key;
             s_directionPressTime = SDL_GetTicks();
             s_directionLastRepeatTime = s_directionPressTime;
-            vm.gilLock();
-            try {
-              Value args[1];
-              args[0].i = key;
-              Value ret[2];
-              vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-            } catch (...) {}
-            vm.gilUnlock();
+            sendKeyPressed(vm, key);
           }
         } else if (!ev.key.repeat) {
-          vm.gilLock();
-          try {
-            Value args[1];
-            args[0].i = key;
-            Value ret[2];
-            vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-          } catch (...) {}
-          vm.gilUnlock();
+          sendKeyPressed(vm, key);
         }
       }
     } else if (ev.type == SDL_KEYUP) {
       int key = mapKey(ev.key.keysym.sym);
-      if (key == 53 && isMenuModeActive(vm)) key = -6;
       if (key != 0 && g_display && g_display->current) {
         if (isDirectionKey(key)) {
           int held = getHeldDirection();
@@ -1989,34 +1956,13 @@ bool Platform::pollEvents(VM& vm) {
             s_activeDirection = held;
             s_directionPressTime = SDL_GetTicks();
             s_directionLastRepeatTime = s_directionPressTime;
-            vm.gilLock();
-            try {
-              Value args[1];
-              args[0].i = held;
-              Value ret[2];
-              vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-            } catch (...) {}
-            vm.gilUnlock();
+            sendKeyPressed(vm, held);
           } else {
             s_activeDirection = 0;
-            vm.gilLock();
-            try {
-              Value args[1];
-              args[0].i = key;
-              Value ret[2];
-              vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-            } catch (...) {}
-            vm.gilUnlock();
+            sendKeyReleased(vm, key);
           }
         } else {
-          vm.gilLock();
-          try {
-            Value args[1];
-            args[0].i = key;
-            Value ret[2];
-            vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-          } catch (...) {}
-          vm.gilUnlock();
+          sendKeyReleased(vm, key);
         }
       }
     }
@@ -2025,32 +1971,14 @@ bool Platform::pollEvents(VM& vm) {
     // Cliques e Roda do Mouse no PC Desktop (ignora toques sintetizados de touchscreen)
     else if (ev.type == SDL_MOUSEBUTTONDOWN) {
       if (ev.button.which != SDL_TOUCH_MOUSEID && g_display && g_display->current) {
-        int key = 0;
-        if (ev.button.button == SDL_BUTTON_LEFT) key = isMenuModeActive(vm) ? -6 : 53; // Ação / Atacar / Confirmar
-        else if (ev.button.button == SDL_BUTTON_RIGHT) key = -7; // Cancelar / Voltar / RSK
-        if (key != 0) {
-          vm.gilLock();
-          try {
-            Value args[1]; args[0].i = key; Value ret[2];
-            vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-          } catch (...) {}
-          vm.gilUnlock();
-        }
+        if (ev.button.button == SDL_BUTTON_LEFT) sendKeyPressed(vm, 53); // Ação / Atacar / Confirmar
+        else if (ev.button.button == SDL_BUTTON_RIGHT) sendKeyPressed(vm, -7); // Cancelar / Voltar / RSK
       }
     }
     else if (ev.type == SDL_MOUSEBUTTONUP) {
       if (ev.button.which != SDL_TOUCH_MOUSEID && g_display && g_display->current) {
-        int key = 0;
-        if (ev.button.button == SDL_BUTTON_LEFT) key = isMenuModeActive(vm) ? -6 : 53;
-        else if (ev.button.button == SDL_BUTTON_RIGHT) key = -7;
-        if (key != 0) {
-          vm.gilLock();
-          try {
-            Value args[1]; args[0].i = key; Value ret[2];
-            vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-          } catch (...) {}
-          vm.gilUnlock();
-        }
+        if (ev.button.button == SDL_BUTTON_LEFT) sendKeyReleased(vm, 53);
+        else if (ev.button.button == SDL_BUTTON_RIGHT) sendKeyReleased(vm, -7);
       }
     }
     else if (ev.type == SDL_MOUSEWHEEL) {
@@ -2078,12 +2006,7 @@ bool Platform::pollEvents(VM& vm) {
         if (!s_touchOverlayEnabled) {
           // Solta direcional ou teclas mantidas para não travar andando
           if (s_activeDirection != 0 && g_display && g_display->current) {
-            vm.gilLock();
-            try {
-              Value args[1]; args[0].i = s_activeDirection; Value ret[2];
-              vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-            } catch (...) {}
-            vm.gilUnlock();
+            sendKeyReleased(vm, s_activeDirection);
           }
           s_activeDirection = 0;
           s_touchHeldDirection = 0;
@@ -2106,7 +2029,6 @@ bool Platform::pollEvents(VM& vm) {
         Platform::toggleFps();
         Platform::rumble(0.20f, 40);
       } else if (key != 0 && s_touchOverlayEnabled) {
-        if (key == 53 && isMenuModeActive(vm)) key = -6;
         s_activeFingers.push_back({ev.tfinger.fingerId, key});
         if (key == -101) {
           cyclePotionPrev(vm);
@@ -2118,24 +2040,10 @@ bool Platform::pollEvents(VM& vm) {
             s_activeDirection = key;
             s_directionPressTime = SDL_GetTicks();
             s_directionLastRepeatTime = s_directionPressTime;
-            if (g_display && g_display->current) {
-              vm.gilLock();
-              try {
-                Value args[1]; args[0].i = key; Value ret[2];
-                vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-              } catch (...) {}
-              vm.gilUnlock();
-            }
+            sendKeyPressed(vm, key);
           }
         } else {
-          if (g_display && g_display->current) {
-            vm.gilLock();
-            try {
-              Value args[1]; args[0].i = key; Value ret[2];
-              vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-            } catch (...) {}
-            vm.gilUnlock();
-          }
+          sendKeyPressed(vm, key);
         }
       }
     } else if (ev.type == SDL_FINGERMOTION) {
@@ -2152,7 +2060,6 @@ bool Platform::pollEvents(VM& vm) {
           int newKey = hitTestTouch(touchX, touchY, layout);
           if (newKey == KEY_TOGGLE_TOUCH_UI || newKey == KEY_TOGGLE_ORIENTATION ||
               newKey == KEY_TOGGLE_TOUCH_ASPECT || newKey == KEY_TOGGLE_TOUCH_FPS) newKey = 0;
-          if (newKey == 53 && isMenuModeActive(vm)) newKey = -6;
           if (newKey != f.key) {
             int oldKey = f.key;
             f.key = newKey;
@@ -2162,45 +2069,17 @@ bool Platform::pollEvents(VM& vm) {
                 s_activeDirection = newKey;
                 s_directionPressTime = SDL_GetTicks();
                 s_directionLastRepeatTime = s_directionPressTime;
-                if (g_display && g_display->current) {
-                  vm.gilLock();
-                  try {
-                    Value args[1]; args[0].i = newKey; Value ret[2];
-                    vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-                  } catch (...) {}
-                  vm.gilUnlock();
-                }
+                sendKeyPressed(vm, newKey);
               } else {
                 s_touchHeldDirection = 0;
-                if (g_display && g_display->current) {
-                  vm.gilLock();
-                  try {
-                    Value args[1]; args[0].i = oldKey; Value ret[2];
-                    vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-                  } catch (...) {}
-                  vm.gilUnlock();
-                }
+                sendKeyReleased(vm, oldKey);
               }
             } else if (oldKey != 0 && oldKey != -101 && oldKey != 35) {
-              if (g_display && g_display->current) {
-                vm.gilLock();
-                try {
-                  Value args[1]; args[0].i = oldKey; Value ret[2];
-                  vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-                } catch (...) {}
-                vm.gilUnlock();
-              }
+              sendKeyReleased(vm, oldKey);
             }
 
             if (newKey != 0 && !isDirectionKey(newKey) && newKey != -101 && newKey != 35) {
-              if (g_display && g_display->current) {
-                vm.gilLock();
-                try {
-                  Value args[1]; args[0].i = newKey; Value ret[2];
-                  vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-                } catch (...) {}
-                vm.gilUnlock();
-              }
+              sendKeyPressed(vm, newKey);
             }
           }
           break;
@@ -2219,24 +2098,10 @@ bool Platform::pollEvents(VM& vm) {
             s_touchHeldDirection = otherDir;
             if (otherDir == 0) {
               s_activeDirection = 0;
-              if (g_display && g_display->current) {
-                vm.gilLock();
-                try {
-                  Value args[1]; args[0].i = key; Value ret[2];
-                  vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-                } catch (...) {}
-                vm.gilUnlock();
-              }
+              sendKeyReleased(vm, key);
             }
           } else if (key != 0 && key != -101 && key != 35) {
-            if (g_display && g_display->current) {
-              vm.gilLock();
-              try {
-                Value args[1]; args[0].i = key; Value ret[2];
-                vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-              } catch (...) {}
-              vm.gilUnlock();
-            }
+            sendKeyReleased(vm, key);
           }
         } else {
           ++it;
@@ -2252,41 +2117,20 @@ bool Platform::pollEvents(VM& vm) {
     if (held == 0) {
       int oldKey = s_activeDirection;
       s_activeDirection = 0;
-      vm.gilLock();
-      try {
-        Value args[1];
-        args[0].i = oldKey;
-        Value ret[2];
-        vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
-      } catch (...) {}
-      vm.gilUnlock();
+      sendKeyReleased(vm, oldKey);
     } else {
       if (held != s_activeDirection) {
         s_activeDirection = held;
         s_directionPressTime = SDL_GetTicks();
         s_directionLastRepeatTime = s_directionPressTime;
-        vm.gilLock();
-        try {
-          Value args[1];
-          args[0].i = held;
-          Value ret[2];
-          vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-        } catch (...) {}
-        vm.gilUnlock();
+        sendKeyPressed(vm, held);
       } else {
         uint32_t now = SDL_GetTicks();
         const uint32_t INITIAL_DELAY_MS = 160;
         const uint32_t REPEAT_INTERVAL_MS = 40;
         if (now - s_directionPressTime >= INITIAL_DELAY_MS && now - s_directionLastRepeatTime >= REPEAT_INTERVAL_MS) {
           s_directionLastRepeatTime = now;
-          vm.gilLock();
-          try {
-            Value args[1];
-            args[0].i = s_activeDirection;
-            Value ret[2];
-            vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
-          } catch (...) {}
-          vm.gilUnlock();
+          sendKeyPressed(vm, s_activeDirection);
         }
       }
     }
@@ -2400,8 +2244,20 @@ void Platform::present() {
 
   loadGamepadTextures();
 
+  static bool s_wasSwitchDocked = false;
+  static bool s_dockStateInit = false;
+  bool currentDocked = isSwitchDocked();
+  if (!s_dockStateInit) {
+    s_wasSwitchDocked = currentDocked;
+    s_dockStateInit = true;
+  } else if (currentDocked != s_wasSwitchDocked) {
+    s_wasSwitchDocked = currentDocked;
+    Platform::showOsdMessage(currentDocked ? "Nintendo Switch (Modo TV / Dock Conectado)"
+                                           : "Nintendo Switch (Modo Portatil / Handheld)");
+  }
+
 #ifdef __SWITCH__
-  if (s_screenRotation != 0) {
+  if (s_screenRotation != 0 && !currentDocked) {
     if (!s_rotateTarget) {
       s_rotateTarget = SDL_CreateTexture(
           s_renderer,
@@ -2418,6 +2274,14 @@ void Platform::present() {
       SDL_RenderCopy(s_renderer, s_screenTexture, nullptr, &layout.gameRect);
       drawGamepad(layout);
       drawOsd(720, 1280);
+
+      // Renderiza diálogos modais diretamente na textura portrait do Switch
+      if (Updater::isPromptActive()) {
+        Updater::drawModal(s_renderer, 720, 1280);
+      }
+      if (CloudSave::isModalActive()) {
+        CloudSave::drawModal(s_renderer, 720, 1280);
+      }
 
       SDL_SetRenderTarget(s_renderer, nullptr);
       SDL_SetRenderDrawColor(s_renderer, 0, 0, 0, 255);
@@ -2449,7 +2313,7 @@ void Platform::present() {
     dstGame = layout.gameRect;
   }
 #elif defined(__SWITCH__)
-  if (layout.isPortrait && s_touchOverlayEnabled) {
+  if (layout.isPortrait && s_touchOverlayEnabled && !currentDocked) {
     dstGame = layout.gameRect;
   }
 #else

@@ -41,6 +41,10 @@ _Última atualização: 2026-10-13_
 - [x] Correção da distorção/bagunça na barra de status ao alternar proporção de tela ou alternar tela cheia (eliminação do shearing com `img->pixels.assign` e invalidação imediata dos dirty flags `bs.c:Z` e `rpg/a.a:Z`).
 - [x] Preenchimento contínuo e sem emendas das lacunas pretas na barra de status em True Widescreen (16:9), estendendo as molduras de pedra gótica modular (`rpg.e.var_cg_k`) pelas laterais do console de vida/mana.
 - [x] Pipeline de CI Multiplataforma configurado no GitHub Actions (`.github/workflows/build.yml`) para compilação automatizada nas 4 plataformas: Windows (x64 ZIP), Linux (AppImage), Android (Universal & ARM64 APKs) e Nintendo Switch (.nro Homebrew com RomFS).
+- [x] Mapeamento ergonômico de Gamepads físicos para Nintendo Switch (A=53 Ataque/Confirma, B=-7 Menu/Cancela, X=49 Skill 1, Y=51 Skill 2, L1/LB=55 Skill 3, R1/RB=57 Skill 4, ZL/LT=35 Poção MP/Skip diálogo, ZR/RT=48 Poção HP, SELECT=Minimapa 42 / Skip em cutscene) e PC/Xbox.
+- [x] Otimização e ergonomia do layout de botões virtuais (Mobile e Switch portátil) em Retrato e Paisagem, elevando o viewport no topo para 100% de visão desobstruída do HUD e posicionando MENU e MAPA acima do D-Pad.
+- [x] Detecção inteligente de dock no Nintendo Switch (`appletGetOperationMode() == AppletOperationMode_Console`), ocultando controles de toque na TV, centralizando o viewport em 1080p e exibindo notificação OSD de transição.
+- [x] Correção de travamento no modo Retrato do Switch (TATE 90° / Flip Grip 270°), garantindo a renderização direta dos diálogos modais (`Updater`, `CloudSave`) no buffer intermediário `s_rotateTarget`.
 - [ ] Validação de persistência de save games RMS (`ah`, `bh`, `rpg.b`).
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
