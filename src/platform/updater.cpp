@@ -95,15 +95,15 @@ static std::string extractJsonString(const std::string& json, const std::string&
 // Retorna lista de nomes de arquivos candidatos no release do GitHub para a plataforma atual (por ordem de prioridade)
 static std::vector<std::string> getCandidateAssetNames() {
 #if defined(__SWITCH__)
-  return { "heroes_lore.nro" };
+  return { "heroes_lore_zero.nro" };
 #elif defined(__ANDROID__)
-  return { "heroes_lore_android_universal.apk", "heroes_lore_android_arm64.apk" };
+  return { "heroes_lore_zero_android_universal.apk", "heroes_lore_zero_android_arm64.apk" };
 #elif defined(_WIN32)
-  return { "heroes_lore_windows_x64.zip", "heroes_lore.zip", "heroes_lore.exe" };
+  return { "heroes_lore_zero_windows_x64.zip", "heroes_lore_zero.zip", "heroes_lore_zero.exe" };
 #elif defined(__linux__)
-  return { "heroes_lore_linux_x86_64.AppImage" };
+  return { "heroes_lore_zero_linux_x86_64.AppImage" };
 #else
-  return { "heroes_lore" };
+  return { "heroes_lore_zero" };
 #endif
 }
 
@@ -569,11 +569,11 @@ static int runCheckUpdateThread(void* data) {
 
   std::string json;
 #if defined(_WIN32)
-  json = winHttpGet(L"api.github.com", L"/repos/davidkalil10/Heroes-Lore-Recomp/releases/latest");
+  json = winHttpGet(L"api.github.com", L"/repos/davidkalil10/Heroes-Lore-Zero-Recomp/releases/latest");
 #elif defined(__SWITCH__) || (defined(__linux__) && !defined(__ANDROID__))
-  json = curlHttpGet("https://api.github.com/repos/davidkalil10/Heroes-Lore-Recomp/releases/latest");
+  json = curlHttpGet("https://api.github.com/repos/davidkalil10/Heroes-Lore-Zero-Recomp/releases/latest");
 #elif defined(__ANDROID__)
-  json = androidHttpGet("https://api.github.com/repos/davidkalil10/Heroes-Lore-Recomp/releases/latest");
+  json = androidHttpGet("https://api.github.com/repos/davidkalil10/Heroes-Lore-Zero-Recomp/releases/latest");
 #endif
 
   std::lock_guard<std::mutex> lock(s_updaterMutex);
@@ -754,16 +754,16 @@ static std::string resolveSwitchNroPath() {
         candidates.push_back("sdmc:" + norm);
       } else {
         candidates.push_back("sdmc:/switch/" + norm);
-        candidates.push_back("sdmc:/switch/heroes_lore/" + norm);
+        candidates.push_back("sdmc:/switch/heroes_lore_zero/" + norm);
         candidates.push_back("sdmc:/" + norm);
       }
     }
   }
 
-  candidates.push_back("sdmc:/switch/heroes_lore/heroes_lore.nro");
-  candidates.push_back("sdmc:/switch/heroes_lore.nro");
-  candidates.push_back("sdmc:/switch/HeroesLore.nro");
-  candidates.push_back("sdmc:/heroes_lore.nro");
+  candidates.push_back("sdmc:/switch/heroes_lore_zero/heroes_lore_zero.nro");
+  candidates.push_back("sdmc:/switch/heroes_lore_zero.nro");
+  candidates.push_back("sdmc:/switch/HeroesLoreZero.nro");
+  candidates.push_back("sdmc:/heroes_lore_zero.nro");
 
   for (const auto& path : candidates) {
     FILE* fp = fopen(path.c_str(), "rb");
@@ -774,8 +774,8 @@ static std::string resolveSwitchNroPath() {
     }
   }
 
-  boot_log("[Updater-Switch] Fallback para sdmc:/switch/heroes_lore/heroes_lore.nro\n");
-  return "sdmc:/switch/heroes_lore/heroes_lore.nro";
+  boot_log("[Updater-Switch] Fallback para sdmc:/switch/heroes_lore_zero/heroes_lore_zero.nro\n");
+  return "sdmc:/switch/heroes_lore_zero/heroes_lore_zero.nro";
 }
 #endif
 
@@ -848,7 +848,7 @@ bool Updater::applyUpdate() {
 #elif defined(_WIN32)
   bool isZip = (s_releaseInfo.assetName.rfind(".zip") != std::string::npos ||
                 s_releaseInfo.assetName.rfind(".ZIP") != std::string::npos);
-  std::string targetExe = "heroes_lore.exe";
+  std::string targetExe = "heroes_lore_zero.exe";
   std::string execPath = Platform::getExecutablePath();
   if (!execPath.empty() && (execPath.rfind(".exe") != std::string::npos || execPath.rfind(".EXE") != std::string::npos)) {
     targetExe = execPath;
@@ -896,8 +896,8 @@ bool Updater::applyUpdate() {
     }
 
     if (ok) {
-      // 1. Atualiza heroes_lore.exe
-      std::string newExe = extractDir + "/heroes_lore.exe";
+      // 1. Atualiza heroes_lore_zero.exe
+      std::string newExe = extractDir + "/heroes_lore_zero.exe";
       std::string oldExe = targetExe + ".old";
       remove(oldExe.c_str());
       MoveFileA(targetExe.c_str(), oldExe.c_str());
@@ -953,7 +953,7 @@ bool Updater::applyUpdate() {
 
 #elif defined(__linux__) && !defined(__ANDROID__)
   chmod(tmpFile.c_str(), 0755);
-  std::string targetAppImage = "heroes_lore.AppImage";
+  std::string targetAppImage = "heroes_lore_zero_linux_x86_64.AppImage";
   const char* appimageEnv = getenv("APPIMAGE");
   if (appimageEnv && appimageEnv[0] != '\0') {
     targetAppImage = appimageEnv;
@@ -1007,7 +1007,7 @@ void Updater::confirmUpdate() {
     startDownload();
   } else if (s_state == UpdateState::RESTART_READY) {
 #if defined(_WIN32)
-    std::string targetExe = "heroes_lore.exe";
+    std::string targetExe = "heroes_lore_zero.exe";
     std::string execPath = Platform::getExecutablePath();
     if (!execPath.empty() && execPath.rfind(".exe") != std::string::npos) {
       targetExe = execPath;

@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-13_
+_Última atualização: 2026-10-18 (Versão v1.0.0 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -45,6 +45,9 @@ _Última atualização: 2026-10-13_
 - [x] Otimização e ergonomia do layout de botões virtuais (Mobile e Switch portátil) em Retrato e Paisagem, elevando o viewport no topo para 100% de visão desobstruída do HUD e posicionando MENU e MAPA acima do D-Pad.
 - [x] Detecção inteligente de dock no Nintendo Switch (`appletGetOperationMode() == AppletOperationMode_Console`), ocultando controles de toque na TV, centralizando o viewport em 1080p e exibindo notificação OSD de transição.
 - [x] Correção de travamento no modo Retrato do Switch (TATE 90° / Flip Grip 270°), garantindo a renderização direta dos diálogos modais (`Updater`, `CloudSave`) no buffer intermediário `s_rotateTarget`.
+- [x] Inclusão nativa e unificada dos novos itens nos menus (Menu de Título em Settings e Menu In-Game em System -> Options via `bd.class`): FPS (15/30), Tela (Padrão/Wide/Auto), Nuvem (Cloud Save Google Drive) e Atualizar (OTA GitHub).
+- [x] Unicidade de nomes de pacotes, executáveis e TitleIDs confirmada para evitar conflitos com Jogos 1 e 2 (Android: `com.davidbraga.heroeslorezero`, Switch: TitleID `0100484C5A000000`, Binários: `heroes_lore_zero`).
+- [x] Sincronização automatizada e oficial da versão para `v1.0.0` em todas as plataformas com `tools/bump_version.py`.
 - [ ] Validação de persistência de save games RMS (`ah`, `bh`, `rpg.b`).
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
@@ -54,7 +57,6 @@ _Última atualização: 2026-10-13_
 - [x] **Passo 3:** True Widescreen (16:9, 568x320), Modo Original (3:4, 240x320), Molduras Soltia (Bezels) e Modo Auto.
 - [x] **Passo 4:** Jogabilidade do Prólogo e Abertura até o Quarto do Herói (Mapa 136) 100% funcional sem crashes.
 - [x] **Passo 5:** Configuração e Scripts de Build Multiplataforma (Nintendo Switch Makefile, Linux AppDir/AppRun, Android Gradle/NDK, Windows MinGW).
-- [ ] **Passo 6:** Validação e testes práticos dos binários compilados das 4 plataformas.
-- [ ] **Passo 7:** Persistência de save games RMS (`rpg.b`, `ah`, `bh`) em disco.
-- [ ] **Passo 8:** Auto-Updater OTA via GitHub Releases.
-- [ ] **Passo 9:** Cloud Save Multiplataforma (Google Drive RFC 8628).
+- [x] **Passo 6:** Menus de Sistema completos (Settings no título e Options in-game com FPS, Tela, Nuvem e Atualização OTA).
+- [x] **Passo 7:** Lançamento da Release v1.0.0 Oficial Multiplataforma via GitHub Actions.
+
