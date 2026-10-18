@@ -50,3 +50,4 @@ __pycache__/
 *.pyc
 hl_settings.ini
 reference/extracted/rms/
+reference/extracted/ui/

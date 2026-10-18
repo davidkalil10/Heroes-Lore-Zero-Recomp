@@ -336,4 +336,25 @@
   - **Correção de Congelamento de Modais no Modo Retrato (TATE):**
     - No modo retrato com rotação ativada (`s_screenRotation != 0`), as janelas modais (`Updater::drawModal` e `CloudSave::drawModal`) agora são renderizadas diretamente dentro do render target intermediário `s_rotateTarget` (720x1280) antes do unbind, corrigindo o problema de tela congelada ao abrir diálogos em modo vertical.
 
+## Sessão 11 (Correções Críticas: Menu/Start, Gamepad Touch HL2, Isolamento Cloud Save, Resolução e Navegação Ingame)
+- **1. Botão Menu/Start no Celular e Switch:**
+  - O botão `+` / `START` nos controles físicos e o botão virtual `[ MENU ]` no toque de celular/Switch estavam mapeados para `-7` (RSK / Cancelar / Voltar) em vez de `-6` (LSK / Menu in-game).
+  - Alinhado com o PC (onde a tecla `Tab` envia `-6`), o `SDL_CONTROLLER_BUTTON_START` e os botões virtuais de toque `s_texBtnMenu` foram alterados para `-6`, abrindo o menu de pausa e status do personagem de imediato.
+- **2. Layout do Gamepad Virtual (Alinhamento 1:1 com HL2):**
+  - Texturas geradas novamente com `make_pill_button` com suporte a `sublabel` (`btn_7` com "7 SKILL", `btn_9` com "9 SKILL", `btn_0` com "0 ITEM" e `btn_rsk` em formato pílula estilizada).
+  - Geometria do cluster de botões de ação redesenhada com os multiplicadores exatos de HL2 (`r5 * 1.95f`, `0.20f`, `1.85f`, `1.35f`), eliminando completamente o encavalamento tanto na horizontal quanto na vertical.
+- **3. Isolamento Total do Cloud Save (Google Drive):**
+  - O código herdado de HL1 apontava indevidamente para a pasta `"Heroes Lore - Wind of Soltia"` e para o arquivo `"heroes_lore_save.json"`.
+  - Atualizado para pasta `"Heroes Lore - Zero"`, arquivo `"heroes_lore_zero_save.json"`, e identificador `"app": "Heroes Lore: Zero"`.
+  - Reescrita completa da leitura e empacotamento dos record stores de HL Zero: `HOL.slot1.rms`, `HOL.slot2.rms`, `HOL.slot3.rms`, `HOL.gamedata1..3.rms`, `HOL.item1..3.rms`, `HOL.OPT.rms`, `HOL.storage.rms`, `HOL.gamestore.rms`.
+  - Implementada a descriptografia XOR autêntica de `rpg.b` (`var_byte_arr_arr_b`) para ler com precisão a classe (Cavaleiro, Atirador, Mago, Espadachim, Assassino, Guardião) e o nível de cada slot salvo.
+- **4. Correção de Travamento ao Alternar Resolução:**
+  - `SDL_SetWindowSize` e `SDL_SetWindowPosition` dentro do loop de eventos durante a execução causavam conflitos com o driver de vídeo.
+  - O redimensionamento em tempo de execução agora atua diretamente no viewport interno e nas variáveis do Java (`applyAspectWidth`), mantendo a transição instantânea e sem travamentos.
+- **5. Navegação e Clique nas Opções do Menu Ingame (`bd.class`):**
+  - A navegação vertical do Java (`n.c:(II)Z`) possuía um teto fixo herdado de `b:B = 7`, o que forçava o cursor a resetar para 0 ao tentar descer além do item 6 (Dano).
+  - Implementado controle nativo direto em C++ com `% 11`, permitindo ciclo contínuo e suave entre as 11 opções (0..10).
+  - Implementada a função `bd_handle_mouse_click` para permitir clique direto do mouse no PC e toque direto na tela no Celular e Switch nas opções do menu (FPS, Tela, Nuvem, Atualizar).
+
+
 

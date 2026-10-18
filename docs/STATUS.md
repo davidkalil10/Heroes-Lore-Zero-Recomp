@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-18 (Versão v1.0.0 lançada oficialmente)_
+_Última atualização: 2026-10-18 (Versão v1.0.1 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -47,8 +47,12 @@ _Última atualização: 2026-10-18 (Versão v1.0.0 lançada oficialmente)_
 - [x] Correção de travamento no modo Retrato do Switch (TATE 90° / Flip Grip 270°), garantindo a renderização direta dos diálogos modais (`Updater`, `CloudSave`) no buffer intermediário `s_rotateTarget`.
 - [x] Inclusão nativa e unificada dos novos itens nos menus (Menu de Título em Settings e Menu In-Game em System -> Options via `bd.class`): FPS (15/30), Tela (Padrão/Wide/Auto), Nuvem (Cloud Save Google Drive) e Atualizar (OTA GitHub).
 - [x] Unicidade de nomes de pacotes, executáveis e TitleIDs confirmada para evitar conflitos com Jogos 1 e 2 (Android: `com.davidbraga.heroeslorezero`, Switch: TitleID `0100484C5A000000`, Binários: `heroes_lore_zero`).
-- [x] Sincronização automatizada e oficial da versão para `v1.0.0` em todas as plataformas com `tools/bump_version.py`.
-- [ ] Validação de persistência de save games RMS (`ah`, `bh`, `rpg.b`).
+- [x] Correção do botão Menu/Start no Celular e Switch para -6 (LSK / Menu in-game imediato, mesmo comportamento da tecla Tab no PC).
+- [x] Reconstrução das texturas (pílula com sublabel) e geometria ergonômica 1:1 do gamepad virtual idêntica ao Heroes Lore 2.
+- [x] Isolamento completo do Google Drive Cloud Save para Heroes Lore Zero (pasta dedicada, save json e RMS HOL.* com decodificação XOR).
+- [x] Correção do travamento ao alternar proporção de tela in-game.
+- [x] Navegação vertical contínua 0..10 e suporte a clique do mouse/toque no menu de opções ingame (`bd.class`).
+- [x] Validação de persistência de save games RMS (`ah`, `bh`, `rpg.b`).
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
 - [x] **Passo 0:** Boot nativo no PC da classe `rpg.RPGHeroEx` e renderização do primeiro frame (240x320 / Widescreen).
@@ -59,4 +63,6 @@ _Última atualização: 2026-10-18 (Versão v1.0.0 lançada oficialmente)_
 - [x] **Passo 5:** Configuração e Scripts de Build Multiplataforma (Nintendo Switch Makefile, Linux AppDir/AppRun, Android Gradle/NDK, Windows MinGW).
 - [x] **Passo 6:** Menus de Sistema completos (Settings no título e Options in-game com FPS, Tela, Nuvem e Atualização OTA).
 - [x] **Passo 7:** Lançamento da Release v1.0.0 Oficial Multiplataforma via GitHub Actions.
+- [x] **Passo 8:** Release v1.0.1 com refinamentos de controles, touch HL2, nuvem Zero e OTA update.
+
 

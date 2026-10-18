@@ -1450,6 +1450,8 @@ void VM::registerNatives() {
   reg("bd.b:(Lcm;)V", bd_cursor_native);
 }
 
+static Instance* s_activeBdMenu = nullptr;
+
 // -------------------------------------------------------------
 // bd: Menu de Configurações / Opções (Heroes Lore: Zero)
 // Suporte nativo a 11 opções:
@@ -1463,6 +1465,7 @@ static void bd_init_native(VM& vm, Value* args, Value*) {
   Object* self = args[0].o;
   if (!self || self->kind != K_INST) return;
   Instance* inst = static_cast<Instance*>(self);
+  s_activeBdMenu = inst;
   Object* parent = args[1].o;
   bool isPause = (args[2].i != 0);
 
@@ -1514,6 +1517,7 @@ static void bd_a_native(VM& vm, Value* args, Value* ret) {
   Object* self = args[0].o;
   if (!self || self->kind != K_INST) { ret[0].i = 0; return; }
   Instance* inst = static_cast<Instance*>(self);
+  s_activeBdMenu = inst;
   int n2 = args[1].i; // GameAction
   int n3 = args[2].i; // KeyCode
 
@@ -1539,6 +1543,7 @@ static void bd_a_native(VM& vm, Value* args, Value* ret) {
   }
 
   auto closeOptionsMenu = [&]() {
+    s_activeBdMenu = nullptr;
     // Salva configurações no RMS
     ClassInfo* rpgC = vm.findClass("rpg/c");
     if (rpgC) {
@@ -1699,16 +1704,41 @@ static void bd_a_native(VM& vm, Value* args, Value* ret) {
     return;
   }
 
-  // 5. Invoca this.c(n2, n3) herdado de n para navegação vertical (sobe/desce)
-  Value navArgs[2]; navArgs[0].i = n2; navArgs[1].i = n3; Value navRet[2];
-  vm.invokeVirtual(self, "c:(II)Z", navArgs, 2, navRet);
-  ret[0].i = navRet[0].i;
+  // 5. Navegação vertical direta (sobe/desce) entre as 11 opções sem depender do limitador original do Java
+  bool isUp = (n3 == 50 || n2 == 1 || n3 == -1 || n2 == -1);
+  bool isDown = (n3 == 56 || n2 == 6 || n3 == -2 || n2 == -2);
+
+  if (isUp) {
+    curH = (curH + 11 - 1) % 11;
+    if (fCurIndex && fCurIndex->index >= 0 && fCurIndex->index < (int)inst->f.size()) {
+      inst->f[fCurIndex->index].i = curH;
+    }
+    if (fNeedsRepaint && fNeedsRepaint->index >= 0 && fNeedsRepaint->index < (int)inst->f.size()) {
+      inst->f[fNeedsRepaint->index].i = 1;
+    }
+    ret[0].i = 1;
+    return;
+  }
+  if (isDown) {
+    curH = (curH + 1) % 11;
+    if (fCurIndex && fCurIndex->index >= 0 && fCurIndex->index < (int)inst->f.size()) {
+      inst->f[fCurIndex->index].i = curH;
+    }
+    if (fNeedsRepaint && fNeedsRepaint->index >= 0 && fNeedsRepaint->index < (int)inst->f.size()) {
+      inst->f[fNeedsRepaint->index].i = 1;
+    }
+    ret[0].i = 1;
+    return;
+  }
+
+  ret[0].i = 0;
 }
 
 static void bd_draw_native(VM& vm, Value* args, Value*) {
   Object* self = args[0].o;
   if (!self || self->kind != K_INST) return;
   Instance* inst = static_cast<Instance*>(self);
+  s_activeBdMenu = inst;
 
   Object* cmObj = args[1].o;
   if (!cmObj) return;
@@ -1963,6 +1993,10 @@ static void bd_draw_native(VM& vm, Value* args, Value*) {
     Value sArgs[2]; sArgs[0].o = cmObj; sArgs[1].i = 2; Value sRet[2];
     vm.invoke(mNaSoft, sArgs, sRet);
   }
+
+  // Desenha moldura de cursor no item selecionado
+  Value cArgs[2]; cArgs[0].o = self; cArgs[1].o = cmObj;
+  bd_cursor_native(vm, cArgs, nullptr);
 }
 
 static void bd_cursor_native(VM& vm, Value* args, Value*) {
@@ -2018,4 +2052,63 @@ static void bd_cursor_native(VM& vm, Value* args, Value*) {
   }
 }
 
+bool bd_handle_mouse_click(VM& vm, int gameX, int gameY) {
+  if (!s_activeBdMenu) return false;
+  Instance* inst = s_activeBdMenu;
+  ClassInfo* nClass = vm.findClass("n");
+  FieldInfo* fCurIndex = nClass ? vm.findField(nClass, "a:B") : nullptr;
+  FieldInfo* fNeedsRepaint = nClass ? vm.findField(nClass, "a:Z") : nullptr;
+  FieldInfo* fE = vm.findField(inst->cls, "e:Z");
+  bool isPause = (fE && fE->index >= 0 && fE->index < (int)inst->f.size()) ? (inst->f[fE->index].i != 0) : false;
+
+  ClassInfo* rpgA = vm.findClass("rpg/a");
+  FieldInfo* fRpgAc = rpgA ? vm.findField(rpgA, "c:I") : nullptr;
+  FieldInfo* fRpgAd = rpgA ? vm.findField(rpgA, "d:I") : nullptr;
+  FieldInfo* fRpgAb = rpgA ? vm.findField(rpgA, "b:I") : nullptr;
+
+  int centerX = (fRpgAc && fRpgAc->isStatic && fRpgAc->index >= 0 && fRpgAc->index < (int)rpgA->statics.size())
+                 ? rpgA->statics[fRpgAc->index].i : (g_screenWidth / 2);
+  int centerY = (fRpgAd && fRpgAd->isStatic && fRpgAd->index >= 0 && fRpgAd->index < (int)rpgA->statics.size())
+                 ? rpgA->statics[fRpgAd->index].i : (g_screenHeight / 2);
+  int screenH = (fRpgAb && fRpgAb->isStatic && fRpgAb->index >= 0 && fRpgAb->index < (int)rpgA->statics.size())
+                 ? rpgA->statics[fRpgAb->index].i : g_screenHeight;
+
+  ClassInfo* rpgD = vm.findClass("rpg/d");
+  FieldInfo* fDe_ = rpgD ? vm.findField(rpgD, "e_:I") : nullptr;
+  int boxW = (fDe_ && fDe_->isStatic && fDe_->index >= 0 && fDe_->index < (int)rpgD->statics.size())
+              ? rpgD->statics[fDe_->index].i : (g_screenWidth - 10);
+  int boxX = centerX - (boxW >> 1);
+  int boxH = 224;
+
+  int startY = 0;
+  if (isPause) {
+    int boxY = (screenH - boxH) >> 1;
+    startY = boxY + 3 + 28;
+  } else {
+    startY = centerY - 80;
+  }
+
+  // Verifica se o clique foi em alguma das 11 opções
+  if (gameX >= boxX && gameX <= boxX + boxW && gameY >= startY && gameY < startY + 15 * 11) {
+    int row = (gameY - startY) / 15;
+    if (row >= 0 && row < 11) {
+      if (fCurIndex && fCurIndex->index >= 0 && fCurIndex->index < (int)inst->f.size()) {
+        inst->f[fCurIndex->index].i = row;
+      }
+      Value aArgs[3];
+      aArgs[0].o = inst;
+      aArgs[1].i = 8;  // GameAction Fire
+      aArgs[2].i = 53; // KeyCode 53
+      Value aRet[2];
+      bd_a_native(vm, aArgs, aRet);
+      if (fNeedsRepaint && fNeedsRepaint->index >= 0 && fNeedsRepaint->index < (int)inst->f.size()) {
+        inst->f[fNeedsRepaint->index].i = 1;
+      }
+      return true;
+    }
+  }
+  return false;
+}
+
 }  // namespace hl
+

@@ -482,7 +482,7 @@ static std::vector<uint8_t> base64Decode(const std::string& in) {
 
   int val = 0, valb = -8;
   for (char c : in) {
-    if (c == '=' || (unsigned char)c > 255 || T[(unsigned char)c] == -1) continue;
+    if (c == '=' || T[(unsigned char)c] == -1) continue;
     val = (val << 6) + T[(unsigned char)c];
     valb += 6;
     if (valb >= 0) {
@@ -837,45 +837,29 @@ static std::string formatUtcIsoToLocalDate(const std::string& iso) {
   return iso.substr(0, 10) + " " + iso.substr(11, 5);
 }
 
-static void sanitizeCloudSummary(std::string& s) {
-  auto replaceAll = [](std::string& str, const std::string& from, const std::string& to) {
-    size_t pos = 0;
-    while ((pos = str.find(from, pos)) != std::string::npos) {
-      str.replace(pos, from.length(), to);
-      pos += to.length();
-    }
-  };
-  replaceAll(s, "Karis", "Ronin");
-  replaceAll(s, "Shion", "Reah");
-  replaceAll(s, "Luiel", "Aramor");
+static void sanitizeCloudSummary(std::string&) {
 }
 
-static int decodeHeroLevel(const std::vector<uint8_t>& rec) {
-  if (rec.size() < 4) return 0;
-  int s2 = (rec[0] << 8) | rec[1];
-  if (s2 <= 2 || s2 > (int)rec.size() - 2) return 0;
+static const uint8_t s_slotKeys[3][7] = {
+  {62, 35, 7, 1, 85, 38, 41},
+  {2, 78, 24, 7, 16, 91},
+  {84, 87, 4, 57, 83, 0, 0}
+};
+static const int s_slotKeyLens[3] = { 7, 6, 5 };
 
-  static const uint8_t key[] = {5, 11, 8, 81, 3, 20};
-  int n4 = 0;
-  uint8_t level = 0;
-
-  for (int n2 = 0; n2 < s2 - 1; ++n2) {
-    if (++n4 == 6) n4 = 0;
-    uint8_t decByte = rec[2 + n2] ^ key[n4];
-    if (n2 == 1) {
-      level = decByte; // object[1] em n.java é o nível autêntico do herói
-      break;
-    }
-  }
-
-  if (level >= 1 && level <= 99) return (int)level;
-  return 0;
-}
+static const char* s_heroClassesPt[6] = {
+  "Cavaleiro", "Atirador", "Mago", "Espadachim", "Assassino", "Guardião"
+};
+static const char* s_heroClassesEn[6] = {
+  "Knight", "Gunslinger", "Mage", "Elemental", "Assassin", "Guardian"
+};
 
 static std::string getLocalSavesDate() {
   std::string rmsBase = Platform::getRmsDir(s_activeVm);
-  // Apenas arquivos reais de progresso de heróis determinam a data/hora do save
-  const char* slotFiles[] = { "_k.rms", "_s.rms", "_w.rms" };
+  const char* slotFiles[] = {
+    "HOL.slot1.rms", "HOL.slot2.rms", "HOL.slot3.rms",
+    "HOL.gamedata1.rms", "HOL.gamedata2.rms", "HOL.gamedata3.rms"
+  };
   time_t newestTime = 0;
 
   for (const char* fn : slotFiles) {
@@ -897,39 +881,53 @@ static std::string getLocalSavesDate() {
 static std::string getLocalSavesSummary() {
   std::string rmsBase = Platform::getRmsDir(s_activeVm);
   std::string summary = "";
-
-  struct SlotCheck {
-    const char* filename;
-    const char* defaultHero;
-  };
-  SlotCheck slots[] = {
-    {"_k.rms", "Ronin"},
-    {"_s.rms", "Reah"},
-    {"_w.rms", "Aramor"}
-  };
+  bool isPt = (Platform::getCurrentLanguage() == "pt" || Platform::getCurrentLanguage() == "pt_br");
 
   int foundCount = 0;
-  for (const auto& sc : slots) {
-    std::string path = (rmsBase.empty() || rmsBase.back() == '/' ? rmsBase : rmsBase + "/") + sc.filename;
+  for (int slot = 1; slot <= 3; slot++) {
+    std::string fn = "HOL.slot" + std::to_string(slot) + ".rms";
+    std::string path = (rmsBase.empty() || rmsBase.back() == '/' ? rmsBase : rmsBase + "/") + fn;
     std::ifstream f(path, std::ios::binary);
     if (!f) continue;
 
     foundCount++;
     if (!summary.empty()) summary += ", ";
-    summary += sc.defaultHero;
 
-    // Tenta ler o primeiro record para obter o nível usando bq.b
+    // Tenta ler o primeiro record para obter classe e nível
     uint32_t count = 0;
+    bool decoded = false;
     if (f.read((char*)&count, 4) && count > 0) {
       uint32_t sz = 0;
-      if (f.read((char*)&sz, 4) && sz >= 4) {
+      if (f.read((char*)&sz, 4) && sz >= 18) {
         std::vector<uint8_t> rec(sz);
         f.read((char*)rec.data(), sz);
-        int lvl = decodeHeroLevel(rec);
-        if (lvl > 0) {
-          summary += std::string(tr(CloudStr::LEVEL_PREFIX)) + std::to_string(lvl);
+        int subLen = ((rec[0] & 0xFF) << 8) | (rec[1] & 0xFF);
+        if (subLen >= 18 && subLen <= (int)sz - 2) {
+          int dataLen = subLen - 5;
+          std::vector<uint8_t> dec(dataLen);
+          int kLen = s_slotKeyLens[slot - 1];
+          const uint8_t* key = s_slotKeys[slot - 1];
+          int n3 = 0;
+          for (int i = 0; i < dataLen; i++) {
+            n3++;
+            if (n3 == kLen) n3 = 0;
+            dec[i] = rec[i + 2] ^ key[n3];
+          }
+          if (dec.size() >= 16) {
+            int charClass = dec[13];
+            int lvl = dec[14];
+            int progress = dec[15];
+            (void)progress;
+            const char* cName = (charClass >= 0 && charClass < 6) ?
+                (isPt ? s_heroClassesPt[charClass] : s_heroClassesEn[charClass]) : "Herói";
+            summary += std::string(cName) + " " + tr(CloudStr::LEVEL_PREFIX) + std::to_string(lvl > 0 ? lvl : 1);
+            decoded = true;
+          }
         }
       }
+    }
+    if (!decoded) {
+      summary += "Slot " + std::to_string(slot);
     }
   }
 
@@ -1209,7 +1207,7 @@ void CloudSave::logout() {
 }
 
 // -----------------------------------------------------------------------------
-// Pasta dedicada "Heroes Lore - Wind of Soltia" no Google Drive
+// Pasta dedicada "Heroes Lore - Zero" no Google Drive
 // -----------------------------------------------------------------------------
 static std::string getOrCreateAppFolder() {
   if (!s_appFolderId.empty()) {
@@ -1218,7 +1216,7 @@ static std::string getOrCreateAppFolder() {
   if (!ensureValidAccessToken()) return "";
 
   // 1. Busca se a pasta já existe
-  std::string q = "name='Heroes Lore - Wind of Soltia' and mimeType='application/vnd.google-apps.folder' and trashed=false";
+  std::string q = "name='Heroes Lore - Zero' and mimeType='application/vnd.google-apps.folder' and trashed=false";
   std::string url = "https://www.googleapis.com/drive/v3/files?fields=" + urlEncode("files(id,name)") +
                     "&q=" + urlEncode(q);
   std::vector<std::string> headers = {
@@ -1236,7 +1234,7 @@ static std::string getOrCreateAppFolder() {
 
   // 2. Se não existir, cria a pasta dedicada
   std::string createUrl = "https://www.googleapis.com/drive/v3/files";
-  std::string createBody = "{\"name\": \"Heroes Lore - Wind of Soltia\", "
+  std::string createBody = "{\"name\": \"Heroes Lore - Zero\", "
                            "\"mimeType\": \"application/vnd.google-apps.folder\"}";
   std::vector<std::string> createHeaders = {
     "Authorization: Bearer " + s_accessToken,
@@ -1248,7 +1246,7 @@ static std::string getOrCreateAppFolder() {
     std::string fid = extractJsonString(cResp.body, "id");
     if (!fid.empty()) {
       s_appFolderId = fid;
-      printf("[CloudSave] Pasta criada no Google Drive: 'Heroes Lore - Wind of Soltia' (id=%s)\n", fid.c_str());
+      printf("[CloudSave] Pasta criada no Google Drive: 'Heroes Lore - Zero' (id=%s)\n", fid.c_str());
       return s_appFolderId;
     }
   }
@@ -1268,10 +1266,10 @@ void CloudSave::queryCloudBackupAsync() {
     // Garante que a pasta dedicada do jogo exista
     std::string folderId = getOrCreateAppFolder();
 
-    // Busca arquivo heroes_lore_save.json
+    // Busca arquivo heroes_lore_zero_save.json
     std::string url = "https://www.googleapis.com/drive/v3/files?orderBy=modifiedTime%20desc"
                       "&fields=" + urlEncode("files(id,name,modifiedTime,size,description,parents)") +
-                      "&q=" + urlEncode("name='heroes_lore_save.json' and trashed=false");
+                      "&q=" + urlEncode("name='heroes_lore_zero_save.json' and trashed=false");
     std::vector<std::string> headers = {
       "Authorization: Bearer " + s_accessToken
     };
@@ -1301,7 +1299,7 @@ void CloudSave::queryCloudBackupAsync() {
             };
             HttpResponse moveResp = httpExecute("PATCH", moveUrl, moveHeaders, "");
             if (moveResp.statusCode == 200) {
-              printf("[CloudSave] Arquivo 'heroes_lore_save.json' migrado com sucesso para a pasta 'Heroes Lore - Wind of Soltia'!\n");
+              printf("[CloudSave] Arquivo 'heroes_lore_zero_save.json' migrado com sucesso para a pasta 'Heroes Lore - Zero'!\n");
             }
           }
         }
@@ -1334,7 +1332,10 @@ void CloudSave::uploadBackupAsync() {
 
     std::string rmsBase = Platform::getRmsDir(s_activeVm);
     const char* filesToPack[] = {
-      "_k.rms", "_s.rms", "_w.rms", "_o.rms", "_c.rms"
+      "HOL.slot1.rms", "HOL.slot2.rms", "HOL.slot3.rms",
+      "HOL.gamedata1.rms", "HOL.gamedata2.rms", "HOL.gamedata3.rms",
+      "HOL.item1.rms", "HOL.item2.rms", "HOL.item3.rms",
+      "HOL.OPT.rms", "HOL.storage.rms", "HOL.gamestore.rms"
     };
 
     std::ostringstream jsonPkg;
@@ -1347,7 +1348,7 @@ void CloudSave::uploadBackupAsync() {
     std::string plat = getPlatformName();
 
     jsonPkg << "{\n";
-    jsonPkg << "  \"app\": \"Heroes Lore: Wind of Soltia\",\n";
+    jsonPkg << "  \"app\": \"Heroes Lore: Zero\",\n";
     jsonPkg << "  \"version\": 1,\n";
     jsonPkg << "  \"platform\": \"" << jsonEscape(plat) << "\",\n";
     jsonPkg << "  \"date\": \"" << jsonEscape(dateBuf) << "\",\n";
@@ -1398,11 +1399,11 @@ void CloudSave::uploadBackupAsync() {
       std::string boundary = "HL_CLOUD_BOUNDARY_1289";
       std::string metaJson;
       if (!folderId.empty()) {
-        metaJson = "{\"name\": \"heroes_lore_save.json\", "
+        metaJson = "{\"name\": \"heroes_lore_zero_save.json\", "
                    "\"description\": \"" + jsonEscape(plat + " | " + localSummary) + "\", "
                    "\"parents\": [\"" + folderId + "\"]}";
       } else {
-        metaJson = "{\"name\": \"heroes_lore_save.json\", "
+        metaJson = "{\"name\": \"heroes_lore_zero_save.json\", "
                    "\"description\": \"" + jsonEscape(plat + " | " + localSummary) + "\"}";
       }
 
@@ -1496,7 +1497,10 @@ void CloudSave::confirmRestore(VM* vm) {
     std::filesystem::create_directories(rmsBase, ec);
 
     const char* expectedFiles[] = {
-      "_k.rms", "_s.rms", "_w.rms", "_o.rms", "_c.rms"
+      "HOL.slot1.rms", "HOL.slot2.rms", "HOL.slot3.rms",
+      "HOL.gamedata1.rms", "HOL.gamedata2.rms", "HOL.gamedata3.rms",
+      "HOL.item1.rms", "HOL.item2.rms", "HOL.item3.rms",
+      "HOL.OPT.rms", "HOL.storage.rms", "HOL.gamestore.rms"
     };
 
     int restoredCount = 0;

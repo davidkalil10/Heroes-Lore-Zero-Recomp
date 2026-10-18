@@ -179,7 +179,7 @@ static int mapControllerButton(Uint8 btn) {
     case SDL_CONTROLLER_BUTTON_RIGHTSHOULDER: return 57; // R1 / RB / R -> Habilidade 4 ('9')
 
     // Menus de Sistema e Mapa
-    case SDL_CONTROLLER_BUTTON_START: return -7; // Start / + -> Menu Principal do Jogo (-7)
+    case SDL_CONTROLLER_BUTTON_START: return -6; // Start / + -> Menu Principal do Jogo (LSK = -6)
     case SDL_CONTROLLER_BUTTON_BACK: return 42;  // Back / Select / - -> Minimapa da Região ('*' = 42)
 
     // Cliques dos Analógicos
@@ -1310,15 +1310,15 @@ static GamepadLayout calculateLayout(int winW, int winH) {
 
       // 5 - Atacar / Confirmar (Centro, grande)
       layout.buttons.push_back({ 53, actX, actY, r5, r5 * 2, r5 * 2, s_texBtn5 });
-      // 1 - Skill 1
-      layout.buttons.push_back({ 49, actX - (int)(r5 * 1.50f), actY - (int)(r5 * 0.70f), rSub, rSub * 2, rSub * 2, s_texBtn1 });
-      // 3 - Skill 2
-      layout.buttons.push_back({ 51, actX - (int)(r5 * 0.75f), actY - (int)(r5 * 1.45f), rSub, rSub * 2, rSub * 2, s_texBtn3 });
-      // 7 - Skill 3
-      layout.buttons.push_back({ 55, actX - (int)(r5 * 1.45f), actY + (int)(r5 * 0.85f), rSub, rSub * 2, rSub * 2, s_texBtn7 });
-      // 9 - Skill 4
-      layout.buttons.push_back({ 57, actX + (int)(r5 * 0.90f), actY - (int)(r5 * 1.40f), rSub, rSub * 2, rSub * 2, s_texBtn9 });
-      // 0 - Item / Poção HP (Direita-baixo, alinhado ao cluster)
+      // 1 - Skill 1 (Esquerda-cima)
+      layout.buttons.push_back({ 49, actX - (int)(r5 * 1.95f), actY - (int)(r5 * 0.95f), rSub, rSub * 2, rSub * 2, s_texBtn1 });
+      // 3 - Skill 2 (Topo)
+      layout.buttons.push_back({ 51, actX - (int)(r5 * 0.20f), actY - (int)(r5 * 2.10f), rSub, rSub * 2, rSub * 2, s_texBtn3 });
+      // 7 - Skill 3 (Esquerda-baixo, abaixo de 1)
+      layout.buttons.push_back({ 55, actX - (int)(r5 * 1.85f), actY + (int)(r5 * 1.15f), rSub, rSub * 2, rSub * 2, s_texBtn7 });
+      // 9 - Skill 4 (Direita-cima)
+      layout.buttons.push_back({ 57, actX + (int)(r5 * 1.35f), actY - (int)(r5 * 1.65f), rSub, rSub * 2, rSub * 2, s_texBtn9 });
+      // 0 - Item / Poção HP (Direita-baixo, abaixo de 9 e alinhado ao 7)
       layout.buttons.push_back({ 48, actX + (int)(r5 * 1.35f), actY + (int)(r5 * 1.15f), rSub, rSub * 2, rSub * 2, s_texBtnRskRound ? s_texBtnRskRound : s_texBtnRsk });
 
       // Botões de Sistema (MENU e MAPA) posicionados abaixo do jogo e acima do D-Pad
@@ -1328,7 +1328,7 @@ static GamepadLayout calculateLayout(int winW, int winH) {
       int menuX = (int)(winW * 0.14f);
       int mapX = (int)(winW * 0.38f);
 
-      layout.buttons.push_back({ -7, menuX, sysY, 0, pillW, pillH, s_texBtnMenu });
+      layout.buttons.push_back({ -6, menuX, sysY, 0, pillW, pillH, s_texBtnMenu });
       layout.buttons.push_back({ 42, mapX, sysY, 0, pillW, pillH, s_texBtnMap });
 
       // Alternância de Poção (< e >) perfeitamente centralizadas no eixo horizontal da tela
@@ -1382,7 +1382,7 @@ static GamepadLayout calculateLayout(int winW, int winH) {
       // MENU proporcional e grande no topo da coluna esquerda
       int menuW = std::min(240, (int)(controlLeftW * 0.48f));
       int menuH = (int)(menuW * (100.0f / 240.0f));
-      layout.buttons.push_back({ -7, controlLeftW / 2, (int)(winH * 0.14f), 0, menuW, menuH, s_texBtnMenu });
+      layout.buttons.push_back({ -6, controlLeftW / 2, (int)(winH * 0.14f), 0, menuW, menuH, s_texBtnMenu });
 
       // Setas circulares para pocoes (< e >) na coluna ESQUERDA (entre MENU e D-Pad, super ergonomico)
       int rArrowLand = (int)(winH * 0.075f);
@@ -1403,10 +1403,10 @@ static GamepadLayout calculateLayout(int winW, int winH) {
       int rSub = (int)(r5 * 0.74f);
 
       layout.buttons.push_back({ 53, actX, actY, r5, r5 * 2, r5 * 2, s_texBtn5 });
-      layout.buttons.push_back({ 49, actX - (int)(r5 * 1.50f), actY - (int)(r5 * 0.70f), rSub, rSub * 2, rSub * 2, s_texBtn1 });
-      layout.buttons.push_back({ 51, actX - (int)(r5 * 0.75f), actY - (int)(r5 * 1.45f), rSub, rSub * 2, rSub * 2, s_texBtn3 });
-      layout.buttons.push_back({ 55, actX - (int)(r5 * 1.45f), actY + (int)(r5 * 0.85f), rSub, rSub * 2, rSub * 2, s_texBtn7 });
-      layout.buttons.push_back({ 57, actX + (int)(r5 * 0.90f), actY - (int)(r5 * 1.40f), rSub, rSub * 2, rSub * 2, s_texBtn9 });
+      layout.buttons.push_back({ 49, actX - (int)(r5 * 1.95f), actY - (int)(r5 * 0.95f), rSub, rSub * 2, rSub * 2, s_texBtn1 });
+      layout.buttons.push_back({ 51, actX - (int)(r5 * 0.20f), actY - (int)(r5 * 2.10f), rSub, rSub * 2, rSub * 2, s_texBtn3 });
+      layout.buttons.push_back({ 55, actX - (int)(r5 * 1.85f), actY + (int)(r5 * 1.15f), rSub, rSub * 2, rSub * 2, s_texBtn7 });
+      layout.buttons.push_back({ 57, actX + (int)(r5 * 1.35f), actY - (int)(r5 * 1.65f), rSub, rSub * 2, rSub * 2, s_texBtn9 });
     }
   }
 
@@ -1971,7 +1971,23 @@ bool Platform::pollEvents(VM& vm) {
     // Cliques e Roda do Mouse no PC Desktop (ignora toques sintetizados de touchscreen)
     else if (ev.type == SDL_MOUSEBUTTONDOWN) {
       if (ev.button.which != SDL_TOUCH_MOUSEID && g_display && g_display->current) {
-        if (ev.button.button == SDL_BUTTON_LEFT) sendKeyPressed(vm, 53); // Ação / Atacar / Confirmar
+        if (ev.button.button == SDL_BUTTON_LEFT) {
+          int winW = 0, winH = 0;
+          SDL_GetWindowSize(s_window, &winW, &winH);
+          float scaleX = (float)winW / (float)g_screenWidth;
+          float scaleY = (float)winH / (float)g_screenHeight;
+          float scale = std::min(scaleX, scaleY);
+          int dstW = (int)((float)g_screenWidth * scale);
+          int dstH = (int)((float)g_screenHeight * scale);
+          int offsetX = (winW - dstW) / 2;
+          int offsetY = (winH - dstH) / 2;
+          int gameX = (scale > 0.001f) ? (int)((ev.button.x - offsetX) / scale) : 0;
+          int gameY = (scale > 0.001f) ? (int)((ev.button.y - offsetY) / scale) : 0;
+
+          if (!bd_handle_mouse_click(vm, gameX, gameY)) {
+            sendKeyPressed(vm, 53); // Ação / Atacar / Confirmar
+          }
+        }
         else if (ev.button.button == SDL_BUTTON_RIGHT) sendKeyPressed(vm, -7); // Cancelar / Voltar / RSK
       }
     }
@@ -2001,6 +2017,14 @@ bool Platform::pollEvents(VM& vm) {
       GamepadLayout layout = calculateLayout(layoutW, layoutH);
 
       int key = hitTestTouch(touchX, touchY, layout);
+      if ((key == 0 || !s_touchOverlayEnabled) && layout.gameRect.w > 0 && layout.gameRect.h > 0) {
+        int gX = (int)((touchX - layout.gameRect.x) * (float)g_screenWidth / (float)layout.gameRect.w);
+        int gY = (int)((touchY - layout.gameRect.y) * (float)g_screenHeight / (float)layout.gameRect.h);
+        if (bd_handle_mouse_click(vm, gX, gY)) {
+          Platform::rumble(0.15f, 30);
+          continue;
+        }
+      }
       if (key == KEY_TOGGLE_TOUCH_UI) {
         s_touchOverlayEnabled = !s_touchOverlayEnabled;
         if (!s_touchOverlayEnabled) {
@@ -2456,18 +2480,6 @@ void Platform::setAspectMode(int mode, VM* pVm) {
   s_aspectMode = static_cast<AspectMode>(mode);
   saveSettings();
 
-#ifndef __SWITCH__
-  if (s_window && !s_isFullscreen) {
-    if (s_aspectMode == ASPECT_ORIGINAL) {
-      SDL_SetWindowSize(s_window, 540, 720);
-      SDL_SetWindowPosition(s_window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
-    } else if (s_aspectMode == ASPECT_WIDESCREEN) {
-      SDL_SetWindowSize(s_window, 1280, 720);
-      SDL_SetWindowPosition(s_window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
-    }
-  }
-#endif
-
   int targetW = determineTargetWidth(s_aspectMode);
   applyAspectWidth(targetW, pVm ? pVm : s_lastVm);
 
@@ -2677,8 +2689,8 @@ std::vector<uint8_t> Platform::readAsset(const std::string& path) {
 std::string Platform::getStorageDir() {
 #ifdef __SWITCH__
   mkdir("sdmc:/switch", 0777);
-  mkdir("sdmc:/switch/heroes_lore", 0777);
-  return "sdmc:/switch/heroes_lore";
+  mkdir("sdmc:/switch/heroes_lore_zero", 0777);
+  return "sdmc:/switch/heroes_lore_zero";
 #elif defined(__ANDROID__)
   const char* path = SDL_AndroidGetInternalStoragePath();
   if (path && path[0] != '\0') return std::string(path);
@@ -2687,13 +2699,13 @@ std::string Platform::getStorageDir() {
   const char* xdg = getenv("XDG_DATA_HOME");
   std::string dir;
   if (xdg && xdg[0] != '\0') {
-    dir = std::string(xdg) + "/heroes_lore";
+    dir = std::string(xdg) + "/heroes_lore_zero";
   } else {
     const char* home = getenv("HOME");
     if (home && home[0] != '\0') {
-      dir = std::string(home) + "/.local/share/heroes_lore";
+      dir = std::string(home) + "/.local/share/heroes_lore_zero";
     } else {
-      dir = "/tmp/heroes_lore";
+      dir = "/tmp/heroes_lore_zero";
     }
   }
   mkdir(dir.c_str(), 0777);
@@ -2735,20 +2747,20 @@ std::string Platform::getRmsDir(VM* vm) {
 
   // Procura pastas RMS que já possuam saves de jogo (.rms)
   const char* candidates[] = {
+    "rms",
+    "build/rms",
     "assets/rms",
     "build/assets/rms",
     "reference/extracted/rms",
     "build/reference/extracted/rms",
     "../reference/extracted/rms",
-    "../assets/rms",
-    "rms"
+    "../assets/rms"
   };
   for (const char* c : candidates) {
-    if (std::filesystem::exists(std::string(c) + "/_k.rms") ||
-        std::filesystem::exists(std::string(c) + "/_c.rms") ||
-        std::filesystem::exists(std::string(c) + "/_s.rms") ||
-        std::filesystem::exists(std::string(c) + "/_w.rms") ||
-        std::filesystem::exists(std::string(c) + "/_o.rms")) {
+    if (std::filesystem::exists(std::string(c) + "/HOL.slot1.rms") ||
+        std::filesystem::exists(std::string(c) + "/HOL.gamestore.rms") ||
+        std::filesystem::exists(std::string(c) + "/HOL.OPT.rms") ||
+        std::filesystem::exists(std::string(c) + "/HOL.gamedata1.rms")) {
       s_cachedRmsDir = c;
       return c;
     }

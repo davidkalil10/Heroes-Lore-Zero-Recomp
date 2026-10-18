@@ -197,4 +197,7 @@ int slotsOfDesc(const std::string& d, int& argSlots);  // retorna slots do retor
 int64_t nowMs();
 Str* asStr(Object* o);
 
+bool bd_handle_mouse_click(VM& vm, int gameX, int gameY);
+
 }  // namespace hl
+
