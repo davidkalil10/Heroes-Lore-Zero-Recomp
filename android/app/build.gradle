@@ -13,7 +13,24 @@ android {
     }
     compileSdkVersion 34
     buildToolsVersion '34.0.0'
-    ndkVersion '26.1.10909125'
+
+    // Resolução de NDK: prioriza variável de ambiente ANDROID_NDK_VERSION,
+    // ou detecta dinamicamente a versão já instalada no runner/ambiente local
+    def resolvedNdkVersion = System.getenv("ANDROID_NDK_VERSION")
+    if (!resolvedNdkVersion) {
+        def ndkBase = "${System.getenv('ANDROID_SDK_ROOT') ?: System.getenv('ANDROID_HOME')}/ndk"
+        def ndkDir = file(ndkBase)
+        if (ndkDir.exists() && ndkDir.list()) {
+            def versions = ndkDir.list().findAll { !it.startsWith('.') }.sort()
+            if (!versions.isEmpty()) {
+                resolvedNdkVersion = versions.last()
+            }
+        }
+    }
+    if (resolvedNdkVersion) {
+        ndkVersion resolvedNdkVersion
+    }
+
     defaultConfig {
         applicationId "com.davidbraga.heroeslorezero"
         minSdkVersion 21

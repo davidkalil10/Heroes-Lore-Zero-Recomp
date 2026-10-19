@@ -585,4 +585,14 @@
     - Em `Platform::pollEvents()` e `Platform::present()`, a thread principal consome `s_pendingAspectWidth` e executa `applyAspectWidth` com o contexto gráfico e a GIL sincronizados, recriando as texturas e forçando o repaint imediato do menu na nova resolução sem qualquer falha visual.
     - Tanto o atalho do controle quanto a opção do menu in-game agora alteram a proporção de tela de maneira perfeitamente fluida, sem congelamentos e sem tela preta.
 
+- **2. Falha de Download do NDK no GitHub Actions (`build-android` na v1.0.10):**
+  - **Diagnóstico:**
+    - O workflow falhava na etapa `assembleRelease` com `ZipException: Archive is not a ZIP archive` e `InstallFailedException: Failed to install the following SDK components: ndk;26.1.10909125`.
+    - Isso ocorria porque `android/app/build.gradle` continha a versão rígida `ndkVersion '26.1.10909125'`. Nos runners `ubuntu-latest` do GitHub Actions, o NDK pré-instalado atualmente é a versão 27 (`27.3.13750724` em `$ANDROID_NDK_HOME`).
+    - Ao notar a ausência da versão exata 26.1, o AGP tentava baixar dinamicamente o NDK 26 via rede a partir dos servidores do Google SDK, mas o arquivo falhava durante o download/descompressão.
+  - **Solução Implementada:**
+    - Em `android/app/build.gradle`, substituída a versão estática por detecção dinâmica: prioriza `ANDROID_NDK_VERSION` e, se ausente, busca a pasta instalada em `$ANDROID_SDK_ROOT/ndk` ou `$ANDROID_HOME/ndk`.
+    - No workflow `.github/workflows/build.yml`, configurado step de detecção a partir de `$ANDROID_NDK_HOME` / `$ANDROID_SDK_ROOT/ndk`, exportando para `$GITHUB_ENV` e passando `-Pandroid.ndkVersion` para o Gradle.
+    - O build reutiliza o NDK 27 nativamente pré-instalado no runner sem requisições de download propensas a erro.
+
 

@@ -221,18 +221,36 @@ jobs:
         run: |
           python3 tools/prepare_android_assets.py
 
-      - name: Verify Android Environment
+      - name: Configure Android NDK from Runner Environment
         run: |
           echo "=== Android SDK & NDK Pre-instalados no Runner ==="
           ls -la "$ANDROID_SDK_ROOT/ndk" 2>/dev/null || true
           ls -la "$ANDROID_SDK_ROOT/cmake" 2>/dev/null || true
           ls -la "$ANDROID_SDK_ROOT/build-tools" 2>/dev/null || true
 
+          NDK_VER=""
+          if [ -n "$ANDROID_NDK_HOME" ] && [ -d "$ANDROID_NDK_HOME" ]; then
+            NDK_VER=$(basename "$ANDROID_NDK_HOME")
+          elif [ -d "$ANDROID_SDK_ROOT/ndk" ]; then
+            NDK_VER=$(ls -1 "$ANDROID_SDK_ROOT/ndk" 2>/dev/null | sort -V | tail -n 1)
+          fi
+
+          if [ -n "$NDK_VER" ]; then
+            echo "ANDROID_NDK_VERSION=$NDK_VER" >> $GITHUB_ENV
+            echo "NDK detectado com sucesso: $NDK_VER"
+          else
+            echo "Aviso: Nenhum NDK pré-instalado detectado automaticamente."
+          fi
+
       - name: Build Android Release APKs
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleRelease --stacktrace
+          if [ -n "$ANDROID_NDK_VERSION" ]; then
+            ./gradlew assembleRelease -Pandroid.ndkVersion="$ANDROID_NDK_VERSION" --stacktrace
+          else
+            ./gradlew assembleRelease --stacktrace
+          fi
 
       - name: Organize APK Artifacts
         run: |

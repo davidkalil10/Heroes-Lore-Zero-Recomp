@@ -62,6 +62,13 @@ _Última atualização: 2026-10-19 (Versão v1.0.10 lançada oficialmente)_
 - [x] Correções e refinamentos v1.0.8:
   - Correção da pergunta de ativação de som no boot em `lot.tdf` ("Ativar o som? [Sim] [Não]"), corrigindo tradução do índice 26 e adicionando merge de segurança.
   - Exibição do número da versão instalada (`HL_VERSION_TAG`) centralizado logo abaixo do logo do jogo no menu principal de título (`rpg.a.c`), com tipografia oficial sombreada e dourada suave.
+- [x] Correções e refinamentos v1.0.9:
+  - Tradução e exibição localizada de "Pressione qualquer tecla para continuar" na tela de boot.
+  - Interceptação de prefixos de caminhos de mapas (`reference/extracted/m/...`) e tradução dos mapas e diálogos iniciais de Lucian, Clare, Silverleaf e Chelen.
+  - Ajuste dinâmico da largura do menu ingame (`ax.java`) para tela widescreen (558px).
+- [x] Correções e refinamentos v1.0.10:
+  - Enfileiramento atômico thread-safe (`s_pendingAspectWidth`) para alteração de aspecto/resolução a partir do menu de opções ingame (`bd.class`), eliminando tela preta.
+  - Resolução dinâmica do Android NDK na CI e no Gradle para uso automático do NDK 27 pré-instalado no GitHub Actions.
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
 - [x] **Passo 0:** Boot nativo no PC da classe `rpg.RPGHeroEx` e renderização do primeiro frame (240x320 / Widescreen).
