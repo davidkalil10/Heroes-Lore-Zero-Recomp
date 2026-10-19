@@ -27,6 +27,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <filesystem>
+#include <atomic>
 
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
@@ -217,6 +218,8 @@ static int s_savedWinH = 0;
 static int s_screenRotation = 0;
 static uint64_t s_frameStartCounter = 0;
 static VM* s_lastVm = nullptr;
+static unsigned long s_mainThreadId = 0;
+static std::atomic<int> s_pendingAspectWidth{-1};
 
 static int determineTargetWidth(AspectMode mode) {
   if (mode == ASPECT_ORIGINAL) {
@@ -387,7 +390,7 @@ static void setVmInstanceBool(Object* obj, const std::string& fieldName, bool va
   }
 }
 
-static void setVmInstanceShort(Object* obj, const std::string& fieldName, int16_t val) {
+[[maybe_unused]] static void setVmInstanceShort(Object* obj, const std::string& fieldName, int16_t val) {
   if (!obj || obj->kind != K_INST || !obj->cls) return;
   Instance* inst = static_cast<Instance*>(obj);
   ClassInfo* cls = obj->cls;
@@ -878,6 +881,7 @@ static bool s_romfsInitialized = false;
 #endif
 
 bool Platform::init(int scale) {
+  s_mainThreadId = (unsigned long)SDL_ThreadID();
 #ifdef __SWITCH__
   Result rc = romfsInit();
   if (R_FAILED(rc)) {
@@ -1843,11 +1847,10 @@ bool Platform::pollEvents(VM& vm) {
     return false;
   }
 #endif
-  if (s_aspectMode == ASPECT_AUTO) {
-    int targetW = determineTargetWidth(ASPECT_AUTO);
-    if (g_screenWidth != targetW) {
-      applyAspectWidth(targetW, &vm);
-    }
+  int pendingW = s_pendingAspectWidth.exchange(-1);
+  int targetW = (pendingW > 0) ? pendingW : determineTargetWidth(s_aspectMode);
+  if (g_screenWidth != targetW || !s_screenTexture || pendingW > 0) {
+    applyAspectWidth(targetW, &vm);
   }
   CloudSave::update(&vm);
 
@@ -1981,11 +1984,10 @@ bool Platform::pollEvents(VM& vm) {
           s_savedWinH = ev.window.data2;
           saveSettings();
         }
-        if (s_aspectMode == ASPECT_AUTO) {
-          int targetW = determineTargetWidth(ASPECT_AUTO);
-          if (g_screenWidth != targetW) {
-            applyAspectWidth(targetW, &vm);
-          }
+        int pendingW2 = s_pendingAspectWidth.exchange(-1);
+        int targetW2 = (pendingW2 > 0) ? pendingW2 : determineTargetWidth(s_aspectMode);
+        if (g_screenWidth != targetW2 || !s_screenTexture || pendingW2 > 0) {
+          applyAspectWidth(targetW2, &vm);
         }
         bool needLock = !vm.isGilOwner();
         if (needLock) vm.gilLock();
@@ -2421,7 +2423,20 @@ bool Platform::pollEvents(VM& vm) {
 }
 
 static void applyAspectWidth(int newWidth, VM* pVm) {
-  if (g_screenWidth == newWidth && s_screenTexture) return;
+  if (s_mainThreadId != 0 && (unsigned long)SDL_ThreadID() != s_mainThreadId) {
+    s_pendingAspectWidth = newWidth;
+    return;
+  }
+  if (g_screenWidth == newWidth && s_screenTexture) {
+    if (pVm) {
+      bool needLock = !pVm->isGilOwner();
+      if (needLock) pVm->gilLock();
+      updateJavaViewportVariables(*pVm);
+      forceRepaintImmediate(*pVm);
+      if (needLock) pVm->gilUnlock();
+    }
+    return;
+  }
 
   g_screenWidth = newWidth;
   g_screenHeight = SCREEN_HEIGHT;
@@ -2450,11 +2465,10 @@ static void applyAspectWidth(int newWidth, VM* pVm) {
 void Platform::present() {
   if (!s_renderer) return;
 
-  if (s_aspectMode == ASPECT_AUTO) {
-    int targetW = determineTargetWidth(ASPECT_AUTO);
-    if (g_screenWidth != targetW) {
-      applyAspectWidth(targetW, s_lastVm);
-    }
+  int pendingW = s_pendingAspectWidth.exchange(-1);
+  int targetW = (pendingW > 0) ? pendingW : determineTargetWidth(s_aspectMode);
+  if (g_screenWidth != targetW || !s_screenTexture || pendingW > 0) {
+    applyAspectWidth(targetW, s_lastVm);
   }
 
   if (!s_screenTexture) return;
@@ -2737,7 +2751,11 @@ void Platform::setAspectMode(int mode, VM* pVm) {
   saveSettings();
 
   int targetW = determineTargetWidth(s_aspectMode);
-  applyAspectWidth(targetW, pVm ? pVm : s_lastVm);
+  if (s_mainThreadId != 0 && (unsigned long)SDL_ThreadID() != s_mainThreadId) {
+    s_pendingAspectWidth = targetW;
+  } else {
+    applyAspectWidth(targetW, pVm ? pVm : s_lastVm);
+  }
 
   if (s_aspectMode == ASPECT_AUTO) {
     if (targetW == SCREEN_W_WIDESCREEN) {

@@ -571,3 +571,18 @@
     - Em 16:9 widescreen, `menuW` passa a ser 558px e `menuX = 5`. Em 3:4 original, `menuW = 230px` e `menuX = 5`.
     - Agora o menu se adapta suavemente e mantém a largura fluida total de 558px sempre que o jogo estiver em widescreen.
 
+## Sessão 20 (Correções Críticas v1.0.10: Mudança de Aspect Ratio Thread-Safe via Menu de Opções)
+- **1. Tela Preta ao Alterar Resolução / Proporção de Tela através da Opção no Menu (`bd.class`):**
+  - **Diagnóstico:**
+    - Quando a proporção de tela era alternada pelo atalho de gamepad (SELECT+START ou F7), o comando era processado dentro de `Platform::pollEvents()`, executando 100% na **thread principal** de renderização (onde o `SDL_Renderer` e o contexto gráfico DirectX11 / OpenGL / Switch residem). A destruição e recriação de `s_screenTexture` ocorriam normalmente.
+    - Por outro lado, quando o jogador alterava a opção de proporção (Item 8: "Tela" / "Screen") navegando pelo menu de configurações (`bd.class`), a chamada partia do método nativo `bd_a_native`, que roda dentro de `bs.run()` ou `bv.run()` em uma **thread secundária SDL** (a thread de execução J2ME).
+    - Na arquitetura do SDL2, funções de textura (`SDL_DestroyTexture`, `SDL_CreateTexture`, `SDL_UpdateTexture`) não são thread-safe e é proibido invocá-las a partir de uma thread diferente daquela que criou o `SDL_Renderer`.
+    - Em decorrência disso, `SDL_CreateTexture` falhava silenciosamente e retornava `nullptr`. A variável `s_screenTexture` ficava permanentemente nula, fazendo com que `Platform::present()` abortasse a renderização e deixasse a tela totalmente preta.
+  - **Solução Implementada:**
+    - Registrado o ID da thread principal em `Platform::init` (`s_mainThreadId = (unsigned long)SDL_ThreadID()`).
+    - Criada a fila de sincronização atômica `static std::atomic<int> s_pendingAspectWidth{-1}`.
+    - Quando `Platform::setAspectMode` ou `applyAspectWidth` são chamados a partir de uma thread secundária (como na navegação de menus Java), a alteração gráfica é agendada atomicamente em `s_pendingAspectWidth` sem tocar em texturas SDL fora da thread de renderização.
+    - Em `Platform::pollEvents()` e `Platform::present()`, a thread principal consome `s_pendingAspectWidth` e executa `applyAspectWidth` com o contexto gráfico e a GIL sincronizados, recriando as texturas e forçando o repaint imediato do menu na nova resolução sem qualquer falha visual.
+    - Tanto o atalho do controle quanto a opção do menu in-game agora alteram a proporção de tela de maneira perfeitamente fluida, sem congelamentos e sem tela preta.
+
+
