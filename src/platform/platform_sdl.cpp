@@ -1719,6 +1719,9 @@ static void getTouchCoords(const SDL_TouchFingerEvent& tf, int winW, int winH, f
   outY = tf.y * winH;
 }
 
+static uint32_t s_modalClosedTime = 0;
+static bool s_lastModalActiveState = false;
+
 bool Platform::pollEvents(VM& vm) {
   s_lastVm = &vm;
   if (s_quit) return false;
@@ -1735,6 +1738,14 @@ bool Platform::pollEvents(VM& vm) {
     }
   }
   CloudSave::update(&vm);
+
+  bool curModalActive = Updater::isPromptActive() || CloudSave::isModalActive();
+  if (s_lastModalActiveState && !curModalActive) {
+    s_modalClosedTime = SDL_GetTicks();
+    s_activeFingers.clear();
+  }
+  s_lastModalActiveState = curModalActive;
+
   SDL_Event ev;
   while (SDL_PollEvent(&ev)) {
     // Se o diálogo modal do Updater estiver ativo, direciona os eventos com prioridade total
@@ -1756,15 +1767,18 @@ bool Platform::pollEvents(VM& vm) {
           key = -7; // Cancelar (B no Switch, B no Xbox/PC)
         }
       } else if (ev.type == SDL_FINGERDOWN) {
-        int winW = 0, winH = 0;
-        SDL_GetWindowSize(s_window, &winW, &winH);
+        int renW = 0, renH = 0;
+        SDL_GetRendererOutputSize(s_renderer, &renW, &renH);
+        if (renW <= 0 || renH <= 0) SDL_GetWindowSize(s_window, &renW, &renH);
         float tx = 0, ty = 0;
         int tw = 0, th = 0;
-        getTouchCoords(ev.tfinger, winW, winH, tx, ty, tw, th);
+        getTouchCoords(ev.tfinger, renW, renH, tx, ty, tw, th);
         Updater::handleClick((int)tx, (int)ty);
         continue;
       } else if (ev.type == SDL_MOUSEBUTTONDOWN) {
-        Updater::handleClick(ev.button.x, ev.button.y);
+        if (ev.button.which != SDL_TOUCH_MOUSEID) {
+          Updater::handleClick(ev.button.x, ev.button.y);
+        }
         continue;
       }
 
@@ -1803,15 +1817,18 @@ bool Platform::pollEvents(VM& vm) {
           key = 51; // Y -> Desconectar
         }
       } else if (ev.type == SDL_FINGERDOWN) {
-        int winW = 0, winH = 0;
-        SDL_GetWindowSize(s_window, &winW, &winH);
+        int renW = 0, renH = 0;
+        SDL_GetRendererOutputSize(s_renderer, &renW, &renH);
+        if (renW <= 0 || renH <= 0) SDL_GetWindowSize(s_window, &renW, &renH);
         float tx = 0, ty = 0;
         int tw = 0, th = 0;
-        getTouchCoords(ev.tfinger, winW, winH, tx, ty, tw, th);
+        getTouchCoords(ev.tfinger, renW, renH, tx, ty, tw, th);
         CloudSave::handleClick((int)tx, (int)ty, &vm);
         continue;
       } else if (ev.type == SDL_MOUSEBUTTONDOWN) {
-        CloudSave::handleClick(ev.button.x, ev.button.y, &vm);
+        if (ev.button.which != SDL_TOUCH_MOUSEID) {
+          CloudSave::handleClick(ev.button.x, ev.button.y, &vm);
+        }
         continue;
       }
 
@@ -1819,6 +1836,14 @@ bool Platform::pollEvents(VM& vm) {
         CloudSave::handleInput(key, &vm);
       }
       continue; // Bloqueia propagação para o motor de jogo enquanto o modal estiver aberto
+    }
+
+    // Cooldown de segurança pós-fechamento de modal: previne que toques ou cliques residuais atinjam o menu de trás
+    if (SDL_GetTicks() - s_modalClosedTime < 350) {
+      if (ev.type == SDL_FINGERDOWN || ev.type == SDL_FINGERUP || ev.type == SDL_FINGERMOTION ||
+          ev.type == SDL_MOUSEBUTTONDOWN || ev.type == SDL_MOUSEBUTTONUP || ev.type == SDL_MOUSEMOTION) {
+        continue;
+      }
     }
 
     if (ev.type == SDL_QUIT) {
@@ -3539,6 +3564,12 @@ void Platform::reloadLanguage(VM& vm) {
 
 void Platform::openCloudSave(VM* vm) {
   CloudSave::openModal(vm);
+}
+
+bool Platform::isModalOrCooldownActive() {
+  if (Updater::isPromptActive() || CloudSave::isModalActive()) return true;
+  if (SDL_GetTicks() - s_modalClosedTime < 350) return true;
+  return false;
 }
 
 } // namespace hl

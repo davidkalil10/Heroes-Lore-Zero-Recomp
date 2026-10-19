@@ -976,7 +976,13 @@ bool Updater::applyUpdate() {
 #elif defined(__ANDROID__)
   std::string targetApk = storage + "/" + s_releaseInfo.assetName;
   remove(targetApk.c_str());
-  rename(tmpFile.c_str(), targetApk.c_str());
+  if (rename(tmpFile.c_str(), targetApk.c_str()) != 0) {
+    if (!copyFile(tmpFile, targetApk)) {
+      boot_log("[Updater-Android] Falha ao copiar APK temporario para %s\n", targetApk.c_str());
+    } else {
+      remove(tmpFile.c_str());
+    }
+  }
   androidInstallApk(targetApk);
   Platform::showOsdMessage("Instalador aberto! Conclua a atualizacao.");
   return true;
@@ -1024,6 +1030,8 @@ void Updater::confirmUpdate() {
     }
     Platform::requestQuit();
 #elif defined(__ANDROID__)
+    std::string targetApk = Platform::getStorageDir() + "/" + s_releaseInfo.assetName;
+    androidInstallApk(targetApk);
     dismissPrompt();
 #endif
   }
@@ -1048,21 +1056,26 @@ bool Updater::handleInput(int key) {
 void Updater::handleClick(int x, int y) {
   if (!s_promptActive) return;
 
-  SDL_Point pt = { x, y };
-  if (s_btnConfirmRect.w > 0 && SDL_PointInRect(&pt, &s_btnConfirmRect)) {
-    confirmUpdate();
-    return;
-  }
-  if (s_btnCancelRect.w > 0 && SDL_PointInRect(&pt, &s_btnCancelRect)) {
+  auto inRectPadded = [](int px, int py, const SDL_Rect& r, int pad = 0) {
+    if (r.w <= 0 || r.h <= 0) return false;
+    return px >= (r.x - pad) && px <= (r.x + r.w + pad) &&
+           py >= (r.y - pad) && py <= (r.y + r.h + pad);
+  };
+
+  if (s_btnCloseX.w > 0 && inRectPadded(x, y, s_btnCloseX, 20)) {
     dismissPrompt();
     return;
   }
-  if (s_btnCloseX.w > 0 && SDL_PointInRect(&pt, &s_btnCloseX)) {
+  if (s_btnConfirmRect.w > 0 && inRectPadded(x, y, s_btnConfirmRect, 6)) {
+    confirmUpdate();
+    return;
+  }
+  if (s_btnCancelRect.w > 0 && inRectPadded(x, y, s_btnCancelRect, 6)) {
     dismissPrompt();
     return;
   }
   // Se clicou fora da janela do modal: fecha o aviso com segurança
-  if (s_modalRect.w > 0 && !SDL_PointInRect(&pt, &s_modalRect)) {
+  if (s_modalRect.w > 0 && !inRectPadded(x, y, s_modalRect, 0)) {
     if (s_state == UpdateState::UPDATE_AVAILABLE || s_state == UpdateState::CHECK_FAILED || s_state == UpdateState::NO_UPDATE) {
       dismissPrompt();
       return;

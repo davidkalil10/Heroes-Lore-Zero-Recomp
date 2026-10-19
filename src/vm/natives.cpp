@@ -2053,6 +2053,7 @@ static void bd_cursor_native(VM& vm, Value* args, Value*) {
 }
 
 bool bd_handle_mouse_click(VM& vm, int gameX, int gameY) {
+  if (Platform::isModalOrCooldownActive()) return false;
   if (!s_activeBdMenu) return false;
   Instance* inst = s_activeBdMenu;
   ClassInfo* nClass = vm.findClass("n");

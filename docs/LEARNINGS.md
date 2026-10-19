@@ -400,3 +400,27 @@
     - No menu raiz de `ax.java`, `-6` cai diretamente em `n.f(n2, 49)`, executando `this.d(this.var_byte_a)` e entrando imediatamente na opção destacada pelo cursor direcional.
     - Dentro de todos os submenus (`dc`, `cy`, `dp`, `y`, `ce`, `ch`, `bd`), `-6` é reconhecido nativamente por `n.f(n2, n3)`, confirmando a ação normalmente.
     - O comportamento agora é 100% intuitivo e consistente entre Mobile (Touch), Nintendo Switch (Gamepad) e PC Desktop (Teclado/Mouse/Controle).
+
+## Sessão 14 (Correções Críticas v1.0.4: Instalação de APK no Android e Isolamento de Toques em Modais)
+- **1. Falha ao Abrir o Instalador de Pacotes do Android (PackageInstaller OTA):**
+  - **Diagnóstico:**
+    - Em `android/app/src/main/java/org/libsdl/app/SDLActivity.java` (método `installApk`), a autoridade do content URI estava com o nome do pacote de outro projeto (`content://com.davidbraga.heroeslore2.provider...`) em vez de `com.davidbraga.heroeslorezero.provider`.
+    - Ao tentar abrir o intent com uma autoridade inexistente/desconhecida, o Android lançava exceção de segurança/atividade, impedindo o PackageInstaller nativo de abrir.
+    - Além disso, no Android 8.0+ (Oreo, API 26+), é necessário verificar `getPackageManager().canRequestPackageInstalls()`. Se falso, deve-se abrir a tela de configurações (`ACTION_MANAGE_UNKNOWN_APP_SOURCES`) para o usuário autorizar a instalação de atualizações vindas do app.
+  - **Solução Implementada:**
+    - Em `SDLActivity.java`, substituído o prefixo hardcoded por `mSingleton.getPackageName() + ".provider"`, casando com a declaração do `ApkFileProvider` no `AndroidManifest.xml`.
+    - Adicionada verificação de `canRequestPackageInstalls()` no Android 8.0+ com redirecionamento amigável para as configurações do sistema caso a permissão ainda não tenha sido concedida.
+    - Incluídas flags `FLAG_GRANT_READ_URI_PERMISSION`, `FLAG_GRANT_PREFIX_URI_PERMISSION`, `FLAG_ACTIVITY_NEW_TASK` e `FLAG_ACTIVITY_CLEAR_TOP`.
+    - Em `src/platform/updater.cpp`, adicionado fallback de cópia caso a substituição via `rename` atinja partições diferentes, além de acionar novamente o instalador caso o usuário clique no botão de ação da tela de conclusão.
+
+- **2. Tela Piscando e Bloqueio de Toques no Modal de Cloud Save / Menu Ingame:**
+  - **Diagnóstico:**
+    - Em `src/platform/platform_sdl.cpp`, os eventos `SDL_FINGERDOWN` dos modais (`Updater` e `CloudSave`) calculavam as coordenadas de toque usando `SDL_GetWindowSize(s_window, &winW, &winH)`. Em dispositivos Android modernos, `SDL_GetWindowSize` retorna dimensões lógicas (ex: 412x915), enquanto `drawModal` desenha com `SDL_GetRendererOutputSize` em pixels nativos (ex: 1080x2400). As coordenadas ficavam completamente deslocadas e nenhum toque atingia os botões ou o botão [X].
+    - Adicionalmente, quando o usuário tentava tocar no modal aberto pelo menu in-game (`bd.class`), o SDL do Android emitia eventos sintetizados de mouse (`SDL_TOUCH_MOUSEID`) e de soltura de toque que vazavam para `bd_handle_mouse_click`. Ao atingir a linha 9 ("Nuvem") que ficava exatamente atrás do modal na tela, o jogo chamava `Platform::openCloudSave` e reabria o modal imediatamente, causando o efeito visual de piscada e sensação de toque vazando para os elementos de trás.
+  - **Solução Implementada:**
+    - Em `platform_sdl.cpp`, as coordenadas de toque de `Updater` e `CloudSave` foram corrigidas para utilizar `SDL_GetRendererOutputSize(s_renderer, &renW, &renH)` com fallback para `GetWindowSize`.
+    - Eventos `SDL_MOUSEBUTTONDOWN` com `ev.button.which == SDL_TOUCH_MOUSEID` são explicitamente descartados enquanto os modais estão ativos para evitar cliques duplicados ou desfasados.
+    - Criado sistema de cooldown de segurança pós-fechamento (`s_modalClosedTime` e `Platform::isModalOrCooldownActive()`): ao fechar qualquer modal, bloqueia por 350ms qualquer clique direcionado a `bd_handle_mouse_click` e ao motor do jogo, além de limpar `s_activeFingers`.
+    - Em `bd_handle_mouse_click` (`src/vm/natives.cpp`), adicionada guarda `if (Platform::isModalOrCooldownActive()) return false;`.
+    - Em `src/platform/cloud_save.cpp` e `updater.cpp`, expandida a hitbox do botão [X] com padding de 20px e adicionado fechamento amigável ao tocar fora da área do modal (backdrop escuro).
+

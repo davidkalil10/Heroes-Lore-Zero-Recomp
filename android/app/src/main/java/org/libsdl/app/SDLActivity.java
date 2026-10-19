@@ -2023,15 +2023,28 @@ public class SDLActivity extends Activity implements View.OnSystemUiVisibilityCh
 
             file.setReadable(true, false);
 
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                if (!mSingleton.getPackageManager().canRequestPackageInstalls()) {
+                    Log.w("SDL", "canRequestPackageInstalls is false, opening settings");
+                    Intent settingsIntent = new Intent(android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES);
+                    settingsIntent.setData(Uri.parse("package:" + mSingleton.getPackageName()));
+                    settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mSingleton.startActivity(settingsIntent);
+                    return;
+                }
+            }
+
             Intent intent = new Intent(Intent.ACTION_VIEW);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                Uri contentUri = Uri.parse("content://com.davidbraga.heroeslore2.provider" + file.getAbsolutePath());
+                Uri contentUri = Uri.parse("content://" + mSingleton.getPackageName() + ".provider" + file.getAbsolutePath());
                 intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
                 intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
             } else {
                 intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
             }
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             mSingleton.startActivity(intent);
         } catch (Exception e) {
             Log.e("SDL", "installApk error: " + e.getMessage());

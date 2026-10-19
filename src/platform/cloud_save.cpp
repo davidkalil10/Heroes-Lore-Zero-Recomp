@@ -1588,23 +1588,37 @@ void CloudSave::handleClick(int x, int y, VM* vm) {
   if (vm) s_activeVm = vm;
   if (!s_modalActive) return;
 
-  auto inRect = [](int px, int py, const SDL_Rect& r) {
-    return px >= r.x && px <= r.x + r.w && py >= r.y && py <= r.y + r.h;
+  auto inRectPadded = [](int px, int py, const SDL_Rect& r, int pad = 0) {
+    if (r.w <= 0 || r.h <= 0) return false;
+    return px >= (r.x - pad) && px <= (r.x + r.w + pad) &&
+           py >= (r.y - pad) && py <= (r.y + r.h + pad);
   };
 
-  if (inRect(x, y, s_btnCloseX)) {
+  // 1. Botão Fechar [X] no cabeçalho com padding generoso para touch
+  if (inRectPadded(x, y, s_btnCloseX, 20)) {
     if (s_state == CloudSaveState::RESTORE_CONFIRM) cancelRestore();
     else closeModal();
     return;
   }
 
-  if (inRect(x, y, s_btnCancel)) {
+  // 2. Botão Cancelar / Voltar
+  if (inRectPadded(x, y, s_btnCancel, 6)) {
     if (s_state == CloudSaveState::RESTORE_CONFIRM) cancelRestore();
     else closeModal();
     return;
   }
 
-  if (inRect(x, y, s_btnAction1)) {
+  // 3. Se clicou fora da janela do modal (no backdrop translúcido): fecha amigavelmente
+  if (s_modalRect.w > 0 && !inRectPadded(x, y, s_modalRect, 0)) {
+    if (s_state != CloudSaveState::UPLOADING && s_state != CloudSaveState::DOWNLOADING) {
+      if (s_state == CloudSaveState::RESTORE_CONFIRM) cancelRestore();
+      else closeModal();
+      return;
+    }
+  }
+
+  // 4. Botões de Ação
+  if (inRectPadded(x, y, s_btnAction1, 6)) {
     if (s_state == CloudSaveState::NOT_LOGGED_IN || s_state == CloudSaveState::ERROR_NOTIFICATION) {
       startLogin();
     } else if (s_state == CloudSaveState::RESTORE_CONFIRM) {
@@ -1615,14 +1629,14 @@ void CloudSave::handleClick(int x, int y, VM* vm) {
     return;
   }
 
-  if (inRect(x, y, s_btnAction2)) {
+  if (inRectPadded(x, y, s_btnAction2, 6)) {
     if (isLoggedIn() && s_state != CloudSaveState::RESTORE_CONFIRM) {
       requestRestore();
     }
     return;
   }
 
-  if (inRect(x, y, s_btnAction3)) {
+  if (inRectPadded(x, y, s_btnAction3, 6)) {
     if (isLoggedIn()) {
       logout();
     }
