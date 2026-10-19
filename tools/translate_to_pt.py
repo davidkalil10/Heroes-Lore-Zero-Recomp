@@ -63,15 +63,15 @@ UI_TRANSLATIONS = {
         "Remover item?", "Item removido.", "Nao pode ser usado agora.", "Passe Livre", "Loja", "Armazem"
     ],
     "h.tdf": [
-        "Controles Basicos", "Personagem", "Mudanca de Profissao", "Elemental", "Status", "Equipamento",
-        "Fusao e Refino de Itens",
+        "Controles Basicos", "Personagem", "Mudanca de Profissao", "Elemental", "Status", "Equipamento", "Fusao e Refino de Itens",
         "Movimento: Teclas direcionais ou D-Pad.; Investigar/Conversar: Confirmar ou 5.; Ataque Normal: Confirmar ou 5.; Habilidades: Teclas 1, 3, 7 e 9.; Itens: Teclas 0 e #.; Menu: Tecla esquerda (LSK); Tecla *: Mini-mapa ou salvar rapido.",
-        "Status de Lucian: Forca (FOR) aumenta ataque; Agilidade (AGI) aumenta precisao e esquiva; Resistencia (RES) aumenta HP e defesa; Vontade (VON) aumenta MP e dano magico.",
-        "Ao atingir os requisitos de nivel com o Mestre de Profissoes em Silverleaf Village, voce podera escolher sua classe avancada.",
+        "Equipe habilidades especiais.; As habilidades podem ser melhoradas com pontos adquiridos ao subir de nivel ou completar missoes.; Passivas entram em vigor quando equipadas.; Habilidades ativas consomem SP ao serem usadas.",
+        "Ao atingir os requisitos de nivel com o Mestre de Profissoes em Silverleaf Village, voce podera escolher sua classe avancada. Passivas anteriores continuam ativas.",
         "Os Elementais concedem habilidades misticas de suporte e ataque em combate. Use-os com sabedoria.",
-        "Equipe armas e armaduras adequadas a sua classe para maximizar seus atributos de combate.",
-        "Utilize Pedras de Refino na forja para aprimorar suas armas e armaduras.",
-        "Combine materiais raros para forjar equipamentos lendarios com propriedades unicas."
+        "4 pontos de atributo sao concedidos a cada nivel. Forca afeta o ataque e defesa de escudos; resistencia afeta HP e defesa; agilidade afeta esquiva e acerto critico; vontade afeta SP e magia.",
+        "Equipe armas e armaduras adequadas a sua classe para maximizar seus atributos de combate. Equipamentos possuem engastes para joias.",
+        "Pedras raras podem ser incrustadas para aprimorar atributos. Utilize Pedras de Refino na forja para aumentar os engastes de armas e armaduras.",
+        "Equipamentos especiais e pedras raras podem ser criados no alquimista. Projetos e os materiais de fusao necessarios serao precisos."
     ],
     "it.tdf": [
         "Machados", "Espadas de Duas Maos", "Laminas", "Clavas", "Espadas Curtas", "Pistolas", "Laminas-Pistola",
@@ -103,13 +103,38 @@ UI_TRANSLATIONS = {
         "Mestre da Magia Elemental", "Mudanca concluida com sucesso.", "Retornar ao jogo"
     ],
     "lot.tdf": [
-        "Sim", "Nao", "Confirmar", "Voltar", "Parabens! Voce recebeu uma recompensa diaria de Heroes Lore.",
-        "Parabens! Voce recebeu", "Conectando ao servidor...", "Falha no download. Tentar novamente?",
-        "Transferindo dados...", "Conexao concluida.", "Sem itens pendentes.", "Recompensa coletada.",
-        "Aguarde...", "Salvo com sucesso.", "Erro de comunicacao.", "Acesso liberado.", "Recurso indisponivel.",
-        "Confirmar operacao?", "Sucesso!", "Falha na operacao.", "Por favor aguarde...", "Concluido.",
-        "Dados atualizados.", "Verificando...", "OK", "Cancelar", "Continuar", "Reiniciar", "Voltar ao menu",
-        "Sair", "Carregando...", "Fim de transmissao"
+        "Sim",
+        "Nao",
+        "Confirmar",
+        "Voltar",
+        "Parabens! Voce recebeu o presente diario de Heroes Lore. Conectar ao servidor do jogo e baixar o presente diario?",
+        "Parabens! Voce recebeu",
+        "Conectando agora...",
+        "Falha no download. Tentar novamente?",
+        "Sinto muito. Voce ja coletou seu presente diario hoje.",
+        "Escolha 1 das seguintes 3 recompensas. Pressione a tecla central (5) para confirmar",
+        "Ouro",
+        "Jogadores recebem 4 pontos de atributo a cada nivel. Eles podem ser distribuidos em Forca, Agilidade, Resistencia e Vontade. Forca afeta ataque e defesa de escudos; resistencia afeta HP e defesa; agilidade afeta esquiva e acerto critico; vontade afeta SP e magia.",
+        "Ao comprar itens, voce pode alternar tipos usando as teclas 1 e 3. Mova para a esquerda e selecione a aba para folhear as paginas. Armas e armaduras tem restricoes de nivel e classe.",
+        "Armas e armaduras que nao podem ser equipadas devido a restricao de classe nao aparecem na interface de equipamento.",
+        "Voce pode pular dialogos pressionando a tecla de funcao direita. Contudo, as falas podem conter informacoes cruciais que nao devem ser perdidas.",
+        "Forca afeta ataque e defesa de escudos; resistencia afeta HP e defesa; agilidade afeta esquiva e criticos; vontade afeta SP e magia.",
+        "Habilidades sao divididas em ativas e passivas. E possivel distribuir ate 3 pontos de habilidade em cada tecnica.",
+        "O mini-mapa contem muitas informacoes uteis. Cada ponto azul pode levar a algo interessante.",
+        "Armas e armaduras possuem restricoes de nivel e classe. Equipamentos incompativeis ficam destacados em vermelho.",
+        "O nivel de habilidades ativas que nao puderem ser usadas apos a troca de classe sera mantido; passivas anteriores continuam ativas.",
+        "O Livro de Retorno teleporta o jogador para a cidade designada. No entanto, so pode ser usado em areas externas.",
+        "Algumas classes sao melhores para combate corpo a corpo, enquanto outras se destacam em tatica e mobilidade.",
+        "O Armazem pode ser usado para transferir itens e ouro entre diferentes jogos salvos.",
+        "Todos os equipamentos possuem engastes onde pedras raras podem ser incrustadas para melhorar seus atributos.",
+        "Equipamentos especiais e pedras raras podem ser criados no alquimista com projetos e materiais de fusao.",
+        "Algumas tarefas secundarias podem trazer surpresas ocultas. Fique atento aos pedidos dos habitantes!",
+        "Ativar o som?",
+        "Pressione # para continuar",
+        "O jogo sera salvo antes de entrar no armazem. Prosseguir?",
+        "Seus itens foram transferidos para o armazem comum. Use 1 e 3 para verificar seus itens.",
+        "Carregue o jogo salvo e va ate o armazem para resgatar sua recompensa.",
+        "O progresso nao salvo sera perdido. Deseja sair do jogo agora?"
     ],
     "m.tdf": [
         "Novo Jogo",
@@ -267,17 +292,17 @@ UI_TRANSLATIONS = {
     ],
     "s4.tdf": [
         "Tiro de Canhao", "Disparo macico que atinge todos os inimigos na area.",
-        "Carga Explosiva", "Investe contra o alvo e detona carga concentrada.",
-        "Lamina Explosiva", "Golpe de espada combinado com tiro de festim detonante.",
-        "Salva de Artilharia", "Bombardeia o terreno com projeteis de alto calibre.",
-        "", "", "", ""
+        "Investida Explosiva", "Avanca para o alvo proximo e explode.",
+        "", "", "", "", "", "", "", "",
+        "Maestria com Armas", "Desfere multiplos acertos com a lamina-pistola.",
+        "Municao Explosiva", "Um ataque bem-sucedido tem chance de causar petrificacao."
     ],
     "s5.tdf": [
-        "Alianca Mística", "Consome HP para recuperar energia elemental (EP).",
-        "Transmogrificacao", "Transforma o heroi em uma forma de poder colossal.",
-        "Pacto Espiritual", "Aumenta a afinidade e dano magico com os elementais.",
-        "Explosao Cosmica", "Libera toda a energia acumulada em uma onda devastadora.",
-        "", "", "", ""
+        "Alianca", "Consome HP para recuperar energia elemental (EP).",
+        "Transmogrificacao", "Tecnica especial de transformacao. Usa SP e EP para mudar para formas poderosas.",
+        "", "", "", "", "", "", "", "",
+        "Juramento Sagrado", "Aumenta o ganho de SP e EP.",
+        "Mente Renovada", "Aumenta o poder psiquico."
     ],
     "sa.tdf": [
         "Atormentador", "Causa dano adicional concentrado em um unico alvo.",
@@ -485,8 +510,23 @@ def translate_dialog_line(s):
 
 def main():
     print("1. Gravando lang/pt_br/ui_strings.json...")
+    with open("lang/source_en/ui_strings.json", "r", encoding="utf-8") as f:
+        src_ui = json.load(f)
+
+    merged_ui = {}
+    for k, src_list in src_ui.items():
+        if k in UI_TRANSLATIONS:
+            pt_list = list(UI_TRANSLATIONS[k])
+            if len(pt_list) < len(src_list):
+                pt_list.extend(src_list[len(pt_list):])
+            elif len(pt_list) > len(src_list):
+                pt_list = pt_list[:len(src_list)]
+            merged_ui[k] = pt_list
+        else:
+            merged_ui[k] = src_list
+
     with open("lang/pt_br/ui_strings.json", "w", encoding="utf-8") as f:
-        json.dump(UI_TRANSLATIONS, f, ensure_ascii=False, indent=2)
+        json.dump(merged_ui, f, ensure_ascii=False, indent=2)
 
     print("2. Gravando lang/pt_br/enemies_npcs.json...")
     enemy_data = {

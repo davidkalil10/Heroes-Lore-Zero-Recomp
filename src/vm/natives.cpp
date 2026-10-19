@@ -1223,6 +1223,7 @@ static void bd_init_native(VM& vm, Value* args, Value*);
 static void bd_a_native(VM& vm, Value* args, Value* ret);
 static void bd_draw_native(VM& vm, Value* args, Value*);
 static void bd_cursor_native(VM& vm, Value* args, Value*);
+static void rpg_a_c_native(VM& vm, Value* args, Value*);
 
 // -------------------------------------------------------------
 // Registro de todos os métodos nativos
@@ -1452,6 +1453,9 @@ void VM::registerNatives() {
   reg("bd.a:(II)Z", bd_a_native);
   reg("bd.a:(Lcm;)V", bd_draw_native);
   reg("bd.b:(Lcm;)V", bd_cursor_native);
+
+  // HL Zero: Tela de Título — Logo e Versão Instalada (rpg.a.c(cm))
+  reg("rpg/a.c:(Lcm;)V", rpg_a_c_native);
 }
 
 static void ch_init_native(VM& vm, Value* args, Value*) {
@@ -1462,6 +1466,109 @@ static void ch_init_native(VM& vm, Value* args, Value*) {
   std::string path = getStrUtf8(args[1].o);
   Platform::registerChInstance(inst, path);
   Platform::reloadSingleCh(vm, inst, path);
+}
+
+// -------------------------------------------------------------
+// rpg/a.c:(Lcm;)V — Desenha o fundo do título, logo do jogo e versão instalada
+// -------------------------------------------------------------
+static void rpg_a_c_native(VM& vm, Value* args, Value*) {
+  Object* cmObj = args[0].o;
+  if (!cmObj) return;
+
+  ClassInfo* rpgA = vm.findClass("rpg/a");
+  if (!rpgA) return;
+
+  // 1. Invoca rpg.a.a(cm, false) para desenhar o fundo e molduras
+  Method* mRpgAa = vm.findMethod(rpgA, "a:(Lcm;Z)V");
+  if (mRpgAa) {
+    Value aArgs[2];
+    aArgs[0].o = cmObj;
+    aArgs[1].i = 0; // false
+    Value aRet[2];
+    vm.invoke(mRpgAa, aArgs, aRet);
+  }
+
+  // 2. Desenha o logo rpg.e.var_cg_e em (c, d - d / 3, 3)
+  FieldInfo* fRpgAc = vm.findField(rpgA, "c:I");
+  FieldInfo* fRpgAd = vm.findField(rpgA, "d:I");
+  int c = (fRpgAc && fRpgAc->isStatic && fRpgAc->index >= 0 && fRpgAc->index < (int)rpgA->statics.size())
+            ? rpgA->statics[fRpgAc->index].i : (g_screenWidth / 2);
+  int d = (fRpgAd && fRpgAd->isStatic && fRpgAd->index >= 0 && fRpgAd->index < (int)rpgA->statics.size())
+            ? rpgA->statics[fRpgAd->index].i : (g_screenHeight / 2);
+
+  ClassInfo* rpgE = vm.findClass("rpg/e");
+  FieldInfo* fVarCgE = rpgE ? vm.findField(rpgE, "e:Lcg;") : nullptr;
+  Object* cgE = (fVarCgE && fVarCgE->isStatic && fVarCgE->index >= 0 && fVarCgE->index < (int)rpgE->statics.size())
+                  ? rpgE->statics[fVarCgE->index].o : nullptr;
+
+  Method* mCmSetColor = cmObj->cls ? vm.findMethod(cmObj->cls, "a:(I)V") : nullptr;
+  int logoY = d - d / 3;
+  if (cgE && cmObj->cls) {
+    Method* mCmA = vm.findMethod(cmObj->cls, "a:(Lcg;III)V");
+    if (mCmA) {
+      Value lArgs[5];
+      lArgs[0].o = cmObj;
+      lArgs[1].o = cgE;
+      lArgs[2].i = c;
+      lArgs[3].i = logoY;
+      lArgs[4].i = 3; // HCENTER | VCENTER
+      Value lRet[2];
+      vm.invoke(mCmA, lArgs, lRet);
+    }
+
+    // 3. Desenha a versão instalada do jogo (ex: "v1.0.7") logo abaixo do logo do jogo (apenas no menu de título i, não no splash bv)
+    ClassInfo* bvClass = vm.findClass("bv");
+    ClassInfo* fClass = vm.findClass("f");
+    FieldInfo* fVarAzA = fClass ? vm.findField(fClass, "a:Laz;") : nullptr;
+    Object* activeAz = (fVarAzA && fVarAzA->isStatic && fVarAzA->index >= 0 && fVarAzA->index < (int)fClass->statics.size())
+                         ? fClass->statics[fVarAzA->index].o : nullptr;
+    bool isBv = (activeAz && bvClass && activeAz->cls == bvClass);
+
+    ClassInfo* acClass = vm.findClass("ac");
+    Method* mAcDrawTextAlign = acClass ? vm.findMethod(acClass, "a:(Lcm;II[BII)V") : nullptr;
+
+    if (!isBv && mAcDrawTextAlign && mCmSetColor) {
+      std::string verStr = HL_VERSION_TAG;
+      Array* verArr = vm.newArray('B', (int)verStr.size());
+      memcpy(verArr->data.data(), verStr.data(), verStr.size());
+
+      int verY = logoY + 47;
+
+      // Sombra sutil preta
+      Value cArgs[2];
+      cArgs[0].o = cmObj;
+      cArgs[1].i = 0x000000;
+      Value cRet[2];
+      vm.invoke(mCmSetColor, cArgs, cRet);
+
+      Value tArgs[6];
+      tArgs[0].o = cmObj;
+      tArgs[1].i = c + 1;
+      tArgs[2].i = verY + 1;
+      tArgs[3].o = verArr;
+      tArgs[4].i = 0;
+      tArgs[5].i = 1; // HCENTER
+      Value tRet[2];
+      vm.invoke(mAcDrawTextAlign, tArgs, tRet);
+
+      // Texto em tom dourado suave / pergaminho
+      cArgs[1].i = 0xD8C8A8;
+      vm.invoke(mCmSetColor, cArgs, cRet);
+
+      tArgs[1].i = c;
+      tArgs[2].i = verY;
+      vm.invoke(mAcDrawTextAlign, tArgs, tRet);
+    }
+  }
+
+  // 4. Restaura cor vermelha (0xFF0000) exatamente como no bytecode original
+  if (mCmSetColor) {
+    Value cArgs[2];
+    cArgs[0].o = cmObj;
+    cArgs[1].i = 0xFF0000;
+    Value cRet[2];
+    vm.invoke(mCmSetColor, cArgs, cRet);
+  }
 }
 
 static Instance* s_activeBdMenu = nullptr;

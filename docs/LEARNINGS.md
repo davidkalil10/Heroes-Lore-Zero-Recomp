@@ -512,3 +512,28 @@
 - **5. Documentação e Preparação para Idiomas Futuros:**
   - Criado o documento detalhado `docs/LOCALIZATION.md` com toda a especificação técnica e o guia passo a passo para criar e compilar novos idiomas adicionais (ex: Espanhol `es`, Francês `fr`).
   - O sistema descobre novos idiomas dinamicamente através de `Platform::getAvailableLanguages()`.
+
+## Sessão 18 (Correções Críticas v1.0.8: Pergunta de Som no Boot e Versão Instalada no Menu de Título)
+- **1. Pergunta de Som no Boot ("Ativar o som? [Sim] [Não]"):**
+  - **Diagnóstico:**
+    - Em `reference/extracted/t/lot.tdf`, o índice 26 armazena a pergunta original de ativação de som do boot (`"On sound?"`), índice 0 armazena `"Yes"` e índice 1 armazena `"No"`.
+    - No dicionário `UI_TRANSLATIONS["lot.tdf"]` de `tools/translate_to_pt.py`, o índice 26 havia sido traduzido inadvertidamente como `"Continuar"`, gerando o popup confuso `"Continuar [Sim] [Não]"` logo após a exibição do logo da EA.
+  - **Solução Implementada:**
+    - Corrigido `lot.tdf` em `tools/translate_to_pt.py` com todas as strings mapeadas 1:1 rigorosamente:
+      - `0: "Sim"`
+      - `1: "Nao"`
+      - `26: "Ativar o som?"`
+      - `27: "Pressione # para continuar"`
+      - `31: "O progresso nao salvo sera perdido. Deseja sair do jogo agora?"`
+    - Adicionado merge automático de segurança em `tools/translate_to_pt.py` contra `lang/source_en/ui_strings.json`, assegurando que todos os 31 arquivos binários `.tdf` mantenham exatamente a mesma quantidade de elementos do jogo original, evitando acessos fora dos limites em `ch.a(idx)`.
+    - Recompilados os binários com `python tools/compile_texts.py pt` e validados via captura de frame: exibe perfeitamente `"Ativar o som?"` com os botões `[ Sim ]  Nao`.
+
+- **2. Exibição da Versão Instalada no Menu de Título Principal:**
+  - **Diagnóstico:**
+    - Era necessário exibir o número da versão instalada (ex: `v1.0.8`) no menu principal para facilitar a identificação da build em todas as plataformas (Windows, Linux, Android e Nintendo Switch).
+  - **Solução Implementada:**
+    - Interceptado nativamente o método estático `rpg/a.c:(Lcm;)V` em `src/vm/natives.cpp` (`rpg_a_c_native`), responsável por desenhar a tela de título e o logo `title.png` (`rpg.e.e`).
+    - Adicionada verificação inteligente para renderizar a versão apenas quando o Canvas ativo é o menu de título (`i.java`, evitando poluir a janela de som em `bv.java`).
+    - Renderiza `HL_VERSION_TAG` centralizado horizontalmente logo abaixo do logo (`logoY + 47`), utilizando a rotina oficial de desenho de texto `ac.a:(Lcm;II[BII)V`, aplicando sombra preta e tipografia na cor dourada suave / pergaminho (`0xD8C8A8`).
+    - Resultado perfeitamente integrado e alinhado com o estilo gótico e clássico do menu original de Heroes Lore: Zero.
+

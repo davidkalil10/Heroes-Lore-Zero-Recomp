@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-19 (Versão v1.0.7 lançada oficialmente)_
+_Última atualização: 2026-10-19 (Versão v1.0.8 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -59,6 +59,9 @@ _Última atualização: 2026-10-19 (Versão v1.0.7 lançada oficialmente)_
   - Interceptação de assets (`Platform::readAsset`), hot-reload em tempo de execução via `Platform::reloadLanguage` (instâncias de `ch`, estáticos de `rpg/e`/`ax`, diálogos de mapa em `db.a:[[B`, repaint imediato).
   - Nova opção no menu Settings / In-game `bd.class` (item 12: "Idioma" / "Language") com suporte a teclado, gamepad e touch.
   - Documentação arquitetural e guia de novos idiomas em `docs/LOCALIZATION.md`.
+- [x] Correções e refinamentos v1.0.8:
+  - Correção da pergunta de ativação de som no boot em `lot.tdf` ("Ativar o som? [Sim] [Não]"), corrigindo tradução do índice 26 e adicionando merge de segurança.
+  - Exibição do número da versão instalada (`HL_VERSION_TAG`) centralizado logo abaixo do logo do jogo no menu principal de título (`rpg.a.c`), com tipografia oficial sombreada e dourada suave.
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
 - [x] **Passo 0:** Boot nativo no PC da classe `rpg.RPGHeroEx` e renderização do primeiro frame (240x320 / Widescreen).
