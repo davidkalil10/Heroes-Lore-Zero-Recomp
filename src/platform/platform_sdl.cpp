@@ -241,6 +241,8 @@ static int determineTargetWidth(AspectMode mode) {
   return (winW >= winH) ? SCREEN_W_WIDESCREEN : SCREEN_W_ORIGINAL;
 }
 
+static void applyAspectWidth(int newWidth, VM* pVm);
+
 static void setVmStaticInt(VM& vm, const std::string& className, const std::string& fieldName, int32_t val) {
   auto it = vm.classes.find(className);
   if (it == vm.classes.end()) return;
@@ -498,9 +500,17 @@ static void updateJavaViewportVariables(VM& vm) {
           if (imgO && imgO->kind == K_IMAGE) {
             ImageObj* img = static_cast<ImageObj*>(imgO);
             if (img->width != g_screenWidth || img->height != g_screenHeight) {
+              int oldW = img->width;
+              int oldH = img->height;
+              std::vector<uint32_t> oldPixels = std::move(img->pixels);
               img->width = g_screenWidth;
               img->height = g_screenHeight;
               img->pixels.assign(g_screenWidth * g_screenHeight, 0);
+              int copyW = std::min(oldW, g_screenWidth);
+              int copyH = std::min(oldH, g_screenHeight);
+              for (int y = 0; y < copyH; ++y) {
+                memcpy(&img->pixels[y * g_screenWidth], &oldPixels[y * oldW], copyW * sizeof(uint32_t));
+              }
               if (img->graphics) {
                 img->graphics->resetClip();
               }
@@ -585,10 +595,13 @@ static void updateJavaViewportVariables(VM& vm) {
   setVmStaticBool(vm, "bs", "var_boolean_c", true);
   setVmStaticBool(vm, "rpg/a", "a", true);
   setVmStaticBool(vm, "rpg/a", "var_boolean_a", true);
+  setVmStaticBool(vm, "g", "var_boolean_a", true);
 
   if (g_display && g_display->current) {
-    setVmInstanceBool(g_display->current, "var_boolean_a", true);
-    setVmInstanceBool(g_display->current, "var_boolean_e", true);
+    setVmStaticBool(vm, "f", "var_boolean_a", false);
+    setVmStaticBool(vm, "f", "a", false);
+    setVmInstanceBool(g_display->current, "var_boolean_a", false);
+    setVmInstanceBool(g_display->current, "a", false);
   }
 
   // 10. Redefine o clip do Graphics principal
@@ -597,9 +610,62 @@ static void updateJavaViewportVariables(VM& vm) {
   }
 }
 
+static void forceRepaintImmediate(VM& vm) {
+  if (!g_display || !g_display->current) return;
+  bool needLock = !vm.isGilOwner();
+  if (needLock) vm.gilLock();
+  try {
+    setVmStaticBool(vm, "f", "var_boolean_a", false);
+    setVmStaticBool(vm, "f", "a", false);
+    setVmInstanceBool(g_display->current, "var_boolean_a", false);
+    setVmInstanceBool(g_display->current, "a", false);
+
+    setVmStaticBool(vm, "g", "var_boolean_a", true);
+    setVmStaticBool(vm, "g", "a", true);
+    setVmStaticBool(vm, "bs", "c", true);
+    setVmStaticBool(vm, "bs", "var_boolean_c", true);
+    setVmStaticBool(vm, "rpg/a", "a", true);
+    setVmStaticBool(vm, "rpg/a", "var_boolean_a", true);
+
+    ClassInfo* fCls = vm.findClass("f");
+    FieldInfo* fAz = fCls ? vm.findField(fCls, "var_az_a:Laz;") : nullptr;
+    if (!fAz && fCls) fAz = vm.findField(fCls, "a:Laz;");
+    if (fAz && fAz->isStatic && fAz->index >= 0 && fAz->index < (int)fCls->statics.size()) {
+      Object* azObj = fCls->statics[fAz->index].o;
+      if (azObj && azObj->kind == K_INST && azObj->cls) {
+        Method* mVoidA = vm.findMethod(azObj->cls, "a:(II)V");
+        if (!mVoidA) mVoidA = vm.findMethod(azObj->cls, "void_a:(II)V");
+        if (mVoidA) {
+          Value aArgs[2];
+          aArgs[0].i = g_screenWidth;
+          aArgs[1].i = g_screenHeight;
+          Value aRet[2];
+          vm.invokeVirtual(azObj, mVoidA->name + ":" + mVoidA->desc, aArgs, 2, aRet);
+        }
+      }
+    }
+
+    if (g_screenGraphics) {
+      g_screenGraphics->resetClip();
+      g_screenGraphics->transX = 0;
+      g_screenGraphics->transY = 0;
+      Value pArgs[1];
+      pArgs[0].o = g_screenGraphics;
+      Value pRet[2];
+      vm.invokeVirtual(g_display->current, "paint:(Ljavax/microedition/lcdui/Graphics;)V", pArgs, 1, pRet);
+    }
+
+    if (s_screenTexture) {
+      SDL_UpdateTexture(s_screenTexture, nullptr, g_screenBuffer, g_screenWidth * sizeof(uint32_t));
+    }
+  } catch (...) {}
+  if (needLock) vm.gilUnlock();
+}
+
 void Platform::updateViewport(VM& vm) {
   s_lastVm = &vm;
   updateJavaViewportVariables(vm);
+  forceRepaintImmediate(vm);
 }
 
 static SDL_Texture* s_texBezelSoltia = nullptr;
@@ -1321,15 +1387,17 @@ static GamepadLayout calculateLayout(int winW, int winH) {
       // 0 - Item / Poção HP (Direita-baixo, abaixo de 9 e alinhado ao 7)
       layout.buttons.push_back({ 48, actX + (int)(r5 * 1.35f), actY + (int)(r5 * 1.15f), rSub, rSub * 2, rSub * 2, s_texBtnRskRound ? s_texBtnRskRound : s_texBtnRsk });
 
-      // Botões de Sistema (MENU e MAPA) posicionados abaixo do jogo e acima do D-Pad
+      // Botões de Sistema (MENU, MAPA e VOLTAR) posicionados abaixo do jogo e acima do D-Pad
       int pillW = (int)(winW * 0.21f);
       int pillH = (int)(pillW * (100.0f / 240.0f));
       int sysY = (layout.dpadY - layout.dpadR) - pillH / 2 - (int)(winW * 0.035f);
       int menuX = (int)(winW * 0.14f);
       int mapX = (int)(winW * 0.38f);
+      int rskX = winW - (int)(winW * 0.14f);
 
       layout.buttons.push_back({ -6, menuX, sysY, 0, pillW, pillH, s_texBtnMenu });
       layout.buttons.push_back({ 42, mapX, sysY, 0, pillW, pillH, s_texBtnMap });
+      layout.buttons.push_back({ -7, rskX, sysY, 0, pillW, pillH, s_texBtnRsk });
 
       // Alternância de Poção (< e >) perfeitamente centralizadas no eixo horizontal da tela
       int rArrow = (int)(winW * 0.055f);
@@ -1390,11 +1458,11 @@ static GamepadLayout calculateLayout(int winW, int winH) {
       layout.buttons.push_back({ -101, controlLeftW / 2 - arrowSpacingLand, (int)(winH * 0.33f), rArrowLand, rArrowLand * 2, rArrowLand * 2, s_texBtnPrev });
       layout.buttons.push_back({ 35, controlLeftW / 2 + arrowSpacingLand, (int)(winH * 0.33f), rArrowLand, rArrowLand * 2, rArrowLand * 2, s_texBtnNext });
 
-      // MAPA e 0 (Item) no topo da coluna direita (grandes e legiveis)
+      // MAPA e VOLTAR (-7) no topo da coluna direita (grandes e legiveis)
       int topPillW = std::min(200, (int)(controlRightW * 0.38f));
       int topPillH = (int)(topPillW * (100.0f / 240.0f));
       layout.buttons.push_back({ 42, controlRightX + (int)(controlRightW * 0.28f), (int)(winH * 0.14f), 0, topPillW, topPillH, s_texBtnMap });
-      layout.buttons.push_back({ 48, controlRightX + (int)(controlRightW * 0.72f), (int)(winH * 0.14f), 0, topPillW, topPillH, s_texBtnRsk });
+      layout.buttons.push_back({ -7, controlRightX + (int)(controlRightW * 0.72f), (int)(winH * 0.14f), 0, topPillW, topPillH, s_texBtnRsk });
 
       // Botoes de acao no formato ergonomico favorito na coluna direita (amplo e espacoso sem as setas!)
       int actX = controlRightX + (int)(controlRightW * 0.50f);
@@ -1407,6 +1475,7 @@ static GamepadLayout calculateLayout(int winW, int winH) {
       layout.buttons.push_back({ 51, actX - (int)(r5 * 0.20f), actY - (int)(r5 * 2.10f), rSub, rSub * 2, rSub * 2, s_texBtn3 });
       layout.buttons.push_back({ 55, actX - (int)(r5 * 1.85f), actY + (int)(r5 * 1.15f), rSub, rSub * 2, rSub * 2, s_texBtn7 });
       layout.buttons.push_back({ 57, actX + (int)(r5 * 1.35f), actY - (int)(r5 * 1.65f), rSub, rSub * 2, rSub * 2, s_texBtn9 });
+      layout.buttons.push_back({ 48, actX + (int)(r5 * 1.35f), actY + (int)(r5 * 1.15f), rSub, rSub * 2, rSub * 2, s_texBtnRskRound ? s_texBtnRskRound : s_texBtnRsk });
     }
   }
 
@@ -1543,7 +1612,7 @@ static bool isMenuModeActive(VM& vm) {
   static ClassInfo* s_diCls = nullptr;
   static FieldInfo* s_fD = nullptr;
 
-  if (s_cachedVm != &vm) {
+  if (s_cachedVm != &vm || !s_diCls || !s_fD) {
     s_cachedVm = &vm;
     s_diCls = vm.findClass("di");
     s_fD = s_diCls ? vm.findField(s_diCls, "d:B") : nullptr;
@@ -1576,7 +1645,6 @@ static bool isCutsceneActive(VM& vm) {
 }
 
 static void sendKeyPressed(VM& vm, int key) {
-  if (key == 53 && isMenuModeActive(vm)) key = -6;
   if (!g_display || !g_display->current) return;
   vm.gilLock();
   try {
@@ -1593,7 +1661,6 @@ static void sendKeyPressed(VM& vm, int key) {
 }
 
 static void sendKeyReleased(VM& vm, int key) {
-  if (key == 53 && isMenuModeActive(vm)) key = -6;
   if (!g_display || !g_display->current) return;
   vm.gilLock();
   try {
@@ -1650,6 +1717,12 @@ bool Platform::pollEvents(VM& vm) {
     return false;
   }
 #endif
+  if (s_aspectMode == ASPECT_AUTO) {
+    int targetW = determineTargetWidth(ASPECT_AUTO);
+    if (g_screenWidth != targetW) {
+      applyAspectWidth(targetW, &vm);
+    }
+  }
   CloudSave::update(&vm);
   SDL_Event ev;
   while (SDL_PollEvent(&ev)) {
@@ -1749,8 +1822,16 @@ bool Platform::pollEvents(VM& vm) {
           s_savedWinH = ev.window.data2;
           saveSettings();
         }
+        if (s_aspectMode == ASPECT_AUTO) {
+          int targetW = determineTargetWidth(ASPECT_AUTO);
+          if (g_screenWidth != targetW) {
+            applyAspectWidth(targetW, &vm);
+          }
+        }
         bool needLock = !vm.isGilOwner();
         if (needLock) vm.gilLock();
+        setVmStaticBool(vm, "g", "var_boolean_a", true);
+        setVmStaticBool(vm, "g", "a", true);
         setVmStaticBool(vm, "bs", "c", true);
         setVmStaticBool(vm, "bs", "var_boolean_c", true);
         setVmStaticBool(vm, "rpg/a", "a", true);
@@ -1815,6 +1896,9 @@ bool Platform::pollEvents(VM& vm) {
         continue;
       }
       int key = mapControllerButton(ev.cbutton.button);
+      if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_START) {
+        key = isMenuModeActive(vm) ? -7 : -6;
+      }
       if (key != 0 && g_display && g_display->current) {
         if (isDirectionKey(key)) {
           if (s_activeDirection != key) {
@@ -1850,6 +1934,9 @@ bool Platform::pollEvents(VM& vm) {
         continue;
       }
       int key = mapControllerButton(ev.cbutton.button);
+      if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_START) {
+        key = isMenuModeActive(vm) ? -7 : -6;
+      }
       if (key != 0 && g_display && g_display->current) {
         if (isDirectionKey(key)) {
           int held = getHeldDirection();
@@ -1974,15 +2061,18 @@ bool Platform::pollEvents(VM& vm) {
         if (ev.button.button == SDL_BUTTON_LEFT) {
           int winW = 0, winH = 0;
           SDL_GetWindowSize(s_window, &winW, &winH);
-          float scaleX = (float)winW / (float)g_screenWidth;
-          float scaleY = (float)winH / (float)g_screenHeight;
-          float scale = std::min(scaleX, scaleY);
-          int dstW = (int)((float)g_screenWidth * scale);
-          int dstH = (int)((float)g_screenHeight * scale);
-          int offsetX = (winW - dstW) / 2;
-          int offsetY = (winH - dstH) / 2;
-          int gameX = (scale > 0.001f) ? (int)((ev.button.x - offsetX) / scale) : 0;
-          int gameY = (scale > 0.001f) ? (int)((ev.button.y - offsetY) / scale) : 0;
+          GamepadLayout layout = calculateLayout(winW, winH);
+          SDL_Rect gameDst = layout.gameRect;
+          if (gameDst.w <= 0 || gameDst.h <= 0) {
+            float scaleX = (float)winW / (float)g_screenWidth;
+            float scaleY = (float)winH / (float)g_screenHeight;
+            float scale = std::min(scaleX, scaleY);
+            int dstW = (int)((float)g_screenWidth * scale);
+            int dstH = (int)((float)g_screenHeight * scale);
+            gameDst = { (winW - dstW) / 2, (winH - dstH) / 2, dstW, dstH };
+          }
+          int gameX = (gameDst.w > 0) ? (int)((ev.button.x - gameDst.x) * (float)g_screenWidth / (float)gameDst.w) : 0;
+          int gameY = (gameDst.h > 0) ? (int)((ev.button.y - gameDst.y) * (float)g_screenHeight / (float)gameDst.h) : 0;
 
           if (!bd_handle_mouse_click(vm, gameX, gameY)) {
             sendKeyPressed(vm, 53); // Ação / Atacar / Confirmar
@@ -2046,6 +2136,12 @@ bool Platform::pollEvents(VM& vm) {
           "Orientacao: Retrato Invertido (Flip Grip 270)"
         };
         Platform::showOsdMessage(rotNames[s_screenRotation]);
+        if (s_aspectMode == ASPECT_AUTO) {
+          int targetW = determineTargetWidth(ASPECT_AUTO);
+          if (g_screenWidth != targetW) {
+            applyAspectWidth(targetW, &vm);
+          }
+        }
       } else if (key == KEY_TOGGLE_TOUCH_ASPECT) {
         Platform::toggleAspect(&vm);
         Platform::rumble(0.20f, 40);
@@ -2053,6 +2149,7 @@ bool Platform::pollEvents(VM& vm) {
         Platform::toggleFps();
         Platform::rumble(0.20f, 40);
       } else if (key != 0 && s_touchOverlayEnabled) {
+        if (key == -6 && isMenuModeActive(vm)) key = -7;
         s_activeFingers.push_back({ev.tfinger.fingerId, key});
         if (key == -101) {
           cyclePotionPrev(vm);
@@ -2084,6 +2181,7 @@ bool Platform::pollEvents(VM& vm) {
           int newKey = hitTestTouch(touchX, touchY, layout);
           if (newKey == KEY_TOGGLE_TOUCH_UI || newKey == KEY_TOGGLE_ORIENTATION ||
               newKey == KEY_TOGGLE_TOUCH_ASPECT || newKey == KEY_TOGGLE_TOUCH_FPS) newKey = 0;
+          if (newKey == -6 && isMenuModeActive(vm)) newKey = -7;
           if (newKey != f.key) {
             int oldKey = f.key;
             f.key = newKey;
@@ -2185,10 +2283,9 @@ static void applyAspectWidth(int newWidth, VM* pVm) {
     bool needLock = !pVm->isGilOwner();
     if (needLock) pVm->gilLock();
     updateJavaViewportVariables(*pVm);
+    forceRepaintImmediate(*pVm);
     if (needLock) pVm->gilUnlock();
   }
-
-  memset(g_screenBuffer, 0, sizeof(g_screenBuffer));
 }
 
 void Platform::present() {

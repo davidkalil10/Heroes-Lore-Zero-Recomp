@@ -1590,8 +1590,8 @@ static void bd_a_native(VM& vm, Value* args, Value* ret) {
     return;
   }
 
-  // 3. Se tecla de confirmação ('5' / 53, -5, Enter / 13, Space / 32, ou Fire / 8)
-  if (n3 == 53 || n3 == -5 || n3 == 13 || n3 == 32 || n2 == 8) {
+  // 3. Se tecla de confirmação ('5' / 53, -5, Enter / 13, Space / 32, Fire / 8, ou LSK / -6)
+  if (n3 == 53 || n3 == -5 || n3 == 13 || n3 == 32 || n2 == 8 || n2 == -6 || n3 == -6) {
     if (curH < 7) {
       if (curH == 0 || curH == 1 || curH == 4 || curH == 6) {
         Method* mBdC = vm.findMethod(inst->cls, "c:(B)V");
@@ -2088,19 +2088,33 @@ bool bd_handle_mouse_click(VM& vm, int gameX, int gameY) {
     startY = centerY - 80;
   }
 
+  // Permite clicar em qualquer ponto horizontal do menu (painel central ou tela)
+  int minX = std::min(boxX, centerX - 100);
+  int maxX = std::max(boxX + boxW, centerX + 100);
+
   // Verifica se o clique foi em alguma das 11 opções
-  if (gameX >= boxX && gameX <= boxX + boxW && gameY >= startY && gameY < startY + 15 * 11) {
+  if (gameX >= minX && gameX <= maxX && gameY >= startY && gameY < startY + 15 * 11) {
     int row = (gameY - startY) / 15;
     if (row >= 0 && row < 11) {
       if (fCurIndex && fCurIndex->index >= 0 && fCurIndex->index < (int)inst->f.size()) {
         inst->f[fCurIndex->index].i = row;
       }
-      Value aArgs[3];
-      aArgs[0].o = inst;
-      aArgs[1].i = 8;  // GameAction Fire
-      aArgs[2].i = 53; // KeyCode 53
-      Value aRet[2];
-      bd_a_native(vm, aArgs, aRet);
+      if (row == 7) {
+        Platform::toggleFps();
+      } else if (row == 8) {
+        Platform::nextAspect(&vm);
+      } else if (row == 9) {
+        Platform::openCloudSave(&vm);
+      } else if (row == 10) {
+        Platform::checkForUpdates();
+      } else {
+        Value aArgs[3];
+        aArgs[0].o = inst;
+        aArgs[1].i = 8;  // GameAction Fire
+        aArgs[2].i = 53; // KeyCode 53
+        Value aRet[2];
+        bd_a_native(vm, aArgs, aRet);
+      }
       if (fNeedsRepaint && fNeedsRepaint->index >= 0 && fNeedsRepaint->index < (int)inst->f.size()) {
         inst->f[fNeedsRepaint->index].i = 1;
       }

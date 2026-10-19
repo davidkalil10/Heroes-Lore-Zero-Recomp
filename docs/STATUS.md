@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-18 (Versão v1.0.1 lançada oficialmente)_
+_Última atualização: 2026-10-18 (Versão v1.0.2 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.

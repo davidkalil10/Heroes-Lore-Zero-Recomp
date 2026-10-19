@@ -337,24 +337,46 @@
     - No modo retrato com rotação ativada (`s_screenRotation != 0`), as janelas modais (`Updater::drawModal` e `CloudSave::drawModal`) agora são renderizadas diretamente dentro do render target intermediário `s_rotateTarget` (720x1280) antes do unbind, corrigindo o problema de tela congelada ao abrir diálogos em modo vertical.
 
 ## Sessão 11 (Correções Críticas: Menu/Start, Gamepad Touch HL2, Isolamento Cloud Save, Resolução e Navegação Ingame)
-- **1. Botão Menu/Start no Celular e Switch:**
-  - O botão `+` / `START` nos controles físicos e o botão virtual `[ MENU ]` no toque de celular/Switch estavam mapeados para `-7` (RSK / Cancelar / Voltar) em vez de `-6` (LSK / Menu in-game).
-  - Alinhado com o PC (onde a tecla `Tab` envia `-6`), o `SDL_CONTROLLER_BUTTON_START` e os botões virtuais de toque `s_texBtnMenu` foram alterados para `-6`, abrindo o menu de pausa e status do personagem de imediato.
-- **2. Layout do Gamepad Virtual (Alinhamento 1:1 com HL2):**
-  - Texturas geradas novamente com `make_pill_button` com suporte a `sublabel` (`btn_7` com "7 SKILL", `btn_9` com "9 SKILL", `btn_0` com "0 ITEM" e `btn_rsk` em formato pílula estilizada).
-  - Geometria do cluster de botões de ação redesenhada com os multiplicadores exatos de HL2 (`r5 * 1.95f`, `0.20f`, `1.85f`, `1.35f`), eliminando completamente o encavalamento tanto na horizontal quanto na vertical.
-- **3. Isolamento Total do Cloud Save (Google Drive):**
-  - O código herdado de HL1 apontava indevidamente para a pasta `"Heroes Lore - Wind of Soltia"` e para o arquivo `"heroes_lore_save.json"`.
-  - Atualizado para pasta `"Heroes Lore - Zero"`, arquivo `"heroes_lore_zero_save.json"`, e identificador `"app": "Heroes Lore: Zero"`.
-  - Reescrita completa da leitura e empacotamento dos record stores de HL Zero: `HOL.slot1.rms`, `HOL.slot2.rms`, `HOL.slot3.rms`, `HOL.gamedata1..3.rms`, `HOL.item1..3.rms`, `HOL.OPT.rms`, `HOL.storage.rms`, `HOL.gamestore.rms`.
-  - Implementada a descriptografia XOR autêntica de `rpg.b` (`var_byte_arr_arr_b`) para ler com precisão a classe (Cavaleiro, Atirador, Mago, Espadachim, Assassino, Guardião) e o nível de cada slot salvo.
-- **4. Correção de Travamento ao Alternar Resolução:**
-  - `SDL_SetWindowSize` e `SDL_SetWindowPosition` dentro do loop de eventos durante a execução causavam conflitos com o driver de vídeo.
-  - O redimensionamento em tempo de execução agora atua diretamente no viewport interno e nas variáveis do Java (`applyAspectWidth`), mantendo a transição instantânea e sem travamentos.
-- **5. Navegação e Clique nas Opções do Menu Ingame (`bd.class`):**
-  - A navegação vertical do Java (`n.c:(II)Z`) possuía um teto fixo herdado de `b:B = 7`, o que forçava o cursor a resetar para 0 ao tentar descer além do item 6 (Dano).
-  - Implementado controle nativo direto em C++ com `% 11`, permitindo ciclo contínuo e suave entre as 11 opções (0..10).
-  - Implementada a função `bd_handle_mouse_click` para permitir clique direto do mouse no PC e toque direto na tela no Celular e Switch nas opções do menu (FPS, Tela, Nuvem, Atualizar).
+## Sessão 12 (Correções Críticas v1.0.2: Fechar/Voltar Menu, Clique Settings Ingame, Tela Preta na Resolução e Updater OTA)
+- **1. Fechar Menu e Voltar de Submenus no Gamepad Físico e Virtual:**
+  - **Causa Raiz:**
+    - No teclado do PC, `Esc` e `Backspace` enviam `-7` (RSK / Voltar / Cancelar), enquanto `Tab` e `Q` enviam `-6` (LSK / Abrir Menu).
+    - No toque do celular em modo Retrato, não havia botão virtual para `-7` (Voltar). Em modo Paisagem, o botão com textura de pílula RSK estava enviando `48` (Poção / Item) em vez de `-7`.
+    - No controle físico e no botão de toque `[ MENU ]`, ambos enviavam fixamente `-6`. Dentro da máquina de estados do menu J2ME (`ax.java`), `-6` é capturado como tecla de confirmação/seleção (`n.f(n2, 49)`). Assim, ao pressionar `Start` ou tocar em `[ MENU ]` com o menu aberto, o jogo entrava na opção em vez de fechar.
+    - Além disso, a detecção de menu `isMenuModeActive(vm)` cacheava o ponteiro da classe `di` no boot; se chamada antes de `di` ser carregada, `s_diCls` ficava nulo permanentemente.
+  - **Solução Implementada:**
+    - Adicionado botão físico/virtual `[ VOLTAR ]` (`-7`) tanto em Retrato quanto em Paisagem.
+    - Implementada lógica proporcional e contextual para `START` do gamepad e botão `[ MENU ]` do touch: se o menu estiver ativo (`isMenuModeActive(vm)`), envia `-7` (fechando o menu ou voltando do submenu); se estiver no jogo, envia `-6` (abrindo o menu).
+    - Corrigido `isMenuModeActive` para re-buscar a classe `di` caso ainda não estivesse carregada no boot.
+
+- **2. Clique no Menu Settings Ingame (`bd.java`) Direcionando para Item 0 (BGM):**
+  - **Causa Raiz:**
+    - No PC, `SDL_MOUSEBUTTONDOWN` calculava `offsetY = (winH - dstH) / 2` (centralizado na janela). No entanto, em modo Retrato com controles ativos, a tela do jogo é desenhada no topo (`y = 0.015 * winH`), gerando uma discrepância de mais de 100px. O clique caía acima da caixa de opções, calculando `row = 0` (BGM).
+    - `bd_handle_mouse_click` em `natives.cpp` restringia a área de clique rigidamente a `boxX <= gameX <= boxX + boxW`. Ao clicar nos rótulos à esquerda ou valores à direita em telas widescreen, a função retornava `false`.
+    - Ao retornar `false`, o evento do mouse caía no fallback `sendKeyPressed(vm, 53)`, confirmando a opção onde o cursor estava posicionado (item 0)!
+  - **Solução Implementada:**
+    - Coordenadas de clique do mouse no PC agora utilizam `layout.gameRect` para alinhamento pixel-perfect tanto em Retrato quanto em Paisagem.
+    - `bd_handle_mouse_click` agora aceita cliques em toda a extensão horizontal do menu e aciona diretamente as funções nativas (`Platform::openCloudSave`, `Platform::checkForUpdates`, `toggleFps`, `nextAspect`) quando clicadas as opções 7 a 10.
+
+- **3. Tela Preta ao Mudar Resolução ou Orientação:**
+  - **Causa Raiz:**
+    - Em `Platform::present()`, a checagem de aspecto automático ocorria no final do frame, após o jogo ter renderizado para a resolução anterior. `applyAspectWidth` destruía e recriava `s_screenTexture` e o buffer `cm`, deixando a textura SDL sem dados válidos no momento do `SDL_RenderCopy`.
+    - No J2ME, o loop só redesenha os blocos de mapa quando o personagem anda ou se `g.var_boolean_a` (`g.a:Z`) estiver ativo. Com o personagem parado, o jogo ficava preto até que uma tecla fosse pressionada ou a resolução voltasse ao padrão.
+    - A função `forceRepaintImmediate` buscava o método `void_a:(II)V`, mas no bytecode desmontado (`az.javap.txt`), o nome do método é `a:(II)V`. O método falhava silenciosamente e nunca forçava o redesenho.
+  - **Solução Implementada:**
+    - A checagem de proporção e orientação agora ocorre no topo de `Platform::pollEvents()`, antes do ciclo de `paint()`.
+    - `forceRepaintImmediate` agora invoca corretamente `a:(II)V`, seta `g.a:Z = true`, invoca `paint()` e atualiza a textura SDL `s_screenTexture` imediatamente de forma síncrona.
+
+- **4. Diagnóstico de Detecção de Updates no GitHub:**
+  - **Causa Raiz:**
+    - O repositório `davidkalil10/Heroes-Lore-Zero-Recomp` no GitHub está configurado como **Privado**.
+    - Requisições sem autenticação (como as feitas pelo updater OTA de dentro do jogo no Switch, Android e PC) para `api.github.com/repos/.../releases/latest` recebem resposta HTTP 404 Not Found. O código antigo tratava 404 como "Jogo atualizado (v1.0.0). Nenhuma versão nova encontrada".
+    - Na leitura do JSON, a varredura buscava `"name"` desde o início do JSON e encontrava o nome da release em vez da lista de `assets`.
+  - **Solução Implementada:**
+    - `parseReleaseJson` corrigido para iniciar a busca a partir da chave `"assets"`.
+    - Ao receber 404, o jogo agora exibe mensagem clara: `Atualização: Nenhum release público encontrado. (Verifique se o repositório no GitHub está Público)`.
+    - Para que o OTA Updater funcione diretamente nas builds públicas, basta alterar a visibilidade do repositório no GitHub para **Público**.
+
 
 
 

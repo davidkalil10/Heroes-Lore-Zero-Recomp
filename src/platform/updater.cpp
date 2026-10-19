@@ -123,8 +123,9 @@ static bool parseReleaseJson(const std::string& json, UpdateReleaseInfo& out) {
   };
   std::vector<FoundAsset> foundAssets;
 
-  // Varre todos os assets disponíveis no JSON do release
-  size_t pos = 0;
+  // Varre todos os assets disponíveis no JSON do release (apenas a partir da seção "assets")
+  size_t assetsPos = json.find("\"assets\"");
+  size_t pos = (assetsPos != std::string::npos) ? assetsPos : 0;
   while ((pos = json.find("\"name\"", pos)) != std::string::npos) {
     size_t colon = json.find(':', pos);
     if (colon == std::string::npos) break;
@@ -588,10 +589,10 @@ static int runCheckUpdateThread(void* data) {
 
   // Se o repositório for privado ou o endpoint não tiver release público (404 Not Found)
   if (json.find("\"Not Found\"") != std::string::npos || json.find("\"status\":\"404\"") != std::string::npos) {
-    s_state = UpdateState::NO_UPDATE;
-    s_statusMessage = "Jogo atualizado (" + std::string(HL_VERSION_TAG) + ").";
+    s_state = UpdateState::CHECK_FAILED;
+    s_statusMessage = "Nenhum release publico encontrado no GitHub (repositorio privado).";
     if (notifyIfNoUpdate) {
-      Platform::showOsdMessage("Jogo atualizado (" + std::string(HL_VERSION_TAG) + ").\nNenhuma versao nova encontrada.");
+      Platform::showOsdMessage("Atualizacao: Nenhum release publico encontrado.\n(Verifique se o repositorio no GitHub esta Publico)");
     }
     return 0;
   }
@@ -613,9 +614,9 @@ static int runCheckUpdateThread(void* data) {
     }
   } else {
     s_state = UpdateState::CHECK_FAILED;
-    s_statusMessage = "Falha ao processar dados de release.";
+    s_statusMessage = "Falha ao processar dados de release do GitHub.";
     if (notifyIfNoUpdate) {
-      Platform::showOsdMessage("Jogo atualizado (" + std::string(HL_VERSION_TAG) + ").\nNenhuma versao nova encontrada.");
+      Platform::showOsdMessage("Atualizacao: Falha ao processar dados de release do GitHub.");
     }
   }
   return 0;
