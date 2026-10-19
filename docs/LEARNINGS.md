@@ -377,6 +377,26 @@
     - Ao receber 404, o jogo agora exibe mensagem clara: `Atualização: Nenhum release público encontrado. (Verifique se o repositório no GitHub está Público)`.
     - Para que o OTA Updater funcione diretamente nas builds públicas, basta alterar a visibilidade do repositório no GitHub para **Público**.
 
+## Sessão 13 (Correções Críticas v1.0.3: Layout do Botão BACK e Confirmação no Menu Ingame via Tecla 5 / Gamepad A)
+- **1. Layout, Rótulo e Posicionamento do Botão BACK no Virtual Gamepad:**
+  - **Diagnóstico:**
+    - O botão de retorno (`-7`) anteriormente adicionado estava utilizando a textura `btn_rsk` com rótulo "0" e sub-rótulo "ITEM", gerando confusão visual com o atalho de poção HP.
+    - Em modo Retrato, o botão estava posicionado no canto direito (`x = 0.86 * winW`), sobrepondo-se ao botão 3 (Skill 2) e gerando um layout poluído.
+  - **Solução Implementada:**
+    - Em `tools/generate_gamepad_textures.py`, criada a nova textura `btn_back` com rótulo nítido "BACK", tipografia centralizada e contorno de vidro com cor coral/âmbar (`#f06e50`), além de atualizar `btn_rsk` como alias compatível.
+    - Em `src/platform/platform_sdl.cpp`, os 3 botões de sistema em modo Retrato foram redimensionados para `pillW = 0.175 * winW` e organizados lado a lado de forma harmoniosa acima do D-Pad:
+      - `[ MENU ]` centralizado em `x = 0.12 * winW`
+      - `[ MAPA ]` centralizado em `x = 0.31 * winW`
+      - `[ BACK ]` centralizado em `x = 0.50 * winW`
+    - Elimina 100% da sobreposição com o grupo de botões de ação na direita e com o D-Pad na esquerda, garantindo espaçamento simétrico de 1.5% entre botões.
+    - Em modo Paisagem, a textura `btn_back` foi igualmente associada ao botão `-7` no topo da coluna direita.
 
-
-
+- **2. Confirmação / Entrada em Itens do Menu Ingame com o Botão 5 / Gamepad A:**
+  - **Diagnóstico:**
+    - No menu ingame (`ax.java`), o bytecode possui a checagem `if (n3 >= 49 && n3 <= 56)` antes de `n.f(n2, 49)`. Quando o usuário pressionava a tecla 5 (código 53 vindo do botão virtual 5, botão A do gamepad ou Space/Enter), a condição `53 >= 49 && 53 <= 56` capturava a tecla e forçava `this.var_byte_a = 53 - 49 = 4`, abrindo diretamente o item 4 ("Elemental") em vez de entrar no item selecionado pelas setas.
+    - Isso obrigava o jogador a ter que pressionar o número correspondente (1 para Equip, 2 para Item, etc.) para entrar em cada opção.
+  - **Solução Implementada:**
+    - Em `sendKeyPressed` e `sendKeyReleased` de `src/platform/platform_sdl.cpp`, quando `isMenuModeActive(vm)` está ativo (`di.d:B == 5`), qualquer tecla de ação `53` é mapeada em tempo de execução para `-6` (LSK).
+    - No menu raiz de `ax.java`, `-6` cai diretamente em `n.f(n2, 49)`, executando `this.d(this.var_byte_a)` e entrando imediatamente na opção destacada pelo cursor direcional.
+    - Dentro de todos os submenus (`dc`, `cy`, `dp`, `y`, `ce`, `ch`, `bd`), `-6` é reconhecido nativamente por `n.f(n2, n3)`, confirmando a ação normalmente.
+    - O comportamento agora é 100% intuitivo e consistente entre Mobile (Touch), Nintendo Switch (Gamepad) e PC Desktop (Teclado/Mouse/Controle).

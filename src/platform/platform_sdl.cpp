@@ -973,6 +973,7 @@ static SDL_Texture* s_texBtn7 = nullptr;
 static SDL_Texture* s_texBtn9 = nullptr;
 static SDL_Texture* s_texBtnMenu = nullptr;
 static SDL_Texture* s_texBtnMap = nullptr;
+static SDL_Texture* s_texBtnBack = nullptr;
 static SDL_Texture* s_texBtnRsk = nullptr;
 static SDL_Texture* s_texBtnRskRound = nullptr;
 static SDL_Texture* s_texBtnPrev = nullptr;
@@ -1272,7 +1273,9 @@ static void loadGamepadTextures() {
   s_texBtn9 = loadRgbaTexture("btn_9");
   s_texBtnMenu = loadRgbaTexture("btn_menu");
   s_texBtnMap = loadRgbaTexture("btn_map");
-  s_texBtnRsk = loadRgbaTexture("btn_rsk");
+  s_texBtnBack = loadRgbaTexture("btn_back");
+  if (!s_texBtnBack) s_texBtnBack = loadRgbaTexture("btn_rsk");
+  s_texBtnRsk = s_texBtnBack;
   s_texBtnRskRound = loadRgbaTexture("btn_rsk_round");
   s_texBtnPrev = loadRgbaTexture("btn_prev");
   s_texBtnNext = loadRgbaTexture("btn_next");
@@ -1387,17 +1390,17 @@ static GamepadLayout calculateLayout(int winW, int winH) {
       // 0 - Item / Poção HP (Direita-baixo, abaixo de 9 e alinhado ao 7)
       layout.buttons.push_back({ 48, actX + (int)(r5 * 1.35f), actY + (int)(r5 * 1.15f), rSub, rSub * 2, rSub * 2, s_texBtnRskRound ? s_texBtnRskRound : s_texBtnRsk });
 
-      // Botões de Sistema (MENU, MAPA e VOLTAR) posicionados abaixo do jogo e acima do D-Pad
-      int pillW = (int)(winW * 0.21f);
+      // Botões de Sistema (MENU, MAPA e BACK) posicionados lado a lado harmoniosamente acima do D-Pad
+      int pillW = (int)(winW * 0.175f);
       int pillH = (int)(pillW * (100.0f / 240.0f));
       int sysY = (layout.dpadY - layout.dpadR) - pillH / 2 - (int)(winW * 0.035f);
-      int menuX = (int)(winW * 0.14f);
-      int mapX = (int)(winW * 0.38f);
-      int rskX = winW - (int)(winW * 0.14f);
+      int menuX = (int)(winW * 0.12f);
+      int mapX = (int)(winW * 0.31f);
+      int backX = (int)(winW * 0.50f);
 
       layout.buttons.push_back({ -6, menuX, sysY, 0, pillW, pillH, s_texBtnMenu });
       layout.buttons.push_back({ 42, mapX, sysY, 0, pillW, pillH, s_texBtnMap });
-      layout.buttons.push_back({ -7, rskX, sysY, 0, pillW, pillH, s_texBtnRsk });
+      layout.buttons.push_back({ -7, backX, sysY, 0, pillW, pillH, s_texBtnBack ? s_texBtnBack : s_texBtnRsk });
 
       // Alternância de Poção (< e >) perfeitamente centralizadas no eixo horizontal da tela
       int rArrow = (int)(winW * 0.055f);
@@ -1458,11 +1461,11 @@ static GamepadLayout calculateLayout(int winW, int winH) {
       layout.buttons.push_back({ -101, controlLeftW / 2 - arrowSpacingLand, (int)(winH * 0.33f), rArrowLand, rArrowLand * 2, rArrowLand * 2, s_texBtnPrev });
       layout.buttons.push_back({ 35, controlLeftW / 2 + arrowSpacingLand, (int)(winH * 0.33f), rArrowLand, rArrowLand * 2, rArrowLand * 2, s_texBtnNext });
 
-      // MAPA e VOLTAR (-7) no topo da coluna direita (grandes e legiveis)
+      // MAPA e BACK (-7) no topo da coluna direita (grandes e legiveis)
       int topPillW = std::min(200, (int)(controlRightW * 0.38f));
       int topPillH = (int)(topPillW * (100.0f / 240.0f));
       layout.buttons.push_back({ 42, controlRightX + (int)(controlRightW * 0.28f), (int)(winH * 0.14f), 0, topPillW, topPillH, s_texBtnMap });
-      layout.buttons.push_back({ -7, controlRightX + (int)(controlRightW * 0.72f), (int)(winH * 0.14f), 0, topPillW, topPillH, s_texBtnRsk });
+      layout.buttons.push_back({ -7, controlRightX + (int)(controlRightW * 0.72f), (int)(winH * 0.14f), 0, topPillW, topPillH, s_texBtnBack ? s_texBtnBack : s_texBtnRsk });
 
       // Botoes de acao no formato ergonomico favorito na coluna direita (amplo e espacoso sem as setas!)
       int actX = controlRightX + (int)(controlRightW * 0.50f);
@@ -1646,6 +1649,11 @@ static bool isCutsceneActive(VM& vm) {
 
 static void sendKeyPressed(VM& vm, int key) {
   if (!g_display || !g_display->current) return;
+  // Se estiver no menu ingame (ax.class / di.d == 5), converte Ação ('5' = 53) para Confirmação (-6 / LSK)
+  // permitindo selecionar e entrar na opção destacada pelo direcional com o botão 5 / Gamepad A
+  if (key == 53 && isMenuModeActive(vm)) {
+    key = -6;
+  }
   vm.gilLock();
   try {
     Value args[1]; args[0].i = key; Value ret[2];
@@ -1662,6 +1670,9 @@ static void sendKeyPressed(VM& vm, int key) {
 
 static void sendKeyReleased(VM& vm, int key) {
   if (!g_display || !g_display->current) return;
+  if (key == 53 && isMenuModeActive(vm)) {
+    key = -6;
+  }
   vm.gilLock();
   try {
     Value args[1]; args[0].i = key; Value ret[2];
