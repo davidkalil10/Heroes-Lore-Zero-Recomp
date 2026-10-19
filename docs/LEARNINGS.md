@@ -452,4 +452,25 @@
       4. Força repintura total dos frames gráficos (`bs.c = true`, `rpg/a.a = true`, `g.a = true`).
     - Agora, assim que o save é baixado, ele fica imediatamente disponível e visível na tela de slots sem necessidade de reiniciar o jogo em nenhuma plataforma.
 
+## Sessão 16 (Correção Crítica v1.0.6: Restauração de Save da Nuvem In-Game com Retorno Automático ao Menu)
+- **Restauração de Save da Nuvem Dentro do Jogo (In-Game) Não Atualizava a Partida sem Reiniciar o App:**
+  - **Diagnóstico:**
+    - Ao realizar o download/restauração do backup na nuvem através do menu de opções in-game (`bd.class`), os arquivos RMS eram corretamente gravados em disco, mas a engine de jogo continuava mantendo na memória RAM os dados da partida ativa anterior (`rpg.e` e `di.var_do_a`), com o mapa, herói e inventário antigos.
+    - Como a partida anterior continuava ativa, o jogador não via as alterações até forçar o fechamento do app e reabri-lo do zero.
+    - No menu de título a restauração já funcionava, pois `di.m()` atualizava o menu `i.class` diretamente.
+  - **Solução Implementada (Seguindo o Padrão do Jogo 1 e do Bytecode Original de Heroes Lore Zero):**
+    - Identificada no bytecode a sequência oficial e canônica utilizada pelo jogo em Game Over (`di.java:167-168` e `bs.java:158-159`):
+      `rpg.e.rpg_e_a().d();` seguido de `bs.bs_a().a((byte)2, false);`.
+    - Em `CloudSave::update()` (`src/platform/cloud_save.cpp`), após gravar os arquivos RMS e invocar `di.m:()V`, inspeciona `di.d:B` (`curGameState`):
+      - Se `curGameState > 1` (partida ativa em andamento):
+        1. Fecha imediatamente o modal de nuvem com `CloudSave::closeModal()`.
+        2. Reseta referências do menu de opções com `bd_reset_active_menu()` em `natives.cpp`.
+        3. Invoca `rpg.e.rpg_e_a().d()` na VM Java para descarregar da memória RAM todos os tiles, gráficos de mapa e instâncias ativas da partida antiga.
+        4. Invoca `bs.bs_a().a((byte)2, false)` com argumentos `(byte)2, (boolean)false`. Isso dispara a thread nativa do jogo que re-inicializa o menu principal (`i.i_a()`), reseta a engine de mundo (`e2.void_a()`), inicia a música tema de abertura em loop (`bq.b(0, true)`) e define o menu principal como tela visível no Canvas (`di.void_b()`).
+        5. Emite aviso visual OSD localizado em 4 idiomas (`OSD_RESTORE_INGAME_RETURN`: "Save restaurado! Retornando ao menu principal...").
+      - Se `curGameState <= 1` (menu principal):
+        - Mantém a atualização visual dos botões do menu `i.class` (`n.f:()V`), posicionando o cursor na opção "Continuar".
+    - Agora o jogador pode restaurar o save a qualquer momento (seja no título ou no meio de qualquer partida) que o save é imediatamente carregado e disponibilizado para jogar.
+
+
 

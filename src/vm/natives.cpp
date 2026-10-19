@@ -2125,5 +2125,9 @@ bool bd_handle_mouse_click(VM& vm, int gameX, int gameY) {
   return false;
 }
 
+void bd_reset_active_menu() {
+  s_activeBdMenu = nullptr;
+}
+
 }  // namespace hl
 

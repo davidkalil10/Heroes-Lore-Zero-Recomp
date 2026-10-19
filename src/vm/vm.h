@@ -198,6 +198,7 @@ int64_t nowMs();
 Str* asStr(Object* o);
 
 bool bd_handle_mouse_click(VM& vm, int gameX, int gameY);
+void bd_reset_active_menu();
 
 }  // namespace hl
 

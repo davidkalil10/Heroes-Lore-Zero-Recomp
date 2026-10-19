@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-19 (Versão v1.0.5 lançada oficialmente)_
+_Última atualização: 2026-10-19 (Versão v1.0.6 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -53,6 +53,7 @@ _Última atualização: 2026-10-19 (Versão v1.0.5 lançada oficialmente)_
 - [x] Correção do travamento ao alternar proporção de tela in-game.
 - [x] Navegação vertical contínua 0..10 e suporte a clique do mouse/toque no menu de opções ingame (`bd.class`).
 - [x] Validação de persistência de save games RMS (`ah`, `bh`, `rpg.b`).
+- [x] Correção do save baixado da nuvem in-game: reinicialização de mapa via `rpg.e.d()`, retorno canônico ao menu de título via `bs.a((byte)2, false)`, recarga automática de slots com `di.m()` e notificação OSD em 4 idiomas (v1.0.6).
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
 - [x] **Passo 0:** Boot nativo no PC da classe `rpg.RPGHeroEx` e renderização do primeiro frame (240x320 / Widescreen).

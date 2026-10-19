@@ -133,6 +133,7 @@ enum class CloudStr {
   OSD_UPLOAD_ERROR,
   OSD_DOWNLOAD_SUCCESS,
   OSD_DOWNLOAD_ERROR,
+  OSD_RESTORE_INGAME_RETURN,
   STR_COUNT
 };
 
@@ -364,6 +365,12 @@ static const char* s_translations[(size_t)CloudStr::STR_COUNT][4] = {
     "Error downloading save from cloud.",
     "Errore download save da cloud.",
     "Error al descargar partida de la nube."
+  },
+  /* OSD_RESTORE_INGAME_RETURN */ {
+    "Save restaurado! Retornando ao menu principal...",
+    "Save restored! Returning to title menu...",
+    "Salvataggio ripristinato! Ritorno al menu principale...",
+    "¡Partida restaurada! Volviendo al menú principal..."
   }
 };
 
@@ -1016,8 +1023,14 @@ void CloudSave::update(VM* vm) {
       s_activeVm->gilLock();
       try {
         ClassInfo* diCls = s_activeVm->findClass("di");
+        FieldInfo* fD = diCls ? s_activeVm->findField(diCls, "d:B") : nullptr;
+        if (!fD) fD = diCls ? s_activeVm->findField(diCls, "var_byte_d:B") : nullptr;
+        int curGameState = (fD && fD->isStatic && fD->index >= 0 && fD->index < (int)diCls->statics.size())
+                           ? diCls->statics[fD->index].i : 1;
+        bool inGame = (curGameState > 1);
+
+        // 1. Sempre recarrega os dados de todos os slots de save salvos em disco (HOL.slot1..3)
         if (diCls) {
-          // 1. Recarrega os dados de todos os slots de save salvos em disco (HOL.slot1..3)
           Method* mDiM = s_activeVm->findMethod(diCls, "m:()V");
           if (mDiM) {
             Value ret[2];
@@ -1026,33 +1039,76 @@ void CloudSave::update(VM* vm) {
           }
         }
 
-        // 2. Atualiza o menu principal (i.java) caso estejamos no Menu de Titulo
-        ClassInfo* iCls = s_activeVm->findClass("i");
-        ClassInfo* nCls = s_activeVm->findClass("n");
-        if (iCls && nCls) {
-          FieldInfo* fA = s_activeVm->findField(iCls, "a:Li;");
-          if (!fA) fA = s_activeVm->findField(iCls, "var_i_a:Li;");
-          Instance* iInst = (fA && fA->isStatic && fA->index >= 0 && fA->index < (int)iCls->statics.size())
-                            ? (Instance*)iCls->statics[fA->index].o : nullptr;
-          if (iInst) {
-            FieldInfo* fCurItem = s_activeVm->findField(nCls, "a:B");
-            if (!fCurItem) fCurItem = s_activeVm->findField(nCls, "var_byte_a:B");
-            if (fCurItem && fCurItem->index >= 0 && fCurItem->index < (int)iInst->f.size()) {
-              FieldInfo* fDiI = diCls ? s_activeVm->findField(diCls, "i:B") : nullptr;
-              if (!fDiI) fDiI = diCls ? s_activeVm->findField(diCls, "var_byte_i:B") : nullptr;
-              int numSaves = (fDiI && fDiI->isStatic && fDiI->index >= 0 && fDiI->index < (int)diCls->statics.size())
-                             ? diCls->statics[fDiI->index].i : 0;
-              // Se antes estava em 0 (Novo Jogo) e agora ha saves, posiciona no item 1 ('Continuar')
-              if (numSaves > 0 && iInst->f[fCurItem->index].i == 0) {
-                iInst->f[fCurItem->index].i = 1;
+        if (inGame) {
+          printf("[CloudSave] Restauracao realizada IN-GAME (gameState=%d). Resetando memoria e retornando ao menu...\n", curGameState);
+
+          // 2a. Fecha modais de nuvem e menus de opcoes ativos
+          closeModal();
+          bd_reset_active_menu();
+
+          // 2b. Descarrega recursos graficos, mapa e entidades ativas da memoria RAM via rpg.e.rpg_e_a().d()
+          ClassInfo* eCls = s_activeVm->findClass("rpg/e");
+          if (eCls) {
+            Method* mEInst = s_activeVm->findMethod(eCls, "a:()Lrpg/e;");
+            if (mEInst) {
+              Value eInstRet[2];
+              s_activeVm->invoke(mEInst, nullptr, eInstRet);
+              if (eInstRet[0].o) {
+                Value dRet[2];
+                s_activeVm->invokeVirtual(eInstRet[0].o, "d:()V", nullptr, 0, dRet);
+                printf("[CloudSave] rpg.e.d() invocado com sucesso (mapa e recursos limpos).\n");
               }
             }
+          }
 
-            // Recalcula o layout visual de itens do menu principal (habilita 'Continuar')
-            Method* mF = s_activeVm->findMethod(nCls, "f:()V");
-            if (mF) {
-              Value fRet[2];
-              s_activeVm->invokeVirtual(iInst, "f:()V", nullptr, 0, fRet);
+          // 2c. Dispara transicao canonica para a tela de titulo via bs.bs_a().a((byte)2, false)
+          ClassInfo* bsCls = s_activeVm->findClass("bs");
+          if (bsCls) {
+            Method* mBsInst = s_activeVm->findMethod(bsCls, "a:()Lbs;");
+            if (mBsInst) {
+              Value bsInstRet[2];
+              s_activeVm->invoke(mBsInst, nullptr, bsInstRet);
+              if (bsInstRet[0].o) {
+                Value bsArgs[2];
+                bsArgs[0].i = 2; // (byte) 2: Retornar ao Menu de Titulo
+                bsArgs[1].i = 0; // (boolean) false
+                Value bsRet[2];
+                s_activeVm->invokeVirtual(bsInstRet[0].o, "a:(BZ)V", bsArgs, 2, bsRet);
+                printf("[CloudSave] bs.a((byte)2, false) invocado com sucesso: transicao iniciada!\n");
+              }
+            }
+          }
+
+          Platform::showOsdMessage(tr(CloudStr::OSD_RESTORE_INGAME_RETURN));
+        } else {
+          // 2. Atualiza o menu principal (i.java) caso estejamos no Menu de Titulo
+          ClassInfo* iCls = s_activeVm->findClass("i");
+          ClassInfo* nCls = s_activeVm->findClass("n");
+          if (iCls && nCls) {
+            FieldInfo* fA = s_activeVm->findField(iCls, "a:Li;");
+            if (!fA) fA = s_activeVm->findField(iCls, "var_i_a:Li;");
+            Instance* iInst = (fA && fA->isStatic && fA->index >= 0 && fA->index < (int)iCls->statics.size())
+                              ? (Instance*)iCls->statics[fA->index].o : nullptr;
+            if (iInst) {
+              FieldInfo* fCurItem = s_activeVm->findField(nCls, "a:B");
+              if (!fCurItem) fCurItem = s_activeVm->findField(nCls, "var_byte_a:B");
+              if (fCurItem && fCurItem->index >= 0 && fCurItem->index < (int)iInst->f.size()) {
+                FieldInfo* fDiI = diCls ? s_activeVm->findField(diCls, "i:B") : nullptr;
+                if (!fDiI) fDiI = diCls ? s_activeVm->findField(diCls, "var_byte_i:B") : nullptr;
+                int numSaves = (fDiI && fDiI->isStatic && fDiI->index >= 0 && fDiI->index < (int)diCls->statics.size())
+                               ? diCls->statics[fDiI->index].i : 0;
+                // Se antes estava em 0 (Novo Jogo) e agora ha saves, posiciona no item 1 ('Continuar')
+                if (numSaves > 0 && iInst->f[fCurItem->index].i == 0) {
+                  iInst->f[fCurItem->index].i = 1;
+                }
+              }
+
+              // Recalcula o layout visual de itens do menu principal (habilita 'Continuar')
+              Method* mF = s_activeVm->findMethod(nCls, "f:()V");
+              if (mF) {
+                Value fRet[2];
+                s_activeVm->invokeVirtual(iInst, "f:()V", nullptr, 0, fRet);
+              }
             }
           }
         }
