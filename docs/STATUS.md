@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-19 (Versão v1.0.6 lançada oficialmente)_
+_Última atualização: 2026-10-19 (Versão v1.0.7 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -54,6 +54,11 @@ _Última atualização: 2026-10-19 (Versão v1.0.6 lançada oficialmente)_
 - [x] Navegação vertical contínua 0..10 e suporte a clique do mouse/toque no menu de opções ingame (`bd.class`).
 - [x] Validação de persistência de save games RMS (`ah`, `bh`, `rpg.b`).
 - [x] Correção do save baixado da nuvem in-game: reinicialização de mapa via `rpg.e.d()`, retorno canônico ao menu de título via `bs.a((byte)2, false)`, recarga automática de slots com `di.m()` e notificação OSD em 4 idiomas (v1.0.6).
+- [x] Suporte completo a localização e internacionalização (v1.0.7):
+  - Extração de textos (`lang/source_en/`), tradução para Português Brasileiro (`lang/pt_br/`) com preservação estrita de nomes próprios e vilas, e compilação binária (`assets/lang/pt/`).
+  - Interceptação de assets (`Platform::readAsset`), hot-reload em tempo de execução via `Platform::reloadLanguage` (instâncias de `ch`, estáticos de `rpg/e`/`ax`, diálogos de mapa em `db.a:[[B`, repaint imediato).
+  - Nova opção no menu Settings / In-game `bd.class` (item 12: "Idioma" / "Language") com suporte a teclado, gamepad e touch.
+  - Documentação arquitetural e guia de novos idiomas em `docs/LOCALIZATION.md`.
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
 - [x] **Passo 0:** Boot nativo no PC da classe `rpg.RPGHeroEx` e renderização do primeiro frame (240x320 / Widescreen).

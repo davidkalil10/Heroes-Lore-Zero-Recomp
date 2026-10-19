@@ -1217,7 +1217,8 @@ static void f_getHeight(VM&, Value*, Value* ret) {
   ret[0].i = g_screenHeight;
 }
 
-// Forward declarations para bd
+// Forward declarations para bd e ch
+static void ch_init_native(VM& vm, Value* args, Value*);
 static void bd_init_native(VM& vm, Value* args, Value*);
 static void bd_a_native(VM& vm, Value* args, Value* ret);
 static void bd_draw_native(VM& vm, Value* args, Value*);
@@ -1443,23 +1444,37 @@ void VM::registerNatives() {
   // javax/microedition/io/Connector
   reg("javax/microedition/io/Connector.open:(Ljava/lang/String;)Ljavax/microedition/io/Connection;", Connector_open);
 
-  // HL Zero: Menu de Opções / Configurações (bd.class) com FPS, Proporção de Tela, Cloud Save e Atualizações
+  // HL Zero: Tabela de Strings de UI e Textos do Jogo (ch.class)
+  reg("ch.<init>:(Ljava/lang/String;)V", ch_init_native);
+
+  // HL Zero: Menu de Opções / Configurações (bd.class) com FPS, Proporção de Tela, Cloud Save, Atualizações e Idioma
   reg("bd.<init>:(Ln;Z)V", bd_init_native);
   reg("bd.a:(II)Z", bd_a_native);
   reg("bd.a:(Lcm;)V", bd_draw_native);
   reg("bd.b:(Lcm;)V", bd_cursor_native);
 }
 
+static void ch_init_native(VM& vm, Value* args, Value*) {
+  Object* self = args[0].o;
+  if (!self || self->kind != K_INST) return;
+  Instance* inst = static_cast<Instance*>(self);
+
+  std::string path = getStrUtf8(args[1].o);
+  Platform::registerChInstance(inst, path);
+  Platform::reloadSingleCh(vm, inst, path);
+}
+
 static Instance* s_activeBdMenu = nullptr;
 
 // -------------------------------------------------------------
 // bd: Menu de Configurações / Opções (Heroes Lore: Zero)
-// Suporte nativo a 11 opções:
+// Suporte nativo a 12 opções:
 // 0..6 originais: BGM, SFX, Velocidade Texto, Brilho, Vibração, Dificuldade, Dano
 // 7: FPS (15 ou 30 FPS)
 // 8: Tela (Padrão, Wide ou Auto)
 // 9: Nuvem (Google Drive Cloud Save)
 // 10: Atualizar (OTA GitHub Releases)
+// 11: Idioma (Português, English, etc.)
 // -------------------------------------------------------------
 static void bd_init_native(VM& vm, Value* args, Value*) {
   Object* self = args[0].o;
@@ -1469,14 +1484,14 @@ static void bd_init_native(VM& vm, Value* args, Value*) {
   Object* parent = args[1].o;
   bool isPause = (args[2].i != 0);
 
-  // Invoca super (l.<init>:(Ln;B)V) com 11 itens
+  // Invoca super (l.<init>:(Ln;B)V) com 12 itens
   ClassInfo* lClass = vm.findClass("l");
   Method* mLInit = lClass ? vm.findMethod(lClass, "<init>:(Ln;B)V") : nullptr;
   if (mLInit) {
     Value lArgs[3];
     lArgs[0].o = self;
     lArgs[1].o = parent;
-    lArgs[2].i = 11;
+    lArgs[2].i = 12;
     Value lRet[2];
     vm.invoke(mLInit, lArgs, lRet);
   }
@@ -1494,10 +1509,10 @@ static void bd_init_native(VM& vm, Value* args, Value*) {
     inst->f[fNb->index].i = 1;
   }
 
-  // n.var_byte_b = 11 (número total de opções)
+  // n.var_byte_b = 12 (número total de opções)
   FieldInfo* fNumItems = nClass ? vm.findField(nClass, "b:B") : nullptr;
   if (fNumItems && fNumItems->index >= 0 && fNumItems->index < (int)inst->f.size()) {
-    inst->f[fNumItems->index].i = 11;
+    inst->f[fNumItems->index].i = 12;
   }
 
   // Se pause menu, ajusta this.b_ para centralizar a janela modal de 224px
@@ -1530,7 +1545,7 @@ static void bd_a_native(VM& vm, Value* args, Value* ret) {
   bool isPause = (fE && fE->index >= 0 && fE->index < (int)inst->f.size()) ? (inst->f[fE->index].i != 0) : false;
 
   if (fNumItems && fNumItems->index >= 0 && fNumItems->index < (int)inst->f.size()) {
-    inst->f[fNumItems->index].i = 11;
+    inst->f[fNumItems->index].i = 12;
   }
   int curH = (fCurIndex && fCurIndex->index >= 0 && fCurIndex->index < (int)inst->f.size()) ? inst->f[fCurIndex->index].i : 0;
 
@@ -1650,6 +1665,13 @@ static void bd_a_native(VM& vm, Value* args, Value* ret) {
       }
       ret[0].i = 1;
       return;
+    } else if (curH == 11) {
+      Platform::nextLanguage(&vm);
+      if (fNeedsRepaint && fNeedsRepaint->index >= 0 && fNeedsRepaint->index < (int)inst->f.size()) {
+        inst->f[fNeedsRepaint->index].i = 1;
+      }
+      ret[0].i = 1;
+      return;
     }
   }
 
@@ -1696,6 +1718,9 @@ static void bd_a_native(VM& vm, Value* args, Value* ret) {
       Platform::openCloudSave(&vm);
     } else if (curH == 10) {
       Platform::checkForUpdates();
+    } else if (curH == 11) {
+      if (isLeft) Platform::prevLanguage(&vm);
+      else Platform::nextLanguage(&vm);
     }
     if (fNeedsRepaint && fNeedsRepaint->index >= 0 && fNeedsRepaint->index < (int)inst->f.size()) {
       inst->f[fNeedsRepaint->index].i = 1;
@@ -1704,12 +1729,12 @@ static void bd_a_native(VM& vm, Value* args, Value* ret) {
     return;
   }
 
-  // 5. Navegação vertical direta (sobe/desce) entre as 11 opções sem depender do limitador original do Java
+  // 5. Navegação vertical direta (sobe/desce) entre as 12 opções sem depender do limitador original do Java
   bool isUp = (n3 == 50 || n2 == 1 || n3 == -1 || n2 == -1);
   bool isDown = (n3 == 56 || n2 == 6 || n3 == -2 || n2 == -2);
 
   if (isUp) {
-    curH = (curH + 11 - 1) % 11;
+    curH = (curH + 12 - 1) % 12;
     if (fCurIndex && fCurIndex->index >= 0 && fCurIndex->index < (int)inst->f.size()) {
       inst->f[fCurIndex->index].i = curH;
     }
@@ -1720,7 +1745,7 @@ static void bd_a_native(VM& vm, Value* args, Value* ret) {
     return;
   }
   if (isDown) {
-    curH = (curH + 1) % 11;
+    curH = (curH + 1) % 12;
     if (fCurIndex && fCurIndex->index >= 0 && fCurIndex->index < (int)inst->f.size()) {
       inst->f[fCurIndex->index].i = curH;
     }
@@ -1853,7 +1878,7 @@ static void bd_draw_native(VM& vm, Value* args, Value*) {
     int slotY = boxY + 3 + 28;
 
     Method* mNc = nClass ? vm.findMethod(nClass, "c:(Lcm;IIII)V") : nullptr;
-    for (int i = 0; i < 11; ++i) {
+    for (int i = 0; i < 12; ++i) {
       setColor(i != curH ? 7027456 : 0x810000);
       if (mNc) {
         Value cArgs[5]; cArgs[0].o = cmObj; cArgs[1].i = slotX; cArgs[2].i = slotY; cArgs[3].i = slotW; cArgs[4].i = 14; Value cRet[2];
@@ -1934,6 +1959,9 @@ static void bd_draw_native(VM& vm, Value* args, Value*) {
   Object* lblUpdate = makeByteArray(isPt ? "Atualizar" : "Update");
   drawText(labelX, startY + 15 * 10, lblUpdate, 0);
 
+  Object* lblLang = makeByteArray(isPt ? "Idioma" : "Language");
+  drawText(labelX, startY + 15 * 11, lblLang, 0);
+
   // Valores 0..6
   auto drawToggle = [&](int row, bool val) {
     setColor(curH == row ? 0xFFFFFF : 12630160);
@@ -1965,7 +1993,7 @@ static void bd_draw_native(VM& vm, Value* args, Value*) {
 
   drawToggle(6, dmgVal);
 
-  // Valores 7..10
+  // Valores 7..11
   setColor(curH == 7 ? 0xFFFFFF : 12630160);
   std::string txtFps = (Platform::getTargetFps() == 15) ? "15" : "30";
   Object* valFps = makeByteArray(txtFps);
@@ -1986,6 +2014,11 @@ static void bd_draw_native(VM& vm, Value* args, Value*) {
   std::string txtUpdate = isPt ? "Checar" : "Check";
   Object* valUpdate = makeByteArray(txtUpdate);
   drawTextAlign(valX, startY + 15 * 10, valUpdate, 0, 1);
+
+  setColor(curH == 11 ? 0xFFFFFF : 12630160);
+  std::string txtLang = Platform::getLanguageDisplayName(Platform::getCurrentLanguage());
+  Object* valLang = makeByteArray(txtLang);
+  drawTextAlign(valX, startY + 15 * 11, valLang, 0, 1);
 
   // Softkeys rodapé: n.a(cm, 2)
   Method* mNaSoft = nClass ? vm.findMethod(nClass, "a:(Lcm;I)V") : nullptr;
@@ -2093,10 +2126,10 @@ bool bd_handle_mouse_click(VM& vm, int gameX, int gameY) {
   int minX = std::min(boxX, centerX - 100);
   int maxX = std::max(boxX + boxW, centerX + 100);
 
-  // Verifica se o clique foi em alguma das 11 opções
-  if (gameX >= minX && gameX <= maxX && gameY >= startY && gameY < startY + 15 * 11) {
+  // Verifica se o clique foi em alguma das 12 opções
+  if (gameX >= minX && gameX <= maxX && gameY >= startY && gameY < startY + 15 * 12) {
     int row = (gameY - startY) / 15;
-    if (row >= 0 && row < 11) {
+    if (row >= 0 && row < 12) {
       if (fCurIndex && fCurIndex->index >= 0 && fCurIndex->index < (int)inst->f.size()) {
         inst->f[fCurIndex->index].i = row;
       }
@@ -2108,6 +2141,8 @@ bool bd_handle_mouse_click(VM& vm, int gameX, int gameY) {
         Platform::openCloudSave(&vm);
       } else if (row == 10) {
         Platform::checkForUpdates();
+      } else if (row == 11) {
+        Platform::nextLanguage(&vm);
       } else {
         Value aArgs[3];
         aArgs[0].o = inst;

@@ -7,6 +7,7 @@
 namespace hl {
 
 struct VM;
+struct Instance;
 
 void boot_log(const char* fmt, ...);
 
@@ -47,12 +48,15 @@ public:
   static void openCloudSave(VM* vm = nullptr);
   static bool isModalOrCooldownActive();
 
-  // Passo 10: Localização e Idiomas (PT, EN, IT, ES)
+  // Passo 10: Localização e Idiomas (Heroes Lore: Zero)
   static std::string getCurrentLanguage();
   static void setLanguage(const std::string& langCode);
+  static std::vector<std::string> getAvailableLanguages();
   static void nextLanguage(VM* vm = nullptr);
   static void prevLanguage(VM* vm = nullptr);
   static std::string getLanguageDisplayName(const std::string& langCode);
+  static void registerChInstance(Instance* inst, const std::string& path);
+  static void reloadSingleCh(VM& vm, Instance* inst, const std::string& path);
   static void reloadLanguage(VM& vm);
 
   // Sistema de Arquivos / Assets Portável (PC, Android APK, Switch RomFS)

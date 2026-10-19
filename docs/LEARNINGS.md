@@ -472,5 +472,43 @@
         - Mantém a atualização visual dos botões do menu `i.class` (`n.f:()V`), posicionando o cursor na opção "Continuar".
     - Agora o jogador pode restaurar o save a qualquer momento (seja no título ou no meio de qualquer partida) que o save é imediatamente carregado e disponibilizado para jogar.
 
+## Sessão 17 (v1.0.7: Localização Completa PT-BR com Hot-Reload em Tempo de Execução e Suporte Modular a Novos Idiomas)
+- **1. Arquitetura de Textos do J2ME Original e Interceptação Binária:**
+  - **Diagnóstico:**
+    - Ao contrário de Heroes Lore 1 (que centralizava strings em um único arquivo), Heroes Lore: Zero distribui textos em 3 estruturas binárias distintas:
+      1. `t/*.tdf` (31 arquivos binários decodificados pela classe `ch.java` sob demanda).
+      2. `m/m/*.m` e `m/m2/*.m` (139 arquivos de mapa, cujos bytes finais contêm os diálogos e nomes de área carregados por `db.java`).
+      3. `en/edf` (tabela binária de atributos e nomes de NPCs e monstros).
+  - **Solução Implementada:**
+    - Desenvolvida a ferramenta `tools/extract_texts.py` para extrair os textos originais em inglês para arquivos estruturados JSON em `lang/source_en/` (`ui_strings.json`, `maps_dialogs.json`, `enemies_npcs.json`).
+    - Desenvolvida a ferramenta `tools/translate_to_pt.py` para gerar a localização completa em português brasileiro em `lang/pt_br/`.
+    - Desenvolvida a ferramenta `tools/compile_texts.py` para compilar os dados JSON de volta para os formatos binários proprietários exatos esperados pelo jogo em `assets/lang/<idioma>/`.
+    - Em `src/platform/platform_sdl.cpp` (`Platform::readAsset`), implementada interceptação automática de leituras: quando o idioma ativo difere de `"en"`, o carregador de assets busca primeiro em `assets/lang/<idioma>/...`, com fallback transparente em todas as plataformas (PC, Android e Nintendo Switch RomFS).
 
+- **2. Troca de Idioma a Quente (*Hot-Reload* Instantâneo sem Reiniciar o Jogo):**
+  - **Diagnóstico:**
+    - A VM Java instancia objetos `ch` durante o boot e mantém arrays pré-carregados de strings em campos estáticos de `rpg/e.a..k` e `ax.a..c`, além dos diálogos do mapa atual em `db.a:[[B`.
+    - Apenas alterar os arquivos em disco não atualizaria os textos já carregados na memória RAM da máquina virtual.
+  - **Solução Implementada:**
+    - Em `src/vm/natives.cpp`, o construtor `ch.<init>:(Ljava/lang/String;)V` foi interceptado nativamente (`ch_init_native`), registrando ponteiros fracos de todas as instâncias ativas de `ch` em `Platform::registerChInstance`.
+    - Criada a função `Platform::reloadLanguage(VM& vm)` que:
+      1. Itera por todas as instâncias ativas de `ch` na memória e regera o array de strings decodificadas com base no novo idioma.
+      2. Recarrega explicitamente os campos estáticos de `rpg/e` e `ax`.
+      3. Recarrega instantaneamente os diálogos do mapa atual em `db.a:[[B` a partir do mapa do jogador ativo (`di.a:B`).
+      4. Seta flags estáticas de repintura (`n.a:Z`, `rpg/a.a:Z`, `g.a:Z`, `bs.c:Z`), forçando o redesenho imediato de todas as camadas visuais do frame atual.
 
+- **3. Expansão do Menu de Opções (`bd.class`):**
+  - O menu de opções foi expandido de 11 para 12 opções (Opção 11: "Idioma" / "Language").
+  - A opção suporta:
+    - Teclas de seta Esquerda/Direita para alternar entre os idiomas disponíveis.
+    - Tecla Confirmar/Fire (5 ou Enter) para avançar ciclicamente.
+    - Suporte a Gamepad físico e cliques/toques com mouse ou touchscreen (`bd_handle_mouse_click`).
+  - Idioma ativo é salvo no arquivo de configuração do usuário (`hl_settings.ini`).
+
+- **4. Diretrizes Rígidas de Cânone e Não-Tradução de Nomes Próprios:**
+  - Garantido que nomes próprios de personagens (`Lucian`, `Clare`, `Alpez`, `Calmon`, `Gilbert`, `Carl`, `Timoros`, `Aquila`, `Legolas`, etc.) e nomes de cidades/vilarejos (`Silverleaf Village`, `Melon Village`, `Humming City`, `Chelen Village`, `Plum City`, `Southern Fortress`, etc.) **nunca** sejam traduzidos ou alterados.
+  - Todas as tags de formatação do motor de diálogos (`|[Nome]&`, `^[Nome]&`, `$[Nome]&`, `{destaque&}`, `}Ação&`) são preservadas 100%.
+
+- **5. Documentação e Preparação para Idiomas Futuros:**
+  - Criado o documento detalhado `docs/LOCALIZATION.md` com toda a especificação técnica e o guia passo a passo para criar e compilar novos idiomas adicionais (ex: Espanhol `es`, Francês `fr`).
+  - O sistema descobre novos idiomas dinamicamente através de `Platform::getAvailableLanguages()`.
