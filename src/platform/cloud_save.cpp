@@ -998,35 +998,74 @@ void CloudSave::shutdown() {
   s_modalActive = false;
 }
 
+static void setStaticBool(VM& vm, const char* clsName, const char* fName, bool val) {
+  ClassInfo* cls = vm.findClass(clsName);
+  if (!cls) return;
+  std::string s(fName);
+  FieldInfo* f = vm.findField(cls, (s + ":Z").c_str());
+  if (!f) f = vm.findField(cls, ("var_boolean_" + s + ":Z").c_str());
+  if (f && f->isStatic && f->index >= 0 && f->index < (int)cls->statics.size()) {
+    cls->statics[f->index].i = val ? 1 : 0;
+  }
+}
+
 void CloudSave::update(VM* vm) {
   if (vm) s_activeVm = vm;
   if (s_pendingVmReload.exchange(false)) {
     if (s_activeVm) {
       s_activeVm->gilLock();
       try {
-        ClassInfo* nClass = s_activeVm->findClass("n");
-        FieldInfo* fAoA = nClass ? s_activeVm->findField(nClass, "a:Lao;") : nullptr;
-        bool inGame = false;
-
-        if (fAoA && fAoA->isStatic && fAoA->index >= 0 && fAoA->index < (int)nClass->statics.size()) {
-          inGame = (nClass->statics[fAoA->index].o != nullptr);
-        }
-
-        if (inGame) {
-          ClassInfo* buClass = s_activeVm->findClass("bu");
-          Method* mBuD = buClass ? s_activeVm->findMethod(buClass, "d:()V") : nullptr;
-          if (mBuD) {
+        ClassInfo* diCls = s_activeVm->findClass("di");
+        if (diCls) {
+          // 1. Recarrega os dados de todos os slots de save salvos em disco (HOL.slot1..3)
+          Method* mDiM = s_activeVm->findMethod(diCls, "m:()V");
+          if (mDiM) {
             Value ret[2];
-            s_activeVm->invoke(mBuD, nullptr, ret);
-          }
-        } else {
-          Method* mNp = nClass ? s_activeVm->findMethod(nClass, "p:()V") : nullptr;
-          if (mNp) {
-            Value ret[2];
-            s_activeVm->invoke(mNp, nullptr, ret);
+            s_activeVm->invoke(mDiM, nullptr, ret);
+            printf("[CloudSave] di.m() invocado com sucesso: slots de save recarregados da nuvem!\n");
           }
         }
-      } catch (...) {}
+
+        // 2. Atualiza o menu principal (i.java) caso estejamos no Menu de Titulo
+        ClassInfo* iCls = s_activeVm->findClass("i");
+        ClassInfo* nCls = s_activeVm->findClass("n");
+        if (iCls && nCls) {
+          FieldInfo* fA = s_activeVm->findField(iCls, "a:Li;");
+          if (!fA) fA = s_activeVm->findField(iCls, "var_i_a:Li;");
+          Instance* iInst = (fA && fA->isStatic && fA->index >= 0 && fA->index < (int)iCls->statics.size())
+                            ? (Instance*)iCls->statics[fA->index].o : nullptr;
+          if (iInst) {
+            FieldInfo* fCurItem = s_activeVm->findField(nCls, "a:B");
+            if (!fCurItem) fCurItem = s_activeVm->findField(nCls, "var_byte_a:B");
+            if (fCurItem && fCurItem->index >= 0 && fCurItem->index < (int)iInst->f.size()) {
+              FieldInfo* fDiI = diCls ? s_activeVm->findField(diCls, "i:B") : nullptr;
+              if (!fDiI) fDiI = diCls ? s_activeVm->findField(diCls, "var_byte_i:B") : nullptr;
+              int numSaves = (fDiI && fDiI->isStatic && fDiI->index >= 0 && fDiI->index < (int)diCls->statics.size())
+                             ? diCls->statics[fDiI->index].i : 0;
+              // Se antes estava em 0 (Novo Jogo) e agora ha saves, posiciona no item 1 ('Continuar')
+              if (numSaves > 0 && iInst->f[fCurItem->index].i == 0) {
+                iInst->f[fCurItem->index].i = 1;
+              }
+            }
+
+            // Recalcula o layout visual de itens do menu principal (habilita 'Continuar')
+            Method* mF = s_activeVm->findMethod(nCls, "f:()V");
+            if (mF) {
+              Value fRet[2];
+              s_activeVm->invokeVirtual(iInst, "f:()V", nullptr, 0, fRet);
+            }
+          }
+        }
+
+        // 3. Forca repintura de telas e interfaces
+        setStaticBool(*s_activeVm, "bs", "c", true);
+        setStaticBool(*s_activeVm, "rpg/a", "a", true);
+        setStaticBool(*s_activeVm, "g", "a", true);
+      } catch (const std::exception& e) {
+        printf("[CloudSave] Erro ao recarregar saves na VM: %s\n", e.what());
+      } catch (...) {
+        printf("[CloudSave] Excecao desconhecida ao recarregar saves na VM.\n");
+      }
       s_activeVm->gilUnlock();
     }
   }

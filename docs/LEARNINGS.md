@@ -424,3 +424,32 @@
     - Em `bd_handle_mouse_click` (`src/vm/natives.cpp`), adicionada guarda `if (Platform::isModalOrCooldownActive()) return false;`.
     - Em `src/platform/cloud_save.cpp` e `updater.cpp`, expandida a hitbox do botão [X] com padding de 20px e adicionado fechamento amigável ao tocar fora da área do modal (backdrop escuro).
 
+## Sessão 15 (Correções Críticas v1.0.5: Inversão dos Botões X/Y no Switch e Refresh Imediato de Saves Restaurados)
+- **1. Inversão dos Botões Físicos X e Y no Nintendo Switch na Tela de Cloud Save:**
+  - **Diagnóstico:**
+    - No Nintendo Switch (layout ABXY da Nintendo), o botão físico `( X )` fica no topo (posição Norte) e o botão físico `( Y )` fica na esquerda (posição Oeste).
+    - O driver SDL2 mapeia os botões pelo padrão posicional do Xbox: a posição Norte é `SDL_CONTROLLER_BUTTON_Y` e a posição Oeste é `SDL_CONTROLLER_BUTTON_X`.
+    - Em `platform_sdl.cpp` (bloco `CloudSave::isModalActive()`), o código tratava `ev.cbutton.button == SDL_CONTROLLER_BUTTON_X` como a tecla 50 ("Restaurar / Baixar da Nuvem") e `ev.cbutton.button == SDL_CONTROLLER_BUTTON_Y` como a tecla 51 ("Desconectar").
+    - Com isso, ao pressionar o botão físico `( X )` no Switch, o SDL disparava `SDL_CONTROLLER_BUTTON_Y`, caindo erroneamente na ação de desconectar a conta.
+  - **Solução Implementada:**
+    - Em `src/platform/platform_sdl.cpp`, criado tratamento condicional específico para `#if defined(__SWITCH__)`:
+      - Físico `( A )` (`SDL_CONTROLLER_BUTTON_B`) -> tecla `53` (Confirmar / Fazer Backup).
+      - Físico `( B )` (`SDL_CONTROLLER_BUTTON_A`) -> tecla `-7` (Cancelar / Voltar).
+      - Físico `( X )` (`SDL_CONTROLLER_BUTTON_Y`) -> tecla `50` (Baixar da Nuvem / Restaurar).
+      - Físico `( Y )` (`SDL_CONTROLLER_BUTTON_X`) -> tecla `51` (Desconectar Conta).
+    - No PC/Xbox, o bloco `#else` mantém a correspondência padrão correta.
+
+- **2. Save Baixado da Nuvem Não Aparecia no Menu sem Reiniciar o Jogo:**
+  - **Diagnóstico:**
+    - Ao restaurar um save pelo modal de Cloud Save, os arquivos `.rms` (`HOL.slot1.rms`, `HOL.gamedata1.rms`, etc.) eram gravados no disco perfeitamente, mas os metadados dos slots na memória da VM Java (`di.var_byte_arr_arr_a` e `di.var_byte_i`) continuavam vazios (`null` e `0`).
+    - Em `CloudSave::update()`, o código tentava chamar métodos inventados que não existiam no bytecode decompilado (`n.p:()V` e `bu.d:()V`), falhando silenciosamente.
+    - No bytecode original do J2ME, o método estático responsável por abrir todos os arquivos RMS e popular os dados decodificados dos 3 slots de personagens é `di.m:()V`. Como ele nunca era chamado, o menu principal `i.java` mantinha a opção "Continuar" desabilitada/invisível (`di.var_byte_i <= 0`) até que o jogo fosse fechado e reiniciado (onde o boot em `bv.java` chama `di.m()`).
+  - **Solução Implementada:**
+    - Em `CloudSave::update()` (`src/platform/cloud_save.cpp`), quando a flag `s_pendingVmReload` é acionada:
+      1. Invoca `di.m:()V` na VM Java sob o GIL, relendo os arquivos RMS do disco e populando `di.var_byte_arr_arr_a` e `di.var_byte_i` (> 0).
+      2. Localiza a instância ativa do menu principal `i.a` e atualiza a seleção para o item 1 ("Continuar").
+      3. Invoca o método `n.f:()V` em `i.a` para recalcular o layout visual do menu e habilitar a opção "Continuar" imediatamente.
+      4. Força repintura total dos frames gráficos (`bs.c = true`, `rpg/a.a = true`, `g.a = true`).
+    - Agora, assim que o save é baixado, ele fica imediatamente disponível e visível na tela de slots sem necessidade de reiniciar o jogo em nenhuma plataforma.
+
+

@@ -1806,16 +1806,27 @@ bool Platform::pollEvents(VM& vm) {
           key = 51; // 3 (Desconectar)
         }
       } else if (ev.type == SDL_CONTROLLERBUTTONDOWN) {
-        int mkey = mapControllerButton(ev.cbutton.button);
-        if (mkey == 53) {
-          key = 53; // Confirmar (A no Switch, A no Xbox/PC)
-        } else if (mkey == -7 || mkey == -8) {
-          key = -7; // Cancelar (B no Switch, B no Xbox/PC)
-        } else if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_X) {
-          key = 50; // X -> Restaurar
+#if defined(__SWITCH__)
+        if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_B) {
+          key = 53; // Switch físico ( A ) -> Confirmar / Fazer Backup
+        } else if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_A) {
+          key = -7; // Switch físico ( B ) -> Cancelar / Fechar
         } else if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_Y) {
-          key = 51; // Y -> Desconectar
+          key = 50; // Switch físico ( X ) -> Baixar da Nuvem / Restaurar
+        } else if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_X) {
+          key = 51; // Switch físico ( Y ) -> Desconectar
         }
+#else
+        if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_A) {
+          key = 53; // Xbox/PC ( A ) -> Confirmar / Fazer Backup
+        } else if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_B) {
+          key = -7; // Xbox/PC ( B ) -> Cancelar / Fechar
+        } else if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_X) {
+          key = 50; // Xbox/PC ( X ) -> Baixar da Nuvem / Restaurar
+        } else if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_Y) {
+          key = 51; // Xbox/PC ( Y ) -> Desconectar
+        }
+#endif
       } else if (ev.type == SDL_FINGERDOWN) {
         int renW = 0, renH = 0;
         SDL_GetRendererOutputSize(s_renderer, &renW, &renH);
