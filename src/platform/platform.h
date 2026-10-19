@@ -58,6 +58,7 @@ public:
   static void registerChInstance(Instance* inst, const std::string& path);
   static void reloadSingleCh(VM& vm, Instance* inst, const std::string& path);
   static void reloadLanguage(VM& vm);
+  static void updateHardcodedLanguageStrings(VM& vm);
 
   // Sistema de Arquivos / Assets Portável (PC, Android APK, Switch RomFS)
   static std::vector<uint8_t> readAsset(const std::string& path);

@@ -58,6 +58,7 @@ static SDL_Renderer* s_renderer = nullptr;
 static SDL_Texture* s_screenTexture = nullptr;
 static bool s_quit = false;
 static std::string s_executablePath = "";
+static std::string s_currentLanguage = "pt"; // "pt", "en", "it", "es"
 
 void Platform::setExecutablePath(const std::string& path) { s_executablePath = path; }
 std::string Platform::getExecutablePath() { return s_executablePath; }
@@ -417,6 +418,113 @@ static void setVmInstanceShort(Object* obj, const std::string& fieldName, int16_
   }
 }
 
+static void setVmInstanceInt(Object* obj, const std::string& fieldName, int32_t val) {
+  if (!obj || obj->kind != K_INST || !obj->cls) return;
+  Instance* inst = static_cast<Instance*>(obj);
+  ClassInfo* cls = obj->cls;
+  FieldInfo* targetField = nullptr;
+
+  std::vector<std::string> candidateNames = { fieldName };
+  if (fieldName.rfind("var_int_", 0) == 0) {
+    candidateNames.push_back(fieldName.substr(8));
+  } else if (fieldName.rfind("var_", 0) == 0) {
+    candidateNames.push_back(fieldName.substr(4));
+  }
+
+  for (ClassInfo* cur = cls; cur; cur = cur->super) {
+    for (const auto& name : candidateNames) {
+      for (auto& f : cur->fields) {
+        if (f.name == name && f.desc == "I" && !f.isStatic) {
+          targetField = &f;
+          break;
+        }
+      }
+      if (targetField) break;
+    }
+    if (targetField) break;
+  }
+
+  if (targetField && !targetField->isStatic && targetField->index >= 0 && targetField->index < (int)inst->f.size()) {
+    inst->f[targetField->index].i = val;
+  }
+}
+
+static void setVmStaticByteArray(VM& vm, const std::string& className, const std::string& fieldName, const std::string& text) {
+  auto itCls = vm.classes.find(className);
+  if (itCls == vm.classes.end()) return;
+  ClassInfo* cls = itCls->second;
+
+  std::vector<std::string> candidateNames = { fieldName };
+  if (fieldName.rfind("var_byte_arr_", 0) == 0) {
+    candidateNames.push_back(fieldName.substr(13));
+  } else if (fieldName.rfind("var_", 0) == 0) {
+    candidateNames.push_back(fieldName.substr(4));
+  }
+
+  FieldInfo* targetField = nullptr;
+  for (const auto& name : candidateNames) {
+    for (auto& f : cls->fields) {
+      if (f.name == name && f.desc == "[B" && f.isStatic) {
+        targetField = &f;
+        break;
+      }
+    }
+    if (targetField) break;
+  }
+
+  if (targetField && targetField->isStatic && targetField->index >= 0 && targetField->index < (int)cls->statics.size()) {
+    Object* obj = cls->statics[targetField->index].o;
+    if (obj && obj->kind == K_ARRAY) {
+      Array* arr = static_cast<Array*>(obj);
+      arr->type = 'B';
+      arr->len = static_cast<int32_t>(text.size());
+      arr->data.assign(reinterpret_cast<const uint8_t*>(text.data()), reinterpret_cast<const uint8_t*>(text.data()) + text.size());
+    } else {
+      Array* arr = vm.newArray('B', static_cast<int>(text.size()));
+      if (!text.empty()) {
+        memcpy(arr->data.data(), text.data(), text.size());
+      }
+      cls->statics[targetField->index].o = arr;
+    }
+  }
+}
+
+void Platform::updateHardcodedLanguageStrings(VM& vm) {
+  ClassInfo* rpgD = vm.findClass("rpg/d");
+  if (rpgD && rpgD->initState == 0) {
+    vm.initClass(rpgD);
+  }
+
+  if (s_currentLanguage == "pt") {
+    setVmStaticByteArray(vm, "rpg/d", "C", "Pressione qualquer tecla para continuar");
+    setVmStaticByteArray(vm, "rpg/d", "u", "Tem certeza de que deseja sair?");
+    setVmStaticByteArray(vm, "rpg/d", "B", "Voce nao tem ouro suficiente.;");
+    setVmStaticByteArray(vm, "rpg/d", "D", "Deseja continuar? ;O jogo sera encerrado.");
+    setVmStaticByteArray(vm, "rpg/d", "s", "Ouro");
+    setVmStaticByteArray(vm, "rpg/d", "k", "mais");
+    setVmStaticByteArray(vm, "rpg/d", "l", "Sim");
+    setVmStaticByteArray(vm, "rpg/d", "m", "Nao");
+    setVmStaticByteArray(vm, "rpg/d", "v", "Sua classe atual nao permite equipar este item.");
+    setVmStaticByteArray(vm, "rpg/d", "w", "Esta combinacao nao requer elementos.");
+    setVmStaticByteArray(vm, "rpg/d", "x", "Selecione o livro de combinacao.");
+    setVmStaticByteArray(vm, "rpg/d", "y", "Inicie ou carregue um jogo antes de comprar.");
+    setVmStaticByteArray(vm, "rpg/d", "A", "Voce atingiu o nivel maximo.");
+  } else {
+    setVmStaticByteArray(vm, "rpg/d", "C", "Press Any Key To Continue");
+    setVmStaticByteArray(vm, "rpg/d", "u", "Are you sure you want to quit?");
+    setVmStaticByteArray(vm, "rpg/d", "B", "You do not have enough gold.;");
+    setVmStaticByteArray(vm, "rpg/d", "D", "Do you want to continue? ;Your game will exit.");
+    setVmStaticByteArray(vm, "rpg/d", "s", "Gold");
+    setVmStaticByteArray(vm, "rpg/d", "k", "more");
+    setVmStaticByteArray(vm, "rpg/d", "l", "yes");
+    setVmStaticByteArray(vm, "rpg/d", "m", "No");
+    setVmStaticByteArray(vm, "rpg/d", "v", "Your current class does not allow you to equip with this equipment.");
+    setVmStaticByteArray(vm, "rpg/d", "w", "This combination does not require any elements.");
+    setVmStaticByteArray(vm, "rpg/d", "x", "Please select the combination book.");
+    setVmStaticByteArray(vm, "rpg/d", "y", "Please start or load a game before purchasing this item.");
+    setVmStaticByteArray(vm, "rpg/d", "A", "You has reached the highest level, can no longer raise");
+  }
+}
 
 static void updateJavaViewportVariables(VM& vm) {
   // 1. rpg/a: dimensões fundamentais do jogo J2ME (largura dinâmica, altura nativa 320)
@@ -454,8 +562,10 @@ static void updateJavaViewportVariables(VM& vm) {
   }
 
   // 5. rpg/f e rpg/d: dimensões dos painéis de menu e janelas modais
-  // Mantemos a largura interna clássica dos menus (230px) perfeitamente centralizada na tela
-  int32_t menuW = 230;
+  // No bytecode original: b = rpg.a.var_int_a - 10
+  // Em 3:4 Original (240x320): menuW = 230
+  // Em 16:9 Widescreen (568x320): menuW = 558 (ocupa a largura inteira da tela de forma fluida)
+  int32_t menuW = g_screenWidth - 10;
   int32_t menuH = 174;
   int32_t menuX = (g_screenWidth - menuW) / 2;
   int32_t menuY = (g_screenHeight - menuH) / 2;
@@ -473,13 +583,16 @@ static void updateJavaViewportVariables(VM& vm) {
   setVmStaticInt(vm, "rpg/d", "f_", menuW);
   setVmStaticInt(vm, "rpg/d", "var_int_i", menuW - 16);
 
+  // Atualiza strings estáticas e hardcoded do jogo para o idioma ativo
+  Platform::updateHardcodedLanguageStrings(vm);
+
   // 6. Atualiza instâncias de menus modais (subclasses de n) já instanciadas para centralizar a_ e b_
   for (Object* obj : vm.allObjs) {
     if (!obj || obj->kind != K_INST || !obj->cls) continue;
     for (ClassInfo* cur = obj->cls; cur; cur = cur->super) {
       if (cur->name == "n") {
-        setVmInstanceShort(obj, "a_", (int16_t)menuX);
-        setVmInstanceShort(obj, "b_", (int16_t)menuY);
+        setVmInstanceInt(obj, "a_", menuX);
+        setVmInstanceInt(obj, "b_", menuY);
         setVmInstanceBool(obj, "var_boolean_e", true);
         setVmInstanceBool(obj, "var_boolean_a", true);
         break;
@@ -1016,7 +1129,6 @@ static bool s_touchOverlayEnabled = false;
 #endif
 
 // Passo 10: Localização e Idiomas
-static std::string s_currentLanguage = "pt"; // "pt", "en", "it", "es"
 
 static bool isTouchKeyHeld(int key) {
   for (const auto& f : s_activeFingers) {
@@ -2740,7 +2852,29 @@ std::vector<uint8_t> Platform::readAsset(const std::string& path) {
   // Intercepta leitura de assets localizados quando idioma ativo != "en" (Passo 10)
   if (s_currentLanguage != "en") {
     std::string rel = clean;
-    if (rel.rfind("assets/", 0) == 0) rel = rel.substr(7);
+    // Remove possíveis prefixos de ambiente/diretório de dados:
+    const char* stripPrefixes[] = {
+      "romfs:/",
+      "reference/extracted/",
+      "../reference/extracted/",
+      "extracted/",
+      "../extracted/",
+      "assets/",
+      "../assets/"
+    };
+    bool stripped = true;
+    while (stripped) {
+      stripped = false;
+      for (const char* pfx : stripPrefixes) {
+        size_t plen = strlen(pfx);
+        if (rel.rfind(pfx, 0) == 0) {
+          rel = rel.substr(plen);
+          while (!rel.empty() && (rel[0] == '/' || rel[0] == '\\')) rel = rel.substr(1);
+          stripped = true;
+          break;
+        }
+      }
+    }
 
     if (rel.rfind("t/", 0) == 0 || rel.rfind("m/", 0) == 0 || rel.rfind("en/edf", 0) == 0) {
       std::string cand1 = "assets/lang/" + s_currentLanguage + "/" + rel;
@@ -2748,6 +2882,10 @@ std::vector<uint8_t> Platform::readAsset(const std::string& path) {
       if (!rwLang) {
         std::string cand2 = "../assets/lang/" + s_currentLanguage + "/" + rel;
         rwLang = SDL_RWFromFile(cand2.c_str(), "rb");
+      }
+      if (!rwLang) {
+        std::string cand3 = "lang/" + s_currentLanguage + "/" + rel;
+        rwLang = SDL_RWFromFile(cand3.c_str(), "rb");
       }
 #ifdef __SWITCH__
       if (!rwLang) {
@@ -2766,6 +2904,7 @@ std::vector<uint8_t> Platform::readAsset(const std::string& path) {
           size_t rd = SDL_RWread(rwLang, buf.data(), 1, static_cast<size_t>(sz));
           SDL_RWclose(rwLang);
           if (rd != static_cast<size_t>(sz)) buf.resize(rd);
+          boot_log("[Lang] Interceptado asset localizado: '%s' -> '%s' (%zu bytes)\n", path.c_str(), rel.c_str(), buf.size());
           return buf;
         }
         SDL_RWclose(rwLang);
@@ -3314,6 +3453,9 @@ void Platform::reloadLanguage(VM& vm) {
         bsClass->statics[fBsC->index].i = 1;
       }
     }
+
+    // 5. Atualiza strings de texto hardcoded no bytecode para o novo idioma
+    updateHardcodedLanguageStrings(vm);
   } catch (const std::exception& ex) {
     fprintf(stderr, "[Platform] Erro ao recarregar idioma: %s\n", ex.what());
   } catch (...) {}

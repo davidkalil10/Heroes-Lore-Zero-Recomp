@@ -537,3 +537,37 @@
     - Renderiza `HL_VERSION_TAG` centralizado horizontalmente logo abaixo do logo (`logoY + 47`), utilizando a rotina oficial de desenho de texto `ac.a:(Lcm;II[BII)V`, aplicando sombra preta e tipografia na cor dourada suave / pergaminho (`0xD8C8A8`).
     - Resultado perfeitamente integrado e alinhado com o estilo gótico e clássico do menu original de Heroes Lore: Zero.
 
+## Sessão 19 (Correções Críticas v1.0.9: Localização de Byte Arrays Hardcoded, Intercepção de Mapas e Menu Widescreen Fluido)
+- **1. "Press any key to continue" sem Localização na Tela Splash (`rpg.d.C:[B`):**
+  - **Diagnóstico:**
+    - Logo após a confirmação do som no boot (`bv.java:164` e `f.java:62`), a tela exibe a frase `"Press Any Key To Continue"` via `ac.a(cm, ..., rpg.d.C, 0, 1)`.
+    - Esta string não vinha de nenhum arquivo `.tdf` externo, mas sim de um byte array estático hardcoded no bytecode compilado de `rpg.d.<clinit>`: `C = "Press Any Key To Continue".getBytes()`.
+    - Além disso, quando o motor tentava alterar o valor antes de `<clinit>`, a inicialização estática da classe Java executava posteriormente e sobrescrevia os valores.
+  - **Solução Implementada:**
+    - Criado helper nativo `setVmStaticByteArray(VM& vm, className, fieldName, text)` que altera dinamicamente e in-place o vetor de dados do `Array*` estático ou aloca um novo caso necessário.
+    - Implementado `Platform::updateHardcodedLanguageStrings(VM& vm)` cobrindo todas as strings hardcoded de `rpg.d` para PT-BR (`C`: "Pressione qualquer tecla para continuar", `u`: "Tem certeza de que deseja sair?", `B`: "Voce nao tem ouro suficiente.;", `D`: "Deseja continuar? ;O jogo sera encerrado.", `s`: "Ouro", etc.).
+    - Acoplado hook em `VM::initClass` (`src/vm/vm.cpp:365`) para disparar `Platform::updateHardcodedLanguageStrings` imediatamente após a conclusão do `<clinit>` de `rpg/d`, e garantido disparo também no boot (`main.cpp`) e ao trocar de idioma (`Platform::reloadLanguage`).
+    - Validado via captura de frame: exibe perfeitamente `"Pressione qualquer tecla para continuar"`.
+
+- **2. Diálogos de Mapas Permanecendo em Inglês no Início do Jogo:**
+  - **Diagnóstico:**
+    - Identificadas duas causas concorrentes:
+      1. **Prefixos de Ambiente em `Platform::readAsset`:** Quando `natives.cpp` carregava um mapa (`/m/m2/d6.m`), ele chamava `Platform::readAsset("reference/extracted/m/m2/d6.m")`. O interceptador de idioma verificava apenas `if (rel.rfind("m/", 0) == 0)`. Como continha o prefixo `"reference/extracted/"`, a checagem falhava e o motor lia o mapa original em inglês de `reference/extracted/`.
+      2. **Tradução Incompleta dos Mapas Iniciais:** Em `tools/translate_to_pt.py`, a lista de substituição de frases não cobria os diálogos do quarto de Lucian (`d6.m`), orfanato/Clare (`09.m`, `10.m`), Silverleaf Village (`00.m`) e Chelen Village (`01.m`).
+  - **Solução Implementada:**
+    - Atualizado `Platform::readAsset` (`src/platform/platform_sdl.cpp:2847`) com remoção sistemática de prefixos de diretório (`romfs:/`, `reference/extracted/`, `../reference/extracted/`, `extracted/`, `assets/`, `../assets/`) antes de checar as rotas de assets localizados (`t/`, `m/`, `en/edf`).
+    - Adicionado suporte a tabelas de diálogos exatas em `tools/translate_to_pt.py` (`MAP_EXACT_DIALOGS`) e expandido o dicionário `COMMON_PHRASES`.
+    - Traduzidos 100% dos diálogos do início do jogo (quarto de Lucian com Alpez e Calmon, conversas de Clare no orfanato, vila de Silverleaf e vila destruída de Chelen), preservando todas as tags do motor (`|[Nome]&`, `^[Nome]&`, `}Quest...&`).
+    - Recompilados os 139 mapas binários com `python tools/compile_texts.py pt` e espelhados no RomFS do Switch com `python tools/prepare_switch_romfs.py`.
+    - Logs confirmam: `[Lang] Interceptado asset localizado: 'reference/extracted/m/m2/d6.m' -> 'm/m2/d6.m' (5837 bytes)`.
+
+- **3. Menu Ingame Estreito / Cortado ao Alternar Resolução (`ax.java` / `rpg.f` / `rpg.d.e_`):**
+  - **Diagnóstico:**
+    - Ao abrir o jogo do zero em widescreen (568x320), o menu ingame (`ax.java`, subclasse de `l` e `n`) ocupava 558px de largura (largura total da tela menos 10px), visualmente impecável.
+    - Contudo, na rotina `updateJavaViewportVariables` (`platform_sdl.cpp`), o valor `menuW = 230` estava hardcoded. Quando o jogador mudava de resolução (ex: F7 ou opções) ou voltava para wide/auto, `rpg.f.b` e `rpg.d.e_` eram forçados permanentemente para 230px, além de as instâncias de `n` não estarem sendo atualizadas porque os campos `a_` e `b_` possuem descritor `I` (int32) e o código tentava usar `setVmInstanceShort` (descritor `S`).
+  - **Solução Implementada:**
+    - Implementado helper `setVmInstanceInt(Object* obj, fieldName, int32_t val)` para atualizar campos de instância inteiros em subclasses de `n`.
+    - Atualizado `updateJavaViewportVariables` para computar `menuW = g_screenWidth - 10;`, `menuX = (g_screenWidth - menuW) / 2;`, `rpg/f.h = g_screenWidth - 20;`, `rpg/d.e_ = menuW;` dinamicamente em qualquer resolução e aspecto de tela.
+    - Em 16:9 widescreen, `menuW` passa a ser 558px e `menuX = 5`. Em 3:4 original, `menuW = 230px` e `menuX = 5`.
+    - Agora o menu se adapta suavemente e mantém a largura fluida total de 558px sempre que o jogo estiver em widescreen.
+

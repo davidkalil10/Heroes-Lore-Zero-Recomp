@@ -362,6 +362,9 @@ void VM::initClass(ClassInfo* c) {
   auto it = c->declared.find("<clinit>:()V");
   if (it != c->declared.end()) { Value ret[2]; invoke(it->second, nullptr, ret); }
   c->initState = 2;
+  if (c->name == "rpg/d") {
+    Platform::updateHardcodedLanguageStrings(*this);
+  }
 }
 
 // ---------- alocação ----------
