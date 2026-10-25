@@ -595,4 +595,18 @@
     - No workflow `.github/workflows/build.yml`, configurado step de detecção a partir de `$ANDROID_NDK_HOME` / `$ANDROID_SDK_ROOT/ndk`, exportando para `$GITHUB_ENV` e passando `-Pandroid.ndkVersion` para o Gradle.
     - O build reutiliza o NDK 27 nativamente pré-instalado no runner sem requisições de download propensas a erro.
 
+## Sessão 21 (Ícones Nativos em Alta Definição e Lançamento v1.0.11)
+- **1. Atualização e Integração dos Ícones HD (1024x1024) para Todas as Plataformas:**
+  - **Diagnóstico:**
+    - O jogo utilizava ícones extraídos em baixa resolução do JAR original (128x128 ou 48x48) e o executável Windows não continha recurso de ícone embutido (.rc), aparecendo com ícone genérico do sistema no Windows Explorer.
+  - **Solução Implementada:**
+    - Integrado o ícone oficial em alta definição 1024x1024 (`assets/heroes_lore_zero_icon_1024.png`).
+    - Expandido `tools/generate_app_icons.py` para gerar ativos sob medida para cada ecossistema:
+      1. **Nintendo Switch:** `switch/icon.jpg` (256x256 JPEG com qualidade 95) para exibição no Homebrew Menu.
+      2. **Linux & Steam Deck:** `dist_linux/heroes_lore_zero.png` (256x256 PNG) para o pacote AppImage e lançadores desktop.
+      3. **Android:** todas as densidades mipmap (`mdpi`, `hdpi`, `xhdpi`, `xxhdpi`, `xxxhdpi`) com ícones quadrados e redondos com máscara anti-serrilhada 4x (`ic_launcher.png` e `ic_launcher_round.png`), além de `assets/icon.png`.
+      4. **Windows:** arquivo multi-resolução ICO (`src/platform/heroes_lore_zero.ico`, 16..256px) e script de recurso `heroes_lore_zero.rc`, integrado diretamente no `CMakeLists.txt` via `SRC_FILES` para embutir o ícone no `heroes_lore_zero.exe`.
+      5. **Runtime Desktop:** `assets/ui/app_icon.rgba` (128x128 RGBA puro) carregado no boot por `Platform::init` via `SDL_SetWindowIcon`, exibindo o ícone oficial na barra de tarefas e título da janela no Windows e Linux.
+
+
 

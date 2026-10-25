@@ -31,7 +31,7 @@ O projeto executa o **bytecode original diretamente no motor C++**, sem emulaç�
 - 🌐 **Localização Integral em Português do Brasil (PT-BR) & Sistema Multi-idiomas:**
   - Tradução completa para Português do Brasil de todos os menus de sistema, opções in-game, missões, itens, equipamentos, habilidades e todos os diálogos de mapas (Lucian, Clare, Silverleaf Village, Chelen Village, etc.).
   - **Hot-Reload em Tempo Real:** Alternância de idioma a quente pelo menu de opções (**Menu In-Game → System → Options → Idioma / Language**) ou tecla <kbd>F2</kbd>, atualizando textos e repintando a interface imediatamente sem reiniciar o jogo.
-  - Exibição elegante do número da versão instalada (`v1.0.10`) centralizada logo abaixo do logotipo oficial no menu de título.
+  - Exibição elegante do número da versão instalada (`v1.0.11`) centralizada logo abaixo do logotipo oficial no menu de título.
 - ☁️ **Cloud Save Multiplataforma (Google Drive):**
   - Sincronização e backup de saves na nuvem via OAuth 2.0 Device Flow (RFC 8628), sem necessidade de digitação de senhas no jogo.
   - Pasta e arquivos de save totalmente dedicados e isolados para *Heroes Lore Zero* (`com.davidbraga.heroeslorezero`), permitindo continuar a mesma campanha entre PC, Android, Linux ou Nintendo Switch.

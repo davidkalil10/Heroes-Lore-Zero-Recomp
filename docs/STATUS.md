@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-19 (Versão v1.0.10 lançada oficialmente)_
+_Última atualização: 2026-10-25 (Versão v1.0.11 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -69,6 +69,9 @@ _Última atualização: 2026-10-19 (Versão v1.0.10 lançada oficialmente)_
 - [x] Correções e refinamentos v1.0.10:
   - Enfileiramento atômico thread-safe (`s_pendingAspectWidth`) para alteração de aspecto/resolução a partir do menu de opções ingame (`bd.class`), eliminando tela preta.
   - Resolução dinâmica do Android NDK na CI e no Gradle para uso automático do NDK 27 pré-instalado no GitHub Actions.
+- [x] Correções e refinamentos v1.0.11:
+  - Adição de ícones em alta definição (1024x1024) para todas as 4 plataformas (Windows ICO multi-resolução 16..256 embutido via RC, Switch 256x256 JPEG, Android mipmaps mdpi..xxxhdpi + Round mask, Linux AppImage 256x256 PNG e SDL_SetWindowIcon em runtime via `assets/ui/app_icon.rgba`).
+  - Atualização do script `tools/generate_app_icons.py` e recompilação de assets/RomFS.
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
 - [x] **Passo 0:** Boot nativo no PC da classe `rpg.RPGHeroEx` e renderização do primeiro frame (240x320 / Widescreen).
