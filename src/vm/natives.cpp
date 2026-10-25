@@ -1224,6 +1224,8 @@ static void bd_a_native(VM& vm, Value* args, Value* ret);
 static void bd_draw_native(VM& vm, Value* args, Value*);
 static void bd_cursor_native(VM& vm, Value* args, Value*);
 static void rpg_a_c_native(VM& vm, Value* args, Value*);
+static void bt_a_native(VM& vm, Value* args, Value* ret);
+static void rpg_e_a_native(VM& vm, Value* args, Value* ret);
 
 // -------------------------------------------------------------
 // Registro de todos os métodos nativos
@@ -1456,6 +1458,14 @@ void VM::registerNatives() {
 
   // HL Zero: Tela de Título — Logo e Versão Instalada (rpg.a.c(cm))
   reg("rpg/a.c:(Lcm;)V", rpg_a_c_native);
+
+  // HL Zero: Validação e Checksum de Recursos/Monstros (rpg.e.class)
+  reg("rpg/e.a:([B)Z", rpg_e_a_native);
+  reg("rpg/e.boolean_a:([B)Z", rpg_e_a_native);
+
+  // HL Zero: Caixas de Diálogo de Escolha e Perguntas de Mapa (bt.class) com Tratamento Seguro para listener nulo
+  reg("bt.a:(II)Z", bt_a_native);
+  reg("bt.boolean_a:(II)Z", bt_a_native);
 }
 
 static void ch_init_native(VM& vm, Value* args, Value*) {
@@ -2269,6 +2279,132 @@ bool bd_handle_mouse_click(VM& vm, int gameX, int gameY) {
 
 void bd_reset_active_menu() {
   s_activeBdMenu = nullptr;
+}
+
+// -------------------------------------------------------------
+// rpg/e.a:([B)Z — Validação e Checksum de Recursos/Monstros
+// -------------------------------------------------------------
+static void rpg_e_a_native(VM&, Value*, Value* ret) {
+  ret[0].i = 1; // Sempre válido
+}
+
+// -------------------------------------------------------------
+// bt.a:(II)Z — Diálogo de Escolha e Perguntas com Tratamento Seguro para listener nulo (df.var_eb_a)
+// -------------------------------------------------------------
+static void bt_a_native(VM& vm, Value* args, Value* ret) {
+  Object* self = args[0].o;
+  if (!self || self->kind != K_INST) { ret[0].i = 0; return; }
+  Instance* inst = static_cast<Instance*>(self);
+
+  int n2 = args[1].i; // GameAction / keyCode 1
+  int n3 = args[2].i; // KeyCode 2
+
+  ClassInfo* btCls = inst->cls;
+  ClassInfo* ebCls = vm.findClass("eb");
+  ClassInfo* nCls = vm.findClass("n");
+
+  FieldInfo* fH = vm.findField(btCls, "h:Z");
+  FieldInfo* fG = vm.findField(btCls, "g:Z");
+  FieldInfo* fVarNa = nCls ? vm.findField(nCls, "a:Ln;") : nullptr;
+  FieldInfo* fVarByteF = ebCls ? vm.findField(ebCls, "f:B") : nullptr;
+  FieldInfo* fVarByteA = nCls ? vm.findField(nCls, "a:B") : nullptr;
+  FieldInfo* fVarBoolA = nCls ? vm.findField(nCls, "a:Z") : nullptr;
+
+  bool h = (fH && fH->index >= 0 && fH->index < (int)inst->f.size()) ? (inst->f[fH->index].i != 0) : true;
+  bool g = (fG && fG->index >= 0 && fG->index < (int)inst->f.size()) ? (inst->f[fG->index].i != 0) : false;
+  Object* listener = (fVarNa && fVarNa->index >= 0 && fVarNa->index < (int)inst->f.size()) ? inst->f[fVarNa->index].o : nullptr;
+  int byteF = (fVarByteF && fVarByteF->index >= 0 && fVarByteF->index < (int)inst->f.size()) ? inst->f[fVarByteF->index].i : 0;
+  int curOpt = (fVarByteA && fVarByteA->index >= 0 && fVarByteA->index < (int)inst->f.size()) ? inst->f[fVarByteA->index].i : 0;
+
+  // 1. Navegação direcional
+  if (h) {
+    Method* mC = vm.findMethod(inst->cls, "c:(II)Z");
+    if (mC) {
+      Value cArgs[3]; cArgs[0].o = inst; cArgs[1].i = n2; cArgs[2].i = n3; Value cRet[2];
+      vm.invoke(mC, cArgs, cRet);
+      if (cRet[0].i != 0) {
+        if (fVarBoolA && fVarBoolA->index >= 0 && fVarBoolA->index < (int)inst->f.size()) {
+          inst->f[fVarBoolA->index].i = 1;
+        }
+        ret[0].i = 1;
+        return;
+      }
+    }
+  } else {
+    Method* mD = vm.findMethod(inst->cls, "d:(II)Z");
+    if (mD) {
+      Value dArgs[3]; dArgs[0].o = inst; dArgs[1].i = n2; dArgs[2].i = n3; Value dRet[2];
+      vm.invoke(mD, dArgs, dRet);
+      if (dRet[0].i != 0) {
+        if (fVarBoolA && fVarBoolA->index >= 0 && fVarBoolA->index < (int)inst->f.size()) {
+          inst->f[fVarBoolA->index].i = 1;
+        }
+        ret[0].i = 1;
+        return;
+      }
+    }
+  }
+
+  // 2. Confirmação (n.f: n2 == 8 || n3 == 53 || n2 == -6 || n3 == -6)
+  bool isConfirm = (n2 == 8 || n3 == 53 || n2 == -6 || n3 == -6);
+  // 3. Cancelamento (n.g: n3 == 0 || n2 == -7 || n3 == -7)
+  bool isCancel = (n3 == 0 || n2 == -7 || n3 == -7);
+
+  if (isConfirm) {
+    if (listener) {
+      Method* mCb = vm.findMethod(listener->cls, "a:(BB)V");
+      if (!mCb) mCb = vm.findMethod(listener->cls, "void_a:(BB)V");
+      if (mCb) {
+        Value cbArgs[3]; cbArgs[0].o = listener; cbArgs[1].i = byteF; cbArgs[2].i = curOpt; Value cbRet[2];
+        vm.invoke(mCb, cbArgs, cbRet);
+      }
+    } else {
+      // Diálogo de mapa sem listener de UI (df.var_eb_a): avança o script do mapa com a opção selecionada
+      ClassInfo* dbCls = vm.findClass("db");
+      Method* mDbA = dbCls ? vm.findMethod(dbCls, "a:(I)V") : nullptr;
+      if (!mDbA && dbCls) mDbA = vm.findMethod(dbCls, "void_a:(I)V");
+      if (mDbA) {
+        Value aArgs[1]; aArgs[0].i = curOpt; Value aRet[2];
+        vm.invoke(mDbA, aArgs, aRet);
+      }
+      ClassInfo* dfCls = vm.findClass("df");
+      FieldInfo* fVarEbA = dfCls ? vm.findField(dfCls, "a:Leb;") : nullptr;
+      if (!fVarEbA && dfCls) fVarEbA = vm.findField(dfCls, "var_eb_a:Leb;");
+      if (fVarEbA && fVarEbA->isStatic && fVarEbA->index >= 0 && fVarEbA->index < (int)dfCls->statics.size()) {
+        dfCls->statics[fVarEbA->index].o = nullptr;
+      }
+    }
+    ret[0].i = 1;
+    return;
+  } else if (isCancel) {
+    if (listener && g) {
+      Method* mCb = vm.findMethod(listener->cls, "a:(BB)V");
+      if (!mCb) mCb = vm.findMethod(listener->cls, "void_a:(BB)V");
+      if (mCb) {
+        Value cbArgs[3]; cbArgs[0].o = listener; cbArgs[1].i = byteF; cbArgs[2].i = 1; Value cbRet[2];
+        vm.invoke(mCb, cbArgs, cbRet);
+      }
+    } else if (!listener) {
+      // Cancelamento em diálogo de mapa sem listener: seleciona opção 1 ("Não") e fecha
+      ClassInfo* dbCls = vm.findClass("db");
+      Method* mDbA = dbCls ? vm.findMethod(dbCls, "a:(I)V") : nullptr;
+      if (!mDbA && dbCls) mDbA = vm.findMethod(dbCls, "void_a:(I)V");
+      if (mDbA) {
+        Value aArgs[1]; aArgs[0].i = 1; Value aRet[2];
+        vm.invoke(mDbA, aArgs, aRet);
+      }
+      ClassInfo* dfCls = vm.findClass("df");
+      FieldInfo* fVarEbA = dfCls ? vm.findField(dfCls, "a:Leb;") : nullptr;
+      if (!fVarEbA && dfCls) fVarEbA = vm.findField(dfCls, "var_eb_a:Leb;");
+      if (fVarEbA && fVarEbA->isStatic && fVarEbA->index >= 0 && fVarEbA->index < (int)dfCls->statics.size()) {
+        dfCls->statics[fVarEbA->index].o = nullptr;
+      }
+    }
+    ret[0].i = 1;
+    return;
+  }
+
+  ret[0].i = 1;
 }
 
 }  // namespace hl

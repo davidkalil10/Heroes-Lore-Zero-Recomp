@@ -1786,6 +1786,10 @@ static void sendKeyPressed(VM& vm, int key) {
     key = -6;
   }
   vm.gilLock();
+  ThreadCtx inputCtx;
+  inputCtx.id = 0;
+  ThreadCtx* oldTctx = tctx;
+  if (!tctx) tctx = &inputCtx;
   try {
     Value args[1]; args[0].i = key; Value ret[2];
     vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
@@ -1796,6 +1800,7 @@ static void sendKeyPressed(VM& vm, int key) {
   } catch (...) {
     boot_log("[Input Exception] Excecao desconhecida em keyPressed(%d)!\n", key);
   }
+  if (tctx == &inputCtx) tctx = oldTctx;
   vm.gilUnlock();
 }
 
@@ -1805,6 +1810,10 @@ static void sendKeyReleased(VM& vm, int key) {
     key = -6;
   }
   vm.gilLock();
+  ThreadCtx inputCtx;
+  inputCtx.id = 0;
+  ThreadCtx* oldTctx = tctx;
+  if (!tctx) tctx = &inputCtx;
   try {
     Value args[1]; args[0].i = key; Value ret[2];
     vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
@@ -1815,6 +1824,7 @@ static void sendKeyReleased(VM& vm, int key) {
   } catch (...) {
     boot_log("[Input Exception] Excecao desconhecida em keyReleased(%d)!\n", key);
   }
+  if (tctx == &inputCtx) tctx = oldTctx;
   vm.gilUnlock();
 }
 

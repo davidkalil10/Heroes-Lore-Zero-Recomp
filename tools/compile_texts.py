@@ -174,30 +174,55 @@ def main():
             compiled_maps += 1
         print(f"[OK] {compiled_maps} arquivos de mapas .m compilados em {out_dir}/m/")
 
-    # 3. Compila monstros (edf)
+    # 3. Compila monstros (edf) com integridade total de checksum
     enemies_path = os.path.join(src_dir, "enemies_npcs.json")
     if os.path.exists(enemies_path) and os.path.exists("assets/en/edf"):
         with open(enemies_path, "r", encoding="utf-8") as f:
             enemy_data = json.load(f)
-        # Substitui strings traduzidas preservando comprimentos ou copiando
+        trans_dict = enemy_data.get("translations", {})
+        
         orig_edf_path = "assets/en/edf"
         with open(orig_edf_path, "rb") as f_orig:
-            edf_bytes = bytearray(f_orig.read())
-        # Substitui termos traduzidos
-        trans_dict = enemy_data.get("translations", {})
-        for eng, trans in trans_dict.items():
-            trans_c = clean_ascii(trans)
-            # se trans_c couber no tamanho de eng
-            b_eng = eng.encode('latin1')
-            b_trans = trans_c.encode('latin1')
-            if len(b_trans) <= len(b_eng):
-                b_padded = b_trans.ljust(len(b_eng), b'\x00')
-                pos = edf_bytes.find(b_eng)
-                if pos != -1:
-                    edf_bytes[pos:pos+len(b_eng)] = b_padded
-        with open(os.path.join(out_dir, "en", "edf"), "wb") as f_out:
-            f_out.write(edf_bytes)
-        print(f"[OK] edf compilado em {out_dir}/en/edf")
+            orig_bytes = f_orig.read()
+
+        new_edf = bytearray()
+        off = 0
+        monster_count = 0
+        trans_count = 0
+        while off < len(orig_bytes):
+            s2 = (orig_bytes[off] << 8) | orig_bytes[off+1]
+            rec = orig_bytes[off+2 : off+2+s2]
+            off += 2 + s2
+
+            name_len = rec[0]
+            orig_name = rec[1 : 1 + name_len].decode('latin1', errors='replace')
+            rest_data = rec[1 + name_len : -1] # Dados de atributos/drops excluindo checksum antiga
+
+            if orig_name in trans_dict:
+                t_name = clean_ascii(trans_dict[orig_name])
+                t_bytes = t_name.encode('latin1', errors='replace')[:255]
+                trans_count += 1
+            else:
+                t_bytes = rec[1 : 1 + name_len]
+
+            new_rec = bytearray()
+            new_rec.append(len(t_bytes))
+            new_rec.extend(t_bytes)
+            new_rec.extend(rest_data)
+            # Recalcula o byte de checksum conforme rpg.e.boolean_a(byte[]): sum(bytes[:-1]) & 0xFF == bytes[-1]
+            new_csum = sum(new_rec) & 0xFF
+            new_rec.append(new_csum)
+
+            new_s2 = len(new_rec)
+            new_edf.append((new_s2 >> 8) & 0xFF)
+            new_edf.append(new_s2 & 0xFF)
+            new_edf.extend(new_rec)
+            monster_count += 1
+
+        edf_out = os.path.join(out_dir, "en", "edf")
+        with open(edf_out, "wb") as f_out:
+            f_out.write(new_edf)
+        print(f"[OK] edf compilado em {edf_out}: {monster_count} monstros ({trans_count} traduzidos, checksum 100% integra)")
 
     print(f"=== Concluído! Idioma [{lang}] pronto para execução. ===")
 

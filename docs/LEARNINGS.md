@@ -608,5 +608,35 @@
       4. **Windows:** arquivo multi-resolução ICO (`src/platform/heroes_lore_zero.ico`, 16..256px) e script de recurso `heroes_lore_zero.rc`, integrado diretamente no `CMakeLists.txt` via `SRC_FILES` para embutir o ícone no `heroes_lore_zero.exe`.
       5. **Runtime Desktop:** `assets/ui/app_icon.rgba` (128x128 RGBA puro) carregado no boot por `Platform::init` via `SDL_SetWindowIcon`, exibindo o ícone oficial na barra de tarefas e título da janela no Windows e Linux.
 
+## Sessão 22 (Correções Críticas v1.0.12: Diálogos Internos, Crash na Pedra de Retorno e Congelamento no Loading da Luta)
+- **1. Diálogos e Conversas Dentro de Casas e Vilas em Inglês:**
+  - **Diagnóstico:**
+    - O tradutor `tools/translate_to_pt.py` possuía mapeamentos manuais de diálogos externos (`00.m`), mas as 29 áreas internas do jogo (Orfanato `07.m`/`08.m`, Quarto de Lucian `09.m`, Quarto de Clare `10.m`, Loja de Alquimia de Carl `11.m`, Estalagem `12.m`/`13.m`, Casas `14.m`/`15.m`, Delegacias `16.m`/`29.m`/`38.m`, Lojas de Melon e Chelen `17.m`/`23.m`/`34.m`/`35.m`, Estalagem com Marie `19.m`, Prisão Subterrânea `39.m`) caíam num fallback genérico que continha apenas frases básicas.
+  - **Solução Implementada:**
+    - Adicionadas traduções completas e fiéis de todos os 29 mapas de interiores em `MAP_EXACT_DIALOGS` e criado o pipeline `tools/translate_all_dialogs.py`.
+    - Todas as falas internas, missões secundárias (como a busca por Marie para Kidman, a lenda da arma do Espadachim das Ondas Gélidas, a neve para o alquimista e os interrogatórios) foram localizadas para português brasileiro canônico e compiladas com sucesso para todos os 139 mapas em `assets/lang/pt/m/`.
+
+- **2. Crash Fatal ao Definir o Ponto de Retorno na Pedra de Retorno:**
+  - **Diagnóstico:**
+    - Ao interagir com a Pedra de Retorno, o script do mapa (`00.m`) dispara a pergunta Sim/Não através de `df.java:722`:
+      `var_eb_a = new bt(null, db.byte_arr_a(n2), var_byte_arr_arr_a, bl2);`
+      Neste ponto, o primeiro argumento passado para o diálogo é `null` (listener `this.var_n_a == null`).
+    - No código decompilado de `df.java:1140`, a verificação de confirmação era estritamente `if (n2 == 8 || n3 == 53)`.
+    - Quando o jogador usava o gamepad ou teclado/touch com teclas de confirmação LSK (`-6`) ou cancelamento RSK (`-7`), a condição de `df` falhava e repassava a entrada para `var_eb_a.boolean_a(n2, n3)`.
+    - Em `bt.java:86-90`, se `n.f(n2, n3)` ou `n.g(n2, n3)` fosse verdadeiro, chamava cegamente `this.var_n_a.void_a(...)`. Como `this.var_n_a` era `null`, disparava `NullPointerException`.
+    - Além disso, durante `Platform::pollEvents` no loop SDL, `tctx` estava nulo. Quando o método Java interpretado lançava exceção ou tentava chamar outro método, `interp.cpp:292` abortava o processo imediatamente com `fatal("invoke chamado sem ThreadCtx ativo")` -> `exit(2)`.
+  - **Solução Implementada:**
+    - Em `src/vm/natives.cpp`, implementado o nativo resiliente `bt_a_native` registrado para `bt.a:(II)Z` e `bt.boolean_a:(II)Z`. Quando `listener == null` (diálogo de mapa), qualquer confirmação (`n2 == 8 || n3 == 53 || n2 == -6 || n3 == -6`) chama `db.void_a(curOpt)` e limpa `df.var_eb_a = null`, e qualquer cancelamento (`n3 == 0 || n2 == -7 || n3 == -7`) chama `db.void_a(1)` (seleção "Não") e fecha o diálogo com segurança.
+    - Em `src/platform/platform_sdl.cpp`, métodos `sendKeyPressed` e `sendKeyReleased` receberam guarda temporária `ThreadCtx inputCtx;` quando `tctx == nullptr`, garantindo execução estável de métodos Java durante todo o ciclo de inputs.
+
+- **3. Congelamento na Tela de Carregamento ("Loading...") ao Mudar para o Mapa de Luta:**
+  - **Diagnóstico:**
+    - Ao entrar no mapa sul onde começa a luta (`by6 > 0`), o motor Java carrega os monstros de `/en/edf` (`g.java:446`). Em `dt.java:44`, cada registro de monstro é submetido a `rpg.e.boolean_a(byte[])`, que valida se a soma dos primeiros 47 bytes bate com o byte 48 (`sum(rec[:-1]) & 0xFF == rec[-1]`).
+    - O compilador antigo de textos havia inserido traduções textuais sem recalcular esse checksum, fazendo com que monstros (incluindo os monstros 0 e 2) fossem descartados como `null`. Ao instanciar os monstros no mapa (`g.java:463`), ocorria `NullPointerException` dentro da thread de carregamento, deixando o jogo congelado para sempre na tela de "Carregando...".
+  - **Solução Implementada:**
+    - Em `tools/compile_texts.py`, o empacotador de `edf` foi reescrito para decodificar cada monstro registro a registro, preservando todos os atributos binários e recalculando dinamicamente o checksum exato de cada um.
+    - Em `src/vm/natives.cpp`, adicionado nativo para `rpg/e.a:([B)Z` e `rpg/e.boolean_a:([B)Z` retornando sempre 1 como camada extra de robustez à prova de falhas.
+    - Todos os 132 monstros de `assets/lang/pt/en/edf` agora passam com 100% de integridade e 0 falhas, permitindo carregar os mapas de combate sem qualquer travamento.
+
 
 

@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-25 (Versão v1.0.11 lançada oficialmente)_
+_Última atualização: 2026-10-25 (Versão v1.0.12 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -72,6 +72,10 @@ _Última atualização: 2026-10-25 (Versão v1.0.11 lançada oficialmente)_
 - [x] Correções e refinamentos v1.0.11:
   - Adição de ícones em alta definição (1024x1024) para todas as 4 plataformas (Windows ICO multi-resolução 16..256 embutido via RC, Switch 256x256 JPEG, Android mipmaps mdpi..xxxhdpi + Round mask, Linux AppImage 256x256 PNG e SDL_SetWindowIcon em runtime via `assets/ui/app_icon.rgba`).
   - Atualização do script `tools/generate_app_icons.py` e recompilação de assets/RomFS.
+- [x] Correções e refinamentos v1.0.12:
+  - **Tradução completa de interiores e casas:** Localização PT-BR integral de todas as 29 áreas internas (Orfanato, Estalagens, Lojas de Alquimia e Armas, Delegacias e Templos), garantindo que as conversas dentro das residências estejam 100% traduzidas de forma natural e canônica.
+  - **Correção de crash na Pedra de Retorno:** Implementação de nativo resiliente para `bt.a:(II)Z` / `bt.boolean_a:(II)Z` com proteção contra listener nulo (`var_n_a == null`), suporte a confirmação LSK (`-6`) e cancelamento RSK (`-7`), e guarda de `ThreadCtx` ativo em `sendKeyPressed/sendKeyReleased`.
+  - **Correção de congelamento no loading da luta:** Reescrita do empacotador de `edf` em `tools/compile_texts.py` para recalcular o checksum fiel registro a registro e nativo `rpg/e.a:([B)Z`, eliminando o descarte de monstros e o travamento na transição para mapas com combate.
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
 - [x] **Passo 0:** Boot nativo no PC da classe `rpg.RPGHeroEx` e renderização do primeiro frame (240x320 / Widescreen).
