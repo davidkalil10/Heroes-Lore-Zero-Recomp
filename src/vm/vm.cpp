@@ -438,11 +438,13 @@ void VM::gc() {
 
 // ---------- exceções ----------
 void VM::throwNew(const char* cls, const std::string& msg) {
+  boot_log("\n[throwNew] %s: %s (TID=%u)\n", cls, msg.c_str(), tctx ? tctx->id : 0);
   ClassInfo* c = mustClass(cls);
   Instance* e = newInstance(c);
   if (!msg.empty() && !e->f.empty()) e->f[0].o = newStrUtf8(msg);
   throw JavaThrow{e};
 }
+
 
 // ---------- threads / monitores ----------
 void VM::gilLock() {

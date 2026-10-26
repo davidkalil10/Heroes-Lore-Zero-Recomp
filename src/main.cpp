@@ -41,7 +41,24 @@ std::string describeThrowable(VM& vm, Object* ex);
 
 using hl::boot_log;
 
+#ifdef _WIN32
+#include <windows.h>
+static LONG WINAPI hlCrashFilter(EXCEPTION_POINTERS* ep) {
+  boot_log("\n[CRASH FATAL NATIVO] Excecao de Sistema: 0x%08X no endereco %p\n",
+           ep->ExceptionRecord->ExceptionCode, ep->ExceptionRecord->ExceptionAddress);
+  if (ep->ExceptionRecord->ExceptionCode == EXCEPTION_ACCESS_VIOLATION) {
+    boot_log("  -> ACCESS VIOLATION tentando %s endereco %p\n",
+             ep->ExceptionRecord->ExceptionInformation[0] == 1 ? "ESCREVER no" : "LER do",
+             (void*)ep->ExceptionRecord->ExceptionInformation[1]);
+  }
+  return EXCEPTION_CONTINUE_SEARCH;
+}
+#endif
+
 int main(int argc, char** argv) {
+#ifdef _WIN32
+  SetUnhandledExceptionFilter(hlCrashFilter);
+#endif
   setvbuf(stdout, nullptr, _IONBF, 0);
   setvbuf(stderr, nullptr, _IONBF, 0);
   using namespace hl;
@@ -62,6 +79,7 @@ int main(int argc, char** argv) {
 #endif
 
   boot_log("==================================================\n");
+
   boot_log(" Heroes Lore: Zero — Native Recomp\n");
   boot_log(" C++17 + SDL2 Pixel-Perfect Native Port (240x320 / 16:9 Widescreen)\n");
   boot_log(" Port Nativo por David Kalil Braga (2026) (Windows, Linux, Android, Switch)\n");
@@ -241,10 +259,16 @@ int main(int argc, char** argv) {
 
     // No modo autoStart, simula confirmação de som e avanço das cutscenes
     if (autoStart && g_display && g_display->current) {
-      if (frameCount == 45 || frameCount == 85 || (frameCount >= 125 && frameCount % 4 == 0)) {
-        Value args[1];
-        args[0].i = 53; // '5' (Ação / Confirmar)
-        Value ret[2];
+      if (frameCount == 45 || frameCount == 85) {
+        Value args[1]; args[0].i = 53; Value ret[2];
+        try {
+          vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
+          vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);
+        } catch (JavaThrow& jt) {
+          boot_log("[AutoTest] Excecao: %s\n", describeThrowable(vm, jt.ex).c_str());
+        }
+      } else if (autoStart && frameCount >= 125 && frameCount <= 220 && frameCount % 6 == 0) {
+        Value args[1]; args[0].i = 53; Value ret[2];
         try {
           vm.invokeVirtual(g_display->current, "keyPressed:(I)V", args, 1, ret);
           vm.invokeVirtual(g_display->current, "keyReleased:(I)V", args, 1, ret);

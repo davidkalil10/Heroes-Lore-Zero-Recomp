@@ -2360,12 +2360,15 @@ static void bt_a_native(VM& vm, Value* args, Value* ret) {
       }
     } else {
       // Diálogo de mapa sem listener de UI (df.var_eb_a): avança o script do mapa com a opção selecionada
+      boot_log("[bt_a_native] Confirm sem listener (map dialog): curOpt=%d (n2=%d, n3=%d)\n", curOpt, n2, n3);
       ClassInfo* dbCls = vm.findClass("db");
       Method* mDbA = dbCls ? vm.findMethod(dbCls, "a:(I)V") : nullptr;
       if (!mDbA && dbCls) mDbA = vm.findMethod(dbCls, "void_a:(I)V");
       if (mDbA) {
         Value aArgs[1]; aArgs[0].i = curOpt; Value aRet[2];
+        boot_log("[bt_a_native] Invocando db.void_a(%d)...\n", curOpt);
         vm.invoke(mDbA, aArgs, aRet);
+        boot_log("[bt_a_native] db.void_a concluído com sucesso.\n");
       }
       ClassInfo* dfCls = vm.findClass("df");
       FieldInfo* fVarEbA = dfCls ? vm.findField(dfCls, "a:Leb;") : nullptr;

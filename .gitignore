@@ -13,6 +13,7 @@ romfs/
 *.o
 *.obj
 *.bmp
+*.zip
 *.log
 *.err
 screenshot_frame_*.bmp

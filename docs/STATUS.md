@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-25 (Versão v1.0.12 lançada oficialmente)_
+_Última atualização: 2026-10-25 (Versão v1.0.13 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -76,6 +76,10 @@ _Última atualização: 2026-10-25 (Versão v1.0.12 lançada oficialmente)_
   - **Tradução completa de interiores e casas:** Localização PT-BR integral de todas as 29 áreas internas (Orfanato, Estalagens, Lojas de Alquimia e Armas, Delegacias e Templos), garantindo que as conversas dentro das residências estejam 100% traduzidas de forma natural e canônica.
   - **Correção de crash na Pedra de Retorno:** Implementação de nativo resiliente para `bt.a:(II)Z` / `bt.boolean_a:(II)Z` com proteção contra listener nulo (`var_n_a == null`), suporte a confirmação LSK (`-6`) e cancelamento RSK (`-7`), e guarda de `ThreadCtx` ativo em `sendKeyPressed/sendKeyReleased`.
   - **Correção de congelamento no loading da luta:** Reescrita do empacotador de `edf` em `tools/compile_texts.py` para recalcular o checksum fiel registro a registro e nativo `rpg/e.a:([B)Z`, eliminando o descarte de monstros e o travamento na transição para mapas com combate.
+- [x] Correções e refinamentos v1.0.13:
+  - **Correção definitiva de crash ao selecionar "Sim" na Pedra de Retorno:** Implementação completa da API nativa `javax/microedition/lcdui/Display.vibrate:(I)Z` com integração ao subsistema háptico nativo (`Platform::rumble`), além de `flashBacklight`, `numColors`, `numAlphaLevels` e `isColor`.
+  - Eliminação de crashes ao executar o tremor de tela (`screen shake`) pós-confirmação na Pedra de Retorno, durante terremotos em cutscenes e em golpes críticos em combate.
+
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
 - [x] **Passo 0:** Boot nativo no PC da classe `rpg.RPGHeroEx` e renderização do primeiro frame (240x320 / Widescreen).

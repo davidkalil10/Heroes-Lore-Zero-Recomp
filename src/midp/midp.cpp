@@ -321,6 +321,30 @@ static void Display_callSerially(VM&, Value* args, Value*) {
   g_serialRunnable = args[1].o;
 }
 
+static void Display_vibrate(VM&, Value* args, Value* ret) {
+  int duration = args[1].i;
+  if (duration > 0) {
+    Platform::rumble(0.6f, std::min(duration, 1000));
+  }
+  ret[0].i = 1;
+}
+
+static void Display_flashBacklight(VM&, Value*, Value* ret) {
+  ret[0].i = 1;
+}
+
+static void Display_numColors(VM&, Value*, Value* ret) {
+  ret[0].i = 65536;
+}
+
+static void Display_numAlphaLevels(VM&, Value*, Value* ret) {
+  ret[0].i = 256;
+}
+
+static void Display_isColor(VM&, Value*, Value* ret) {
+  ret[0].i = 1;
+}
+
 // -------------------------------------------------------------
 // javax/microedition/lcdui/Displayable
 // -------------------------------------------------------------
@@ -975,6 +999,11 @@ void VM::registerMidp() {
   reg("javax/microedition/lcdui/Display.setCurrent:(Ljavax/microedition/lcdui/Displayable;)V", Display_setCurrent);
   reg("javax/microedition/lcdui/Display.getCurrent:()Ljavax/microedition/lcdui/Displayable;", Display_getCurrent);
   reg("javax/microedition/lcdui/Display.callSerially:(Ljava/lang/Runnable;)V", Display_callSerially);
+  reg("javax/microedition/lcdui/Display.vibrate:(I)Z", Display_vibrate);
+  reg("javax/microedition/lcdui/Display.flashBacklight:(I)Z", Display_flashBacklight);
+  reg("javax/microedition/lcdui/Display.numColors:()I", Display_numColors);
+  reg("javax/microedition/lcdui/Display.numAlphaLevels:()I", Display_numAlphaLevels);
+  reg("javax/microedition/lcdui/Display.isColor:()Z", Display_isColor);
 
   // Displayable
   reg("javax/microedition/lcdui/Displayable.getWidth:()I", Displayable_getWidth);

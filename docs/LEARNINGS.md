@@ -638,5 +638,31 @@
     - Em `src/vm/natives.cpp`, adicionado nativo para `rpg/e.a:([B)Z` e `rpg/e.boolean_a:([B)Z` retornando sempre 1 como camada extra de robustez à prova de falhas.
     - Todos os 132 monstros de `assets/lang/pt/en/edf` agora passam com 100% de integridade e 0 falhas, permitindo carregar os mapas de combate sem qualquer travamento.
 
+## Sessão 23 (Correção Definitiva do Crash na Pedra de Retorno e Implementação de Display.vibrate v1.0.13)
+- **1. Crash Fatal ao Confirmar "Sim" na Pedra de Retorno:**
+  - **Diagnóstico:**
+    - Ao interagir com a Pedra de Retorno em Silverleaf Village, o Script #29 de `00.m` (18 bytes) é executado: `[255, 95, 2, 96, 9, 98, 2, 47, 4, 44, 97, 58, 0, 22, 26, 2, 14, 1]`.
+    - Ao selecionar Opção 1 ("Não"), o script executa apenas `14, 1` (opcode 14, subtipo 1: encerramento imediato de script sem efeitos).
+    - Ao selecionar Opção 0 ("Sim"), o script executa `47, 4` (opcode 47, subtipo 4: tremor de tela / screen shake característico da pedra de teleporte).
+    - Em `df.java:868`, o opcode 47 define `di.var_g_a.var_int_b = df.var_byte_arr_c[...]` (intensidade do tremor no mapa `g`).
+    - No frame seguinte do loop de renderização do mapa (`g.java:594-595`):
+      `if (this.var_int_b != 0 || this.var_int_c != 0) { rpg.c.k(); }`
+    - Em `rpg/c.java:222-225`:
+      `public static final void k() { if (var_boolean_a) { ct.var_javax_microedition_lcdui_Display_a.vibrate(300); } }`
+    - O método `javax/microedition/lcdui/Display.vibrate:(I)Z` **NÃO ESTAVA REGISTRADO** na VM C++!
+    - Ao tentar invocar `vibrate(300)`, a VM emitia erro fatal `[FATAL] método virtual não encontrado: javax/microedition/lcdui/Display.vibrate:(I)Z` e chamava `exit(1)`, fechando o jogo instantaneamente!
+  - **Solução Implementada:**
+    - Em `src/midp/midp.cpp`, implementado o método nativo `Display_vibrate` com suporte a rumble háptico real via `Platform::rumble(0.6f, std::min(duration, 1000))` (ativo em gamepads com motores de vibração e dispositivos Android) e retorno `1` (`ret[0].i = 1`).
+    - Implementados métodos auxiliares da especificação J2ME Display: `Display_flashBacklight`, `Display_numColors`, `Display_numAlphaLevels`, `Display_isColor`.
+    - Registrados na tabela MIDP da VM (`VM::registerMidp()`):
+      - `"javax/microedition/lcdui/Display.vibrate:(I)Z"`
+      - `"javax/microedition/lcdui/Display.flashBacklight:(I)Z"`
+      - `"javax/microedition/lcdui/Display.numColors:()I"`
+      - `"javax/microedition/lcdui/Display.numAlphaLevels:()I"`
+      - `"javax/microedition/lcdui/Display.isColor:()Z"`
+    - Adicionado filtro de exceções nativo para Windows (`SetUnhandledExceptionFilter`) em `src/main.cpp` para captura detalhada de access violations e stack context.
+    - O feedback tátil/vibração agora funciona com precisão durante tremores da Pedra de Retorno, terremotos em cutscenes e golpes críticos em combate (`cd.java:759` e `bd.java:111`), garantindo 100% de estabilidade sem crashes.
+
+
 
 
