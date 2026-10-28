@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-27 (Versão v1.0.14 lançada oficialmente)_
+_Última atualização: 2026-10-27 (Versão v1.0.15 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -84,6 +84,11 @@ _Última atualização: 2026-10-27 (Versão v1.0.14 lançada oficialmente)_
     - Causa raiz: colisão de nomenclatura entre a classe de menu de opções `bd.java` e a tabela binária de IA dos chefes `/t/bd` (239 bytes, 22 registros). O compilador de localização havia gerado um arquivo de texto com 1 único registro sobrescrevendo `assets/lang/pt/t/bd`.
     - Ao entrar na sala de batalha do chefe (mapa 121 / `c1.m`, monstro ID 109 `ap` estendendo `cx` e `af`), o construtor requisitava o registro 18 de `/t/bd` (`rpg.e.a(af.var_byte_arr_a, 18)`), estourando o array e causando `ArrayIndexOutOfBoundsException` não tratada que matava a thread em background de transição.
     - Solução: remoção de `assets/lang/pt/t/bd`, blindagem em `src/platform/platform_sdl.cpp` restringindo a interceptação de `t/` exclusivamente para arquivos `.tdf`, e proteção no compilador `tools/compile_texts.py` para ignorar chaves não `.tdf`.
+- [x] Correções e refinamentos v1.0.15:
+  - **Correção de renderização da caixa de informações e barra de vida do inimigo em combate (Nintendo Switch e Widescreen):**
+    - Causa raiz: no bytecode original de `bs.<clinit>`, as dimensões da caixa do inimigo (`bs.c:B`) e da barra de vida do inimigo (`bs.d:B`) eram calculadas como `(byte)(rpg.f.b >> 1)`. Em 3:4 (240x320, como no celular), `rpg.f.b = 230`, resultando em `115` e `49`. Em 16:9 Widescreen (568x320, padrão do Switch), `rpg.f.b` foi expandido para 558 para preenchimento de menus modais; como `558 >> 1 = 279`, ocorreu overflow aritmético de signed 8-bit byte (`279 - 256 = 23`), e `bs.d:B` virou `3`.
+    - Isso causava uma caixa de apenas 23px de largura (cortando nome e ícones) e a barra de HP era desenhada fora da tela (`n4 + 44 = 589 > 568`).
+    - Solução: cravação explícita e imutável das dimensões canônicas fiéis de design em `src/platform/platform_sdl.cpp` (`setVmStaticByte(vm, "bs", "c", 115)`, `bs.d = 49`) e proteção em nível de bytecode na VM (`src/vm/interp.cpp` opcode 179 `putstatic`), garantindo renderização idêntica e perfeita em todas as plataformas (Switch, PC 16:9 e Celular).
 
 
 ## Roadmap de Etapas (Seguindo o Blueprint)

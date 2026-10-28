@@ -168,7 +168,21 @@ void exec(VM& vm, Method* m, Value* L, Value* ret) {
             if (f->owner->initState != 2) vm.initClass(f->owner);
             Value& v = f->owner->statics[f->index]; bool wide = f->desc[0] == 'J' || f->desc[0] == 'D';
             if (op == 178) { if (wide) { S[sp].l = v.l; sp += 2; } else S[sp++] = v; }
-            else { if (wide) { sp -= 2; v.l = S[sp].l; } else v = S[--sp]; }
+            else {
+              if (wide) { sp -= 2; v.l = S[sp].l; }
+              else {
+                v = S[--sp];
+                // Protege dimensões canônicas da caixa de inimigo (bs.c:B = 115) e barra de HP (bs.d:B = 49)
+                // contra overflow de 8 bits assinado decorrente da expansão de rpg/f.b em widescreen (Switch/PC)
+                if (f->owner->name == "bs") {
+                  if (f->name == "c" && f->desc == "B") {
+                    v.i = 115;
+                  } else if (f->name == "d" && f->desc == "B") {
+                    v.i = 49;
+                  }
+                }
+              }
+            }
             break;
           }
           case 180: {

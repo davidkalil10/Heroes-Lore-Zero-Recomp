@@ -333,6 +333,34 @@ static void setVmStaticBool(VM& vm, const std::string& className, const std::str
   }
 }
 
+static void setVmStaticByte(VM& vm, const std::string& className, const std::string& fieldName, int8_t val) {
+  auto it = vm.classes.find(className);
+  if (it == vm.classes.end()) return;
+  ClassInfo* cls = it->second;
+  FieldInfo* targetField = nullptr;
+
+  std::vector<std::string> candidateNames = { fieldName };
+  if (fieldName.rfind("var_byte_", 0) == 0) {
+    candidateNames.push_back(fieldName.substr(9));
+  } else if (fieldName.rfind("var_", 0) == 0) {
+    candidateNames.push_back(fieldName.substr(4));
+  }
+
+  for (const auto& name : candidateNames) {
+    for (auto& f : cls->fields) {
+      if (f.name == name && f.desc == "B" && f.isStatic) {
+        targetField = &f;
+        break;
+      }
+    }
+    if (targetField) break;
+  }
+
+  if (targetField && targetField->isStatic && targetField->index >= 0 && targetField->index < (int)cls->statics.size()) {
+    cls->statics[targetField->index].i = val;
+  }
+}
+
 static int32_t getVmStaticInt(VM& vm, const std::string& className, const std::string& fieldName, int32_t defVal = 0) {
   auto it = vm.classes.find(className);
   if (it == vm.classes.end()) return defVal;
@@ -555,6 +583,31 @@ static void updateJavaViewportVariables(VM& vm) {
   setVmStaticInt(vm, "bs", "k", g_screenHeight - 33);
   setVmStaticInt(vm, "bs", "l", newBsL);
   setVmStaticInt(vm, "bs", "m", (g_screenHeight - 33) / 2);
+
+  // 3b. Assegura dimensões canônicas da caixa de informações (bs.c:B = 115) e barra de vida do inimigo (bs.d:B = 49).
+  // No bytecode original de bs.<clinit>:
+  //   c:B = (byte)(rpg.f.b >> 1);
+  //   d:B = (byte)((c:B >> 1) - 8);
+  // Em 3:4 (240x320, como no celular), rpg.f.b = 230 -> c:B = 115 e d:B = 49.
+  // Em 16:9 Widescreen (568x320, padrão do Nintendo Switch), rpg.f.b = 558 -> 558 >> 1 = 279.
+  // Como c:B e d:B são bytes signed de 8 bits em Java (-128..127), 279 sofre overflow para 23, e d:B vira 3!
+  // Isso fazia a caixinha do inimigo no Switch ser criada com apenas 23px de largura (cortada/deformada)
+  // e a barra vermelha de HP ser desenhada fora da tela (X=589 > 568).
+  // Travamos as dimensões estritas originais fiéis: caixa de 115px e barra de HP de 49px!
+  setVmStaticByte(vm, "bs", "c", 115);
+  setVmStaticByte(vm, "bs", "var_byte_c", 115);
+  setVmStaticByte(vm, "bs", "d", 49);
+  setVmStaticByte(vm, "bs", "var_byte_d", 49);
+
+  // Reseta o cache de imagem var_cg_a e objeto var_cd_a de bs via bs.h() para forçar recriação na nova resolução
+  ClassInfo* bsCls = vm.findClass("bs");
+  if (bsCls) {
+    Method* mH = vm.findMethod(bsCls, "h:()V");
+    if (mH) {
+      Value dummyArgs[1]; Value dummyRet[2];
+      try { vm.invoke(mH, dummyArgs, dummyRet); } catch (...) {}
+    }
+  }
 
   // 4. Se a câmera di estiver ativa no mapa, desloca a câmera pelo delta do centro da tela sem saltos
   if (deltaL != 0) {

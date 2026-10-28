@@ -698,6 +698,48 @@
       garantindo que `/t/bd` original nunca mais seja sobrescrito por arquivos de localização.
     - Recompilado e validado: `/t/bd` agora fornece com perfeição os 22 registros originais, o chefe 109 Anthony é instanciado sem exceções e a batalha tem início normal.
 
+## Sessão 25 (Correção da Caixa de Informações e Barra de Vida do Inimigo no Switch e Widescreen v1.0.15)
+- **1. Falha de Renderização da Caixa de Alvo e Barra de HP do Inimigo em Combate:**
+  - **Sintoma Relatado:**
+    - No Nintendo Switch (e em modo Widescreen no PC), a caixinha que exibe o nome, nível e barra de vida do inimigo enfrentado aparecia cortada, deformada e sem a barra de vida vermelha visível. No celular (Android), no entanto, a renderização estava perfeita.
+  - **Diagnóstico e Causa Raiz:**
+    - A caixinha de alvo do inimigo é gerenciada pela classe `bs.java`:
+      - Em `bs.<clinit>`:
+        `var_byte_c = (byte)(rpg.f.b >> 1);` (campo `bs.c:B`)
+        `var_byte_d = (byte)((var_byte_c >> 1) - 8);` (campo `bs.d:B`)
+      - Ao mirar/atacar um inimigo (`bs.a(cd, boolean)`):
+        `var_cg_a = cg.a(var_byte_c, 34);` (cria uma imagem de dimensões `var_byte_c x 34`)
+      - Ao desenhar na tela durante o gameplay (`bs.f()`):
+        `n4 = rpg.a.var_int_a - var_byte_c;`
+        `rpg.a.var_cm_a.a(var_cg_a, n4, 0, 20);`
+        `rpg.a.var_cm_a.a(n4 + 42 + 2, 24, var_byte_d * (var_cd_a.int_c() - 1) / var_cd_a.int_d() - 1, 2);`
+    - No celular (Android), o jogo roda em Retrato (3:4, 240x320):
+      - `rpg.a.var_int_a = 240` -> `rpg.f.b = 230`.
+      - `var_byte_c = (byte)(230 >> 1) = 115`.
+      - `var_byte_d = (byte)((115 >> 1) - 8) = 49`.
+      - A caixinha tem 115px de largura, e a barra de HP tem 49px, renderizando no canto superior direito de 240px com perfeição.
+    - No Nintendo Switch (e PC 16:9), o jogo roda nativamente em Widescreen (16:9, 568x320):
+      - Para fazer os menus modais de inventário/lojas ocuparem a tela toda em 16:9, `rpg.f.b` foi expandido para `558` (`g_screenWidth - 10`).
+      - Quando `bs.<clinit>` executou:
+        `558 >> 1 = 279`.
+      - Como em Java um `byte` é signed de 8 bits (-128 a 127), a conversão `i2b` de `279` sofre overflow aritmético:
+        `279 - 256 = 23`!
+      - Logo, `var_byte_c` virou **23** (em vez de 115)!
+      - E `var_byte_d = (23 >> 1) - 8 = 11 - 8 = 3` (em vez de 49)!
+      - Consequências visuais:
+        1. A imagem `var_cg_a` era criada com apenas **23 pixels** de largura, cortando completamente o nome do monstro e seus atributos.
+        2. A moldura da barra de HP (que fica em X=42 dentro da imagem) ficava fora dos 23px da imagem.
+        3. Na tela de jogo, a barra vermelha de HP era desenhada em `n4 + 44 = (568 - 23) + 44 = 589`! Como a tela só tem 568px de largura, a barra de vida caía completamente FORA da tela e nunca aparecia!
+  - **Solução Implementada:**
+    - Em `src/platform/platform_sdl.cpp`:
+      - Implementado `setVmStaticByte` para escrita segura em campos de byte da VM.
+      - Em `updateJavaViewportVariables`, travadas de forma estrita e canônica as dimensões do design original: `bs.c:B = 115` e `bs.d:B = 49`.
+      - Invocado `bs.h()` durante atualizações de viewport para limpar o cache de imagem antiga e forçar sua recriação limpa com 115px.
+    - Em `src/vm/interp.cpp`:
+      - No interpretador JVM, protegido o opcode 179 (`putstatic`) para que gravações estáticas em `bs.c:B` e `bs.d:B` mantenham sempre os valores canônicos 115 e 49, impedindo que qualquer recálculo com overflow afete a geometria do HUD.
+    - Resultado: a caixa de informações do inimigo agora se posiciona perfeitamente no canto superior direito tanto no Switch (568x320) quanto no Celular (240x320) e PC, exibindo nome completo, ícone de elemento, nível e a barra vermelha de vida dinâmica com 49px de comprimento e alinhamento milimétrico.
+
+
 
 
 
