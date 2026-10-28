@@ -2919,7 +2919,14 @@ std::vector<uint8_t> Platform::readAsset(const std::string& path) {
       }
     }
 
-    if (rel.rfind("t/", 0) == 0 || rel.rfind("m/", 0) == 0 || rel.rfind("en/edf", 0) == 0) {
+    bool isLangAsset = false;
+    if (rel.rfind("t/", 0) == 0 && rel.size() >= 4 && rel.compare(rel.size() - 4, 4, ".tdf") == 0) {
+      isLangAsset = true;
+    } else if (rel.rfind("m/", 0) == 0 || rel.rfind("en/edf", 0) == 0) {
+      isLangAsset = true;
+    }
+
+    if (isLangAsset) {
       std::string cand1 = "assets/lang/" + s_currentLanguage + "/" + rel;
       SDL_RWops* rwLang = SDL_RWFromFile(cand1.c_str(), "rb");
       if (!rwLang) {

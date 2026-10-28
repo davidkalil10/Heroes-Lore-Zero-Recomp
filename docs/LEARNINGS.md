@@ -663,6 +663,41 @@
     - Adicionado filtro de exceções nativo para Windows (`SetUnhandledExceptionFilter`) em `src/main.cpp` para captura detalhada de access violations e stack context.
     - O feedback tátil/vibração agora funciona com precisão durante tremores da Pedra de Retorno, terremotos em cutscenes e golpes críticos em combate (`cd.java:759` e `bd.java:111`), garantindo 100% de estabilidade sem crashes.
 
+## Sessão 24 (Correção Definitiva do Carregamento Infinito no Primeiro Chefe Anthony v1.0.14)
+- **1. Carregamento Infinito ao Entrar na Luta do Primeiro Chefe:**
+  - **Contexto e Sintoma:**
+    - Ao avançar na caverna (Mapa 70) e atingir o portal do Boss Chamber, o jogo transiciona para a cutscene pré-chefe (Mapa 71).
+    - No final do diálogo entre Lucian, Anthony, Alicia, Aquila e Calmon, o jogo tenta transicionar para o mapa de combate da arena (Mapa 121 / `/m/m2/c1.m`, com monstro ID 109, o chefe Anthony).
+    - A tela exibe "Carregando..." e fica travada infinitamente, sem iniciar a luta.
+  - **Diagnóstico e Causa Raiz:**
+    - Ao carregar os monstros de um mapa de combate (`g.java:462`), o monstro 109 executa:
+      `case 109: new ap(s2, s3, (short)by2, by3); return;`
+    - A classe `ap` herda de `cx`, que herda de `af`.
+    - No construtor estático/instância de `af.java:25-27`:
+      `if (var_byte_arr_a == null) { var_byte_arr_a = rpg.e.a("/t/bd"); }`
+    - E no construtor de `cx.java:16`:
+      `this.var_byte_arr_c = rpg.e.a(af.var_byte_arr_a, 18);`
+    - No JAR original, `/t/bd` é uma tabela binária de IA e comportamento de combate dos chefes contendo **22 registros** (239 bytes no total), onde o registro 18 é a tabela de 10 bytes de Anthony.
+    - No entanto, durante o desenvolvimento inicial do sistema de localização (v1.0.7), houve uma confusão entre o arquivo de recursos `/t/bd` e a classe do Menu de Opções `bd.java`.
+    - O script `tools/translate_to_pt.py` continha um bloco com strings de opções ("BGM", "SFX", "Velocidade", etc.) sob a chave `"bd"`, e `tools/compile_texts.py` gravou esse arquivo como texto TDF em `assets/lang/pt/t/bd` (114 bytes, contendo apenas 1 registro).
+    - A função `Platform::readAsset` em `src/platform/platform_sdl.cpp` interceptava qualquer requisição com prefixo `t/` indiscriminadamente para a pasta localizada (`assets/lang/pt/t/`).
+    - Ao tentar ler o registro 18 (`n2 = 18`) de um arquivo contendo apenas 1 registro em `rpg/e.java:440-451`:
+      ```java
+      for (int i2 = 0; i2 < n2; ++i2) {
+          s2 = rpg.g.short_b(byArray, n3);
+          n3 += s2 + 2;
+      }
+      ```
+      o índice `n3` ultrapassava o comprimento do array, lançando `ArrayIndexOutOfBoundsException` não tratada dentro da thread secundária `bs.run()` (`case 4`).
+    - Com a morte da thread de carregamento, a flag `di.var_byte_d` nunca saía do estado 1 (Loading), mantendo o Canvas em loop infinito de "Carregando...".
+  - **Solução Implementada:**
+    - O arquivo corrompido `assets/lang/pt/t/bd` foi excluído do repositório.
+    - Em `tools/compile_texts.py`, foi inserido filtro explícito (`if not tdf_name.endswith('.tdf'): continue`) para assegurar que apenas arquivos de texto `.tdf` sejam gerados na pasta de tradução `t/`.
+    - Em `src/platform/platform_sdl.cpp` (`Platform::readAsset`), a interceptação do diretório `t/` foi estritamente blindada:
+      `rel.rfind("t/", 0) == 0 && rel.size() >= 4 && rel.compare(rel.size() - 4, 4, ".tdf") == 0`
+      garantindo que `/t/bd` original nunca mais seja sobrescrito por arquivos de localização.
+    - Recompilado e validado: `/t/bd` agora fornece com perfeição os 22 registros originais, o chefe 109 Anthony é instanciado sem exceções e a batalha tem início normal.
+
 
 
 

@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-25 (Versão v1.0.13 lançada oficialmente)_
+_Última atualização: 2026-10-27 (Versão v1.0.14 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -79,6 +79,11 @@ _Última atualização: 2026-10-25 (Versão v1.0.13 lançada oficialmente)_
 - [x] Correções e refinamentos v1.0.13:
   - **Correção definitiva de crash ao selecionar "Sim" na Pedra de Retorno:** Implementação completa da API nativa `javax/microedition/lcdui/Display.vibrate:(I)Z` com integração ao subsistema háptico nativo (`Platform::rumble`), além de `flashBacklight`, `numColors`, `numAlphaLevels` e `isColor`.
   - Eliminação de crashes ao executar o tremor de tela (`screen shake`) pós-confirmação na Pedra de Retorno, durante terremotos em cutscenes e em golpes críticos em combate.
+- [x] Correções e refinamentos v1.0.14:
+  - **Correção definitiva do congelamento/carregamento infinito na transição para o Primeiro Chefe (Anthony):**
+    - Causa raiz: colisão de nomenclatura entre a classe de menu de opções `bd.java` e a tabela binária de IA dos chefes `/t/bd` (239 bytes, 22 registros). O compilador de localização havia gerado um arquivo de texto com 1 único registro sobrescrevendo `assets/lang/pt/t/bd`.
+    - Ao entrar na sala de batalha do chefe (mapa 121 / `c1.m`, monstro ID 109 `ap` estendendo `cx` e `af`), o construtor requisitava o registro 18 de `/t/bd` (`rpg.e.a(af.var_byte_arr_a, 18)`), estourando o array e causando `ArrayIndexOutOfBoundsException` não tratada que matava a thread em background de transição.
+    - Solução: remoção de `assets/lang/pt/t/bd`, blindagem em `src/platform/platform_sdl.cpp` restringindo a interceptação de `t/` exclusivamente para arquivos `.tdf`, e proteção no compilador `tools/compile_texts.py` para ignorar chaves não `.tdf`.
 
 
 ## Roadmap de Etapas (Seguindo o Blueprint)

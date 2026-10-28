@@ -149,6 +149,8 @@ def main():
             ui_data = json.load(f)
         compiled_tdfs = 0
         for tdf_name, strs in ui_data.items():
+            if not tdf_name.endswith('.tdf'):
+                continue
             b = compile_tdf(strs)
             out_file = os.path.join(out_dir, "t", tdf_name)
             with open(out_file, "wb") as f_out:
