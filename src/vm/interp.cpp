@@ -1,7 +1,9 @@
 // interp.cpp — interpretador de bytecode JVM (subconjunto CLDC: int/long/ref; sem float/jsr/wide)
 #include "vm.h"
+#include "../midp/midp.h"
 #include <cstdio>
 #include <climits>
+#include <algorithm>
 
 namespace hl {
 
@@ -167,7 +169,51 @@ void exec(VM& vm, Method* m, Value* L, Value* ret) {
             int idx = u2(pc); pc += 2; resolveField(vm, cls, idx); FieldInfo* f = cls->cp[idx].fld;
             if (f->owner->initState != 2) vm.initClass(f->owner);
             Value& v = f->owner->statics[f->index]; bool wide = f->desc[0] == 'J' || f->desc[0] == 'D';
-            if (op == 178) { if (wide) { S[sp].l = v.l; sp += 2; } else S[sp++] = v; }
+            if (op == 178) {
+              if (wide) { S[sp].l = v.l; sp += 2; }
+              else {
+                Value readVal = v;
+                // Assegura leitura das dimensões canônicas da caixa e barra de HP do inimigo
+                if (f->owner->name == "bs") {
+                  if (f->name == "c" && f->desc == "B") {
+                    readVal.i = 115;
+                  } else if (f->name == "d" && f->desc == "B") {
+                    readVal.i = 49;
+                  }
+                }
+                // Ancoragem visual perfeita da caixinha do monstro em mapas pequenos:
+                // Em bs.f() (curpc < 30), a primeira leitura de rpg/a.var_int_a calcula:
+                // n4 = rpg.a.var_int_a - var_byte_c.
+                // Em mapas menores que a tela widescreen (com letterbox horizontal di.var_g_a.var_int_d > 0),
+                // ancoramos o limite direito visual na borda visível do mapa (di.var_g_a.var_int_d + di.var_g_a.var_short_a).
+                if (m->owner->name == "bs" && m->name == "f" && f->owner->name == "rpg/a" &&
+                    (f->name == "a" || f->name == "var_int_a") && curpc < 30) {
+                  ClassInfo* diCls = vm.findClass("di");
+                  if (diCls) {
+                    FieldInfo* fG = vm.findField(diCls, "a:Lg;");
+                    if (!fG) fG = vm.findField(diCls, "var_g_a:Lg;");
+                    if (fG && fG->isStatic && fG->index >= 0 && fG->index < (int)diCls->statics.size()) {
+                      Object* gObj = diCls->statics[fG->index].o;
+                      if (gObj && gObj->cls) {
+                        FieldInfo* fD = vm.findField(gObj->cls, "d:I");
+                        if (!fD) fD = vm.findField(gObj->cls, "var_int_d:I");
+                        FieldInfo* fShortA = vm.findField(gObj->cls, "a:S");
+                        if (!fShortA) fShortA = vm.findField(gObj->cls, "var_short_a:S");
+                        if (fD && fShortA) {
+                          Instance* gInst = static_cast<Instance*>(gObj);
+                          int mapX = gInst->f[fD->index].i;
+                          int mapW = gInst->f[fShortA->index].i;
+                          if (mapX > 0 && mapW > 0 && (mapX + mapW) < readVal.i) {
+                            readVal.i = mapX + mapW;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                S[sp++] = readVal;
+              }
+            }
             else {
               if (wide) { sp -= 2; v.l = S[sp].l; }
               else {
@@ -302,6 +348,13 @@ void exec(VM& vm, Method* m, Value* L, Value* ret) {
 void VM::invoke(Method* m, Value* args, Value* ret) {
   if (m->native) { m->native(*this, args, ret); return; }
   if (m->code.empty()) fatal("método sem código: " + m->owner->name + "." + m->name + m->desc);
+  // Garante que o clip do Graphics principal esteja desimpedido antes de renderizar o HUD de combate/monstro (bs.f),
+  // evitando que o clip restrito de mapas menores que a tela widescreen corte a caixinha ou a barra de vida.
+  if (m->owner->name == "bs" && m->name == "f") {
+    if (g_screenGraphics) {
+      g_screenGraphics->resetClip();
+    }
+  }
   ThreadCtx* t = tctx;
   if (!t) fatal("invoke chamado sem ThreadCtx ativo no método: " + m->owner->name + "." + m->name);
   size_t base = t->sp;

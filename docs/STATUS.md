@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-27 (Versão v1.0.15 lançada oficialmente)_
+_Última atualização: 2026-10-31 (Versão v1.0.16 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -90,6 +90,16 @@ _Última atualização: 2026-10-27 (Versão v1.0.15 lançada oficialmente)_
     - Isso causava uma caixa de apenas 23px de largura (cortando nome e ícones) e a barra de HP era desenhada fora da tela (`n4 + 44 = 589 > 568`).
     - Solução: cravação explícita e imutável das dimensões canônicas fiéis de design em `src/platform/platform_sdl.cpp` (`setVmStaticByte(vm, "bs", "c", 115)`, `bs.d = 49`) e proteção em nível de bytecode na VM (`src/vm/interp.cpp` opcode 179 `putstatic`), garantindo renderização idêntica e perfeita em todas as plataformas (Switch, PC 16:9 e Celular).
 
+
+- [x] Correções e refinamentos v1.0.16:
+  - **Correção do clipping e ancoragem visual da barra de vida e caixa do inimigo em mapas estreitos no Nintendo Switch:**
+    - Causa raiz: em mapas com largura menor que 568px (cavernas estreitas, salas de chefes, masmorras), o mapa é centralizado com letterbox horizontal (di.var_g_a.var_int_d > 0) e g.java:703 configura o clip do Graphics (bs.e(cm)) estritamente para a área do mapa [var_int_d .. var_int_d + var_short_a]. Quando bs.f() desenhava o HUD do monstro em n4 = 568 - 115 = 453, a caixa ficava total ou parcialmente fora do clip, sendo cortada ou invisível.
+    - Solução: em src/vm/interp.cpp, ao invocar bs.f:()V, o clip de tela é imediatamente desimpedido com g_screenGraphics->resetClip(), e o cálculo da coordenada X n4 ancora dinamicamente a borda direita na área visual do mapa (var_int_d + var_short_a), mantendo o HUD do monstro perfeitamente alinhado e 100% visível em todos os mapas do jogo.
+  - **Correção do chaveamento de strings em lojas de NPCs ("Botas? Sim ou Não"):**
+    - Causa raiz: strings descoladas a partir do índice 7 em ni.tdf, onde os índices 18 e 19 ("Confirm purchase?" e "Confirm sale?") haviam virado "Armaduras" e "Botas", e as mensagens de conclusão e saldo insuficiente haviam virado categorias de itens. Inconsistências similares em ne.tdf, j.tdf, jd.tdf e nui.tdf.
+    - Solução: restauração 100% fiel e canônica de todos os índices correspondendo perfeitamente ao inglês original do JAR, garantindo confirmações de compra ("Confirmar compra? Sim ou Não") e venda ("Confirmar venda? Sim ou Não").
+  - **Tradução completa de 100% das cutscenes pendentes da história:**
+    - Tradução das 1.682 falas pendentes em 68 mapas de maps_dialogs.json via pipeline concorrente multithread (tools/translate_all_story.py), com preservação de marcadores de sistema, tags de personagens e sanitização limpa para tabela ASCII compatível com as fontes bitmap originais J2ME. Todos os 139 mapas binários recompilados em assets/lang/pt/m/.
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
 - [x] **Passo 0:** Boot nativo no PC da classe `rpg.RPGHeroEx` e renderização do primeiro frame (240x320 / Widescreen).

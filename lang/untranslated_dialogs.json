@@ -1,0 +1,6866 @@
+{
+  "m/m/00.m": [
+    {
+      "idx": 2,
+      "en": "|[Lucian]& Alpez!"
+    }
+  ],
+  "m/m/01.m": [
+    {
+      "idx": 24,
+      "en": "|[Lucian]& ..."
+    }
+  ],
+  "m/m/02.m": [
+    {
+      "idx": 18,
+      "en": "|[Lucian]& Is there.. any way?"
+    },
+    {
+      "idx": 19,
+      "en": "^[Maskman]& So what if she can be revived? So you two can fight again? And suffer the same fate?"
+    },
+    {
+      "idx": 20,
+      "en": "^[Maskman]& Let it go now. This world will recreate itself. Forget everything would be a mercy."
+    },
+    {
+      "idx": 21,
+      "en": "|[Lucian]& Be it {Aquila& or whichever god, as long as I defeat all of them, there is still hope right?"
+    },
+    {
+      "idx": 22,
+      "en": "|[Lucian]& You saved me because we cannot just give up! This is a battle between me and him."
+    },
+    {
+      "idx": 23,
+      "en": "|[Lucian]& A battle that must end!!"
+    },
+    {
+      "idx": 24,
+      "en": "^[Maskman]& Why did I save you. Maybe I have not been completely honest with myself."
+    },
+    {
+      "idx": 25,
+      "en": "^[Maskman]& I will give you some SP, that way you will be able to use skills."
+    },
+    {
+      "idx": 26,
+      "en": "^[Maskman]& Head towards the {North&. You two have been there countless times just to defeat {Aquila&."
+    },
+    {
+      "idx": 27,
+      "en": "^[Maskman]& You must know why you need to go to the {North&. Even if you can't remember now, you must try to recall."
+    },
+    {
+      "idx": 28,
+      "en": "^[Maskman]& Perhaps that is the key."
+    },
+    {
+      "idx": 29,
+      "en": "^[Maskman]& If you can successfully resurrect {Calmon& and defeat {Aquila&."
+    },
+    {
+      "idx": 30,
+      "en": "^[Maskman]& You will have a chance against the {Giant God&."
+    },
+    {
+      "idx": 31,
+      "en": "^[Maskman]& When you stand before the {Giant God&, I will try to create an opportunity for you."
+    },
+    {
+      "idx": 32,
+      "en": "^[Maskman]& Take the chance and plunge the blade into the {Giant God&'s heart."
+    },
+    {
+      "idx": 34,
+      "en": "}Due to some mysterious force, {Secluded Spot& has been set as the designated Return Point."
+    },
+    {
+      "idx": 35,
+      "en": "^[Calmon]& ..."
+    },
+    {
+      "idx": 36,
+      "en": "^[Calmon]& Long ago, there was an island in the middle of lake, {north of Humming City&."
+    },
+    {
+      "idx": 37,
+      "en": "^[Calmon]& The island sank and nobody can find it anymore. But according to the plan, this island should have resurfaced."
+    },
+    {
+      "idx": 38,
+      "en": "|[Lucian]& Island in a lake.. Do we need to take a ferry?"
+    },
+    {
+      "idx": 40,
+      "en": "|[Lucian]& And {Aquila& is there..."
+    },
+    {
+      "idx": 42,
+      "en": "|[Lucian]& Can we defeat him?"
+    },
+    {
+      "idx": 43,
+      "en": "^[Calmon]& .. It would be like a chick battling an eagle."
+    },
+    {
+      "idx": 44,
+      "en": "|[Lucian]& Although I don't really get what that means. Are you trying to say we are too weak?"
+    },
+    {
+      "idx": 45,
+      "en": "^[Calmon]& If I can recover my memories or remember his weaknesses.."
+    },
+    {
+      "idx": 46,
+      "en": "|[Lucian]& Let's form a new pact."
+    },
+    {
+      "idx": 51,
+      "en": "^[Calmon]& Are you alright?"
+    },
+    {
+      "idx": 52,
+      "en": "|[Lucian]& I am feeling a bit sore, but nothing serious. How about you? Are you ok?"
+    },
+    {
+      "idx": 53,
+      "en": "^[Calmon]& I am fine now. While you were unconscious, {Aquila& and the {Maskman& appeared."
+    },
+    {
+      "idx": 54,
+      "en": "^[Calmon]& {Arkley& is dead.. And we were teleported here."
+    },
+    {
+      "idx": 55,
+      "en": "|[Lucian]& Argh.. I thought they were working together. Why did they help us?"
+    },
+    {
+      "idx": 56,
+      "en": "^[Calmon]& I am not sure. {Arkley& said that the preparation has been completed. Maybe he is no longer of any service, that's why they disposed of him."
+    },
+    {
+      "idx": 57,
+      "en": "^[Calmon]& He was being used right from the start."
+    },
+    {
+      "idx": 58,
+      "en": "|[Lucian]& What do we do now?"
+    },
+    {
+      "idx": 59,
+      "en": "^[Calmon]& Our target is still {Aquila&. This hasn't changed."
+    },
+    {
+      "idx": 60,
+      "en": "^[Calmon]& We must destroy him before he reaches his destination. Luckily, I know just where he is heading."
+    },
+    {
+      "idx": 61,
+      "en": "|[Lucian]& Where is he going?"
+    },
+    {
+      "idx": 62,
+      "en": "^[Calmon]& That you don't need to know."
+    },
+    {
+      "idx": 63,
+      "en": "|[Lucian]& What?"
+    },
+    {
+      "idx": 64,
+      "en": "^[Calmon]& From now on, I will proceed alone. You should head back to Silverleaf Village."
+    },
+    {
+      "idx": 65,
+      "en": "^[Calmon]& I was wrong.. As long as you stay quiet, the {Legolas& will not harm you. Go and live a peaceful life."
+    },
+    {
+      "idx": 66,
+      "en": "^[Calmon]& Isn't that your wish?"
+    },
+    {
+      "idx": 67,
+      "en": "|[Lucian]& You fool! Now you say this? Who would listen to you!"
+    },
+    {
+      "idx": 68,
+      "en": "|[Lucian]& Going alone? You cannot be serious!!"
+    },
+    {
+      "idx": 69,
+      "en": "^[Calmon]& Our pact has been broken. If you choose to follow me. You will die."
+    },
+    {
+      "idx": 70,
+      "en": "|[Lucian]& {Calmon&! Wait!"
+    },
+    {
+      "idx": 73,
+      "en": "|[Lucian]& {Calmon&! I've got to find {Calmon&!"
+    },
+    {
+      "idx": 77,
+      "en": "}Door is shut."
+    },
+    {
+      "idx": 80,
+      "en": "}A warm glow engulfs the place."
+    },
+    {
+      "idx": 81,
+      "en": "}HP, EP and SP fully recovered!&"
+    },
+    {
+      "idx": 83,
+      "en": "}Return Point& will be set as {Secluded Spot&."
+    },
+    {
+      "idx": 85,
+      "en": "}Return Point& will be set as {Secluded Spot&."
+    }
+  ],
+  "m/m/04.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& Things look alright from outside..."
+    },
+    {
+      "idx": 1,
+      "en": "^[Calmon]& This is not the target. Maybe we arrived too soon."
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& Let's take a spin in the village and see if we can get some information from the {constable&."
+    },
+    {
+      "idx": 3,
+      "en": "^[Calmon]& Hopefully, the people here will not be as hostile as those at Melon Village."
+    },
+    {
+      "idx": 4,
+      "en": "|[Lucian]& Let's start with the port in the north."
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& Oh ya, I have also heard that {Humming City& is famous for its {Central Library&."
+    },
+    {
+      "idx": 6,
+      "en": "^[Calmon]& Don't tell me you like to read. You don't look like the sort."
+    },
+    {
+      "idx": 7,
+      "en": "^[Calmon]& Ok, I get it. We can gather information at the library too."
+    },
+    {
+      "idx": 10,
+      "en": "|[Lucian]& The door is locked."
+    },
+    {
+      "idx": 11,
+      "en": "|[Lucian]& The door is locked."
+    },
+    {
+      "idx": 12,
+      "en": "^[Calmon]& {Lucian&, up there."
+    },
+    {
+      "idx": 13,
+      "en": "^[Calmon]& {Lucian&, someone is tailing us."
+    },
+    {
+      "idx": 14,
+      "en": "|[Lucian]& Where did we start getting followed?"
+    },
+    {
+      "idx": 15,
+      "en": "^[Calmon]& I am not sure."
+    },
+    {
+      "idx": 16,
+      "en": "|[Lucian]& Is the person from the {Legolas&? Let's capture and interrogate this stalker. We should lead him out of the village first."
+    },
+    {
+      "idx": 19,
+      "en": "^[Calmon]& The stalker seems to have noticed."
+    },
+    {
+      "idx": 20,
+      "en": "|[Lucian]& Follow him! Don't let him get away!"
+    },
+    {
+      "idx": 21,
+      "en": "|[Lucian]& {Alpez&?"
+    },
+    {
+      "idx": 22,
+      "en": "^[Calmon]& What's wrong?"
+    },
+    {
+      "idx": 23,
+      "en": "|[Lucian]& I thought I saw {Alpez& walk towards the port."
+    },
+    {
+      "idx": 24,
+      "en": "^[Calmon]& Are you sure?"
+    },
+    {
+      "idx": 26,
+      "en": "|[Lucian]& .. Maybe we should go take a look."
+    },
+    {
+      "idx": 27,
+      "en": "^[Calmon]& Let's do that later. We cannot let the stalker get away."
+    },
+    {
+      "idx": 29,
+      "en": "^[Calmon]& You always lose your cool when it comes to her, even when we were back at Silverleaf Village."
+    },
+    {
+      "idx": 30,
+      "en": "|[Lucian]& She is like family."
+    },
+    {
+      "idx": 31,
+      "en": "^[Calmon]& Ok, is it really just that?"
+    },
+    {
+      "idx": 34,
+      "en": "^[Calmon]& The stalker seems to have noticed."
+    },
+    {
+      "idx": 35,
+      "en": "|[Lucian]& Follow him! Don't let him get away!"
+    },
+    {
+      "idx": 38,
+      "en": "^[Calmon]& {Lucian&, someone is tailing us."
+    },
+    {
+      "idx": 39,
+      "en": "|[Lucian]& Where did we start getting followed?"
+    },
+    {
+      "idx": 40,
+      "en": "^[Calmon]& I am not sure."
+    },
+    {
+      "idx": 41,
+      "en": "|[Lucian]& Is the person from the {Legolas&? Let's capture and interrogate this stalker. We should lead him out of the village first."
+    },
+    {
+      "idx": 44,
+      "en": "$[Strange Man]& ......"
+    },
+    {
+      "idx": 45,
+      "en": "$[Strange Man]& It wouldn't take long! .. Ok, I get it. I will find someone else."
+    },
+    {
+      "idx": 48,
+      "en": "^[Calmon]& I just realized something."
+    },
+    {
+      "idx": 49,
+      "en": "^[Calmon]& If he needed a {girl& with red hair, why didn't he just hire a girl and ask her to put on a wig?"
+    },
+    {
+      "idx": 53,
+      "en": "$[Strange Man]& Great! We are all set."
+    },
+    {
+      "idx": 54,
+      "en": "$[Strange Man]& Speak to the guard and he will let you go up to the second floor. The book can be found on the corridor on the second floor."
+    },
+    {
+      "idx": 55,
+      "en": "$[Strange Man]& I have made the necessary arrangements. Just tell the guard James sent you there."
+    },
+    {
+      "idx": 56,
+      "en": "|[Lucian]& .. Must I wear this..."
+    },
+    {
+      "idx": 59,
+      "en": "$[Strange Man]& Do you have some time to spare?"
+    },
+    {
+      "idx": 60,
+      "en": "|[Lucian]& Oh? Why?"
+    },
+    {
+      "idx": 61,
+      "en": "$[Strange Man]& Hm..."
+    },
+    {
+      "idx": 62,
+      "en": "|[Lucian]& Why are you inspecting me so closely?"
+    },
+    {
+      "idx": 63,
+      "en": "$[Strange Man]& Haha, nothing much. Would you be interested in doing something with me?"
+    },
+    {
+      "idx": 64,
+      "en": "|[Lucian]& That.. Sounds really awkward.."
+    },
+    {
+      "idx": 66,
+      "en": "|[Lucian]& Just tell me what is it."
+    },
+    {
+      "idx": 67,
+      "en": "$[Strange Man]& Do you see that building?"
+    },
+    {
+      "idx": 68,
+      "en": "$[Strange Man]& It's built by a wealthy man of this place. I want you to go there to take back something he stole."
+    },
+    {
+      "idx": 69,
+      "en": "|[Lucian]& Isn't that stealing? I thought you said it's nothing weird?"
+    },
+    {
+      "idx": 71,
+      "en": "$[Strange Man]& It is very important to me, so I must get it back"
+    },
+    {
+      "idx": 72,
+      "en": "|[Lucian]& What is it?"
+    },
+    {
+      "idx": 73,
+      "en": "$[Strange Man]& It's a {research book on wildlife&. It has been stolen before."
+    },
+    {
+      "idx": 74,
+      "en": "$[Strange Man]& But back then, a kind hearted fellow went through the trouble to retrieve it for me."
+    },
+    {
+      "idx": 75,
+      "en": "|[Lucian]& And so, what do I have to do?"
+    },
+    {
+      "idx": 76,
+      "en": "$[Strange Man]& The security of that place is tight, it won't be easy to slip through undetected. However, that guy is fond of {women&."
+    },
+    {
+      "idx": 77,
+      "en": "|[Lucian]& And what has that got to do with me?..."
+    },
+    {
+      "idx": 78,
+      "en": "$[Strange Man]& Especially those with {red hair&."
+    },
+    {
+      "idx": 79,
+      "en": "|[Lucian]& .. I am not doing it."
+    },
+    {
+      "idx": 80,
+      "en": "$[Strange Man]& Come on, help me this once."
+    },
+    {
+      "idx": 81,
+      "en": "^[Calmon]& Let's do it. It sounds interesting."
+    },
+    {
+      "idx": 82,
+      "en": "|[Lucian]& Why don't you do it!"
+    },
+    {
+      "idx": 84,
+      "en": "^[Calmon]& Who are you calling a kid, are you blind?"
+    },
+    {
+      "idx": 85,
+      "en": "$[Strange Man]& If you do it, I will reward you handsomely.. How about that?"
+    },
+    {
+      "idx": 86,
+      "en": "I think I will.."
+    },
+    {
+      "idx": 88,
+      "en": "|[Lucian]& .. I will give it a try."
+    },
+    {
+      "idx": 89,
+      "en": "$[Strange Man]& Great! I will prepare a {female costume&..."
+    },
+    {
+      "idx": 90,
+      "en": "$[Strange Man]& I know the {Alchemist& of this village. Bring this order there and he will make one for you."
+    },
+    {
+      "idx": 91,
+      "en": "$[Strange Man]& {Wear& the female costume once it's done, then come back and find me."
+    },
+    {
+      "idx": 94,
+      "en": "Don't do it"
+    },
+    {
+      "idx": 95,
+      "en": "|[Lucian]& Not even over my dead body."
+    },
+    {
+      "idx": 96,
+      "en": "$[Strange Man]& So be it then."
+    },
+    {
+      "idx": 97,
+      "en": "$[Guard]& You are a pretty one.. What's your name?"
+    },
+    {
+      "idx": 98,
+      "en": "|[Lucian]& Me.. My name is.."
+    },
+    {
+      "idx": 99,
+      "en": "|[Lucian]& Lucia.. My name is Lucia."
+    },
+    {
+      "idx": 100,
+      "en": "$[Guard]& Argh~  Even your name is so lovely!"
+    },
+    {
+      "idx": 102,
+      "en": "|[Lucian]& James sent me here."
+    },
+    {
+      "idx": 103,
+      "en": "$[Guard]& Ok, head on in."
+    },
+    {
+      "idx": 104,
+      "en": "$[Guard]& Unauthorized personnel are prohibited here!"
+    },
+    {
+      "idx": 105,
+      "en": "|[Lucian]& What a character..."
+    },
+    {
+      "idx": 116,
+      "en": "$[Lass]& When the war ended and people started leaving {Melon Village&, {Humming City& started to decline as well."
+    },
+    {
+      "idx": 117,
+      "en": "$[Lady]& Head pass Golden Woods in the east and you will reach a deserted land filled with savage creatures. Unless you really need to, I suggest you don't go anywhere near that place!"
+    },
+    {
+      "idx": 118,
+      "en": "$[Man]& Humming City is also regarded as the City of Knowledge. You must at least go to the library to take a look!"
+    }
+  ],
+  "m/m/05.m": [
+    {
+      "idx": 31,
+      "en": "Melon Village"
+    },
+    {
+      "idx": 32,
+      "en": "Plum City"
+    },
+    {
+      "idx": 33,
+      "en": "Chelen Village"
+    }
+  ],
+  "m/m/06.m": [
+    {
+      "idx": 0,
+      "en": "^[Calmon]& The people have collapsed."
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& What happened?"
+    },
+    {
+      "idx": 2,
+      "en": "$[Crew]& The boat is damaged. I am afraid we cannot set sail for now.."
+    },
+    {
+      "idx": 3,
+      "en": "$[Crew]& An island appeared in the middle of the lake. What is going on here.."
+    },
+    {
+      "idx": 4,
+      "en": "|[Lucian]& Excuse me, what happened to them?"
+    },
+    {
+      "idx": 5,
+      "en": "$[Crew]& Oh no, something happened to the boat in front."
+    },
+    {
+      "idx": 6,
+      "en": "|[Lucian]& Is it an accident...? Like it hit a reef or something?"
+    },
+    {
+      "idx": 8,
+      "en": "$[Crew]& There is a {summoner& in the midst casting spells and sinking the boat."
+    },
+    {
+      "idx": 9,
+      "en": "|[Lucian]&The boat..."
+    },
+    {
+      "idx": 10,
+      "en": "|[Lucian]& Isn't that the one {Alpez& is on?!"
+    },
+    {
+      "idx": 11,
+      "en": "^[Calmon]& It appears so."
+    },
+    {
+      "idx": 12,
+      "en": "|[Lucian]&What happened to the passengers?"
+    },
+    {
+      "idx": 13,
+      "en": "$[Crew]& Besides those injured, the rest seem alright. They are waiting for the doctor."
+    },
+    {
+      "idx": 14,
+      "en": "|[Lucian]& That's good news.. About the fight, did they give any new information on that?"
+    },
+    {
+      "idx": 15,
+      "en": "$[Crew]& They say a mysterious {maskman& was involved in a fight with two young lads and a blonde lady. It was 1 against 3."
+    },
+    {
+      "idx": 16,
+      "en": "$[Crew]& The monsters were summoned by the {young lad&'s side."
+    },
+    {
+      "idx": 17,
+      "en": "$[Crew]& The lady and the lads have been rescued after they fell into the water. They are probably being interrogated at the {constable&'s office."
+    },
+    {
+      "idx": 19,
+      "en": "^[Calmon]& That mysterious {maskman& again."
+    },
+    {
+      "idx": 20,
+      "en": "|[Lucian]& {Alpez& should have returned safely to the village."
+    },
+    {
+      "idx": 21,
+      "en": "^[Calmon]& We should still check with the {constable&."
+    },
+    {
+      "idx": 22,
+      "en": "^[Calmon]&  I don't care what happened to that girl. But the Maskman fighting with those idiots? That is peculiar."
+    },
+    {
+      "idx": 23,
+      "en": "|[Lucian]& There you go again."
+    },
+    {
+      "idx": 26,
+      "en": "$[Crew]& All that work for nothing, what is this.."
+    },
+    {
+      "idx": 28,
+      "en": "$[Louis]& Is she as beautiful as before?"
+    },
+    {
+      "idx": 29,
+      "en": "|[Lucian]& For her age.. so-so I guess.."
+    },
+    {
+      "idx": 30,
+      "en": "$[Louis]& She is actually my first love.. She was so beautiful back then.."
+    },
+    {
+      "idx": 31,
+      "en": "|[Lucian]& Fortunately, first loves do not usually work out.."
+    },
+    {
+      "idx": 34,
+      "en": "$[Louis]& Thank you so much, remember it's {Clare& of {Hilbanelle&."
+    },
+    {
+      "idx": 35,
+      "en": "$[Louis]& Are you an adventurer?"
+    },
+    {
+      "idx": 37,
+      "en": "$[Louis]& Haha, not a lot of people wear a full set of armor these days. So.."
+    },
+    {
+      "idx": 38,
+      "en": "$[Louis]& You think you can do me a favor?"
+    },
+    {
+      "idx": 39,
+      "en": "|[Lucian]& What favor?"
+    },
+    {
+      "idx": 40,
+      "en": "$[Louis]& Have you been to {Silverleaf Village&?"
+    },
+    {
+      "idx": 41,
+      "en": "|[Lucian]& Yup. What about that?"
+    },
+    {
+      "idx": 42,
+      "en": "$[Louis]& Do you know someone there by the name of {Clare&?"
+    },
+    {
+      "idx": 44,
+      "en": "$[Louis]& Oh, how about that? Then this can be done easily."
+    },
+    {
+      "idx": 45,
+      "en": "$[Louis]& She helped me once when I was still young."
+    },
+    {
+      "idx": 46,
+      "en": "$[Louis]& I have always wanted to pay her a visit, but I just can't find the time. Can you help me send her a gift?"
+    },
+    {
+      "idx": 48,
+      "en": "$[Louis]& What are you talking about? I used to smuggle things in Askra to raise money to pay for my sister's treatment. Then I got caught, she helped me get out of jail."
+    },
+    {
+      "idx": 49,
+      "en": "|[Lucian]& This is quite far-fetched."
+    },
+    {
+      "idx": 50,
+      "en": "$[Louis]& Please believe me."
+    },
+    {
+      "idx": 53,
+      "en": "|[Lucian]& Alright, I will pass this to her for you."
+    },
+    {
+      "idx": 57,
+      "en": "You should do this yourself"
+    },
+    {
+      "idx": 58,
+      "en": "$[Louis]& .. Since you've said no, then there's nothing much I can do."
+    },
+    {
+      "idx": 59,
+      "en": "$[Louis]& Hahahaha.. Haha!"
+    },
+    {
+      "idx": 60,
+      "en": "|[Lucian]& ...."
+    },
+    {
+      "idx": 61,
+      "en": "Set Plum City as the designated Return Point?"
+    },
+    {
+      "idx": 63,
+      "en": "Set {Plum City& as Return Point."
+    },
+    {
+      "idx": 71,
+      "en": "$[Man]& Plum City may be a small port, but we have all the essentials here."
+    },
+    {
+      "idx": 72,
+      "en": "$[Teenage]& Argh~ The scent of the sea goes right to the depth of my soul!"
+    }
+  ],
+  "m/m/07.m": [
+    {
+      "idx": 24,
+      "en": "|[Lucian]& ...."
+    },
+    {
+      "idx": 55,
+      "en": "|[Lucian]& ......"
+    }
+  ],
+  "m/m/08.m": [
+    {
+      "idx": 2,
+      "en": "{Calmon&"
+    },
+    {
+      "idx": 5,
+      "en": "{Alpez&"
+    },
+    {
+      "idx": 15,
+      "en": "^[Calmon]& Prepare for a great adventure!"
+    },
+    {
+      "idx": 16,
+      "en": "|[Lucian]& I never said I was going!"
+    },
+    {
+      "idx": 17,
+      "en": "Enter house?"
+    },
+    {
+      "idx": 19,
+      "en": "|[Lucian]& Wait.. This strange feeling..?"
+    },
+    {
+      "idx": 20,
+      "en": "|[Lucian]& Wow!!! What's that!?"
+    },
+    {
+      "idx": 21,
+      "en": "^[Calmon]& {Lucian&!!"
+    },
+    {
+      "idx": 22,
+      "en": "^[Calmon]& That is a spell. Why didn't I sense that?!"
+    },
+    {
+      "idx": 23,
+      "en": "^[Calmon]& {Lucian&...!"
+    },
+    {
+      "idx": 24,
+      "en": "Continue to prepare"
+    },
+    {
+      "idx": 25,
+      "en": "|[Lucian]& Ok, let's make another round before going back in."
+    },
+    {
+      "idx": 26,
+      "en": "^[Calmon]& Right, we need to prepare for a long journey."
+    },
+    {
+      "idx": 27,
+      "en": "|[Lucian]& I never said I was going!"
+    },
+    {
+      "idx": 28,
+      "en": "|[Lucian]& Oh ya, I should ask that girl.."
+    },
+    {
+      "idx": 29,
+      "en": "^[Calmon]& What do you want to talk about?"
+    },
+    {
+      "idx": 30,
+      "en": "Ask her about.."
+    },
+    {
+      "idx": 31,
+      "en": "The identity of the mysterious figures"
+    },
+    {
+      "idx": 32,
+      "en": "|[Lucian]&Who were those people?"
+    },
+    {
+      "idx": 33,
+      "en": "^[Calmon]& They are from the {Legolas&. You know the {Legolas& right?"
+    },
+    {
+      "idx": 34,
+      "en": "|[Lucian]& Isn't that a cult that disappeared after their leader left?"
+    },
+    {
+      "idx": 35,
+      "en": "^[Calmon]& Not too shabby.. although not entirely accurate."
+    },
+    {
+      "idx": 36,
+      "en": "^[Calmon]& Like you said, the group lost power after losing their fight against the royal alliance and was cast away. However, they still have some influence in other territories."
+    },
+    {
+      "idx": 37,
+      "en": "^[Calmon]& Recently, a {powerful mage& has unified the group and is planning something diabolical."
+    },
+    {
+      "idx": 38,
+      "en": "|[Lucian]& What are they trying to do?"
+    },
+    {
+      "idx": 39,
+      "en": "^[Calmon]& They believe in the {legend& of the South and are trying to {resurrect& the ancient {god&."
+    },
+    {
+      "idx": 40,
+      "en": "^[Calmon]& If they manage to pull it off, {Armageddon& will come upon this land."
+    },
+    {
+      "idx": 41,
+      "en": "^[Calmon]& We must stop them before that happens."
+    },
+    {
+      "idx": 42,
+      "en": "Calmon"
+    },
+    {
+      "idx": 43,
+      "en": "|[Lucian]& And who are you? Why are you running?"
+    },
+    {
+      "idx": 44,
+      "en": "^[Calmon]& Because I am part of the {great power& they are trying to attain."
+    },
+    {
+      "idx": 45,
+      "en": "^[Calmon]& My name is {Arteli Calmon&."
+    },
+    {
+      "idx": 46,
+      "en": "^[Calmon]& The most powerful {Elemental& of the land also known as the {Hymn of Destruction&."
+    },
+    {
+      "idx": 47,
+      "en": "|[Lucian]& You said you have forgotten everything, yet you remember your name and what you are."
+    },
+    {
+      "idx": 48,
+      "en": "|[Lucian]& For someone who claims to be the most powerful being, why are you running away from those people?"
+    },
+    {
+      "idx": 49,
+      "en": "^[Calmon]& So say those who do not know any better.. Do you know what are Elementals?"
+    },
+    {
+      "idx": 50,
+      "en": "|[Lucian]& Aren't they something like {animals&? Mother keeps one at home and it almost bit me as I tried to stroke it when I was still a child.."
+    },
+    {
+      "idx": 51,
+      "en": "^[Calmon]& Don't compare me to those low life forms! Elementals possess intelligence and we are free to choose our masters."
+    },
+    {
+      "idx": 52,
+      "en": "^[Calmon]& One that can adopt a physical form like me is rare to find, even in Erikboise."
+    },
+    {
+      "idx": 53,
+      "en": "|[Lucian]& And what does that mean?"
+    },
+    {
+      "idx": 54,
+      "en": "^[Calmon]& My abilities are supplementary to that of my master's. Without a master, I won't be able to use my powers."
+    },
+    {
+      "idx": 55,
+      "en": "^[Calmon]& For now, I am only as strong as an ordinary girl."
+    },
+    {
+      "idx": 56,
+      "en": "|[Lucian]& .. Basically, you are powerless now.."
+    },
+    {
+      "idx": 58,
+      "en": "|[Lucian]& Are {Alpez&'s kidnappers the the same people who are after you?"
+    },
+    {
+      "idx": 59,
+      "en": "|[Lucian]& Which means if I hand you over to them, I can get {Alpez& back and live happily ever after."
+    },
+    {
+      "idx": 60,
+      "en": "^[Calmon]& If I disappear, people will think that you have sold me off as a slave."
+    },
+    {
+      "idx": 61,
+      "en": "|[Lucian]& What...?"
+    },
+    {
+      "idx": 62,
+      "en": "^[Calmon]& I already told the kids. So you better be prepared."
+    },
+    {
+      "idx": 63,
+      "en": "|[Lucian]& What.. Did you say again?"
+    },
+    {
+      "idx": 64,
+      "en": "^[Calmon]& You have another choice. Help me defeat those guys and save the girl. That will work too."
+    },
+    {
+      "idx": 65,
+      "en": "^[Calmon]& For enemies of that standard, I just need to lent you a little bit of my power."
+    },
+    {
+      "idx": 66,
+      "en": "|[Lucian]& You think you can manipulate people like that?"
+    },
+    {
+      "idx": 67,
+      "en": "|[Lucian]& I am not buying any of this."
+    },
+    {
+      "idx": 68,
+      "en": "^[Calmon]& You need help and I need someone who can help me beat those guys. It's a win-win situation."
+    },
+    {
+      "idx": 69,
+      "en": "|[Lucian]& Stop fooling around."
+    },
+    {
+      "idx": 70,
+      "en": "^[Calmon]& You seem to have a bit of talent there. Have you been trained in battle? The only negative thing about you is your personality."
+    },
+    {
+      "idx": 71,
+      "en": "|[Lucian]& Stop it. Stop it. Stop it!"
+    },
+    {
+      "idx": 72,
+      "en": "^[Calmon]& So.. Do you have a better plan?"
+    },
+    {
+      "idx": 73,
+      "en": "|[Lucian]& .. Ok.. We will go with your plan! What has the world come to.."
+    },
+    {
+      "idx": 74,
+      "en": "^[Calmon]& In the case, we need to form a pact."
+    },
+    {
+      "idx": 75,
+      "en": "^[Calmon]& I, {Arteli Calmon&, and you, {Lucian&, are hereby sworn into a pact of allegiance."
+    },
+    {
+      "idx": 76,
+      "en": "^[Calmon]& From this moment on, I will be your sword, your shield and protect you to the end of eternity."
+    },
+    {
+      "idx": 77,
+      "en": "^[Calmon]& (mumble.. mumble...)"
+    },
+    {
+      "idx": 78,
+      "en": "|[Lucian]& What are you mumbling about?"
+    },
+    {
+      "idx": 79,
+      "en": "^[Calmon]& Nothing much. The pact has been sealed."
+    },
+    {
+      "idx": 80,
+      "en": "|[Lucian]& It's that simple?"
+    },
+    {
+      "idx": 81,
+      "en": "|[Lucian]& .. Now, where do we find those guys?"
+    },
+    {
+      "idx": 82,
+      "en": "^[Calmon]& They should be nearby. Do you think they are hiding somewhere?"
+    },
+    {
+      "idx": 83,
+      "en": "|[Lucian]& There is this cave west of the village."
+    },
+    {
+      "idx": 84,
+      "en": "^[Calmon]& Let's check there then."
+    },
+    {
+      "idx": 87,
+      "en": "Profession {Elementalist&} unlocked!&"
+    },
+    {
+      "idx": 88,
+      "en": "^[Calmon]& What do you want to talk about?"
+    },
+    {
+      "idx": 89,
+      "en": "Ask her about.."
+    },
+    {
+      "idx": 90,
+      "en": "The identity of the mysterious figures"
+    },
+    {
+      "idx": 91,
+      "en": "|[Lucian]&Who were those people?"
+    },
+    {
+      "idx": 92,
+      "en": "^[Calmon]& They are from the {Legolas&. You know the {Legolas& right?"
+    },
+    {
+      "idx": 93,
+      "en": "|[Lucian]& Isn't that a cult that disappeared after their leader left?"
+    },
+    {
+      "idx": 94,
+      "en": "^[Calmon]& Not too shabby.. although not entirely accurate."
+    },
+    {
+      "idx": 95,
+      "en": "^[Calmon]& Like you said, the group lost power after losing their fight against the royal alliance and was cast away. However, they still have some influence in other territories."
+    },
+    {
+      "idx": 96,
+      "en": "^[Calmon]& Recently, a {powerful mage& has unified the group and is planning something diabolical."
+    },
+    {
+      "idx": 97,
+      "en": "|[Lucian]& What are they trying to do?"
+    },
+    {
+      "idx": 98,
+      "en": "^[Calmon]& They believe in the {legend& of the South and are trying to {resurrect& the ancient {god&."
+    },
+    {
+      "idx": 99,
+      "en": "^[Calmon]& If they manage to pull it off, {Armageddon& will come upon this land."
+    },
+    {
+      "idx": 100,
+      "en": "^[Calmon]& We must stop them before that happens."
+    },
+    {
+      "idx": 101,
+      "en": "Calmon"
+    },
+    {
+      "idx": 102,
+      "en": "|[Lucian]& And who are you? Why are you running?"
+    },
+    {
+      "idx": 103,
+      "en": "^[Calmon]& Because I am part of the {great power& they are trying to attain."
+    },
+    {
+      "idx": 104,
+      "en": "^[Calmon]& My name is {Arteli Calmon&."
+    },
+    {
+      "idx": 105,
+      "en": "^[Calmon]& The most powerful {Elemental& of the land also known as the {Hymn of Destruction&."
+    },
+    {
+      "idx": 106,
+      "en": "|[Lucian]& You said you have forgotten everything, yet you remember your name and what you are."
+    },
+    {
+      "idx": 107,
+      "en": "|[Lucian]& For someone who claims to be the most powerful being, why are you running away from those people?"
+    },
+    {
+      "idx": 108,
+      "en": "^[Calmon]& So say those who do not know any better.. Do you know what are Elementals?"
+    },
+    {
+      "idx": 109,
+      "en": "|[Lucian]& Aren't they something like {animals&? Mother keeps one at home and it almost bit me as I tried to stroke it when I was still a child.."
+    },
+    {
+      "idx": 110,
+      "en": "^[Calmon]& Don't compare me to those low life forms! Elementals possess intelligence and we are free to choose our masters."
+    },
+    {
+      "idx": 111,
+      "en": "^[Calmon]& One that can adopt a physical form like me is rare, even in Erikboise."
+    },
+    {
+      "idx": 112,
+      "en": "|[Lucian]& And what does that mean?"
+    },
+    {
+      "idx": 113,
+      "en": "^[Calmon]& My abilities are supplementary to that of my master's. Without a master, I won't be able to use my powers."
+    },
+    {
+      "idx": 114,
+      "en": "^[Calmon]& For now, I am only as strong as an ordinary girl."
+    },
+    {
+      "idx": 115,
+      "en": "|[Lucian]& .. Basically, you are powerless now.."
+    },
+    {
+      "idx": 117,
+      "en": "|[Lucian]& Are {Alpez&'s kidnappers the same people who are after you?"
+    },
+    {
+      "idx": 118,
+      "en": "|[Lucian]& Which means if I hand you over to them, I can get {Alpez& back and live happily ever after."
+    },
+    {
+      "idx": 119,
+      "en": "^[Calmon]& If I disappear, people will think that you have sold me off as a slave."
+    },
+    {
+      "idx": 120,
+      "en": "|[Lucian]& What...?"
+    },
+    {
+      "idx": 121,
+      "en": "^[Calmon]& I already told the kids. So you better be prepared."
+    },
+    {
+      "idx": 122,
+      "en": "|[Lucian]& What.. Did you say again?"
+    },
+    {
+      "idx": 123,
+      "en": "^[Calmon]& You have another choice. Help me defeat those guys and save the girl. That will work too."
+    },
+    {
+      "idx": 124,
+      "en": "^[Calmon]& For enemies of that standard, I just need to lent you a little bit of my power."
+    },
+    {
+      "idx": 125,
+      "en": "|[Lucian]& You think you can manipulate people like that?"
+    },
+    {
+      "idx": 126,
+      "en": "|[Lucian]& I am not buying any of this."
+    },
+    {
+      "idx": 127,
+      "en": "^[Calmon]& You need help and I need someone who can help me beat those guys. It's a win-win situation."
+    },
+    {
+      "idx": 128,
+      "en": "|[Lucian]& Stop fooling around."
+    },
+    {
+      "idx": 129,
+      "en": "^[Calmon]& You seem to have a bit of talent there. Have you been trained in battle? The only negative thing about you is your personality."
+    },
+    {
+      "idx": 130,
+      "en": "|[Lucian]& Stop it. Stop it. Stop it!"
+    },
+    {
+      "idx": 131,
+      "en": "^[Calmon]& So.. Do you have a better plan?"
+    },
+    {
+      "idx": 132,
+      "en": "|[Lucian]& .. Ok.. We will go with your plan! What has the world come to.."
+    },
+    {
+      "idx": 133,
+      "en": "^[Calmon]& In that case, we need to form a pact."
+    },
+    {
+      "idx": 134,
+      "en": "^[Calmon]& I, {Arteli Calmon&, and you, {Lucian&, are hereby sworn into a pact of allegiance."
+    },
+    {
+      "idx": 135,
+      "en": "^[Calmon]& From this moment on, I will be your sword, your shield and protect you to the end of eternity."
+    },
+    {
+      "idx": 136,
+      "en": "^[Calmon]& (mumble.. mumble...)"
+    },
+    {
+      "idx": 137,
+      "en": "|[Lucian]& What are you mumbling about?"
+    },
+    {
+      "idx": 138,
+      "en": "^[Calmon]& Nothing much. The pact has been sealed."
+    },
+    {
+      "idx": 139,
+      "en": "|[Lucian]& It's that simple?"
+    },
+    {
+      "idx": 140,
+      "en": "|[Lucian]& .. Now, where do we find those guys?"
+    },
+    {
+      "idx": 141,
+      "en": "^[Calmon]& They should be nearby. Do you think they are hiding somewhere?"
+    },
+    {
+      "idx": 142,
+      "en": "|[Lucian]& There is this cave west of the village."
+    },
+    {
+      "idx": 143,
+      "en": "^[Calmon]& Let's check there then."
+    },
+    {
+      "idx": 146,
+      "en": "Skill points can be used to upgrade Elemental Skills."
+    },
+    {
+      "idx": 147,
+      "en": "Similar to normal skills, passive ones will be in effect once they are activated."
+    },
+    {
+      "idx": 148,
+      "en": "Active skills can be binded onto keys 7 and 9. Active skills consume EP."
+    },
+    {
+      "idx": 149,
+      "en": "EP will be recovered after a successful attack or when under attack."
+    },
+    {
+      "idx": 150,
+      "en": "Proficiency with level 1 skills will help open up more powerful level 2 skills."
+    }
+  ],
+  "m/m/10.m": [
+    {
+      "idx": 21,
+      "en": "^[Clare]& {Lucian&!"
+    }
+  ],
+  "m/m/13.m": [
+    {
+      "idx": 11,
+      "en": "|[Lucian]& Hm..."
+    }
+  ],
+  "m/m/16.m": [
+    {
+      "idx": 6,
+      "en": "|[Lucian]& ..."
+    },
+    {
+      "idx": 15,
+      "en": "$[Constable]& So we cannot rely on Silverleaf Village to provide help. In that case, escape is the only option.."
+    },
+    {
+      "idx": 16,
+      "en": "$[Constable]& We do not have enough boats for everyone, so we cannot travel by water. There are also a lot of monsters around the fortress lately.."
+    },
+    {
+      "idx": 17,
+      "en": "$[Constable]& .. We have no options."
+    },
+    {
+      "idx": 18,
+      "en": "^[Calmon]& This is getting to be too much. We want to help, but why does nobody seem to care that someone has died?"
+    },
+    {
+      "idx": 19,
+      "en": "$[Staff]& To be honest, the constable thinks everyone in this village deserves to die right?"
+    },
+    {
+      "idx": 20,
+      "en": "|[Lucian]& What?"
+    },
+    {
+      "idx": 21,
+      "en": "$[Constable]& I admit I do."
+    },
+    {
+      "idx": 22,
+      "en": "$[Constable]& We have committed a great sin. Even if we can escape the law, we cannot escape punishment from the divine.."
+    },
+    {
+      "idx": 23,
+      "en": "^[Calmon]& Try telling us."
+    },
+    {
+      "idx": 24,
+      "en": "$[Staff]& I will say what I know.."
+    },
+    {
+      "idx": 25,
+      "en": "$[Staff]& It was back in the days of the civil war."
+    },
+    {
+      "idx": 26,
+      "en": "$[Staff]& The Southern Forces tried using monsters to attack the fortress."
+    },
+    {
+      "idx": 27,
+      "en": "$[Staff]& Many soldiers died. Luckily, the Frostwave Swordsman arrived. He killed the monsters and captured their summoner."
+    },
+    {
+      "idx": 28,
+      "en": "$[Staff]& As it turned out, the summoner was a kid. She was discovered for her talent and forced to join the fight."
+    },
+    {
+      "idx": 29,
+      "en": "$[Staff]& The kid didn't even know what she was doing. She was following instructions blindly."
+    },
+    {
+      "idx": 30,
+      "en": "$[Staff]& The war trial committee decided that the child cannot be punished for a crime she doesn't even understand."
+    },
+    {
+      "idx": 31,
+      "en": "$[Staff]& The child was an orphan. A kind local lady adopted her and she remained in the village."
+    },
+    {
+      "idx": 32,
+      "en": "^[Calmon]& It seems that the villagers continue to bear grudges."
+    },
+    {
+      "idx": 34,
+      "en": "$[Staff]& And so, the kind lady who took care of the child became a public enemy as well."
+    },
+    {
+      "idx": 35,
+      "en": "$[Staff]& People asked why she would harbor a monster."
+    },
+    {
+      "idx": 36,
+      "en": "$[Staff]& In the end, the inevitable happened."
+    },
+    {
+      "idx": 37,
+      "en": "$[Constable]& Someone shot and killed {Karin&."
+    },
+    {
+      "idx": 38,
+      "en": "$[Constable]& {Karin& is the name of the kind lady who took the kid in."
+    },
+    {
+      "idx": 39,
+      "en": "$[Constable]& Nobody knows whether the target was {Karin& or the child. Nobody knows who did it."
+    },
+    {
+      "idx": 40,
+      "en": "$[Constable]& The villagers protected the murderer. This makes everyone an accomplice."
+    },
+    {
+      "idx": 41,
+      "en": "$[Constable]& The child did not shed a single tear. All she did was stare at the villagers with hate and promise to seek revenge. She left the village."
+    },
+    {
+      "idx": 42,
+      "en": "$[Constable]& Now she is making good on her promise."
+    },
+    {
+      "idx": 43,
+      "en": "^[Calmon]& What a tragic story."
+    },
+    {
+      "idx": 44,
+      "en": "|[Lucian]& {Calmon&, do you like boats?"
+    },
+    {
+      "idx": 45,
+      "en": "^[Calmon]& Why do you suddenly ask? I don't really like boats."
+    },
+    {
+      "idx": 46,
+      "en": "|[Lucian]& Constable, I heard the door to the Southern Fortress is locked. Do you have the key?"
+    },
+    {
+      "idx": 47,
+      "en": "$[Constable]& .. It is with me."
+    },
+    {
+      "idx": 49,
+      "en": "|[Lucian]& We will be heading off then. Let's go, {Calmon&!"
+    },
+    {
+      "idx": 50,
+      "en": "^[Calmon]& What are you thinking, leaving like that?"
+    },
+    {
+      "idx": 51,
+      "en": "|[Lucian]& The land route will take us past the fortress. If anyone dares stand in the way, we will give that fool a good beating."
+    },
+    {
+      "idx": 52,
+      "en": "^[Calmon]& What..."
+    },
+    {
+      "idx": 53,
+      "en": "^[Calmon]& You should have said that long ago. That's more like my master."
+    },
+    {
+      "idx": 56,
+      "en": "$[Constable]& So that's why.."
+    },
+    {
+      "idx": 57,
+      "en": "$[Constable]& In any case, this has got nothing to do with you two. You should leave the village before you get yourselves into trouble.."
+    },
+    {
+      "idx": 58,
+      "en": "$[Constable]& I may not be able to stop the villagers the next time."
+    },
+    {
+      "idx": 59,
+      "en": "|[Lucian]& Can you try to think of something? We are kind of involved."
+    },
+    {
+      "idx": 60,
+      "en": "|[Lucian]& If possible, I would like to help."
+    },
+    {
+      "idx": 61,
+      "en": "$[Constable]& What can we do? Seek help from other villages? Would they believe us? Even if they send help, it may take a week or so.."
+    },
+    {
+      "idx": 62,
+      "en": "^[Calmon]& How about running away?"
+    },
+    {
+      "idx": 63,
+      "en": "$[Constable]& The villagers will not abandon the village that easily. Besides, there are monsters outside too."
+    },
+    {
+      "idx": 64,
+      "en": "|[Lucian]& We can try to convince them. Better than staying and be sitting ducks."
+    },
+    {
+      "idx": 65,
+      "en": "$[Constable]& Hm.."
+    },
+    {
+      "idx": 67,
+      "en": "$[Constable]& Inform {Silverleaf Village& of the situation."
+    },
+    {
+      "idx": 70,
+      "en": "|[Lucian]& Let's go, {Calmon&."
+    },
+    {
+      "idx": 71,
+      "en": "^[Calmon]& Oh ya, is there a {Timoros& in this village?"
+    },
+    {
+      "idx": 72,
+      "en": "$[Constable]& She stayed here for awhile, but left after her parents died."
+    },
+    {
+      "idx": 74,
+      "en": "$[Constable]& .. I don't know what to say."
+    }
+  ],
+  "m/m/21.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& That is...!"
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& What are you doing?!"
+    },
+    {
+      "idx": 3,
+      "en": "^[Timoros]& I am {Timoros&. You came just in time."
+    },
+    {
+      "idx": 4,
+      "en": "^[Timoros]& Go tell the villagers that in three days, everyone will die."
+    },
+    {
+      "idx": 5,
+      "en": "^[Timoros]& This is retribution. There is  no escaping from this fate."
+    },
+    {
+      "idx": 6,
+      "en": "|[Lucian]& Retribution?"
+    },
+    {
+      "idx": 7,
+      "en": "^[Timoros]& The villagers deserve to die. There is nothing you can do except join them in the underworld."
+    },
+    {
+      "idx": 8,
+      "en": "^[Timoros]& Someone is here. That's it then. I believe I have made myself clear."
+    },
+    {
+      "idx": 9,
+      "en": "^[Calmon]& She got away!"
+    },
+    {
+      "idx": 10,
+      "en": "|[Lucian]& Stop!"
+    },
+    {
+      "idx": 11,
+      "en": "$[Villager]& Murrr.. Murder!"
+    },
+    {
+      "idx": 12,
+      "en": "|[Lucian]& I didn't do this! {Timoros& did!"
+    },
+    {
+      "idx": 13,
+      "en": "$[Villager]& {Timoros&..?! That monster is back! We are all going to die! "
+    },
+    {
+      "idx": 14,
+      "en": "^[Calmon]& Are you ok?"
+    },
+    {
+      "idx": 15,
+      "en": "$[Villager]& You are the ones who brought her back! Are you working for her? You brought this upon us!!"
+    },
+    {
+      "idx": 16,
+      "en": "^[Calmon]& They are going crazy!"
+    },
+    {
+      "idx": 17,
+      "en": "$[Constable]& What are you doing! Get away from the crime scene now!"
+    },
+    {
+      "idx": 18,
+      "en": "$[Villager]& But those foreigners...!"
+    },
+    {
+      "idx": 19,
+      "en": "$[Constable]& Now!"
+    },
+    {
+      "idx": 20,
+      "en": "|[Lucian]& Lucky you are here to prove my innocence."
+    },
+    {
+      "idx": 21,
+      "en": "$[Constable]& Did you see the killer?"
+    },
+    {
+      "idx": 22,
+      "en": "|[Lucian]& What?"
+    },
+    {
+      "idx": 23,
+      "en": "$[Constable]& I asked if you saw the killer."
+    },
+    {
+      "idx": 25,
+      "en": "$[Constable]& Come to my office. I have questions that need answering."
+    },
+    {
+      "idx": 28,
+      "en": "}Return Point has been set as {Melon Village&."
+    }
+  ],
+  "m/m/23.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& Now that I looking at it again.."
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& Isn't it like the one you are wearing now?"
+    },
+    {
+      "idx": 2,
+      "en": "^[Calmon]& Really?"
+    },
+    {
+      "idx": 3,
+      "en": "|[Lucian]& How strange.. Where did you get this?"
+    },
+    {
+      "idx": 4,
+      "en": "^[Calmon]& .. I think it was a gift from someone.. There is a lot of sentimental values.."
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& Is it? You really like it don't you?"
+    },
+    {
+      "idx": 6,
+      "en": "^[Calmon]& .. Maybe, I guess.."
+    },
+    {
+      "idx": 7,
+      "en": "|[Lucian]& What are you looking at?"
+    },
+    {
+      "idx": 8,
+      "en": "|[Lucian]& That dress?"
+    },
+    {
+      "idx": 9,
+      "en": "^[Calmon]& Nothing."
+    },
+    {
+      "idx": 10,
+      "en": "|[Lucian]& You were looking at that dress weren't you? You like it?"
+    },
+    {
+      "idx": 14,
+      "en": "$[Merchant]& {300& gold."
+    }
+  ],
+  "m/m/25.m": [
+    {
+      "idx": 0,
+      "en": "$[Inn Keeper]& You look an honest man just like I was when I was young. Hahahahaha!"
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& Ya right..."
+    },
+    {
+      "idx": 2,
+      "en": "$[Inn Keeper]& How can this be~! Incredible! You have earned yourself the {Mark of Champion&!"
+    },
+    {
+      "idx": 3,
+      "en": "$[Inn Keeper]& With this, you can enter the arena anytime."
+    },
+    {
+      "idx": 4,
+      "en": "$[Inn Keeper]& I will include your name in our Hall of Fame. You are entry number 6."
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& Who are the 5 before me?"
+    },
+    {
+      "idx": 6,
+      "en": "$[Inn Keeper]& .. Let's see.. The first is Ian, second is Lea, third is Clare.."
+    },
+    {
+      "idx": 7,
+      "en": "$[Inn Keeper]& The fourth is Anthony and the fifth is some girl called Alicia.."
+    },
+    {
+      "idx": 8,
+      "en": "|[Lucian]& Sounds like familiar names.. Right, I have a question for you."
+    },
+    {
+      "idx": 9,
+      "en": "|[Lucian]& Where did the monsters in the arena come from?"
+    },
+    {
+      "idx": 10,
+      "en": "$[Inn Keeper]& Oh, that? An old friend helped me out. I told him I would split the profit with him 50-50."
+    },
+    {
+      "idx": 11,
+      "en": "$[Inn Keeper]& His name is {Arkley&.. Haven't seen him around for some time now. I wonder what he's been up to."
+    },
+    {
+      "idx": 12,
+      "en": "|[Lucian]& .. Sounds like a name I keep hearing about.."
+    },
+    {
+      "idx": 13,
+      "en": "$[Inn Keeper]& Oh, someone told me to let him know that if of my guest beat the arena."
+    },
+    {
+      "idx": 14,
+      "en": "|[Lucian]& Why would anybody bother about that?"
+    },
+    {
+      "idx": 15,
+      "en": "$[Inn Keeper]& Beats me. If you are interested, head over to the {room on the right at the far end&."
+    },
+    {
+      "idx": 16,
+      "en": "$[Inn Keeper]& Look! This is your reward and prize money. It's quite a good deal right?"
+    },
+    {
+      "idx": 19,
+      "en": "$[Inn Keeper]& Want the key to the arena? It's only {1000 gold&."
+    },
+    {
+      "idx": 20,
+      "en": "Take part in arena challenge?"
+    },
+    {
+      "idx": 21,
+      "en": "Challenge"
+    },
+    {
+      "idx": 22,
+      "en": "$[Inn Keeper]& Good luck!"
+    },
+    {
+      "idx": 23,
+      "en": "Are you insane"
+    },
+    {
+      "idx": 24,
+      "en": "|[Lucian]& Not interested."
+    },
+    {
+      "idx": 25,
+      "en": "$[Inn Keeper]& You can come back anytime if you change your mind."
+    },
+    {
+      "idx": 26,
+      "en": "$[Inn Keeper]& Actually, we operate an underground {arena&. Are you interested?"
+    },
+    {
+      "idx": 27,
+      "en": "$[Inn Keeper]& Defeat the final monster and bring back proof. Gold and amazing prizes await you."
+    },
+    {
+      "idx": 28,
+      "en": "$[Inn Keeper]& I will tell you the details when you come back with your proof. By the way, the {arena fee is 1000 gold&."
+    },
+    {
+      "idx": 29,
+      "en": "|[Lucian]& This won't be for nothing."
+    },
+    {
+      "idx": 30,
+      "en": "Take part in arena challenge?"
+    },
+    {
+      "idx": 31,
+      "en": "Challenge"
+    },
+    {
+      "idx": 32,
+      "en": "|[Lucian]& Alright, how do I get there?"
+    },
+    {
+      "idx": 33,
+      "en": "$[Inn Keeper]& Just head through the door at the back. While you are inside, you {can't use the Book of Return&."
+    },
+    {
+      "idx": 34,
+      "en": "$[Inn Keeper]& {Kill about {10& monsters of any type among those roaming in a level and the door to the next level will open."
+    },
+    {
+      "idx": 35,
+      "en": "$[Inn Keeper]& While inside, even if you are {unable to continue battle, you will not die&. So don't worry about it."
+    },
+    {
+      "idx": 36,
+      "en": "|[Lucian]& You are incredibly detailed with these."
+    },
+    {
+      "idx": 38,
+      "en": "Are you insane"
+    },
+    {
+      "idx": 39,
+      "en": "|[Lucian]& 1000 is too much. I am not interested."
+    },
+    {
+      "idx": 40,
+      "en": "$[Inn Keeper]& You can come back anytime if you change your mind."
+    },
+    {
+      "idx": 41,
+      "en": "$[Inn Keeper]& If you don't have at least 1000 gold with you, don't waste my time!"
+    },
+    {
+      "idx": 42,
+      "en": "|[Lucian]& That's..."
+    },
+    {
+      "idx": 43,
+      "en": "|[Lucian]& The door is locked."
+    },
+    {
+      "idx": 55,
+      "en": "$[Leonille]& Good.. Fantastic. Congratulations on reaching level 55!"
+    },
+    {
+      "idx": 56,
+      "en": "$[Leonille]& Like I promised, here is your gift. This is the {blueprint& for a more powerful gunblade."
+    },
+    {
+      "idx": 59,
+      "en": "$[Leonille]& Continue to work hard and show the world what gunbladers can do!"
+    },
+    {
+      "idx": 60,
+      "en": "$[Leonille]& I know this is no problem for you!"
+    },
+    {
+      "idx": 61,
+      "en": "$[Leonille]& To congratulate you, here is a {gunblade&."
+    },
+    {
+      "idx": 64,
+      "en": "Profession {Gunblader&} unlocked!&"
+    },
+    {
+      "idx": 65,
+      "en": "$[Leonille]& Gunblades can be found in shops. There are 2 categories, one has a higher average damage, the other has a higher critical damage. Choose one according to your style."
+    },
+    {
+      "idx": 66,
+      "en": "$[Leonille]& Train yourself to level {55& and I will give you an additional {gift&."
+    },
+    {
+      "idx": 68,
+      "en": "$[Leonille]& I knew this wouldn't be a problem for you!"
+    },
+    {
+      "idx": 69,
+      "en": "$[Leonille]& To congratulate you, here is a {gunblade&."
+    },
+    {
+      "idx": 72,
+      "en": "Profession {Gunblader&} unlocked!&"
+    },
+    {
+      "idx": 73,
+      "en": "$[Leonille]& Gunblades can be found in shops. There are 2 categories, one has a higher average damage, the other has a higher critical damage. Choose one according to your style."
+    },
+    {
+      "idx": 74,
+      "en": "Are you ready?"
+    },
+    {
+      "idx": 75,
+      "en": "I am ready!"
+    },
+    {
+      "idx": 76,
+      "en": "$[Leonille]& Good luck fighting."
+    },
+    {
+      "idx": 77,
+      "en": "|[Lucian]& So I can only use this gun from now on?"
+    },
+    {
+      "idx": 79,
+      "en": "$[Leonille]& You can use any gun you want inside."
+    },
+    {
+      "idx": 80,
+      "en": "Not quite..."
+    },
+    {
+      "idx": 81,
+      "en": "$[Leonille]& Come back when you are ready."
+    },
+    {
+      "idx": 82,
+      "en": "$[Leonille]& You seem all set. You need to familiarize yourself with it first."
+    },
+    {
+      "idx": 83,
+      "en": "$[Leonille]& More importantly, you need combat experience. You can use the arena at this inn. It is a good place to practice."
+    },
+    {
+      "idx": 84,
+      "en": "$[Leonille]& Let me tell you what you should do. Equip the handgun and open the chest at the lowest level of the arena."
+    },
+    {
+      "idx": 85,
+      "en": "$[Leonille]& And you can unlock the profession of {Gunblader&, which requires the fusion of pure instinct and actual combat experience."
+    },
+    {
+      "idx": 86,
+      "en": "$[Leonille]& Talk to me when you have everything ready."
+    },
+    {
+      "idx": 87,
+      "en": "$[Leonille]& You can't be the young man who {beat the arena&?!"
+    },
+    {
+      "idx": 88,
+      "en": "|[Lucian]& Yup, that's me.."
+    },
+    {
+      "idx": 89,
+      "en": "$[Leonille]& That's great.. I am Leonille. I have been looking for someone as strong as you."
+    },
+    {
+      "idx": 90,
+      "en": "$[Leonille]& Are you interested in {guns&?"
+    },
+    {
+      "idx": 91,
+      "en": "I am.."
+    },
+    {
+      "idx": 92,
+      "en": "Interested"
+    },
+    {
+      "idx": 93,
+      "en": "|[Lucian]& Maybe a little..."
+    },
+    {
+      "idx": 94,
+      "en": "$[Leonille]& Good.. Now listen to me."
+    },
+    {
+      "idx": 95,
+      "en": "$[Leonille]& Handguns aren't all that powerful, so they made gunblades which have larger diameters and are good close combat weapons."
+    },
+    {
+      "idx": 96,
+      "en": "$[Leonille]& I have created a fighting style that utilizes the gunblade best. However, the style is too difficult even for me."
+    },
+    {
+      "idx": 97,
+      "en": "$[Leonille]& I have been trying to find someone to learn this fighting style. Are you interested?"
+    },
+    {
+      "idx": 98,
+      "en": "|[Lucian]& What do I have to do?"
+    },
+    {
+      "idx": 99,
+      "en": "$[Leonille]& Well, you have to have a gun at the very least. An {automatic& should do just fine."
+    },
+    {
+      "idx": 100,
+      "en": "|[Lucian]& Ok, then give me this {automatic& thing."
+    },
+    {
+      "idx": 102,
+      "en": "|[Lucian]& This is so troublesome."
+    },
+    {
+      "idx": 103,
+      "en": "$[Leonille]& Go on now. Come back again when you have found and equipped an {automatic&."
+    },
+    {
+      "idx": 104,
+      "en": "$[Leonille]& Guns don't lie! You will definitely be satisfied."
+    },
+    {
+      "idx": 106,
+      "en": "Not interested at all"
+    },
+    {
+      "idx": 108,
+      "en": "$[Leonille]& If you use it well, it will be of great help.."
+    },
+    {
+      "idx": 110,
+      "en": "$[Duroy]& Oh.. This is something new."
+    },
+    {
+      "idx": 111,
+      "en": "$[Duroy]& Crusader leader {Craig& and {Kenneth& are actually {the same person&."
+    },
+    {
+      "idx": 112,
+      "en": "$[Duroy]& This is beginning to make sense. Kenneth wanted to use Ian and Lea to create a legend for the land."
+    },
+    {
+      "idx": 113,
+      "en": "$[Duroy]& Did Norman's death changed his mind? We can only make a guess.."
+    },
+    {
+      "idx": 114,
+      "en": "$[Duroy]& These are valuable historical records that will shock the world."
+    },
+    {
+      "idx": 115,
+      "en": "$[Duroy]& Thank you for your help. This is something I think you deserve.."
+    },
+    {
+      "idx": 116,
+      "en": "$[Duroy]& This {accessory& is something I found while I was hunting down historical records. It's yours now."
+    },
+    {
+      "idx": 119,
+      "en": "$[Duroy]& It is time to rewrite history and link the history of Soltia and this land together into a coherent one."
+    },
+    {
+      "idx": 122,
+      "en": "$[Duroy]& Kenneth,  who began to oppose the elders, chose the perfect moment to take center stage."
+    },
+    {
+      "idx": 123,
+      "en": "$[Duroy]& This is all logical from the cause and effect point of view, but there are still some murky parts."
+    },
+    {
+      "idx": 124,
+      "en": "$[Duroy]& With the emergence of Kenneth, the crusaders broke up rapidly."
+    },
+    {
+      "idx": 125,
+      "en": "$[Duroy]& At the same time, no one knows the whereabouts of crusader leader {Craig&."
+    },
+    {
+      "idx": 126,
+      "en": "$[Duroy]& In my opinion, all these unrelated events must be linked somehow."
+    },
+    {
+      "idx": 127,
+      "en": "$[Duroy]& The next volume can be found along the {Path of Suffering&. Keep up the good work."
+    },
+    {
+      "idx": 131,
+      "en": "$[Duroy]& .. Let me see..."
+    },
+    {
+      "idx": 132,
+      "en": "$[Duroy]& As everyone knows, Kenneth saw his stature in Soltia grow during the conflict with the crusaders. However, his attitude began to change drastically.."
+    },
+    {
+      "idx": 133,
+      "en": "$[Duroy]& I can understand the reason Ian and Lea were against the elders, but Kenneth?"
+    },
+    {
+      "idx": 134,
+      "en": "$[Duroy]& During that period, he was preoccupied with subduing the opposition. He didn't care much about anything else."
+    },
+    {
+      "idx": 135,
+      "en": "$[Duroy]& The next volume is located somewhere in the plains, south of {Humming City&. Continue your good work."
+    },
+    {
+      "idx": 137,
+      "en": "$[Duroy]& Oh! You've got it. This is {Kenneth's Diary&..."
+    },
+    {
+      "idx": 139,
+      "en": "$[Duroy]& .. Let me see..."
+    },
+    {
+      "idx": 140,
+      "en": "$[Duroy]& Much of the content in this volume is already known."
+    },
+    {
+      "idx": 141,
+      "en": "$[Duroy]& Kenneth is very close to Ian's father.. Everyone knows that."
+    },
+    {
+      "idx": 142,
+      "en": "$[Duroy]& Information on Kenneth only becomes sketchy after the death of Norman.. This is not enough."
+    },
+    {
+      "idx": 143,
+      "en": "$[Duroy]& The next volume is located somewhere west of {Sovereign Hill&. Keep up the good work."
+    },
+    {
+      "idx": 145,
+      "en": "$[Duroy]& You look like an explorer. Are you interested in {history&?"
+    },
+    {
+      "idx": 146,
+      "en": "I am.."
+    },
+    {
+      "idx": 147,
+      "en": "Quite interested"
+    },
+    {
+      "idx": 148,
+      "en": "$[Duroy]& Let's have a little chat then."
+    },
+    {
+      "idx": 149,
+      "en": "$[Duroy]& You know the hero of the civil war, {Kenneth&."
+    },
+    {
+      "idx": 150,
+      "en": "$[Duroy]& He and {Ian& appeared suddenly in the history of {Soltia&. There has been no records of them anywhere before that."
+    },
+    {
+      "idx": 151,
+      "en": "$[Duroy]& I found out that there are these diaries that he wrote during the war, which are scattered around the world."
+    },
+    {
+      "idx": 152,
+      "en": "$[Duroy]& These diaries may contain historical information that is not found in the current records of Erikboise."
+    },
+    {
+      "idx": 153,
+      "en": "$[Duroy]& I came here to confirm the locations of these diaries and have acquired highly reliable evidence."
+    },
+    {
+      "idx": 154,
+      "en": "$[Duroy]& Have I tickled your curiosity bone? Are you interested in helping me gather {Kenneth's Diaries&?"
+    },
+    {
+      "idx": 156,
+      "en": "$[Duroy]& The first volume is located east of {Silverleaf Village&."
+    },
+    {
+      "idx": 157,
+      "en": "$[Duroy]& There is a special marking at the place where the diary is kept. It is very obvious, so just keep your eyes open."
+    },
+    {
+      "idx": 158,
+      "en": "$[Duroy]& Bring the diary back to me and I can use it to trace the locations of the other volumes."
+    },
+    {
+      "idx": 160,
+      "en": "Not interested at all"
+    },
+    {
+      "idx": 161,
+      "en": "$[Duroy]& Hais.. Young people these days.."
+    },
+    {
+      "idx": 162,
+      "en": "$[Duroy]& The history of Erikboise and Soltia are linked.."
+    }
+  ],
+  "m/m/27.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& I haven't found the book!"
+    }
+  ],
+  "m/m/28.m": [
+    {
+      "idx": 1,
+      "en": "|[Lucian]& Is this the one?"
+    }
+  ],
+  "m/m/30.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& Stop!"
+    },
+    {
+      "idx": 1,
+      "en": "^[Calmon]& I hate dark places. {Lucian&, don't go there."
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& We have to go after him!"
+    }
+  ],
+  "m/m/31.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& That old fellow again. Why is he here?"
+    },
+    {
+      "idx": 1,
+      "en": "^[Arkley]& Don't you know how to respect the elderly?"
+    },
+    {
+      "idx": 2,
+      "en": "^[Arkley]& I guess kids without guidance from their parents are all like that."
+    },
+    {
+      "idx": 3,
+      "en": "|[Lucian]& What?"
+    },
+    {
+      "idx": 4,
+      "en": "^[Calmon]& Don't let him provoke you. Calm down, {Lucian&."
+    },
+    {
+      "idx": 5,
+      "en": "^[Calmon]& {Arkley&, you got us here, at least tell us what you want from us."
+    },
+    {
+      "idx": 6,
+      "en": "^[Arkley]& Alright, I want to invite the two of you somewhere."
+    },
+    {
+      "idx": 7,
+      "en": "^[Arkley]& The location is the {Bone Yard& in the south-east. A mysterious explosion that occurred in the past made that place into a land of death."
+    },
+    {
+      "idx": 8,
+      "en": "|[Lucian]& You think I will just walk into a trap like that?"
+    },
+    {
+      "idx": 9,
+      "en": "^[Arkley]& I knew you wouldn't be a good boy. If you don't comply, we will be forced to apply some pressure."
+    },
+    {
+      "idx": 10,
+      "en": "^[Arkley]& If I don't see you there, I will kill all the villagers here, or turn them into {undead&."
+    },
+    {
+      "idx": 12,
+      "en": "^[Arkley]& A villian has to do what a villian has to do."
+    },
+    {
+      "idx": 13,
+      "en": "^[Arkley]& I hope to see you soon."
+    },
+    {
+      "idx": 14,
+      "en": "^[Calmon]& Wait, I want to ask you something."
+    },
+    {
+      "idx": 15,
+      "en": "^[Arkley]& Go ahead, Elemental."
+    },
+    {
+      "idx": 16,
+      "en": "^[Calmon]& You are doing this on your own. These are not instructions from {Aquila&?"
+    },
+    {
+      "idx": 17,
+      "en": "^[Arkley]& Oh yes, I wasn't being very clear."
+    },
+    {
+      "idx": 18,
+      "en": "^[Arkley]& You are right. Our objectives are slightly different."
+    },
+    {
+      "idx": 19,
+      "en": "^[Arkley]& I'll tell you more when we meet."
+    },
+    {
+      "idx": 20,
+      "en": "^[Arkley]& {Lucian& would like to learn more about his parents too, right?"
+    },
+    {
+      "idx": 21,
+      "en": "|[Lucian]& .. I can't believe this! I don't want to go! But I have to!"
+    },
+    {
+      "idx": 22,
+      "en": "^[Calmon]& You must be prepared. We don't know what awaits us there."
+    }
+  ],
+  "m/m/32.m": [
+    {
+      "idx": 0,
+      "en": "$[Francois]& Oh goodness me! Can you give me that? I will give you whatever you want!"
+    },
+    {
+      "idx": 1,
+      "en": "In that case, I want.."
+    },
+    {
+      "idx": 2,
+      "en": "Heavy armor"
+    },
+    {
+      "idx": 5,
+      "en": "Light armor"
+    },
+    {
+      "idx": 8,
+      "en": "|[Lucian]& I have gathered the other pieces of the map..."
+    },
+    {
+      "idx": 9,
+      "en": "$[Francois]& Fantastic! Give me the map now, I want to confirm the location."
+    },
+    {
+      "idx": 10,
+      "en": "$[Francois]& According to this map, the treasure can be found at 9045yx of SU83."
+    },
+    {
+      "idx": 11,
+      "en": "|[Lucian]& And where is that?..."
+    },
+    {
+      "idx": 12,
+      "en": "$[Francois]& If the coordinates are right, it is in the {middle of the lake&. How strange..."
+    },
+    {
+      "idx": 13,
+      "en": "|[Lucian]& Maybe this map is fake."
+    },
+    {
+      "idx": 14,
+      "en": "$[Francois]& Impossible. I have even acquired the key required to open the passage way."
+    },
+    {
+      "idx": 15,
+      "en": "|[Lucian]& ...."
+    },
+    {
+      "idx": 16,
+      "en": "$[Francois]& This map is real. There must be some way to get there."
+    },
+    {
+      "idx": 17,
+      "en": "$[Francois]& Here is the key. Don't keep the treasure to yourself if you find it ya?"
+    },
+    {
+      "idx": 21,
+      "en": "$[Francois]& Oh yes! You have got them! Brilliant!"
+    },
+    {
+      "idx": 24,
+      "en": "|[Lucian]& ...."
+    },
+    {
+      "idx": 25,
+      "en": "|[Lucian]& I found this map."
+    },
+    {
+      "idx": 26,
+      "en": "$[Francois]& Unbelievable, this map is a...!"
+    },
+    {
+      "idx": 27,
+      "en": "$[Francois]& {Treasure map&!"
+    },
+    {
+      "idx": 28,
+      "en": "$[Francois]& Unfortunately, this is just one part of it. There is no way to tell the location of the treasure yet."
+    },
+    {
+      "idx": 29,
+      "en": "$[Francois]& .. However, the locations to the remaining pieces of the map are indicated here!"
+    },
+    {
+      "idx": 30,
+      "en": "|[Lucian]& You are really full of expressions."
+    },
+    {
+      "idx": 31,
+      "en": "$[Francois]& The chest containing the other pieces requires a password to open."
+    },
+    {
+      "idx": 32,
+      "en": "$[Francois]& I will tell you the password I have discovered. If you manage to find the other pieces, bring them to me."
+    },
+    {
+      "idx": 33,
+      "en": "$[Francois]& The remaining pieces seem to be scattered around {the Swamp, north of the Bone Yard, somewhere along the Path of Suffering&.."
+    },
+    {
+      "idx": 35,
+      "en": "$[Francois]& I am Francois, a {collector& of the most bizarre things found in this world."
+    },
+    {
+      "idx": 36,
+      "en": "$[Francois]& Right now I am collecting {red pebbles& that can be found near {Golden Woods&."
+    },
+    {
+      "idx": 37,
+      "en": "$[Francois]& You can probably collect them from monsters. If you can bring back {10&.."
+    },
+    {
+      "idx": 38,
+      "en": "$[Francois]& I will give you something from my {unwanted& collection in exchange!!"
+    },
+    {
+      "idx": 39,
+      "en": "|[Lucian]& Although I am not sure what I would do with your unwanted collection.. I would like to ask, what are the red pebbles for?"
+    },
+    {
+      "idx": 40,
+      "en": "$[Francois]& I have heard rumors that these red pebbles are the secret to immortality.."
+    },
+    {
+      "idx": 41,
+      "en": "|[Lucian]& How absurd..."
+    },
+    {
+      "idx": 42,
+      "en": "$[Francois]& Nevertheless, you don't need to care about the reason I need them, just collect them for me ya?"
+    },
+    {
+      "idx": 43,
+      "en": "|[Lucian]& I will get you some if I happen to find them along the way. "
+    },
+    {
+      "idx": 45,
+      "en": "$[Francois]& If you find anything strange, you must bring it back for me!"
+    }
+  ],
+  "m/m/33.m": [
+    {
+      "idx": 0,
+      "en": "$[Bernard]& .. So be it.. What a fellow..."
+    },
+    {
+      "idx": 1,
+      "en": "$[Bernard]& Life as a sailor is like that. Let's just think that he left for a better place."
+    },
+    {
+      "idx": 2,
+      "en": "$[Bernard]& Although this is tragic news, thank you for your help nevertheless."
+    },
+    {
+      "idx": 4,
+      "en": "$[Bernard]& Just say hi when you pass by that place!"
+    },
+    {
+      "idx": 5,
+      "en": "$[Bernard]& Hey! You are a mercenary or explorer right?"
+    },
+    {
+      "idx": 6,
+      "en": "$[Bernard]& Help me say hello to a friend working at the government office in {Plum City&."
+    },
+    {
+      "idx": 7,
+      "en": "$[Bernard]& There was a nasty storm there recently. I wonder if he is alright."
+    },
+    {
+      "idx": 8,
+      "en": "$[Bernard]& I would love to do this myself, but I cannot travel for at least a month."
+    },
+    {
+      "idx": 9,
+      "en": "I will.."
+    },
+    {
+      "idx": 14,
+      "en": "$[Bernard]& Hey! You didn't even let me finish. Where are you going?!"
+    },
+    {
+      "idx": 15,
+      "en": "$[Crew]& Spiegel Lake is massive. I will not be surprised if there is something in there."
+    },
+    {
+      "idx": 16,
+      "en": "$[Crew]& Is the route to Chelen Village cancelled already? That place cannot be considered a village anymore right?"
+    }
+  ],
+  "m/m/40.m": [
+    {
+      "idx": 0,
+      "en": "$[Guard]& There is no other choice. Go tell Bernard the truth."
+    },
+    {
+      "idx": 1,
+      "en": "$[Guard]& What? Bernard of Humming City Port is looking for his friend?"
+    },
+    {
+      "idx": 2,
+      "en": "$[Guard]& I don't know how to say this.. he drowned during the storm.."
+    },
+    {
+      "idx": 3,
+      "en": "$[Guard]& You guys came all this way.. I  feel sad for Bernard..."
+    },
+    {
+      "idx": 4,
+      "en": "$[Guard]& The staff of the government office has gone on a holiday."
+    }
+  ],
+  "m/m/42.m": [
+    {
+      "idx": 0,
+      "en": "$[Jack]& History books are really the best medicine for insomnia. You just need to flip through a few pages and BOOM, you are asleep."
+    },
+    {
+      "idx": 3,
+      "en": "$[Jack]& Argh.. Without that book, I will no longer get decent sleep."
+    },
+    {
+      "idx": 4,
+      "en": "|[Lucian]& We came to collect the {History of Askra& you borrowed from the Central Library of Humming City."
+    },
+    {
+      "idx": 5,
+      "en": "$[Jack]& Oh.. And I thought they had forgotten about it."
+    },
+    {
+      "idx": 7,
+      "en": "$[Jack]& Wait! Then how am I going to sleep from now on?!"
+    },
+    {
+      "idx": 8,
+      "en": "|[Lucian]& You still dare to ask.."
+    },
+    {
+      "idx": 9,
+      "en": "$[Jack]& Can you help me out? When you return this book to {Humming City's Central Library&, help me borrow another one."
+    },
+    {
+      "idx": 10,
+      "en": "|[Lucian]& Borrow another one for you?"
+    },
+    {
+      "idx": 13,
+      "en": "|[Lucian]& What book should we borrow..."
+    },
+    {
+      "idx": 14,
+      "en": "$[Jack]& It doesn't matter as long as it is a {thick book&!"
+    },
+    {
+      "idx": 15,
+      "en": "|[Lucian]& We came to collect the {History of Askra& you borrowed from the Central Library of Humming City."
+    },
+    {
+      "idx": 16,
+      "en": "$[Jack]& Oh.. And I thought they had forgotten about it."
+    }
+  ],
+  "m/m/43.m": [
+    {
+      "idx": 0,
+      "en": "^[Juliko]& He insisted on fighting even without his trusted {Protector&. I guess he must had his reasons."
+    },
+    {
+      "idx": 1,
+      "en": "^[Juliko]& I hope you can understand {Ian& and {Lea."
+    },
+    {
+      "idx": 2,
+      "en": "^[Juliko]& I can't explain it in words. You have to figure it out yourself."
+    },
+    {
+      "idx": 3,
+      "en": "|[Lucian]& I know. I think I can understand now."
+    },
+    {
+      "idx": 4,
+      "en": "^[???]& Are you awake?"
+    },
+    {
+      "idx": 6,
+      "en": "^[???]& This is my home, located at {Swamp South&."
+    },
+    {
+      "idx": 7,
+      "en": "|[Lucian]& What am I doing here? .. Am I alone?"
+    },
+    {
+      "idx": 8,
+      "en": "^[???]& I went to investigate a noise outside and found you lying unconscious."
+    },
+    {
+      "idx": 9,
+      "en": "^[???]& Your injuries are quite serious. You probably need to rest for a few days."
+    },
+    {
+      "idx": 10,
+      "en": "^[???]& The girl who was with you has fully recovered. She is outside right now."
+    },
+    {
+      "idx": 11,
+      "en": "|[Lucian]& {Calmon&...! Thank goodness she is alright..."
+    },
+    {
+      "idx": 12,
+      "en": "|[Lucian]& Thank you for saving us!"
+    },
+    {
+      "idx": 13,
+      "en": "^[???]& You are welcome. It's not like you are a stranger... You are {Lucian&.. Right?"
+    },
+    {
+      "idx": 14,
+      "en": "|[Lucian]& How do you know my name??"
+    },
+    {
+      "idx": 15,
+      "en": "^[???]& I knew your parents and {Clare&."
+    },
+    {
+      "idx": 16,
+      "en": "|[Lucian]& Don't tell me you are...?"
+    },
+    {
+      "idx": 17,
+      "en": "^[???]& Oh, I forgot to introduce myself."
+    },
+    {
+      "idx": 18,
+      "en": "^[Juliko]& My name is {Juliko&."
+    },
+    {
+      "idx": 20,
+      "en": "}Due to some mysterious force, {Secluded Spot& has been set as the designated Return Point."
+    },
+    {
+      "idx": 21,
+      "en": "^[Juliko]& Say 'hello' to  {Clare& for me."
+    },
+    {
+      "idx": 22,
+      "en": "|[Lucian]& Thank you for taking care of me. I will head off then."
+    },
+    {
+      "idx": 23,
+      "en": "^[Juliko]& {Lucian&, do you believe in destiny?"
+    },
+    {
+      "idx": 24,
+      "en": "|[Lucian]& What? .. Why do you ask?"
+    },
+    {
+      "idx": 25,
+      "en": "^[Juliko]& There is no such thing as destiny. All uncertainties stem from certainties and all certainties from uncertainties."
+    },
+    {
+      "idx": 26,
+      "en": "^[Juliko]& You are here now, guided by a mysterious force, to hear this story."
+    },
+    {
+      "idx": 27,
+      "en": "^[Juliko]& 15 years ago, your parents came to me with a theory."
+    },
+    {
+      "idx": 28,
+      "en": "^[Juliko]& Erikboise has been in constant conflict, and tools of destruction like the {Protector&, monsters, Elementals and guns have evolved so quickly."
+    },
+    {
+      "idx": 29,
+      "en": "^[Juliko]& There must be a mastermind coordinating everything."
+    },
+    {
+      "idx": 30,
+      "en": "^[Juliko]& {Ian& came to the South to try to confirm this theory. That is how he met {Aquila&."
+    },
+    {
+      "idx": 32,
+      "en": "^[Juliko]& He insisted on fighting even without his trusted {Protector&. I guess he must had his reasons."
+    },
+    {
+      "idx": 33,
+      "en": "^[Juliko]& I hope you can understand {Ian& and {Lea."
+    },
+    {
+      "idx": 34,
+      "en": "^[Juliko]& I can't explain it in words. You have to figure it out yourself."
+    },
+    {
+      "idx": 35,
+      "en": "|[Lucian]& .. "
+    },
+    {
+      "idx": 36,
+      "en": "^[Juliko]& The road to the North has not been travelled for a long time."
+    },
+    {
+      "idx": 37,
+      "en": "^[Juliko]& Here, I will give you some potions. Be safe."
+    },
+    {
+      "idx": 39,
+      "en": "^[Juliko]& Say 'hello' to  {Clare& for me."
+    },
+    {
+      "idx": 40,
+      "en": "^[Juliko]& It has been 20 years..."
+    },
+    {
+      "idx": 41,
+      "en": "^[Juliko]& The girl is outside. Go find her."
+    },
+    {
+      "idx": 42,
+      "en": "|[Lucian]& By the way, you know mother?"
+    },
+    {
+      "idx": 43,
+      "en": "^[Juliko]& {Clare& hasn't mentioned me at all?"
+    },
+    {
+      "idx": 44,
+      "en": "|[Lucian]& Hm..."
+    },
+    {
+      "idx": 45,
+      "en": "|[Lucian]& She only said there is someone that is both her friend and enemy in the South.."
+    },
+    {
+      "idx": 47,
+      "en": "^[Juliko]& I lost to {Clare& in the end. She spared my life.."
+    },
+    {
+      "idx": 48,
+      "en": "^[Juliko]& Maybe she wanted me to live an ordinary life; one that is full of regret. That is her way of getting back at me..."
+    },
+    {
+      "idx": 49,
+      "en": "|[Lucian]& I don't understand.. Why did you all fight?"
+    },
+    {
+      "idx": 50,
+      "en": "^[Juliko]& It is hard to explain. It had something to do with the {Protector&."
+    },
+    {
+      "idx": 51,
+      "en": "^[Juliko]& And it ruined so many lives. What sins have we committed.."
+    },
+    {
+      "idx": 52,
+      "en": "^[Juliko]& Alright, you should go talk to the girl outside. She was so worried about you."
+    }
+  ],
+  "m/m/45.m": [
+    {
+      "idx": 37,
+      "en": "|[Lucian]& ..."
+    }
+  ],
+  "m/m/50.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& .. Let's go after {Aquila&. We need to settle the score."
+    }
+  ],
+  "m/m/51.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& What's wrong?"
+    },
+    {
+      "idx": 1,
+      "en": "^[Calmon]& .. Nothing."
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& About Timoros, that fellow may just be looking for someone to hate."
+    },
+    {
+      "idx": 3,
+      "en": "|[Lucian]& That someone can be a monster or a villager. It doesn't matter. The real person to blame is the one who created the monsters."
+    },
+    {
+      "idx": 4,
+      "en": "|[Lucian]& It is so hard to determine who is right and who is wrong. Everyone is only trying to stay alive!"
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& .. That's what {Clare& said.. But is it really like that?"
+    },
+    {
+      "idx": 6,
+      "en": "^[Calmon]& Nothing much.. Just that..."
+    },
+    {
+      "idx": 7,
+      "en": "|[Lucian]& What! Are you laughing?!"
+    },
+    {
+      "idx": 8,
+      "en": "^[Calmon]& You actually..."
+    },
+    {
+      "idx": 9,
+      "en": "|[Lucian]& Forget it. Hmpf.. I was so worried about you and now you are laughing at me!"
+    },
+    {
+      "idx": 10,
+      "en": "^[Calmon]& ..."
+    },
+    {
+      "idx": 11,
+      "en": "^[Calmon]& Come on, lighten up."
+    },
+    {
+      "idx": 12,
+      "en": "^[Calmon]& Anyway..thank you for your concern."
+    },
+    {
+      "idx": 13,
+      "en": "|[Lucian]& You can stop it already."
+    },
+    {
+      "idx": 15,
+      "en": "|[Lucian]& Surprised?"
+    },
+    {
+      "idx": 16,
+      "en": "^[Calmon]& That's like treating me as a human. It feels kind of good."
+    },
+    {
+      "idx": 17,
+      "en": "|[Lucian]& I just thought you..."
+    },
+    {
+      "idx": 20,
+      "en": "|[Lucian]& Are you ok?"
+    },
+    {
+      "idx": 21,
+      "en": "^[Calmon]& .. I am alright. More importantly, where next?"
+    },
+    {
+      "idx": 22,
+      "en": "|[Lucian]& According to Timoros.. We should head east to {Humming City& or {Plum City&..."
+    },
+    {
+      "idx": 23,
+      "en": "|[Lucian]& Wherever we intend to go, we need to pass through {Humming City&."
+    },
+    {
+      "idx": 25,
+      "en": "|[Lucian]& Are you still thinking about what Timoros said?"
+    },
+    {
+      "idx": 26,
+      "en": "|[Lucian]& That  fellow feeds on hate. So naturally, there must be a target for all the hatred."
+    },
+    {
+      "idx": 27,
+      "en": "^[Calmon]& It's not that. I have said before. I am not human. All I am concerned about is fulfilling my mission."
+    },
+    {
+      "idx": 28,
+      "en": "^[Calmon]& If you want to start again. Then I will go ahead first."
+    },
+    {
+      "idx": 29,
+      "en": "|[Lucian]& You are really.. Wait for me!"
+    }
+  ],
+  "m/m/52.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& The path is blocked."
+    },
+    {
+      "idx": 3,
+      "en": "}Locked by magic.&"
+    }
+  ],
+  "m/m/54.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& .. Let's go after {Aquila&. We need to settle the score."
+    },
+    {
+      "idx": 1,
+      "en": "}A dense forest is obstructing the path.&"
+    },
+    {
+      "idx": 4,
+      "en": "}Locked by magic.&"
+    }
+  ],
+  "m/m/56.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& Was it an earthquake?!"
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& We can't get pass here. It will take days to clear the path."
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& Can we blow it open?"
+    },
+    {
+      "idx": 3,
+      "en": "^[Calmon]& I wish we could.. but the ground here seems shaky."
+    },
+    {
+      "idx": 4,
+      "en": "^[Calmon]& If we destroy such a big rock, it may affect the surrounding and cause a landslide."
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& .. Then we have no choice. Let's head back and report this."
+    }
+  ],
+  "m/m/59.m": [
+    {
+      "idx": 0,
+      "en": "^[Calmon]& There's only ruins on this path."
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& Ruins behind the trees? What is going on?"
+    },
+    {
+      "idx": 2,
+      "en": "^[Calmon]& Beats me. There is no point going into the ruins. Let's look for another way."
+    }
+  ],
+  "m/m/60.m": [
+    {
+      "idx": 0,
+      "en": "Epilogue"
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& Nobody knows a thing about all that we have been through, the hardship, the near death experiences.. This is too much!"
+    },
+    {
+      "idx": 2,
+      "en": "^[Calmon]& We didn't do all that for the recognition."
+    },
+    {
+      "idx": 3,
+      "en": "|[Lucian]& You're right, but I still feel a bit hard done by. Especially after all the effort spent running around and investigating at {Melon Village&."
+    },
+    {
+      "idx": 4,
+      "en": "^[Calmon]& We were helping out the {constable& of {Melon Village&."
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& And we haven't seen {Alpez& since we parted."
+    },
+    {
+      "idx": 6,
+      "en": "^[Calmon]& This.. Has nothing to do with that girl."
+    },
+    {
+      "idx": 7,
+      "en": "|[Lucian]& What injustice! We didn't get anything in the end!"
+    },
+    {
+      "idx": 8,
+      "en": "^[Calmon]& Stop it! I am going to get mad if you keep saying you didn't get anything."
+    },
+    {
+      "idx": 9,
+      "en": "|[Lucian]& Why?"
+    },
+    {
+      "idx": 10,
+      "en": "^[Calmon]& .. I am still here now right?"
+    },
+    {
+      "idx": 11,
+      "en": "|[Lucian]& What? Don't whisper, I cannot really hear."
+    },
+    {
+      "idx": 12,
+      "en": "^[Calmon]& Hmpf! I said I am here now right?! How many times do you want me to say it!"
+    },
+    {
+      "idx": 13,
+      "en": "|[Lucian]& Haha.. I am just kidding."
+    },
+    {
+      "idx": 14,
+      "en": "|[Lucian]& Besides, I don't want any Elemental. I just hope {Calmon& would stay."
+    },
+    {
+      "idx": 15,
+      "en": "|[Lucian]& So you don't count."
+    },
+    {
+      "idx": 16,
+      "en": "^[Calmon]& Hmpf. Forget it, where do you want to go next?"
+    },
+    {
+      "idx": 17,
+      "en": "|[Lucian]& Let's see, the village chief said monsters have appeared at the Norten Port. Let's go there and take a look."
+    },
+    {
+      "idx": 18,
+      "en": "^[Calmon]& I thought you hated this? Now it almost seems habitual."
+    },
+    {
+      "idx": 19,
+      "en": "|[Lucian]& I don't want to go back and  take care of the children with mother. Besides, I am good at fighting, so maybe that's how I should go about helping people.."
+    },
+    {
+      "idx": 20,
+      "en": "|[Lucian]& I have decided to follow in my {father&'s footsteps."
+    },
+    {
+      "idx": 21,
+      "en": "^[Calmon]& Frostwave Swordsman {Lucian&, that doesn't sound right at all."
+    },
+    {
+      "idx": 22,
+      "en": "^[Calmon]& I have red hair and you always follow me, why not call yourself the {Crimson Follower&? How's that?"
+    },
+    {
+      "idx": 23,
+      "en": "|[Lucian]& What's that supposed to mean, me following you?!"
+    },
+    {
+      "idx": 24,
+      "en": "^[Calmon]& .. Don't get over excited. How should I address you from now on?"
+    },
+    {
+      "idx": 25,
+      "en": "^[Calmon]& It feels weird calling you master."
+    },
+    {
+      "idx": 26,
+      "en": "|[Lucian]& So what do you want to call me then?"
+    },
+    {
+      "idx": 27,
+      "en": "^[Calmon]& How about you call me master from now on?"
+    },
+    {
+      "idx": 29,
+      "en": "^[Calmon]& Hahaha!"
+    },
+    {
+      "idx": 30,
+      "en": "And just like that, their journey continues."
+    },
+    {
+      "idx": 31,
+      "en": "Will they be together forever?"
+    }
+  ],
+  "m/m/61.m": [
+    {
+      "idx": 0,
+      "en": "Epilogue"
+    },
+    {
+      "idx": 1,
+      "en": "That is how the war ended."
+    },
+    {
+      "idx": 2,
+      "en": "In a time and place no one knows."
+    },
+    {
+      "idx": 3,
+      "en": "In actual fact, only {Chelen Village& and {Melon Village& suffered real damage."
+    },
+    {
+      "idx": 4,
+      "en": "Even that has quickly been forgotten."
+    },
+    {
+      "idx": 5,
+      "en": "Occasionally, there are those curious about what happened to the {Legolas&."
+    },
+    {
+      "idx": 6,
+      "en": "I waited at the lakeside every day."
+    },
+    {
+      "idx": 7,
+      "en": "Weeks, months, years.."
+    },
+    {
+      "idx": 8,
+      "en": "Just when I thought it's all over and there's no hope.."
+    },
+    {
+      "idx": 9,
+      "en": "^[Alpez]& I know I shouldn't have returned, but I am back."
+    },
+    {
+      "idx": 10,
+      "en": "|[Lucian]& .. You have made us wait long enough. Everyone is worried about you."
+    },
+    {
+      "idx": 11,
+      "en": "|[Lucian]& Come here, {Alpez&."
+    },
+    {
+      "idx": 12,
+      "en": "The smile has completely disappeared from her face since then."
+    },
+    {
+      "idx": 13,
+      "en": "The question she asked lingers in my head."
+    },
+    {
+      "idx": 14,
+      "en": "How to seek redemption?; How to seek forgiveness?"
+    },
+    {
+      "idx": 15,
+      "en": "The war may have ended,; But I still don't have an answer."
+    },
+    {
+      "idx": 16,
+      "en": "The important thing is, we survived."
+    },
+    {
+      "idx": 17,
+      "en": "We will spend endless hours; Searching for the answer."
+    },
+    {
+      "idx": 18,
+      "en": "I said; I forgive her."
+    },
+    {
+      "idx": 19,
+      "en": "In that case, it's my responsibility to protect her,"
+    },
+    {
+      "idx": 20,
+      "en": "Until the day she smiles again."
+    },
+    {
+      "idx": 21,
+      "en": ".. Right by her side."
+    }
+  ],
+  "m/m/63.m": [
+    {
+      "idx": 0,
+      "en": "^[Calmon]& This place is...?"
+    },
+    {
+      "idx": 1,
+      "en": "^[Aquila]& 200 years ago, a big explosion occurred at the {Bone Yard& as we call it now."
+    },
+    {
+      "idx": 2,
+      "en": "^[Aquila]& The trees in the area lit up and in a flash, the place became a land of death. Explorers tried to find the cause.."
+    },
+    {
+      "idx": 3,
+      "en": "^[Aquila]& They discovered the {Elementals& and began studying them."
+    },
+    {
+      "idx": 4,
+      "en": "^[Aquila]& From them, they drew inspiration for a {weapon&."
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& .. Where is that old fellow?"
+    },
+    {
+      "idx": 6,
+      "en": "^[Calmon]& Over there."
+    },
+    {
+      "idx": 7,
+      "en": "^[Calmon]& He should be waiting for us there."
+    },
+    {
+      "idx": 8,
+      "en": "|[Lucian]& The road has collapsed, there is no getting across."
+    }
+  ],
+  "m/m/64.m": [
+    {
+      "idx": 0,
+      "en": "{Stench of death emits from the entrance."
+    },
+    {
+      "idx": 3,
+      "en": "}Locked by magic.&"
+    }
+  ],
+  "m/m/65.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& It's done."
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& What? A password?"
+    },
+    {
+      "idx": 2,
+      "en": "^[Calmon]& .. It's {GAIA&."
+    },
+    {
+      "idx": 3,
+      "en": "|[Lucian]& How did you know?"
+    },
+    {
+      "idx": 4,
+      "en": "^[Calmon]& .. I am not sure."
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& I will give it a try."
+    },
+    {
+      "idx": 6,
+      "en": "|[Lucian]& The password is correct. What does {GAIA& means?"
+    },
+    {
+      "idx": 7,
+      "en": "^[Calmon]& It is the {Protector&.. the name of the {protector of this land&."
+    },
+    {
+      "idx": 8,
+      "en": "|[Lucian]& A broken device.. What does it do?"
+    },
+    {
+      "idx": 10,
+      "en": "^[Calmon]& (Why would I remember something like that?...)"
+    }
+  ],
+  "m/m/66.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& Are they all.. dead?"
+    },
+    {
+      "idx": 1,
+      "en": "^[Calmon]& I can't sense even a bit of life."
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& What is {Aquila& trying to do? Urging the {Legolas& to kill  people."
+    },
+    {
+      "idx": 3,
+      "en": "|[Lucian]& Then bringing {Legolas& followers here and slaughtering them. Killing them seems to be his objective from the start!"
+    },
+    {
+      "idx": 4,
+      "en": "^[Calmon]& That we must ask {Aquila& himself."
+    }
+  ],
+  "m/m/70.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& There are nothing but bad memories left in this place.."
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& The passage way is too narrow, I may get stuck. Do we really need to get through here?"
+    }
+  ],
+  "m/m/71.m": [
+    {
+      "idx": 0,
+      "en": "^[Alicia]& Argh..."
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& Now, what should we do with these idiots?"
+    },
+    {
+      "idx": 2,
+      "en": "^[Anthony]& According to the conventions- let us go."
+    },
+    {
+      "idx": 3,
+      "en": "|[Lucian]& You really do have a silver tongue. Let me beat some sense into you!"
+    },
+    {
+      "idx": 4,
+      "en": "^[Anthony]& Ok! We are sorry. Please let us go."
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& Not a chance!"
+    },
+    {
+      "idx": 6,
+      "en": "^[Calmon]& Lucian! Look out!"
+    },
+    {
+      "idx": 7,
+      "en": "^[Alicia]& {Master&!"
+    },
+    {
+      "idx": 8,
+      "en": "^[Aquila]& Have you not embarrassed yourselves enough? Go back quickly. I will deal with you two later."
+    },
+    {
+      "idx": 9,
+      "en": "|[Lucian]& They are working for you?"
+    },
+    {
+      "idx": 10,
+      "en": "^[Calmon]& {Lucian&! Look out! That guy is...!"
+    },
+    {
+      "idx": 11,
+      "en": "^[Alicia]& All talk, but no teeth to back up that bark of yours."
+    },
+    {
+      "idx": 12,
+      "en": "^[Alicia]& We will show you what we got!"
+    },
+    {
+      "idx": 13,
+      "en": "|[Lucian]& There are the idiots."
+    },
+    {
+      "idx": 14,
+      "en": "^[Anthony]& You came in the end. I thought you said you weren't interested?"
+    },
+    {
+      "idx": 15,
+      "en": "|[Lucian]& I would not be here if you all didn't ask me to come! Do you know the trouble I went through?!"
+    },
+    {
+      "idx": 16,
+      "en": "|[Lucian]& Nevermind, I don't want to waste my breath. Is {Alpez& alright?"
+    },
+    {
+      "idx": 17,
+      "en": "^[Anthony]& Don't worry young man, she's just asleep."
+    },
+    {
+      "idx": 18,
+      "en": "^[Alicia]& Hand {Calmon& over to us."
+    },
+    {
+      "idx": 19,
+      "en": "^[Calmon]& I am afraid I have to disappoint you."
+    },
+    {
+      "idx": 20,
+      "en": "^[Calmon]& He and I have sealed our {pact&. You should understand what that means."
+    },
+    {
+      "idx": 21,
+      "en": "^[Calmon]& As long as the pact holder is alive, the pact cannot be broken. I have to follow him."
+    },
+    {
+      "idx": 22,
+      "en": "|[Lucian]& Oh? Why didn't you tell me?"
+    },
+    {
+      "idx": 23,
+      "en": "^[Calmon]& Don't be silly. I said it very clearly when I sealed the pact."
+    },
+    {
+      "idx": 24,
+      "en": "|[Lucian]& You mean the mumblings?!"
+    },
+    {
+      "idx": 25,
+      "en": "^[Calmon]& You should go check your ears. The pact was sealed voluntarily based on free will under fair conditions."
+    },
+    {
+      "idx": 26,
+      "en": "|[Lucian]& This is no time for jokes!"
+    },
+    {
+      "idx": 27,
+      "en": "^[Alicia]& In any case, we must kill you."
+    },
+    {
+      "idx": 28,
+      "en": "^[Anthony]& Hold on, Alicia! Don't always talk about killing and death."
+    },
+    {
+      "idx": 29,
+      "en": "^[Anthony]& If this young man is interested, we can save the trouble."
+    },
+    {
+      "idx": 30,
+      "en": "^[Alicia]& Are you sure you can convince him?"
+    },
+    {
+      "idx": 31,
+      "en": "^[Anthony]& You are {Lucian& right?"
+    },
+    {
+      "idx": 32,
+      "en": "^[Anthony]& Although we have to take {Calmon&, we are not going to kill someone for an Elemental."
+    },
+    {
+      "idx": 33,
+      "en": "^[Anthony]& Since we don't want to kill you, I guess you'll have to do it yourself."
+    },
+    {
+      "idx": 34,
+      "en": "^[Anthony]& How's that? Consider it a good deed."
+    },
+    {
+      "idx": 35,
+      "en": "^[Alicia]& That's right. That will make things easier for everyone."
+    },
+    {
+      "idx": 36,
+      "en": "|[Lucian]& You idiots. You should worry about your own lives.."
+    }
+  ],
+  "m/m/72.m": [
+    {
+      "idx": 0,
+      "en": "^[Aquila]& This is..."
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& We won! It's over!"
+    },
+    {
+      "idx": 2,
+      "en": "^[Calmon]& And what do we do now?!"
+    },
+    {
+      "idx": 3,
+      "en": "|[Lucian]& I don't know. Who knows? That guy seems to be the final boss but appeared right at the start. It is all his fault!"
+    },
+    {
+      "idx": 4,
+      "en": "^[Anthony]& This is not right! Cut! NG!"
+    },
+    {
+      "idx": 5,
+      "en": "^[Calmon]& What is this?!"
+    },
+    {
+      "idx": 6,
+      "en": "^[Aquila]& How would I know? I am scared."
+    },
+    {
+      "idx": 7,
+      "en": "|[Lucian]& What? Do you utter nonsense when you are scared?"
+    },
+    {
+      "idx": 8,
+      "en": "^[Aquila]& I am confused and shocked! Give me a break!"
+    },
+    {
+      "idx": 9,
+      "en": "^[Anthony]& And at the crucial moment, Anthony the Great appears!"
+    },
+    {
+      "idx": 10,
+      "en": "^[Anthony]& This may seem abrupt but Lucian has forced a critical error,"
+    },
+    {
+      "idx": 11,
+      "en": "^[Anthony]& I, Anthony (26, unemployed, single), will temporarily take charge of this game."
+    },
+    {
+      "idx": 12,
+      "en": "^[Calmon]& Stop your nonsense."
+    },
+    {
+      "idx": 13,
+      "en": "^[Anthony]& Ok, you nag. I will open the emergency command menu."
+    },
+    {
+      "idx": 14,
+      "en": "Please select how you want the story to proceed."
+    },
+    {
+      "idx": 15,
+      "en": "Pretend this never happened"
+    },
+    {
+      "idx": 16,
+      "en": "^[Anthony]& Can we assume this did not happen?"
+    },
+    {
+      "idx": 17,
+      "en": "^[Aquila]& .. Let's {load& a previous save."
+    },
+    {
+      "idx": 19,
+      "en": "|[Lucian]& You can't do this!"
+    },
+    {
+      "idx": 20,
+      "en": "End the story"
+    },
+    {
+      "idx": 21,
+      "en": "^[Aquila]& I don't know, that thing.. It's so scary.. Arghhhh!"
+    },
+    {
+      "idx": 22,
+      "en": "^[Anthony]& Hahahahaha! You have defeated {Aquila&. Well done, {Lucian&!"
+    },
+    {
+      "idx": 23,
+      "en": "^[Anthony]& But {Aquila& is actually the {weakest member of the {Legolas&&!"
+    },
+    {
+      "idx": 24,
+      "en": "|[Lucian]& Stop it!"
+    },
+    {
+      "idx": 25,
+      "en": "^[Anthony]& Arghhhhhh!"
+    },
+    {
+      "idx": 26,
+      "en": "|[Lucian]& It's over!..."
+    },
+    {
+      "idx": 27,
+      "en": "^[Calmon]& Well done. Even though there are people we have yet to meet and promises we have yet to fulfill.. it should be ok."
+    },
+    {
+      "idx": 28,
+      "en": "|[Lucian]& I still haven't found out about my parents or investigated Chelen Village... Feels like I didn't do a good job.."
+    },
+    {
+      "idx": 29,
+      "en": "^[Calmon]& It doesn't matter. The world is saved and peace should endure for a while. I had a short, but great time with you, master."
+    },
+    {
+      "idx": 30,
+      "en": "|[Lucian]& Although you can't see this on screen, I will bring {Alpez& back to Silverleaf Village. What are you going to do?"
+    },
+    {
+      "idx": 31,
+      "en": "^[Calmon]& Now that my mission is complete. I want to spend some time travelling around the world. May we meet again in future."
+    },
+    {
+      "idx": 32,
+      "en": "Just like that, this bizarre day of my life has come to an end."
+    },
+    {
+      "idx": 33,
+      "en": "Without its leader, the {Legolas& was vanquished in a single day."
+    },
+    {
+      "idx": 34,
+      "en": "I have not seen {Calmon& since."
+    },
+    {
+      "idx": 35,
+      "en": "Although there are rumors from the South about a temperamental girl with green hair..."
+    },
+    {
+      "idx": 36,
+      "en": "I lived a peaceful life just as I'd always wanted. Finally, I gathered my courage and confessed my love for {Alpez&. We got married..."
+    },
+    {
+      "idx": 37,
+      "en": "^[Calmon]& Are you daydreaming?! Something big happened in the South!"
+    },
+    {
+      "idx": 39,
+      "en": "^[Calmon]& Just come with me."
+    },
+    {
+      "idx": 40,
+      "en": "^[Calmon]& By the way, the marriage is invalid."
+    },
+    {
+      "idx": 41,
+      "en": "Continue (Lie)"
+    },
+    {
+      "idx": 42,
+      "en": "|[Lucian]& Argh..."
+    },
+    {
+      "idx": 43,
+      "en": "^[Calmon]& Only that kind of standard!?"
+    },
+    {
+      "idx": 44,
+      "en": "^[Aquila]& Haha, your master is too weak."
+    },
+    {
+      "idx": 45,
+      "en": "^[Aquila]& Hard to imagine he is {Ian&'s son."
+    },
+    {
+      "idx": 46,
+      "en": "|[Lucian]& What? How did you...!"
+    },
+    {
+      "idx": 47,
+      "en": "|[Lucian]& Who are you!!!"
+    },
+    {
+      "idx": 48,
+      "en": "^[Aquila]& My name is {Aquila&, for now, that is all you need to know."
+    },
+    {
+      "idx": 49,
+      "en": "^[Aquila]& That's it for today. I hope you will provide me with a better challenge next time."
+    },
+    {
+      "idx": 50,
+      "en": "^[Calmon]& {Lucian&! Can you stand?"
+    },
+    {
+      "idx": 51,
+      "en": "|[Lucian]& .. Who is he?!"
+    },
+    {
+      "idx": 52,
+      "en": "^[Calmon]& This is not the place to talk. Let's get out of here first."
+    }
+  ],
+  "m/m/76.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& Why fight? Why help me?"
+    },
+    {
+      "idx": 2,
+      "en": "^[Calmon]& I almost killed you. If it wasn't for {Aquila&, I would definitely have killed you!"
+    },
+    {
+      "idx": 3,
+      "en": "^[Calmon]& If things get to that again, I don't think I can stop myself!"
+    },
+    {
+      "idx": 4,
+      "en": "^[Calmon]& Timoros is right.; .. I am the culprit."
+    },
+    {
+      "idx": 5,
+      "en": "^[Calmon]& If you get involved with me, you will get hurt!"
+    },
+    {
+      "idx": 6,
+      "en": "^[Calmon]& You have no idea of the pain I suffer."
+    },
+    {
+      "idx": 7,
+      "en": "^[Calmon]& I can't protect you. I don't want you to die. I don't want you to get hurt."
+    },
+    {
+      "idx": 8,
+      "en": "^[Calmon]& I don't want to see these things happen! That's why I must leave you!"
+    },
+    {
+      "idx": 9,
+      "en": "|[Lucian]& Is this the.. {something that must be recalled&?"
+    },
+    {
+      "idx": 11,
+      "en": "^[Alicia]& Wait! Stop! We surrender! There is no reason for us to fight!"
+    },
+    {
+      "idx": 12,
+      "en": "^[Calmon]& What are you talking about?! Aren't you the ones who attacked first?!"
+    },
+    {
+      "idx": 13,
+      "en": "^[Alicia]& That's solely Anthony!"
+    },
+    {
+      "idx": 14,
+      "en": "^[Alicia]& Why did you do that?!"
+    },
+    {
+      "idx": 15,
+      "en": "^[Anthony]& Ah.. I was just eavesdropping on them.."
+    },
+    {
+      "idx": 16,
+      "en": "^[Anthony]& And I can't stand the lover's bickering anymore, so I just naturally.."
+    },
+    {
+      "idx": 17,
+      "en": "|[Lucian, Calmon]& What lovers!!!??"
+    },
+    {
+      "idx": 18,
+      "en": "^[Alicia]& Oh, you two are not?"
+    },
+    {
+      "idx": 19,
+      "en": "^[Calmon]& What are you talking about? I just.. "
+    },
+    {
+      "idx": 20,
+      "en": "^[Calmon]& I am just worried about this idiot and want him to take care of himself properly!"
+    },
+    {
+      "idx": 21,
+      "en": "|[Lucian]& I thought you wanted to abandon me because I was too weak?"
+    },
+    {
+      "idx": 22,
+      "en": "^[Calmon]& That.. "
+    },
+    {
+      "idx": 23,
+      "en": "^[Calmon]& That.."
+    },
+    {
+      "idx": 24,
+      "en": "^[Calmon]& Hmpf! I don't know what to say anymore!"
+    },
+    {
+      "idx": 25,
+      "en": "^[Calmon]& All because of you two!!"
+    },
+    {
+      "idx": 26,
+      "en": "^[Alicia]& Why are you pinning it on us?"
+    },
+    {
+      "idx": 28,
+      "en": "^[Calmon]& I almost killed you. If it wasn't for {Aquila&, I would definitely have killed you!"
+    },
+    {
+      "idx": 29,
+      "en": "^[Calmon]& If things get to that again, I don't think I can stop myself!"
+    },
+    {
+      "idx": 30,
+      "en": "^[Calmon]& Timoros is right.; .. I am the culprit."
+    },
+    {
+      "idx": 31,
+      "en": "^[Calmon]& If you get involved with me, you will get hurt!"
+    },
+    {
+      "idx": 32,
+      "en": "^[Calmon]& You have no idea of the pain I suffer."
+    },
+    {
+      "idx": 33,
+      "en": "^[Calmon]& I can't protect you. I don't want you to die. I don't want you to get hurt."
+    },
+    {
+      "idx": 34,
+      "en": "^[Calmon]& I don't want to see these things happen! That's why I must leave you!"
+    },
+    {
+      "idx": 35,
+      "en": "|[Lucian]& I am sorry."
+    },
+    {
+      "idx": 36,
+      "en": "|[Lucian]& I didn't know you are going through this. I didn't know how you feel."
+    },
+    {
+      "idx": 37,
+      "en": "^[Calmon]& Now that you know, go!"
+    },
+    {
+      "idx": 38,
+      "en": "|[Lucian]& But..."
+    },
+    {
+      "idx": 40,
+      "en": "|[Lucian]& After all that we have been through, all the battles, you think I can just walk away?"
+    },
+    {
+      "idx": 41,
+      "en": "^[Calmon]& The battle with  {Aquila& is unlike anything we have been in before. It is going to be a tough fight!"
+    },
+    {
+      "idx": 42,
+      "en": "|[Lucian]& So what?! I am a seasoned fighter now!"
+    },
+    {
+      "idx": 43,
+      "en": "^[Calmon]& You may be killed. If I were to be controlled again, you may die by my hand!"
+    },
+    {
+      "idx": 44,
+      "en": "|[Lucian]& I would rather be killed by you than to abandon you!"
+    },
+    {
+      "idx": 45,
+      "en": "^[Calmon]& Hmpf! Suit yourself then!"
+    },
+    {
+      "idx": 46,
+      "en": "|[Lucian]& Don't worry. I will be with you, even if hell is where you are heading."
+    },
+    {
+      "idx": 47,
+      "en": "^[Alicia]& Ho ho~ How boring? Why don't you just say..."
+    },
+    {
+      "idx": 48,
+      "en": "^[Alicia]& I like you!! I love you!!"
+    },
+    {
+      "idx": 49,
+      "en": "^[Alicia]& .. Then embrace and kiss. How's that? Or is it because the boy is too young?"
+    },
+    {
+      "idx": 50,
+      "en": "^[Anthony]& You are right. He is still wet behind his ears. He cannot handle things as an adult can."
+    },
+    {
+      "idx": 51,
+      "en": "^[Calmon]& You two.. were watching all along?!"
+    },
+    {
+      "idx": 52,
+      "en": "^[Alicia]& We wanted to escape midway, but lost the chance.. Haha.."
+    },
+    {
+      "idx": 53,
+      "en": "^[Calmon]& Arghhh.. How embarrassing.. Go to hell!!"
+    },
+    {
+      "idx": 54,
+      "en": "|[Lucian]& .. You two are still alive?"
+    },
+    {
+      "idx": 55,
+      "en": "^[Alicia]& .. Oh!"
+    },
+    {
+      "idx": 56,
+      "en": "^[Alicia]& .. I can't believe I am still alive."
+    },
+    {
+      "idx": 59,
+      "en": "^[Calmon]& Didn't I ask you not to follow me?!"
+    },
+    {
+      "idx": 60,
+      "en": "|[Lucian]& Oh? I just happen to be heading in the same direction."
+    },
+    {
+      "idx": 61,
+      "en": "^[Calmon]& Then where are you heading?!"
+    },
+    {
+      "idx": 62,
+      "en": "|[Lucian]& You don't need to know."
+    },
+    {
+      "idx": 63,
+      "en": "^[Calmon]& Fine then. If you get killed on the way because you are too weak, I wouldn't care at all!"
+    },
+    {
+      "idx": 64,
+      "en": "^[Calmon]& {Lucian&!?"
+    },
+    {
+      "idx": 65,
+      "en": "^[Anthony]& Gotcha! Don't move, kiddo."
+    },
+    {
+      "idx": 66,
+      "en": "|[Lucian]& What are you doing!?"
+    },
+    {
+      "idx": 67,
+      "en": "^[Alicia]& Why are you doing this?!"
+    },
+    {
+      "idx": 68,
+      "en": "^[Calmon]& Let go now!"
+    },
+    {
+      "idx": 70,
+      "en": "|[Lucian]& .. Hey, are you ok? You are surprisingly resilient.. "
+    },
+    {
+      "idx": 71,
+      "en": "^[Anthony]& If I cannot take a beating like this, I would have died by master {Aquila&'s  hand long ago."
+    },
+    {
+      "idx": 72,
+      "en": "|[Lucian]& Don't just lie there!.. And what do you mean dying by {Aquila&'s hands?"
+    },
+    {
+      "idx": 73,
+      "en": "^[Anthony]& Preparation for the ritual had just been completed. Once the path was cleared and master {Aquila& reached the island in the middle of the lake, he began massacring the followers."
+    },
+    {
+      "idx": 74,
+      "en": "^[Anthony]& I barely managed to escape. I was about to head south."
+    },
+    {
+      "idx": 75,
+      "en": "|[Lucian]& How did you manage to escape from {Aquila&?"
+    },
+    {
+      "idx": 76,
+      "en": "^[Anthony]& I used the ultimate camouflage technique I learnt at the {Southern Fortress& and concealed myself in a carton box. It was impossible for him to spot me, so he left."
+    },
+    {
+      "idx": 77,
+      "en": "|[Lucian]& He can't possibly not see through that lousy disguise. Perhaps he wanted to show a little mercy and let you all go.. What do you intend to do now?"
+    },
+    {
+      "idx": 78,
+      "en": "^[Anthony]& I have saved up enough for retirement, maybe I should go back to my home town."
+    },
+    {
+      "idx": 79,
+      "en": "|[Lucian]& Where did you get your retirement fund from? And where's this home town?"
+    },
+    {
+      "idx": 80,
+      "en": "^[Anthony]& Mercenaries are like lone wolves in the wild. We live on our own and we are constantly seeking fresh blood and a good fight."
+    },
+    {
+      "idx": 81,
+      "en": "|[Lucian]& So you are mercenaries, not followers."
+    },
+    {
+      "idx": 82,
+      "en": "^[Anthony]& Of course, my companion will follow me too."
+    },
+    {
+      "idx": 83,
+      "en": "|[Lucian]& Whatever you say. You are {Alicia& right? I suggest you ditch this idiot as soon as you can."
+    },
+    {
+      "idx": 84,
+      "en": "^[Alicia]& I wanted to do that. But when I imagine him being all alone, I can't help but worry."
+    },
+    {
+      "idx": 85,
+      "en": "^[Alicia]& Then again, what gives you the right to talk about him that way?"
+    },
+    {
+      "idx": 86,
+      "en": "|[Lucian]& Maybe you are right."
+    },
+    {
+      "idx": 87,
+      "en": "|[Lucian]& Ok then, I guess this is goodbye, {Anthony& and {Alicia&."
+    },
+    {
+      "idx": 88,
+      "en": "^[Anthony]& The floor is so much cooler. I guess I will lie here for a while. See you if I see you."
+    },
+    {
+      "idx": 89,
+      "en": "|[Lucian]& .. Stop lying there."
+    }
+  ],
+  "m/m/77.m": [
+    {
+      "idx": 1,
+      "en": "^[Lass]& Why? But you look awfully familiar. Have we met?"
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& There you go again. Have you been faking it all this while?"
+    },
+    {
+      "idx": 3,
+      "en": "|[Lucian]& You are always like that, doing whatever you want, rough as a season sailor, with a terrible personality.. But still I.. "
+    },
+    {
+      "idx": 6,
+      "en": "|[Lucian]& Goodness me, the treasure {Francois& of Humming City talked about really exists!.."
+    },
+    {
+      "idx": 7,
+      "en": "|[Lucian]& The chest is locked shut."
+    }
+  ],
+  "m/m/82.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& The doors are all closed?"
+    },
+    {
+      "idx": 1,
+      "en": "^[Calmon]& Maybe Arkley found us, so he locked all the doors."
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& What should we do then?"
+    },
+    {
+      "idx": 3,
+      "en": "^[Calmon]& When I entered the place just, the door opened after I turned some valve. Maybe we can try that again."
+    },
+    {
+      "idx": 4,
+      "en": "|[Lucian]& Ok..."
+    },
+    {
+      "idx": 6,
+      "en": "{The switch is activated."
+    }
+  ],
+  "m/m/83.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& Why is there no one here?"
+    },
+    {
+      "idx": 1,
+      "en": "^[Calmon]& Ya, there was never anything in this place to begin with."
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& What!? Something is amiss.. "
+    },
+    {
+      "idx": 3,
+      "en": "^[Calmon]& There is nothing really. If we don't go now, they may catch up on us."
+    },
+    {
+      "idx": 4,
+      "en": "|[Lucian]& Something feels weird. Maybe we should take a look?"
+    },
+    {
+      "idx": 5,
+      "en": "^[Calmon]& .. Go ahead then."
+    },
+    {
+      "idx": 6,
+      "en": "|[Lucian]& This unpleasant feeling.. I just want to make sure."
+    },
+    {
+      "idx": 7,
+      "en": "}There is an unknown creature inside."
+    },
+    {
+      "idx": 8,
+      "en": "|[Lucian]& There is something inside.. And it moved!"
+    },
+    {
+      "idx": 9,
+      "en": "$[???]& Run.. Run.. Lucian...!"
+    },
+    {
+      "idx": 10,
+      "en": "|[Lucian]& That sounds like.. {Ben& from Melon Village!"
+    },
+    {
+      "idx": 11,
+      "en": "$[???]& Run..!"
+    },
+    {
+      "idx": 12,
+      "en": "|[Lucian]& Calmon!"
+    },
+    {
+      "idx": 13,
+      "en": "^[Calmon]& That's why I told you not to look.. We are beneath {Chelen Village&"
+    },
+    {
+      "idx": 14,
+      "en": "^[Calmon]& The Arkley's base. He experiments with living things."
+    },
+    {
+      "idx": 15,
+      "en": "|[Lucian]& You mean these test tubes..."
+    },
+    {
+      "idx": 17,
+      "en": "|[Lucian]& Ben!..."
+    },
+    {
+      "idx": 18,
+      "en": "$[Ben]& .. Lucian.. Help me.. Deliver.. This.. "
+    },
+    {
+      "idx": 20,
+      "en": "|[Lucian]& Hold on! I will save you right away!..."
+    },
+    {
+      "idx": 21,
+      "en": "^[Calmon]& How are you going to do that?"
+    },
+    {
+      "idx": 22,
+      "en": "^[Calmon]& It's already too late."
+    },
+    {
+      "idx": 23,
+      "en": "|[Lucian]& We need to try anyway! Didn't you say you are the most powerful Elemental!!"
+    },
+    {
+      "idx": 24,
+      "en": "^[Calmon]& That doesn't give me the ability to save them.. I am sorry."
+    },
+    {
+      "idx": 25,
+      "en": "^[Calmon]& But if you want.. Maybe we can end their suffering."
+    },
+    {
+      "idx": 26,
+      "en": "|[Lucian]& What should I do?"
+    },
+    {
+      "idx": 27,
+      "en": "^[Calmon]& Command me. As my master, I am your sword and shield."
+    },
+    {
+      "idx": 28,
+      "en": "|[Lucian]& Since when do you listen to me..."
+    },
+    {
+      "idx": 29,
+      "en": "|[Lucian]& Please help me."
+    },
+    {
+      "idx": 32,
+      "en": "|[Lucian]& There is something inside.. And it moved!"
+    },
+    {
+      "idx": 33,
+      "en": "$[???]& Run.. Run.. Lucian...!"
+    },
+    {
+      "idx": 34,
+      "en": "|[Lucian]& That sounds like.. {Ben& from Melon Village!"
+    },
+    {
+      "idx": 35,
+      "en": "$[???]& Run..!"
+    },
+    {
+      "idx": 36,
+      "en": "|[Lucian]& Calmon!"
+    },
+    {
+      "idx": 37,
+      "en": "^[Calmon]& That's why I told you not to look.. We are beneath {Chelen Village&"
+    },
+    {
+      "idx": 38,
+      "en": "^[Calmon]& The Arkley's base. He experiments with living things."
+    },
+    {
+      "idx": 39,
+      "en": "|[Lucian]& You mean these test tubes..."
+    },
+    {
+      "idx": 41,
+      "en": "|[Lucian]& Hold on! I will save you right away!..."
+    },
+    {
+      "idx": 42,
+      "en": "^[Calmon]& How are you going to do that?"
+    },
+    {
+      "idx": 43,
+      "en": "^[Calmon]& It's already too late."
+    },
+    {
+      "idx": 44,
+      "en": "|[Lucian]& We need to try anyway! Didn't you say you are the most powerful Elemental!!"
+    },
+    {
+      "idx": 45,
+      "en": "^[Calmon]& That doesn't give me the ability to save them.. I am sorry."
+    },
+    {
+      "idx": 46,
+      "en": "^[Calmon]& But if you want.. Maybe we can end their suffering."
+    },
+    {
+      "idx": 47,
+      "en": "|[Lucian]& What should I do?"
+    },
+    {
+      "idx": 48,
+      "en": "^[Calmon]& Command me. As my master, I am your sword and shield."
+    },
+    {
+      "idx": 49,
+      "en": "|[Lucian]& Since when do you listen to me..."
+    },
+    {
+      "idx": 50,
+      "en": "|[Lucian]& Please help me."
+    }
+  ],
+  "m/m/85.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& Where is the exit?"
+    },
+    {
+      "idx": 1,
+      "en": "^[Calmon]& Just keep heading up."
+    },
+    {
+      "idx": 3,
+      "en": "^[Calmon]& We just managed to escape, are you sure you want to go back there?"
+    },
+    {
+      "idx": 4,
+      "en": "|[Lucian]& I just lost my way!"
+    },
+    {
+      "idx": 5,
+      "en": "}Cannot re-enter Boss Chamber."
+    },
+    {
+      "idx": 9,
+      "en": "^[Calmon]& You have such a bad sense of direction, Lucian. Didn't I tell you to go up?"
+    }
+  ],
+  "m/m/86.m": [
+    {
+      "idx": 0,
+      "en": "^[???]& Oh, finally awake?"
+    },
+    {
+      "idx": 1,
+      "en": "^[???]& What a great body."
+    },
+    {
+      "idx": 2,
+      "en": "^[???]& Sorry for attacking you. It's just that I don't dare to face you."
+    },
+    {
+      "idx": 3,
+      "en": "^[???]& I am {Arkley&, one of Aquila's three master mages."
+    },
+    {
+      "idx": 4,
+      "en": "|[Lucian]& Master.. Mage..?"
+    },
+    {
+      "idx": 5,
+      "en": "^[Arkley]& That's just for easy reference. I actually specialize in potion making, brainwashing, creature fusion and things like that."
+    },
+    {
+      "idx": 6,
+      "en": "|[Lucian]& That sounds awful. Argh.. Since just now, my body has.. "
+    },
+    {
+      "idx": 7,
+      "en": "^[Arkley]& Oh! I wanted some information, so I used a little truth serum. Maybe this is the after effect."
+    },
+    {
+      "idx": 8,
+      "en": "^[Arkley]& The pain will be gone soon. Don't worry about it. More importantly, I need you to talk."
+    },
+    {
+      "idx": 9,
+      "en": "|[Lucian]& Talk...?"
+    },
+    {
+      "idx": 10,
+      "en": "^[Arkley]& I must explain myself. Since you are currently under the charm of {Calmon&, it's hard to talk to you."
+    },
+    {
+      "idx": 11,
+      "en": "Talk about what?"
+    },
+    {
+      "idx": 12,
+      "en": "What is your objective?"
+    },
+    {
+      "idx": 13,
+      "en": "|[Lucian]& What are you.. Trying to do?"
+    },
+    {
+      "idx": 14,
+      "en": "^[Arkley]& It's nothing bad really. I just wanted to tell you a story."
+    },
+    {
+      "idx": 15,
+      "en": "^[Arkley]& You have been to Humming City in the south right? That is my home town."
+    },
+    {
+      "idx": 16,
+      "en": "^[Arkley]& An ancient religion was founded in that place and has survived until today."
+    },
+    {
+      "idx": 17,
+      "en": "^[Arkley]& They regarded skyeagles as messengers of god."
+    },
+    {
+      "idx": 18,
+      "en": "^[Arkley]& After the war, the religion was weakened somewhat by the {Legolas&, but a legend continues to be passed down."
+    },
+    {
+      "idx": 19,
+      "en": "^[Arkley]& After the gods created the world, they assigned someone to gift all creatures of the world with a talent."
+    },
+    {
+      "idx": 20,
+      "en": "^[Arkley]& He gave rabbits agility, the foxes cunning.. And went about doing his job dutifully."
+    },
+    {
+      "idx": 21,
+      "en": "^[Arkley]& But when it came to the humans, he realized he had a problem. All talents had already been distributed. There was nothing left to give."
+    },
+    {
+      "idx": 22,
+      "en": "^[Arkley]& So he stole the fire from the gods and humans attained wisdom."
+    },
+    {
+      "idx": 23,
+      "en": "^[Arkley]& The gods were furious. They imprisoned the god that stole the fire and punished the humans with devastation.. "
+    },
+    {
+      "idx": 24,
+      "en": "^[Arkley]& A number of humans managed to survive and became our forefathers."
+    },
+    {
+      "idx": 25,
+      "en": "^[Arkley]& But here is the question. Why didn't the gods kill the fire stealing god??"
+    },
+    {
+      "idx": 26,
+      "en": "^[Arkley]& Some believe that gods are immortal, that's why he cannot be killed. Others say he was kept alive because he holds important knowledge."
+    },
+    {
+      "idx": 27,
+      "en": "^[Arkley]& .. All these are just part of the legend."
+    },
+    {
+      "idx": 28,
+      "en": "^[Arkley]& But, what if it is true?"
+    },
+    {
+      "idx": 29,
+      "en": "|[Lucian]& You are completely insane..."
+    },
+    {
+      "idx": 30,
+      "en": "^[Arkley]& The capital city, Heart of Wintersun, was built on ruins... Ruins of a place called Endte City."
+    },
+    {
+      "idx": 31,
+      "en": "^[Arkley]& However, there has been no record of this place. It seems that it has been forgotten by history."
+    },
+    {
+      "idx": 32,
+      "en": "^[Arkley]& Maybe the gods unleashed their fury on the humans once more.. What do you think of this hypothesis?"
+    },
+    {
+      "idx": 33,
+      "en": "|[Lucian]& If you were forced to arrive at a conclusion based on assumptions, then anything is possible.."
+    },
+    {
+      "idx": 34,
+      "en": "^[Arkley]& Maybe you are right. What if I tell you that evidence of the {Titan& and hints to its location can be found in Endte City?"
+    },
+    {
+      "idx": 35,
+      "en": "|[Lucian]& {Titan&?"
+    },
+    {
+      "idx": 36,
+      "en": "^[Arkley]& Titan in ancient tongue means {giant&, the god that stole the fire. I wish to learn more about him."
+    },
+    {
+      "idx": 37,
+      "en": "What do you want with Calmon?"
+    },
+    {
+      "idx": 38,
+      "en": "|[Lucian]& All these you have said.. what does it have to do with why you want Calmon?"
+    },
+    {
+      "idx": 39,
+      "en": "^[Arkley]& From what we have gathered from Endte City and Aquila, we can deduce that:"
+    },
+    {
+      "idx": 40,
+      "en": "^[Arkley]& Certain requirements must be fulfilled in order to locate the passage to the forbidden place holding the Titan."
+    },
+    {
+      "idx": 41,
+      "en": "^[Arkley]& And that the place is protected by powerful {guardians&."
+    },
+    {
+      "idx": 42,
+      "en": "^[Arkley]& We need the power of the {Elementals& to defeat the {guardians&. In other words, Calmon is one of the special requirements we must fulfill."
+    },
+    {
+      "idx": 43,
+      "en": "Just get to the point"
+    },
+    {
+      "idx": 44,
+      "en": "|[Lucian]& .. Just get to the point."
+    },
+    {
+      "idx": 46,
+      "en": "^[Arkley]& According to {Calmon&, you cannot break the pact."
+    },
+    {
+      "idx": 47,
+      "en": "^[Arkley]& But if you are agreeable, I can make her break it."
+    },
+    {
+      "idx": 48,
+      "en": "|[Lucian]& .. What?"
+    },
+    {
+      "idx": 49,
+      "en": "^[Arkley]& Of course, I can conjure something to brainwash you into accepting this. But I am a peace loving guy and it would be best if you cooperated, don't you think?"
+    },
+    {
+      "idx": 50,
+      "en": "^[Arkley]& You must know, the other mages are less compromising. You are lucky to have me."
+    },
+    {
+      "idx": 51,
+      "en": "^[Arkley]& If you can't decide now, I can give you some time to think about it."
+    },
+    {
+      "idx": 52,
+      "en": "^[Arkley]& Consider it carefully, I am certain you know what is the right thing to do."
+    },
+    {
+      "idx": 53,
+      "en": "^[Arkley]& I should remind you again. I can be a lot less charitable, so don't try to create any trouble."
+    },
+    {
+      "idx": 54,
+      "en": "|[Lucian]& .. My mother, Clare, has taught me since young.."
+    },
+    {
+      "idx": 55,
+      "en": "|[Lucian]& Not to trust anyone easily."
+    },
+    {
+      "idx": 56,
+      "en": "|[Lucian]& That guy is bad to the bone, I will never work with him!"
+    },
+    {
+      "idx": 57,
+      "en": "|[Lucian]& So not all things you learnt when you are young is useless.. I need to find a way out."
+    },
+    {
+      "idx": 58,
+      "en": "^[???]& Don't block the way! Go away!"
+    },
+    {
+      "idx": 59,
+      "en": "|[Lucian]& That voice..."
+    },
+    {
+      "idx": 60,
+      "en": "^[Maskman]& The guards outside are asleep and Arkley is not here. This is the perfect opportunity to escape."
+    },
+    {
+      "idx": 61,
+      "en": "|[Lucian]& I don't know who you are.. But are you trying to help me?"
+    },
+    {
+      "idx": 62,
+      "en": "^[Maskman]& For now."
+    },
+    {
+      "idx": 63,
+      "en": "^[Maskman]& Listen to me, Lucian, forget about the Elemental."
+    },
+    {
+      "idx": 64,
+      "en": "^[Maskman]& I can only save you this once."
+    },
+    {
+      "idx": 65,
+      "en": "|[Lucian]& Wait.. Wait!"
+    },
+    {
+      "idx": 66,
+      "en": "^[Calmon]& There you are, Lucian!"
+    },
+    {
+      "idx": 67,
+      "en": "|[Lucian]& Calmon? How did you get here?"
+    },
+    {
+      "idx": 68,
+      "en": "^[Calmon]& As long as we are connected, I can find you wherever you go."
+    },
+    {
+      "idx": 69,
+      "en": "|[Lucian]& Did you see that just now?"
+    },
+    {
+      "idx": 70,
+      "en": "^[Calmon]& What?"
+    },
+    {
+      "idx": 71,
+      "en": "|[Lucian]&  I don't know.. Let's get out of here!"
+    },
+    {
+      "idx": 72,
+      "en": "^[Calmon]& Lucian! I know you would be here."
+    },
+    {
+      "idx": 73,
+      "en": "|[Lucian]& How did you find me?"
+    },
+    {
+      "idx": 74,
+      "en": "^[Calmon]& Hee~ Don't underestimate a pact with an Elemental."
+    },
+    {
+      "idx": 75,
+      "en": "^[Calmon]& As long as we are connected, I can find you wherever you go."
+    },
+    {
+      "idx": 76,
+      "en": "|[Lucian]& Like a haunting spirit..."
+    },
+    {
+      "idx": 77,
+      "en": "^[Calmon]& However you want to describe it. Let's get out of here!"
+    }
+  ],
+  "m/m/87.m": [
+    {
+      "idx": 0,
+      "en": "^[Arkley]& Ho ho ho.. Ha ha ha.. Hu hu hu!"
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& What are you laughing about?"
+    },
+    {
+      "idx": 2,
+      "en": "^[Arkley]& That's more like it."
+    },
+    {
+      "idx": 3,
+      "en": "^[Arkley]& But still not enough."
+    },
+    {
+      "idx": 4,
+      "en": "^[Arkley]& If you want to beat {that guy&, this is not good enough at all!!"
+    },
+    {
+      "idx": 5,
+      "en": "^[Calmon]& Wait up, {Lucian&."
+    },
+    {
+      "idx": 6,
+      "en": "^[Calmon]& He looks like the sort that won't feel good unless he reveals all his plans."
+    },
+    {
+      "idx": 7,
+      "en": "^[Arkley]& If you want to know about us and the whereabouts of your parents, you will need to be a lot stronger."
+    },
+    {
+      "idx": 8,
+      "en": "^[Arkley]& I will be heading {south&. Come find me if you have got what it takes."
+    },
+    {
+      "idx": 9,
+      "en": "|[Lucian]& He is running away!!!"
+    },
+    {
+      "idx": 10,
+      "en": "|[Lucian]& Scum!"
+    },
+    {
+      "idx": 11,
+      "en": "^[Calmon]& Just like you would expect from a guy who lives all his life underground."
+    },
+    {
+      "idx": 12,
+      "en": "|[Lucian]& .. to the South? Since he gave us an open invitation, we may as well comply."
+    },
+    {
+      "idx": 13,
+      "en": "|[Lucian]& Before that, let's go back to {Silverleaf Village& first."
+    },
+    {
+      "idx": 16,
+      "en": "^[Arkley]& You left in such a hurry, but now you are back?"
+    },
+    {
+      "idx": 17,
+      "en": "|[Lucian]& Old fool.. Stop lying."
+    },
+    {
+      "idx": 18,
+      "en": "^[Arkley]& You saw the lab? Would you like to be brainwashed now?"
+    },
+    {
+      "idx": 19,
+      "en": "^[Arkley]& An  Elemental coming back for its master.. I never thought you would do that."
+    },
+    {
+      "idx": 20,
+      "en": "^[Arkley]& Alright then, no point talking. Let's do this."
+    },
+    {
+      "idx": 21,
+      "en": "^[Arkley]& Didn't you come back for this? You know as you grow older, you have less time to waste."
+    },
+    {
+      "idx": 22,
+      "en": "|[Lucian]& Simply unbelievable."
+    },
+    {
+      "idx": 23,
+      "en": "|[Lucian]& What is this?!"
+    },
+    {
+      "idx": 24,
+      "en": "^[Arkley]& Of course, I am not getting my hands dirty in some barbaric fight."
+    },
+    {
+      "idx": 25,
+      "en": "^[Arkley]& Come on now, {Arteli Calmon&'s master, show me what you have got."
+    }
+  ],
+  "m/m/88.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& That looks huge... Is the whole underground connected?"
+    },
+    {
+      "idx": 1,
+      "en": "^[Calmon]& ..."
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& Are you ok? You don't look so good."
+    },
+    {
+      "idx": 3,
+      "en": "^[Calmon]& It's nothing.. Just.. "
+    },
+    {
+      "idx": 4,
+      "en": "^[Calmon]& This place makes me uncomfortable. It is somewhat familiar.. I have a bad feeling.. "
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& Have you been here before?"
+    },
+    {
+      "idx": 6,
+      "en": "^[Calmon]& Not that I can remember.. It just feels like I have known this place since a long time ago."
+    },
+    {
+      "idx": 7,
+      "en": "|[Lucian]& How can that be? This place is at least a few hundred years old. You said Elementals have only appeared for 15 years."
+    }
+  ],
+  "m/m/90.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& The device is moving."
+    }
+  ],
+  "m/m/91.m": [
+    {
+      "idx": 0,
+      "en": "^[Calmon]& .. My head.. It hurts! .. Stop it!"
+    },
+    {
+      "idx": 1,
+      "en": "^[Aquila]& {Arteli Calmon&, you are the first {Protector&."
+    },
+    {
+      "idx": 2,
+      "en": "^[Aquila]& .. War, death, new weapons..."
+    },
+    {
+      "idx": 3,
+      "en": "^[Aquila]& The cycle keeps repeating.. And you two keep reappearing before me."
+    },
+    {
+      "idx": 4,
+      "en": "^[Calmon]& Keep repeating! What for?!"
+    },
+    {
+      "idx": 5,
+      "en": "^[Aquila]& I didn't mention it to you? It's to see you in {despair&."
+    },
+    {
+      "idx": 6,
+      "en": "^[Aquila]& What is despair for you? Death? The end of miracles? Or losing something precious?"
+    },
+    {
+      "idx": 8,
+      "en": "|[Lucian]& Are these..your memories?"
+    },
+    {
+      "idx": 9,
+      "en": "|[Lucian]& I am sorry. I don't know anything and I don't know what to do."
+    },
+    {
+      "idx": 10,
+      "en": "^[Calmon]& .. My head.. It hurts! .. Stop it!"
+    },
+    {
+      "idx": 11,
+      "en": "^[Aquila]& {Arteli Calmon&, you are the first {Protector&."
+    },
+    {
+      "idx": 12,
+      "en": "^[Aquila]& .. War, death, new weapons..."
+    },
+    {
+      "idx": 13,
+      "en": "^[Aquila]& The cycle keeps repeating.. And you two keep reappearing before me."
+    },
+    {
+      "idx": 14,
+      "en": "^[Calmon]& Keep repeating! What for?!"
+    },
+    {
+      "idx": 15,
+      "en": "^[Aquila]& I didn't mention it to you? It's to see you in {despair&."
+    },
+    {
+      "idx": 16,
+      "en": "^[Aquila]& What is despair for you? Death? The end of miracles? Or losing something precious?"
+    },
+    {
+      "idx": 18,
+      "en": "|[Lucian]& The door is locked tight."
+    },
+    {
+      "idx": 19,
+      "en": "^[Calmon]& Don't shake it too hard, you may bring the whole place down.."
+    },
+    {
+      "idx": 20,
+      "en": "^[Calmon]& The switch.. There was a switch along the way here.. A switch for the door."
+    },
+    {
+      "idx": 21,
+      "en": "|[Lucian]& {Calmon&.. You seem to know this place."
+    },
+    {
+      "idx": 22,
+      "en": "|[Lucian]& The door is lock tight."
+    },
+    {
+      "idx": 23,
+      "en": "}Entrance has collapsed. Unable to enter.&"
+    }
+  ],
+  "m/m/92.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& What is it?"
+    },
+    {
+      "idx": 1,
+      "en": "^[Calmon]& This place.. I definitely have been here before."
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& When?"
+    },
+    {
+      "idx": 3,
+      "en": "^[Calmon]& I can't remember. All the stuff I recall since coming here are so disjointed."
+    },
+    {
+      "idx": 4,
+      "en": "^[Calmon]& Some feels so familiar.. Some feels like I have seen them before long, long time ago.. "
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& Isn't a good thing that some memories are coming back? Maybe because they are in fragments, that's why they are a bit confusing."
+    },
+    {
+      "idx": 6,
+      "en": "^[Calmon]& If it's just that, it's ok.."
+    },
+    {
+      "idx": 7,
+      "en": "|[Lucian]& What's wrong then?"
+    },
+    {
+      "idx": 8,
+      "en": "^[Calmon]& I seem to remember that something horrible happened here."
+    },
+    {
+      "idx": 9,
+      "en": "^[Calmon]& I tried to recall the details, but I cannot dig any deeper."
+    },
+    {
+      "idx": 10,
+      "en": "^[Calmon]& There is something important I must recall."
+    },
+    {
+      "idx": 11,
+      "en": "^[Calmon]& If there is no meaning in these things I do, and if it may harm the world, then...."
+    },
+    {
+      "idx": 12,
+      "en": "^[Calmon]& .. What are you doing?"
+    },
+    {
+      "idx": 13,
+      "en": "|[Lucian]& I'm trying to tell you, don't be too hard on yourself."
+    },
+    {
+      "idx": 14,
+      "en": "|[Lucian]& Don't worry. I believe in you."
+    },
+    {
+      "idx": 15,
+      "en": "|[Lucian]& Initially, you forced me here, but now, I want to do this. If anything happens.."
+    },
+    {
+      "idx": 16,
+      "en": "|[Lucian]& We will think of a way to fix it, right?"
+    },
+    {
+      "idx": 17,
+      "en": "^[Calmon]& You think things are always that simple? Sometimes I envy idiots like you."
+    },
+    {
+      "idx": 18,
+      "en": "|[Lucian]& Haha, there's no need to be so harsh."
+    },
+    {
+      "idx": 21,
+      "en": "^[Calmon]& Really?.. Thank you, {Lucian&."
+    },
+    {
+      "idx": 22,
+      "en": "|[Lucian]& The rest of the place looks abandoned. Only this place has signs of recent maintenance."
+    },
+    {
+      "idx": 23,
+      "en": "|[Lucian]& Did the old fellow do this? What does he want?"
+    },
+    {
+      "idx": 24,
+      "en": "^[Calmon]& I don't know..."
+    }
+  ],
+  "m/m/93.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& You think I am afraid of trash like you. What other tricks do you have?!"
+    },
+    {
+      "idx": 1,
+      "en": "Remember. "
+    },
+    {
+      "idx": 2,
+      "en": "^[Arkley]& Trash I might be, but I can stall some time."
+    },
+    {
+      "idx": 3,
+      "en": "Think of a way."
+    },
+    {
+      "idx": 4,
+      "en": "^[Arkley]& As a fighter, you are talented."
+    },
+    {
+      "idx": 5,
+      "en": "Kill that man."
+    },
+    {
+      "idx": 7,
+      "en": "Kill. Kill. Kill.."
+    },
+    {
+      "idx": 8,
+      "en": "^[Calmon]& That is.. Impossible!!"
+    },
+    {
+      "idx": 9,
+      "en": "|[Lucian]& {Calmon&!?"
+    },
+    {
+      "idx": 10,
+      "en": "^[Calmon]& I.. I am alright.. Let's deal with that fellow first..! "
+    },
+    {
+      "idx": 11,
+      "en": "^[Arkley]& This is impossible! You hurt yourself just to resist my control? Impossible!"
+    },
+    {
+      "idx": 12,
+      "en": "|[Lucian]& {Arkley&!!!"
+    },
+    {
+      "idx": 13,
+      "en": "^[Arkley]& Arghh.. My dreams...!"
+    },
+    {
+      "idx": 14,
+      "en": "|[Lucian]& You idiot! Why did you do that?!"
+    },
+    {
+      "idx": 15,
+      "en": "^[Calmon]& I can't let you.. Get hurt..."
+    },
+    {
+      "idx": 16,
+      "en": "^[Calmon]& This is just a scratch.. There is nothing to worry about."
+    },
+    {
+      "idx": 17,
+      "en": "|[Lucian]& {Calmon&!!"
+    },
+    {
+      "idx": 18,
+      "en": "|[Lucian]& Stop fooling around! I am getting angry!"
+    },
+    {
+      "idx": 19,
+      "en": "|[Lucian]& Where did you go?.. Are you dead...?"
+    },
+    {
+      "idx": 20,
+      "en": "^[???]& Breaking that.. I didn't expect that."
+    },
+    {
+      "idx": 21,
+      "en": "|[Lucian]& Are you an accomplice! This is all because of you!"
+    },
+    {
+      "idx": 22,
+      "en": "^[???]& Don't try to climb up. You are just a mortal man."
+    },
+    {
+      "idx": 23,
+      "en": "|[Lucian]& Waaargggh!!"
+    },
+    {
+      "idx": 24,
+      "en": "^[???]& You all broke what I took a few {millenniums& to make. Shouldn't I be the angry one?"
+    },
+    {
+      "idx": 25,
+      "en": "^[???]& You are..."
+    },
+    {
+      "idx": 26,
+      "en": "^[???]& I told {Kratos& to imprison you all. Can't he do even that?"
+    },
+    {
+      "idx": 27,
+      "en": "^[???]& How now? This is the perfect opportunity to fulfill your wish."
+    },
+    {
+      "idx": 28,
+      "en": "^[???]& Why are you hesitant? You are always like that. Your soft heart always screw things up."
+    },
+    {
+      "idx": 29,
+      "en": "^[Maskman]& The same to you. The guy who appears at the end. There is always an opportunity so long as you know how to grasp it."
+    },
+    {
+      "idx": 30,
+      "en": "^[???]& Is it? The mortal will be reborn anyway."
+    },
+    {
+      "idx": 31,
+      "en": "^[Maskman]& I am speechless."
+    },
+    {
+      "idx": 32,
+      "en": "^[Aquila]& This is getting interesting. You didn't expect that right?"
+    },
+    {
+      "idx": 33,
+      "en": "^[???]& There is no other choice, let's restart from the beginning."
+    },
+    {
+      "idx": 35,
+      "en": "^[Aquila]& I want to destroy this world."
+    },
+    {
+      "idx": 37,
+      "en": "|[Lucian]& You think I am afraid of trash like you? What other tricks do you have?!"
+    },
+    {
+      "idx": 38,
+      "en": "^[Arkley]& Trash I might be, but I can stall some time."
+    },
+    {
+      "idx": 39,
+      "en": "^[Arkley]& As a fighter, you are talented."
+    },
+    {
+      "idx": 40,
+      "en": "^[Arkley]& However, didn't you learn?"
+    },
+    {
+      "idx": 41,
+      "en": "^[Arkley]& Don't lose eyes off your companion at the back."
+    },
+    {
+      "idx": 42,
+      "en": "^[Calmon]& {Lucian&, get away from me..! "
+    },
+    {
+      "idx": 43,
+      "en": "|[Lucian]& ...{Calmon&.. Why..."
+    },
+    {
+      "idx": 44,
+      "en": "^[Arkley]& I told you before, my speciality is potions and brainwashing. I borrowed the control facility here."
+    },
+    {
+      "idx": 45,
+      "en": "^[Arkley]& You may not be aware, but Elementals are very similar to {Protectors&."
+    },
+    {
+      "idx": 46,
+      "en": "^[Arkley]& Or should I say, {Elementals& that go berserk become {Protectors&. It is all very intriguing."
+    },
+    {
+      "idx": 47,
+      "en": "|[Lucian]& So this is your plan...!!"
+    },
+    {
+      "idx": 48,
+      "en": "^[Arkley]& Don't force yourself. That's a fatal wound. You are losing precious life when you struggle like that."
+    },
+    {
+      "idx": 49,
+      "en": "^[Arkley]& I must still thank you."
+    },
+    {
+      "idx": 51,
+      "en": "^[Arkley]& As a parting gift, let me tell you another interesting story."
+    },
+    {
+      "idx": 52,
+      "en": "^[Arkley]& Your parents died here too."
+    },
+    {
+      "idx": 53,
+      "en": "^[Arkley]& {Ian& and {Lea& were following {Aquila&."
+    },
+    {
+      "idx": 54,
+      "en": "^[Arkley]& They came here and this became their final destination."
+    },
+    {
+      "idx": 55,
+      "en": "^[Arkley]& Just like you, without the {Protectors&, they are no stronger than commoners."
+    },
+    {
+      "idx": 56,
+      "en": "^[Arkley]& Such fragile lives."
+    },
+    {
+      "idx": 57,
+      "en": "|[Lucian]& Argh.. Arghhhhh!!!!!!"
+    },
+    {
+      "idx": 58,
+      "en": "^[Arkley]& As a human, you have done very well."
+    },
+    {
+      "idx": 59,
+      "en": "^[Arkley]& I admire your strong will."
+    },
+    {
+      "idx": 60,
+      "en": "^[Arkley]& But will alone cannot conquer death."
+    },
+    {
+      "idx": 61,
+      "en": "^[Arkley]& The knowledge and experience one attained will all dissipate when they die."
+    },
+    {
+      "idx": 62,
+      "en": "^[Arkley]& I can't accept this fate. Like I told you, the legend is real."
+    },
+    {
+      "idx": 63,
+      "en": "^[Arkley]& Preparation has been completed."
+    },
+    {
+      "idx": 64,
+      "en": "^[Arkley]& I will acquire the forbidden knowledge the gods have feared and become a being of eternity."
+    },
+    {
+      "idx": 65,
+      "en": "|[Lucian]& .. I will.. Will not.. Let you off..."
+    },
+    {
+      "idx": 66,
+      "en": "^[Calmon]& {Lucian&! Don't die! Release him, old man!"
+    },
+    {
+      "idx": 68,
+      "en": "^[Calmon]& I will not let him die!!"
+    },
+    {
+      "idx": 70,
+      "en": "|[Lucian]& (That is.. {Aquila&...?)"
+    },
+    {
+      "idx": 72,
+      "en": "^[Arkley]& It's too late! I know everything about you. You can't kill me here!"
+    },
+    {
+      "idx": 73,
+      "en": "^[Aquila]& You know that? I have underestimated you all this while."
+    },
+    {
+      "idx": 74,
+      "en": "^[Aquila]& But, I don't need to do every small thing myself right?"
+    },
+    {
+      "idx": 75,
+      "en": "^[Arkley]& .. It's you!"
+    },
+    {
+      "idx": 76,
+      "en": "^[Arkley]& Ha ha ha...! Is it? You betrayed me!"
+    },
+    {
+      "idx": 77,
+      "en": "^[???]& You are the one who broke our deal."
+    },
+    {
+      "idx": 78,
+      "en": "|[Lucian]& (That voice belongs to...?)"
+    },
+    {
+      "idx": 79,
+      "en": "^[Aquila]& An actor needs to leave the stage once his performance is over, so.."
+    },
+    {
+      "idx": 80,
+      "en": "^[Aquila]& You are willing to go through all this to protect your master? What a loyal Elemental."
+    },
+    {
+      "idx": 81,
+      "en": "|[Lucian]& (Get up.. I must get up.. But my body...)"
+    },
+    {
+      "idx": 82,
+      "en": "^[Aquila]& You two shouldn't die here. Go now."
+    },
+    {
+      "idx": 84,
+      "en": "|[Lucian]& I am here old man, just like I said I would be."
+    },
+    {
+      "idx": 85,
+      "en": "^[Arkley]& Oh.. I hope you had a good trip."
+    },
+    {
+      "idx": 86,
+      "en": "^[Arkley]& This place is a little bit old, I hope you won't mind."
+    },
+    {
+      "idx": 87,
+      "en": "^[Arkley]& How is the scenery? Share your thoughts with me."
+    },
+    {
+      "idx": 88,
+      "en": "|[Lucian]& You are uttering nonsense again!"
+    },
+    {
+      "idx": 89,
+      "en": "^[Arkley]& Really? You didn't notice anything? How boring is that?"
+    },
+    {
+      "idx": 90,
+      "en": "^[Arkley]& This is the place that was used to conduct studies on controlling {Protectors&."
+    },
+    {
+      "idx": 91,
+      "en": "^[Arkley]& {Soltia&, the island that was abandoned. This used to be one of the 3 major research organizations in the world."
+    },
+    {
+      "idx": 92,
+      "en": "^[Arkley]& Obviously, the study on controlling {Protectors& failed in the end."
+    },
+    {
+      "idx": 93,
+      "en": "^[Arkley]&I took the liberty of fixing up the facility here, you will see the results soon.."
+    },
+    {
+      "idx": 94,
+      "en": "^[Arkley]& Before that, let's play a little game."
+    },
+    {
+      "idx": 96,
+      "en": "|[Lucian]& {Calmon&! What are you doing!"
+    },
+    {
+      "idx": 97,
+      "en": "^[Calmon]& Oh.. Oh? I am sorry."
+    },
+    {
+      "idx": 98,
+      "en": "|[Lucian]& Don't lose focus!"
+    },
+    {
+      "idx": 99,
+      "en": "^[Arkley]& Ho ho.. You two lost your chemistry? Pardon me then."
+    }
+  ],
+  "m/m/94.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& I don't know why, but I don't want to touch that box."
+    },
+    {
+      "idx": 1,
+      "en": "^[Anthony]& Hm hm hm..."
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& Let's pretend I didn't see anything..."
+    }
+  ],
+  "m/m/95.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& The door is locked. Is there another way?"
+    }
+  ],
+  "m/m/96.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& There is no reason to continue."
+    },
+    {
+      "idx": 4,
+      "en": "^[Calmon]& Then let Timoros be?"
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& Of course we can't do that."
+    }
+  ],
+  "m/m/99.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& There are so many monsters in this fortress. Don't you find it strange?"
+    },
+    {
+      "idx": 1,
+      "en": "^[???]& They are there because we put them there, young man."
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& I must be over-exhausted. I think I am hallucinating."
+    },
+    {
+      "idx": 3,
+      "en": "^[Calmon]& That's no hallucination."
+    },
+    {
+      "idx": 4,
+      "en": "|[Lucian]& Can I just pretend I didn't hear anything.."
+    },
+    {
+      "idx": 5,
+      "en": "^[Calmon]& That box looks really suspicious, should we check it out?"
+    },
+    {
+      "idx": 6,
+      "en": "^[???]& You are absolutely right! Boxes are there for people to open."
+    },
+    {
+      "idx": 9,
+      "en": "^[Calmon]& How'd you end up in that box?"
+    },
+    {
+      "idx": 10,
+      "en": "^[Anthony]& .. This fortress is a vital location in the invasion of Melon Village. I was here to set the place up."
+    },
+    {
+      "idx": 11,
+      "en": "^[Anthony]& {I didn't know that the door of basement 2 is locked& and I may have released too many monsters."
+    },
+    {
+      "idx": 12,
+      "en": "^[Anthony]& They started chasing me and there is only that box around, so I hid inside."
+    },
+    {
+      "idx": 13,
+      "en": "^[Anthony]& Then I found out an important truth."
+    },
+    {
+      "idx": 14,
+      "en": "|[Lucian]& What important truth?"
+    },
+    {
+      "idx": 15,
+      "en": "^[Anthony]& This box can't be opened from the inside."
+    },
+    {
+      "idx": 16,
+      "en": "|[Lucian]& You idiot! What happened to that friend of yours? {Alicia& right?"
+    },
+    {
+      "idx": 17,
+      "en": "^[Anthony]& You can see it for yourself. This box is only large enough for one. If I had been hiding inside, then {Alicia& must have been left outside."
+    },
+    {
+      "idx": 18,
+      "en": "|[Lucian]& I get it, you can stop talking about the box. That girl.. She hasn't been killed, has she?"
+    },
+    {
+      "idx": 19,
+      "en": "^[Anthony]& Nope. She defeated the monsters that were chasing us and said in a tired voice.."
+    },
+    {
+      "idx": 20,
+      "en": "^[Anthony]& You are a grown man! Hiding in the box like that.. You can just rot inside!!!"
+    },
+    {
+      "idx": 21,
+      "en": "^[Anthony]& .. Then she left."
+    },
+    {
+      "idx": 22,
+      "en": "|[Lucian]& You could have just helped her in battle, idiot."
+    },
+    {
+      "idx": 23,
+      "en": "^[Calmon]& You never had any intention of doing that right?"
+    },
+    {
+      "idx": 24,
+      "en": "|[Lucian]& Although much of what you said is useless, at least we know that the door at basement 2 is locked."
+    },
+    {
+      "idx": 25,
+      "en": "^[Calmon]& Can't we just break the door?"
+    },
+    {
+      "idx": 27,
+      "en": "|[Lucian]& The {constable& should have the key. Let's get it from him."
+    }
+  ],
+  "m/m2/a0.m": [
+    {
+      "idx": 10,
+      "en": "^[Timoros]& .. Argh.."
+    },
+    {
+      "idx": 13,
+      "en": "|[Lucian]& {Calmon&."
+    },
+    {
+      "idx": 15,
+      "en": "^[Calmon]& ..."
+    },
+    {
+      "idx": 16,
+      "en": "^[Timoros]& ..."
+    },
+    {
+      "idx": 17,
+      "en": "|[Lucian]& {Timoros&...!"
+    }
+  ],
+  "m/m2/b0.m": [
+    {
+      "idx": 0,
+      "en": "Return to village?"
+    },
+    {
+      "idx": 3,
+      "en": "Leave; Arena?"
+    },
+    {
+      "idx": 10,
+      "en": "{Objective for side quest [Gunblade Master] fulfilled!&"
+    }
+  ],
+  "m/m2/b3.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& Rest in peace."
+    }
+  ],
+  "m/m2/b4.m": [
+    {
+      "idx": 0,
+      "en": "^[Kratos]& Hahahahahaha!"
+    },
+    {
+      "idx": 1,
+      "en": "^[Kratos]& This is how it ends..?!"
+    },
+    {
+      "idx": 2,
+      "en": "^[Kratos]& .. I will watch you from hell."
+    },
+    {
+      "idx": 3,
+      "en": "^[Kratos]& .. I want to see how you'll do that after you save her."
+    },
+    {
+      "idx": 4,
+      "en": "|[Lucian]& {Calmon&, can you dispel the curse on {Alpez&?"
+    },
+    {
+      "idx": 6,
+      "en": "|[Lucian]& Not at all. Now please."
+    },
+    {
+      "idx": 7,
+      "en": "^[Alpez]& Don't come near me!"
+    },
+    {
+      "idx": 8,
+      "en": "|[Lucian]& {Alpez&."
+    },
+    {
+      "idx": 9,
+      "en": "^[Alpez]& Didn't you hear? Don't you know the truth?!"
+    },
+    {
+      "idx": 10,
+      "en": "^[Alpez]& What Kratos said is true."
+    },
+    {
+      "idx": 11,
+      "en": "^[Alpez]& I am the beginning of all disasters and I am the end."
+    },
+    {
+      "idx": 12,
+      "en": "|[Lucian]& {Alpez&..."
+    },
+    {
+      "idx": 13,
+      "en": "^[Alpez]& Do you want to know more? The {Giant God& let humans create the {Elementals to kill the {Protector& and release him."
+    },
+    {
+      "idx": 14,
+      "en": "^[Alpez]& In order to attain that kind of power, the {world has been recreated& numerous times."
+    },
+    {
+      "idx": 15,
+      "en": "^[Alpez]& {Lucian& was abandoned because of me. {Ian& and {Clare& fought to save this world, but their efforts have been in vain.."
+    },
+    {
+      "idx": 16,
+      "en": "^[Alpez]& And that's because of me as well!!"
+    },
+    {
+      "idx": 17,
+      "en": "^[Alpez]& This is all my fault. Nobody knew about it, so nobody can forgive me!"
+    },
+    {
+      "idx": 18,
+      "en": "^[Alpez]& Despite that, I want to redeem myself. That's why I went searching for the Giant God. I thought that will put an end to things.."
+    },
+    {
+      "idx": 19,
+      "en": "|[Lucian]& Why didn't you tell me from the start?"
+    },
+    {
+      "idx": 20,
+      "en": "^[Alpez]& Because I don't want you to hate me. I didn't want to tell {Lucian& any of this and drag you into it."
+    },
+    {
+      "idx": 21,
+      "en": "^[Calmon]& That's why you seemed so repelled by me?"
+    },
+    {
+      "idx": 23,
+      "en": "^[Calmon]& You didn't want me to snatch {Lucian& away? How foolish."
+    },
+    {
+      "idx": 24,
+      "en": "^[Calmon]& So what now, {Lucian&?"
+    },
+    {
+      "idx": 25,
+      "en": "|[Lucian]& .. Let's head to the fight. Since the Giant God wants to be resurrected, he should be where {Protector& {Aquila& was defeated."
+    },
+    {
+      "idx": 26,
+      "en": "|[Lucian]& Let's end this."
+    },
+    {
+      "idx": 28,
+      "en": "^[Calmon]& Come help us, {Alpez&. Since you have been searching for the Giant God, you must have a plan."
+    },
+    {
+      "idx": 29,
+      "en": "^[Alpez]& I have the box. It was created to kill the {Giant God&.. But.. Do you trust me?"
+    },
+    {
+      "idx": 30,
+      "en": "|[Lucian]& We will judge you later, {Alpez&. Right now, all I care about is punishing the {mastermind& behind all this."
+    },
+    {
+      "idx": 31,
+      "en": "|[Lucian]& Can we do that?"
+    },
+    {
+      "idx": 32,
+      "en": "^[Alpez]& .. Ok."
+    },
+    {
+      "idx": 33,
+      "en": "|[Lucian]& Where should we head to then?"
+    },
+    {
+      "idx": 34,
+      "en": "^[Alpez]& The mountain in the middle of Spiegel Lake.. We can get there through the underground tunnel at the {Swamp&."
+    },
+    {
+      "idx": 37,
+      "en": "^[Calmon]& If you release everything from the box, what will happen to you?"
+    },
+    {
+      "idx": 38,
+      "en": "^[Alpez]& I may.. Disappear."
+    },
+    {
+      "idx": 39,
+      "en": "^[Calmon]& Then isn't this suicide? After defeating the Giant God, you will disappear from this world?"
+    },
+    {
+      "idx": 40,
+      "en": "^[Alpez]& ..."
+    },
+    {
+      "idx": 41,
+      "en": "^[Calmon]& You are trying to escape your fate."
+    },
+    {
+      "idx": 42,
+      "en": "^[Alpez]& Didn't you deceive {Lucian& for your own purpose as well! That purpose in itself is a lie."
+    },
+    {
+      "idx": 43,
+      "en": "^[Alpez]& Your existence is a lie!"
+    },
+    {
+      "idx": 45,
+      "en": "^[Calmon]&  I will go ahead first, you try to keep up."
+    },
+    {
+      "idx": 46,
+      "en": "^[Calmon]& Without you, we will have no chance against the Giant God."
+    },
+    {
+      "idx": 47,
+      "en": "^[Maskman]& {Lucian&!?"
+    },
+    {
+      "idx": 48,
+      "en": "^[Kratos]& Where are you looking at!"
+    },
+    {
+      "idx": 49,
+      "en": "|[Lucian]& {Alpez&?"
+    },
+    {
+      "idx": 50,
+      "en": "^[Kratos]& Losing your focus like that can prove fatal."
+    },
+    {
+      "idx": 51,
+      "en": "^[Alpez]& You!"
+    },
+    {
+      "idx": 52,
+      "en": "^[Kratos]& Your rashness has led you right into this obvious trap."
+    },
+    {
+      "idx": 53,
+      "en": "^[Alpez]& ..."
+    },
+    {
+      "idx": 54,
+      "en": "|[Lucian]& What is this!"
+    },
+    {
+      "idx": 55,
+      "en": "^[Kratos]& Relax, it's just a little sedative. Aren't you going to thank me?"
+    },
+    {
+      "idx": 56,
+      "en": "|[Lucian]& Let her go now!"
+    },
+    {
+      "idx": 57,
+      "en": "^[Kratos]& I don't think so. Especially all these trouble I've gone through."
+    },
+    {
+      "idx": 58,
+      "en": "|[Lucian]& Alright, in that case, I will make you."
+    },
+    {
+      "idx": 59,
+      "en": "^[Kratos]& Oh really? I am so scared now. What are you doing to do?"
+    },
+    {
+      "idx": 60,
+      "en": "^[Kratos]& I am a busy man and I have no intention of fighting you."
+    },
+    {
+      "idx": 61,
+      "en": "^[Kratos]& This girl is too dangerous. I cannot leave her like that."
+    },
+    {
+      "idx": 62,
+      "en": "^[Calmon]& This is puzzling. She has powers, but surely she is not a threat to {Aquila&."
+    },
+    {
+      "idx": 63,
+      "en": "^[Kratos]& Oh, I have parted ways with {Aquila&. That guy's brain is filled with murderous thoughts."
+    },
+    {
+      "idx": 64,
+      "en": "^[Kratos]& My dream is to rule the world. How can I do that if everyone is dead?"
+    },
+    {
+      "idx": 65,
+      "en": "|[Lucian]& I could care less about your dreams."
+    },
+    {
+      "idx": 66,
+      "en": "^[Kratos]& Hoho, you still don't understand? There is no point in saving this girl."
+    },
+    {
+      "idx": 67,
+      "en": "|[Lucian]& What?"
+    },
+    {
+      "idx": 68,
+      "en": "^[Kratos]& Don't you see? She has been deceiving you. And not just that.."
+    },
+    {
+      "idx": 70,
+      "en": "^[Calmon]& What do you mean...!"
+    },
+    {
+      "idx": 71,
+      "en": "^[Kratos]& You heard about it in Humming City right? This is the girl who opened the box."
+    },
+    {
+      "idx": 72,
+      "en": "^[Kratos]& I survived because of this and lasted all these while."
+    },
+    {
+      "idx": 73,
+      "en": "^[Kratos]& If she had released everything in the box, we would still have a chance of starting over. But because of her, we are now trapped in this predicament."
+    },
+    {
+      "idx": 74,
+      "en": "^[Kratos]& Do you still want to save her now?"
+    },
+    {
+      "idx": 75,
+      "en": "|[Lucian]& I can be my own judge."
+    },
+    {
+      "idx": 76,
+      "en": "|[Lucian]& I don't need you to tell me what to do!"
+    },
+    {
+      "idx": 78,
+      "en": "^[Kratos]& I've given you so many opportunities yet still you seek death. Perhaps you should die here then."
+    }
+  ],
+  "m/m2/b5.m": [
+    {
+      "idx": 0,
+      "en": "0\u0013\u0005\u0002\u0017t\u0013\u0001\u0002\u0017v\u0014\u0001\u00025\u001e\u00015\u001f\u00015 \u0001"
+    }
+  ],
+  "m/m2/b6.m": [
+    {
+      "idx": 3,
+      "en": "}A powerful seal. A great power can be felt somewhere in the temple.&"
+    }
+  ],
+  "m/m2/b7.m": [
+    {
+      "idx": 0,
+      "en": "}The seal has been broken.&"
+    }
+  ],
+  "m/m2/b9.m": [
+    {
+      "idx": 0,
+      "en": "}The seal has been broken.&"
+    }
+  ],
+  "m/m2/c0.m": [
+    {
+      "idx": 0,
+      "en": "^[Aquila]& Right about time. I am tired of waiting."
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& Stop acting. I already know everything from {Alpez&."
+    },
+    {
+      "idx": 2,
+      "en": "^[Aquila]& .. Alright, the {Giant God& has done some funny stuff too."
+    },
+    {
+      "idx": 3,
+      "en": "^[Aquila]& In order to avoid future problems, he created an even bigger one."
+    },
+    {
+      "idx": 4,
+      "en": "|[Lucian]& Why are you helping him? Why did you kill so many for something that's so meaningless?"
+    },
+    {
+      "idx": 5,
+      "en": "^[Aquila]& Helping him? He is just doing what he wants to do, and I  am doing the same."
+    },
+    {
+      "idx": 6,
+      "en": "^[Aquila]& I am like the Elemental beside you. We are puppets that do someone else's biddings."
+    },
+    {
+      "idx": 7,
+      "en": "^[Aquila]& I can't do what that girl attempts to do, kill the Giant God."
+    },
+    {
+      "idx": 8,
+      "en": "^[Aquila]& End my own life? Impossible. Let humans who have trespassed this place go? Impossible."
+    },
+    {
+      "idx": 9,
+      "en": "^[Aquila]& I don't have a future like you all do."
+    },
+    {
+      "idx": 10,
+      "en": "^[Aquila]& I can't gain anything, nor can I steal anything. I can only kill some people every now and then to help vent my feelings."
+    },
+    {
+      "idx": 11,
+      "en": "|[Lucian]& So you are born to kill? What a thickhead."
+    },
+    {
+      "idx": 12,
+      "en": "^[Aquila]& This is not the first time we have had this conversation. If you are sincere, save me."
+    },
+    {
+      "idx": 13,
+      "en": "^[Aquila]& Kill me once and for all."
+    },
+    {
+      "idx": 14,
+      "en": "|[Lucian]& That's what I intend to do!!"
+    },
+    {
+      "idx": 15,
+      "en": "^[Aquila]& You came without your Elemental?"
+    },
+    {
+      "idx": 16,
+      "en": "^[Aquila]& You think you can take me on alone? How foolish of you."
+    },
+    {
+      "idx": 17,
+      "en": "|[Lucian]& I have always been puzzled about something.."
+    },
+    {
+      "idx": 18,
+      "en": "|[Lucian]& Why did my parents leave me behind and join the fight?"
+    },
+    {
+      "idx": 19,
+      "en": "|[Lucian]& .. I have always resented this."
+    },
+    {
+      "idx": 20,
+      "en": "|[Lucian]& Now I can understand."
+    },
+    {
+      "idx": 21,
+      "en": "|[Lucian]& We have a future that we cannot let you destroy."
+    },
+    {
+      "idx": 22,
+      "en": "|[Lucian]& They wanted to give me a future with freedom!"
+    },
+    {
+      "idx": 23,
+      "en": "|[Lucian]& They didn't abandon me when they joined the fight!"
+    },
+    {
+      "idx": 24,
+      "en": "|[Lucian]& They joined the fight because they love me!"
+    },
+    {
+      "idx": 25,
+      "en": "^[Aquila]& And so? Nothing has changed. Everything is meaningless."
+    },
+    {
+      "idx": 26,
+      "en": "|[Lucian]& It's not meaningless!"
+    },
+    {
+      "idx": 27,
+      "en": "|[Lucian]& Although it's just by a bit, each world has been changing gradually. I finally understand everything and I am here to defeat you."
+    },
+    {
+      "idx": 28,
+      "en": "|[Lucian]& If not for {dad&, {mom& and {Clare&, who have kept fighting, I probably wouldn't be here."
+    },
+    {
+      "idx": 29,
+      "en": "|[Lucian]& I was a fool for asking what was the point of fighting. I should have known all along."
+    },
+    {
+      "idx": 30,
+      "en": "^[Aquila]& Yawn, chat over. Time to die."
+    },
+    {
+      "idx": 31,
+      "en": "^[Aquila]& And the endless incarnation of the world will begin."
+    },
+    {
+      "idx": 32,
+      "en": "|[Lucian]& I will protect what is important and get it back from you."
+    },
+    {
+      "idx": 33,
+      "en": "|[Lucian]& That's the future for the both of us."
+    },
+    {
+      "idx": 34,
+      "en": "^[Aquila]& What...!"
+    },
+    {
+      "idx": 35,
+      "en": "|[Lucian]& That's why I need you."
+    },
+    {
+      "idx": 36,
+      "en": "|[Lucian]& Remember our oath?"
+    },
+    {
+      "idx": 37,
+      "en": "|[Lucian]& Come now, my sword, my shield, my other half!"
+    },
+    {
+      "idx": 38,
+      "en": "|[Lucian]& {Arteli Calmon&!"
+    },
+    {
+      "idx": 39,
+      "en": "^[Calmon]& Of course, wherever you are, I will be there."
+    },
+    {
+      "idx": 40,
+      "en": "^[Calmon]& I told you I can find you anywhere. I finally remember everything."
+    },
+    {
+      "idx": 41,
+      "en": "^[Aquila]& Hahaha! Are you all putting on a show?!"
+    },
+    {
+      "idx": 42,
+      "en": "^[Aquila]& Alright, let's do this!"
+    },
+    {
+      "idx": 43,
+      "en": "^[Aquila]& Let's see whether you can put an end to everything!!"
+    },
+    {
+      "idx": 44,
+      "en": "^[Aquila]& Right about time. I am tired of waiting."
+    },
+    {
+      "idx": 45,
+      "en": "|[Lucian]& Why are you doing this! Do you crave for the power of the gods so much? What do you intend to do with it?!"
+    },
+    {
+      "idx": 46,
+      "en": "^[Aquila]& This has nothing to do with the power of the gods."
+    },
+    {
+      "idx": 47,
+      "en": "|[Lucian]& What...?"
+    },
+    {
+      "idx": 48,
+      "en": "^[Aquila]& Do you know the significance of my name? I am the {Protector& assigned to watch this place."
+    },
+    {
+      "idx": 49,
+      "en": "^[Aquila]& I will kill any humans that venture into this place. In other words, I can only kill humans in this place."
+    },
+    {
+      "idx": 50,
+      "en": "^[Calmon]& You lured us here in order to kill us?!"
+    },
+    {
+      "idx": 51,
+      "en": "^[Aquila]& That's right. The followers of {Legolas& were all just tools."
+    },
+    {
+      "idx": 52,
+      "en": "^[Aquila]& Tools to get you to this place. Tools to make you stronger."
+    },
+    {
+      "idx": 53,
+      "en": "|[Lucian]& How many people have you killed to achieve your goals?!"
+    },
+    {
+      "idx": 54,
+      "en": "^[Aquila]& You may not understand. But this world in itself is twisted."
+    },
+    {
+      "idx": 55,
+      "en": "^[Aquila]& It contains things that shouldn't have existed. Yet, things that should have existed have disappeared."
+    },
+    {
+      "idx": 56,
+      "en": "^[Aquila]& It all began with a mistake made by one man a long, long time ago."
+    },
+    {
+      "idx": 57,
+      "en": "|[Lucian]& Stop speaking in riddles!"
+    },
+    {
+      "idx": 58,
+      "en": "^[Aquila]& Ok, let's fight then. If you let me be, more people will die."
+    },
+    {
+      "idx": 59,
+      "en": "^[Aquila]& For you, that is reason enough, right?"
+    },
+    {
+      "idx": 60,
+      "en": "|[Lucian]& I knew long ago that there is no chance of reasoning with you."
+    },
+    {
+      "idx": 61,
+      "en": "^[Aquila]& Let's go to somewhere we can fight freely."
+    }
+  ],
+  "m/m2/d7.m": [
+    {
+      "idx": 0,
+      "en": "^[Giant God]& How can this happen! Thousands of years of waiting, a chance to finally get back at the gods!"
+    },
+    {
+      "idx": 1,
+      "en": "^[Giant God]& These filthy creations, these puppets!"
+    },
+    {
+      "idx": 2,
+      "en": "^[Aquila]& Finally.. It's over."
+    },
+    {
+      "idx": 3,
+      "en": "^[Calmon]& The {Protector& has vanished, {Lucian&!"
+    },
+    {
+      "idx": 4,
+      "en": "|[Lucian]& {Giant God&! As you wish, the {Protector& has been defeated! Come out now!"
+    },
+    {
+      "idx": 5,
+      "en": "^[Giant God]& Is it? Although I know this is a trap, I have no choice but to make an appearance."
+    },
+    {
+      "idx": 6,
+      "en": "^[Giant God]& How dare you challenge a god? Are you ready to accept punishment for your sins?"
+    },
+    {
+      "idx": 7,
+      "en": "^[Calmon]& .. Now it's time for her to show up."
+    },
+    {
+      "idx": 8,
+      "en": "^[Alpez]& ..."
+    },
+    {
+      "idx": 9,
+      "en": "^[Giant God]& You want to open the box? Open it and you may kill me."
+    },
+    {
+      "idx": 10,
+      "en": "^[Giant God]& But can you open it? What is inside could be hope, or it could be an even worse disaster."
+    },
+    {
+      "idx": 11,
+      "en": "^[Giant God]& You have opened it once. And you closed  it immediately because you were afraid."
+    },
+    {
+      "idx": 12,
+      "en": "^[Giant God]& Can you open it again?"
+    },
+    {
+      "idx": 13,
+      "en": "^[Alpez]& I..."
+    },
+    {
+      "idx": 14,
+      "en": "|[Lucian]& Open it, {Alpez&."
+    },
+    {
+      "idx": 15,
+      "en": "|[Lucian]& Even if it is a disaster, we will just deal with it."
+    },
+    {
+      "idx": 16,
+      "en": "|[Lucian]& That's how my parents and Clare lived, changing this curse of infinite incarnation bit by bit."
+    },
+    {
+      "idx": 17,
+      "en": "|[Lucian]& Even though we have been acting out a script written by this fellow, we have deviated bit by bit. That's why we are here."
+    },
+    {
+      "idx": 18,
+      "en": "|[Lucian]& All this happened for a reason! Not opening the box now will be the real sin. There is no running away now."
+    },
+    {
+      "idx": 20,
+      "en": "^[Alpez]& .. Let's end this now. I am opening the box."
+    },
+    {
+      "idx": 21,
+      "en": "^[Giant God]& Fools! Even if you attained power, you are mere creations! You think you can defeat your creator?!"
+    },
+    {
+      "idx": 22,
+      "en": "^[Calmon]& It is not over yet. That is the real mastermind!"
+    },
+    {
+      "idx": 23,
+      "en": "^[???]& I didn't think my wish would come true this way.. I am finally free!"
+    },
+    {
+      "idx": 24,
+      "en": "^[???]& Now I can seek revenge on the gods that have imprisoned me!"
+    },
+    {
+      "idx": 25,
+      "en": "|[Lucian]& Don't be so quick to rejoice!"
+    },
+    {
+      "idx": 26,
+      "en": "^[???]& Get out of my sight. If you run now, I would let you go on account that you were the one who released me."
+    },
+    {
+      "idx": 27,
+      "en": "|[Lucian]& Do you think I will listen to you and walk away?"
+    },
+    {
+      "idx": 28,
+      "en": "|[Lucian]& You will pay for all this!"
+    },
+    {
+      "idx": 29,
+      "en": "^[???]& Hahaha! A mere mortal wants to use the weapon I made against me?"
+    },
+    {
+      "idx": 30,
+      "en": "|[Lucian]& The puppet you controlled, the weapon you made."
+    },
+    {
+      "idx": 31,
+      "en": "|[Lucian]& Aside from those, there is yet another. Are you forgetting something?"
+    },
+    {
+      "idx": 32,
+      "en": "|[Lucian]& This is the perfect opportunity!"
+    },
+    {
+      "idx": 33,
+      "en": "^[Maskman]& I told you there would be another chance."
+    },
+    {
+      "idx": 34,
+      "en": "^[Maskman]& And you laughed at me for that, {Giant God&!"
+    },
+    {
+      "idx": 35,
+      "en": "^[???]& It's you!!"
+    },
+    {
+      "idx": 36,
+      "en": "^[Maskman]& Let's put an end to this laughable story. What I can do, is to create an opportunity."
+    },
+    {
+      "idx": 37,
+      "en": "^[Maskman]& So, you must defeat him."
+    },
+    {
+      "idx": 38,
+      "en": "^[Calmon]& Don't worry about me. You just go ahead."
+    },
+    {
+      "idx": 39,
+      "en": "^[Calmon]& I wouldn't abandon you."
+    },
+    {
+      "idx": 40,
+      "en": "^[Calmon]& I will find you, just like I did before."
+    },
+    {
+      "idx": 42,
+      "en": "^[Calmon]& So.. Wait for me."
+    },
+    {
+      "idx": 44,
+      "en": "^[Aquila]& This world wasn't supposed to be like this."
+    },
+    {
+      "idx": 45,
+      "en": "^[Aquila]& Because humans couldn't do what they were supposed to do, they allowed those who shouldn't be alive remain alive."
+    },
+    {
+      "idx": 46,
+      "en": "^[Aquila]& That's the reason you've been stripped of a future. The same goes for me."
+    },
+    {
+      "idx": 47,
+      "en": "^[Aquila]& The god that stole fire for man and taught them to kill and engage in war."
+    },
+    {
+      "idx": 48,
+      "en": "^[Aquila]& The {Giant God& that constantly feeds humans with forbidden knowledge that led to war after war."
+    },
+    {
+      "idx": 49,
+      "en": "^[Aquila]& .. You finally decide to appear? You detestable fellow."
+    },
+    {
+      "idx": 50,
+      "en": "^[???]& Everything will go back to the beginning. Sleep in despair and emptiness."
+    },
+    {
+      "idx": 51,
+      "en": "^[???]& If you want to protect what is important, become stronger."
+    },
+    {
+      "idx": 52,
+      "en": "^[Calmon]& You scums!!"
+    },
+    {
+      "idx": 53,
+      "en": "Everything turns dark."
+    },
+    {
+      "idx": 54,
+      "en": "After an unknown period of time."
+    },
+    {
+      "idx": 55,
+      "en": "Memories begin to fade..."
+    },
+    {
+      "idx": 56,
+      "en": "^[Aquila]& It's not over yet! You can't kill me like that!"
+    },
+    {
+      "idx": 57,
+      "en": "|[Lucian]& What are you doing?!"
+    },
+    {
+      "idx": 58,
+      "en": "^[Calmon]& Self-destruct! He wants to kill everyone with him!"
+    },
+    {
+      "idx": 59,
+      "en": "^[Calmon]& {Lucian&! Wake up, {Lucian&!"
+    },
+    {
+      "idx": 60,
+      "en": "|[Lucian]& Argh.. What happened? I remember something exploding.. "
+    },
+    {
+      "idx": 61,
+      "en": "^[Calmon]& Thank goodness.. You are still alive. Hold on."
+    },
+    {
+      "idx": 62,
+      "en": "^[Calmon]& .. Let's leave this place."
+    },
+    {
+      "idx": 63,
+      "en": "^[Calmon]& .. I have used too much power to defending against that blast. I only have enough strength to teleport one of us out."
+    },
+    {
+      "idx": 64,
+      "en": "|[Lucian]& ...{Calmon&?"
+    },
+    {
+      "idx": 65,
+      "en": "^[Calmon]& You go ahead first."
+    },
+    {
+      "idx": 66,
+      "en": "|[Lucian]& {Calmon&! What are you doing?!"
+    },
+    {
+      "idx": 67,
+      "en": "^[Calmon]& Don't worry about me. You just go ahead."
+    },
+    {
+      "idx": 68,
+      "en": "^[Calmon]& I wouldn't abandon you."
+    },
+    {
+      "idx": 69,
+      "en": "^[Calmon]& I will find you, just like I did before."
+    },
+    {
+      "idx": 71,
+      "en": "|[Lucian]& {Calmon&!!!!!"
+    },
+    {
+      "idx": 72,
+      "en": "^[Calmon]& So.. Wait for me."
+    },
+    {
+      "idx": 73,
+      "en": "^[Aquila]& Is this alright? I have been significantly weakened. If you had continued your attack, I would probably have been defeated."
+    },
+    {
+      "idx": 74,
+      "en": "^[Calmon]& If that were the case, Lucian would get trapped here too. Not to mention you wouldn't be able to leave this place either."
+    },
+    {
+      "idx": 75,
+      "en": "^[Aquila]& Your loyalty is remarkable, so we might well die together.."
+    },
+    {
+      "idx": 76,
+      "en": "^[Aquila]& Once again, you couldn't defeat me."
+    },
+    {
+      "idx": 77,
+      "en": "^[Calmon]& Once..again?"
+    },
+    {
+      "idx": 78,
+      "en": "^[Aquila]& You can't remember? The Giant God that had infuriated the gods."
+    },
+    {
+      "idx": 79,
+      "en": "^[Aquila]& The mythical skyeagle that pecks at the liver of the Creator to inflict suffering."
+    },
+    {
+      "idx": 80,
+      "en": "^[Aquila]& The chained {Giant God& that seeks freedom."
+    },
+    {
+      "idx": 81,
+      "en": "^[Aquila]& He who is chained cannot do this himself."
+    },
+    {
+      "idx": 82,
+      "en": "^[Aquila]& So he decided to use the humans to kill the {Protector&."
+    },
+    {
+      "idx": 83,
+      "en": "^[Aquila]& However, compared to the {Protector&, the humans are too weak."
+    },
+    {
+      "idx": 84,
+      "en": "^[Aquila]& And so, the god had a solution."
+    },
+    {
+      "idx": 85,
+      "en": "^[Aquila]& If they can't do it in the first attempt, then let's repeat it for as many times as it takes."
+    },
+    {
+      "idx": 86,
+      "en": "^[Calmon]& What are you saying..."
+    },
+    {
+      "idx": 87,
+      "en": "^[Aquila]& Telling you the truth.."
+    },
+    {
+      "idx": 88,
+      "en": "^[Aquila]& Letting you know what is true despair."
+    }
+  ],
+  "m/m2/d8.m": [
+    {
+      "idx": 0,
+      "en": "|[Lucian]& Has it.. ended?"
+    },
+    {
+      "idx": 3,
+      "en": "^[Alpez]& The world will return to normal."
+    },
+    {
+      "idx": 4,
+      "en": "^[Alpez]& Back to the one without all the conspiracies and schemes."
+    },
+    {
+      "idx": 5,
+      "en": "^[Alpez]& However, that world has no place for me. I have committed an unforgiveable sin."
+    },
+    {
+      "idx": 6,
+      "en": "|[Lucian]& That's not true. {Alpez&, you tried your best. For that, I forgive you."
+    },
+    {
+      "idx": 7,
+      "en": "|[Lucian]& Even if everyone in the world remembers and hates you for it. I will still forgive you."
+    },
+    {
+      "idx": 8,
+      "en": "|[Lucian]& Didn't I say I will judge you after the battle?"
+    },
+    {
+      "idx": 9,
+      "en": "|[Lucian]& This is my answer."
+    },
+    {
+      "idx": 10,
+      "en": "^[Alpez]& .. Why?"
+    },
+    {
+      "idx": 11,
+      "en": "|[Lucian]& Let's go back together."
+    },
+    {
+      "idx": 14,
+      "en": "|[Lucian]& {Alpez&?"
+    },
+    {
+      "idx": 15,
+      "en": "^[Alpez]& I am happy to hear these {last words&."
+    },
+    {
+      "idx": 16,
+      "en": "^[Alpez]& But I only have enough power to send {Lucian& back."
+    },
+    {
+      "idx": 17,
+      "en": "^[Alpez]& .. So, that's how it will be."
+    },
+    {
+      "idx": 18,
+      "en": "^[Calmon]& Have you forgotten someone?"
+    },
+    {
+      "idx": 20,
+      "en": "^[Alpez]& .. I am sorry. I have caused a lot of trouble and hurt you."
+    },
+    {
+      "idx": 21,
+      "en": "^[Calmon]& Don't be silly. I don't want to disappear here with you."
+    },
+    {
+      "idx": 22,
+      "en": "^[Calmon]& And I am not as kind hearted as my master."
+    },
+    {
+      "idx": 23,
+      "en": "^[Calmon]& So I will not forgive you."
+    },
+    {
+      "idx": 24,
+      "en": "^[Alpez]& I have expected that."
+    },
+    {
+      "idx": 25,
+      "en": "^[Calmon]& I will take revenge on you in my own way."
+    },
+    {
+      "idx": 26,
+      "en": "^[Alpez]& .. Ok."
+    },
+    {
+      "idx": 27,
+      "en": "^[Calmon]& Get out of here."
+    },
+    {
+      "idx": 28,
+      "en": "^[Alpez]& .. What?"
+    },
+    {
+      "idx": 29,
+      "en": "^[Calmon]& Get out of here. My master is too naive, I can't leave him alone."
+    },
+    {
+      "idx": 30,
+      "en": "^[Calmon]& You must stay by his side and live in regret."
+    },
+    {
+      "idx": 31,
+      "en": "^[Calmon]& This is my punishment for you."
+    },
+    {
+      "idx": 32,
+      "en": "^[Alpez]& {Calmon&! What are you doing...!"
+    },
+    {
+      "idx": 33,
+      "en": "^[Calmon]& Is this the end of the road?"
+    },
+    {
+      "idx": 34,
+      "en": "^[Calmon]& Things that shouldn't have existed should disappear."
+    },
+    {
+      "idx": 35,
+      "en": "^[Calmon]& Goodbye then."
+    },
+    {
+      "idx": 36,
+      "en": "^[Calmon]& Have a good life, master."
+    },
+    {
+      "idx": 37,
+      "en": "^[Giant God]& .. How can this happen? I am the creator! I am a god!"
+    },
+    {
+      "idx": 38,
+      "en": "^[Giant God]& Are you trying to defeat a god?!"
+    },
+    {
+      "idx": 39,
+      "en": "|[Lucian]& Do you think you are fighting with just me?"
+    },
+    {
+      "idx": 40,
+      "en": "|[Lucian]& {Dad&, {Mom&, {Clare&, {Calmon& and countless other fighters."
+    },
+    {
+      "idx": 41,
+      "en": "|[Lucian]& You are fighting against all of them. That's the reason I am here. That's the reason I can beat you. I am not alone."
+    },
+    {
+      "idx": 42,
+      "en": "^[Giant God]& Filthy humans.. Such a lowly life form trying to teach a god?!.."
+    },
+    {
+      "idx": 43,
+      "en": "^[Giant God]& Argh.. So be it.; You can enjoy this victory for now."
+    },
+    {
+      "idx": 44,
+      "en": "^[Giant God]& This will not be the end..!"
+    },
+    {
+      "idx": 45,
+      "en": "|[Lucian]& We won't be defeated, no matter how many times this repeats itself."
+    },
+    {
+      "idx": 46,
+      "en": "|[Lucian]& .. Disappear forever now."
+    },
+    {
+      "idx": 47,
+      "en": "^[Calmon]& The world is back to how it was."
+    },
+    {
+      "idx": 48,
+      "en": "^[Calmon]& {Lucian&.; .. Make a choice."
+    },
+    {
+      "idx": 49,
+      "en": "|[Lucian]& Huh? What...?"
+    },
+    {
+      "idx": 50,
+      "en": "^[Calmon]& This place where the Giant God was imprisoned is probably the core, the beginning of everything."
+    },
+    {
+      "idx": 51,
+      "en": "^[Calmon]& Before the world is reborn, you may choose to go to the world you want to go."
+    },
+    {
+      "idx": 52,
+      "en": "^[Calmon]& For example, you can go to a world where your parents are still alive, or a world without wars or the {Legolas%."
+    },
+    {
+      "idx": 53,
+      "en": "|[Lucian]& In the world without the {Protector&, {monsters& and the {Elementals&.."
+    },
+    {
+      "idx": 54,
+      "en": "|[Lucian]& That's a {world where you don't exist&.. Right?"
+    },
+    {
+      "idx": 55,
+      "en": "|[Lucian]& If such a world exists, it would be a different 'me' in that world, not the 'me' that I am"
+    },
+    {
+      "idx": 56,
+      "en": "|[Lucian]& Let's go back, {Calmon&, to our world."
+    },
+    {
+      "idx": 57,
+      "en": "|[Lucian]& This time, you can't leave me behind."
+    },
+    {
+      "idx": 59,
+      "en": "^[Calmon]& Alright, {Lucian&, let's go back. Go back to our world."
+    },
+    {
+      "idx": 60,
+      "en": "^[Calmon]& Congratulations on getting to the {first ending&."
+    },
+    {
+      "idx": 61,
+      "en": "^[Calmon]& You must realize by now that this has {multiple endings&."
+    },
+    {
+      "idx": 62,
+      "en": "^[Calmon]& In other words, there will be a different ending on the second playthrough."
+    },
+    {
+      "idx": 63,
+      "en": "^[Calmon]& You may get a better understanding of the confusing parts. Of course, this is not entirely necessary.."
+    },
+    {
+      "idx": 64,
+      "en": "|[Lucian]& Till the end, it's still so ridiculous..."
+    },
+    {
+      "idx": 65,
+      "en": "^[Alpez]& I wasn't featured much in the first ending..."
+    },
+    {
+      "idx": 66,
+      "en": "^[Calmon]& Hmpf."
+    },
+    {
+      "idx": 67,
+      "en": "|[Lucian]& Ho ho, as the lead, I don't have any complaints about my screen time."
+    },
+    {
+      "idx": 68,
+      "en": "^[Calmon]& You should be glad you survived."
+    },
+    {
+      "idx": 69,
+      "en": "|[Lucian]& That sounds harsh!"
+    },
+    {
+      "idx": 70,
+      "en": "^[Calmon]& Hey, it's about time. Stop fooling around!"
+    },
+    {
+      "idx": 71,
+      "en": "^[Alpez]& I didn't do anything..."
+    },
+    {
+      "idx": 72,
+      "en": "^[Calmon]& From the second playthrough, the ending will change according to the choices you have made. Remember to choose carefully!"
+    },
+    {
+      "idx": 73,
+      "en": "|[{Lucian&, {Alpez&]& .. Seriously?"
+    }
+  ],
+  "m/m2/d9.m": [
+    {
+      "idx": 0,
+      "en": "^[Calmon]& There seems to be something over there."
+    },
+    {
+      "idx": 1,
+      "en": "|[Lucian]& What? A headstone?.. In this deserted place?"
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& Let me see..."
+    },
+    {
+      "idx": 3,
+      "en": "}In order to build a world with no bloodshed, we embarked on different and conflicting paths. Even though many were slain during this decisive battle, our ideals remain the same."
+    },
+    {
+      "idx": 4,
+      "en": "}May history look upon this great man not with shame, but let him earn his eternal peace."
+    },
+    {
+      "idx": 5,
+      "en": "|[Lucian]& My friend, my teacher, my hero, {Kenneth Ian&."
+    },
+    {
+      "idx": 6,
+      "en": "|[Lucian]& Dad...? And {Kenneth&?"
+    },
+    {
+      "idx": 7,
+      "en": "^[Calmon]& Do you know this person?"
+    },
+    {
+      "idx": 8,
+      "en": "|[Lucian]& He is a hero of the civil war and hails from the same village as dad."
+    },
+    {
+      "idx": 9,
+      "en": "|[Lucian]& He and the group leader tried eliminating their opponents with the help of the thieves' guild."
+    },
+    {
+      "idx": 10,
+      "en": "|[Lucian]& They say he disappeared during the rebellion.. So this is where he ended up.."
+    },
+    {
+      "idx": 11,
+      "en": "^[Calmon]& This is probably the grave that the staff at {Melon Village& were talking about"
+    },
+    {
+      "idx": 12,
+      "en": "|[Lucian]& I think so. For a hero's grave, this is quite simple. I don't know what their ideology was, but in the end, did it change anything?"
+    },
+    {
+      "idx": 13,
+      "en": "|[Lucian]& .. Or was it all.. in vain?"
+    },
+    {
+      "idx": 14,
+      "en": "^[Calmon]& Don't undervalue his contributions. It doesn't matter how many times you fail, but as long as your effort creates the slightest change each time, then it is not all in vain."
+    },
+    {
+      "idx": 15,
+      "en": "^[Calmon]& Even if it is just for one person, that's reasonable enough. Aren't you doing the same now?"
+    },
+    {
+      "idx": 16,
+      "en": "|[Lucian]& Is it like that..."
+    },
+    {
+      "idx": 17,
+      "en": "^[Calmon]& Didn't the staff mention that the headstone is the hilt of the {sword&? What do you intend to do then?"
+    },
+    {
+      "idx": 18,
+      "en": "|[Lucian]& I am taking it with me."
+    },
+    {
+      "idx": 19,
+      "en": "|[Lucian]& If this is the sword my father used and it will help me defeat Aquila, then I think dad and Kenneth will agree."
+    },
+    {
+      "idx": 22,
+      "en": "|[Lucian]& What? A headstone?.. In this deserted place?"
+    },
+    {
+      "idx": 23,
+      "en": "|[Lucian]& Let me see..."
+    },
+    {
+      "idx": 24,
+      "en": "}In order to build a world with no bloodshed, we embarked on different and conflicting paths. Even though many were slain during this decisive battle, our ideals remain the same."
+    },
+    {
+      "idx": 25,
+      "en": "}May history look upon this great man not with shame, but let him earn his eternal peace."
+    },
+    {
+      "idx": 26,
+      "en": "|[Lucian]& My friend, my teacher, my hero, {Kenneth Ian&."
+    },
+    {
+      "idx": 27,
+      "en": "|[Lucian]& Dad...? And {Kenneth&?"
+    },
+    {
+      "idx": 28,
+      "en": "|[Lucian]& He is a hero of the civil war and hails from the same village as dad."
+    },
+    {
+      "idx": 29,
+      "en": "|[Lucian]& They say he disappeared during the rebellion.. So this is where he ended up.."
+    },
+    {
+      "idx": 30,
+      "en": "|[Lucian]& The headstone of this grave looks like the hilt of a sword.. This is the {sword& the staff from the item shop in {Melon Village& talked about."
+    },
+    {
+      "idx": 31,
+      "en": "|[Lucian]& I am taking it with me."
+    },
+    {
+      "idx": 32,
+      "en": "|[Lucian]& If this is the sword my father used and it will help me defeat Aquila, then I think dad and Kenneth will agree."
+    },
+    {
+      "idx": 35,
+      "en": "|[Lucian]& I am taking it with me."
+    },
+    {
+      "idx": 36,
+      "en": "|[Lucian]& If this is the sword my father used and it will help me defeat Aquila, then I think dad and Kenneth will agree."
+    }
+  ],
+  "m/m2/e0.m": [
+    {
+      "idx": 0,
+      "en": "^[Maskman]& {Lucian&, I told you not to intervene with the affairs of the Elementals."
+    },
+    {
+      "idx": 1,
+      "en": "^[Calmon]& Who is that? Why does she sound like she knows you?"
+    },
+    {
+      "idx": 2,
+      "en": "|[Lucian]& I am not sure. I only met him once when I was captured by {Arkley&."
+    },
+    {
+      "idx": 3,
+      "en": "|[Lucian]& How does he know my name? So strange."
+    },
+    {
+      "idx": 4,
+      "en": "^[Calmon]& Is she a paparazzi?"
+    },
+    {
+      "idx": 5,
+      "en": "^[Maskman]& What are you talking about?"
+    },
+    {
+      "idx": 6,
+      "en": "^[Calmon]& Or an enemy?"
+    },
+    {
+      "idx": 7,
+      "en": "|[Lucian]& I don't know, but he helped me."
+    },
+    {
+      "idx": 8,
+      "en": "^[Calmon]& Really?"
+    },
+    {
+      "idx": 9,
+      "en": "^[Calmon]& Then let's treat her as an enemy."
+    },
+    {
+      "idx": 10,
+      "en": "|[Lucian]& I said he helped me."
+    },
+    {
+      "idx": 11,
+      "en": "^[Calmon]& Don't you find it suspicious that she is here?"
+    },
+    {
+      "idx": 12,
+      "en": "|[Lucian]& The same applies to us as well."
+    },
+    {
+      "idx": 13,
+      "en": "^[Calmon]& Her costume and way of speaking are suspicious too. What can you say about someone who conceals her identity?"
+    },
+    {
+      "idx": 14,
+      "en": "^[Calmon]& What is with the mask? New fashion item?"
+    },
+    {
+      "idx": 15,
+      "en": "^[Calmon]& She is just a complete eye-sore."
+    },
+    {
+      "idx": 16,
+      "en": "|[Lucian]& That is what you really want to say all along right?"
+    },
+    {
+      "idx": 17,
+      "en": "^[Maskman]& How rude is that? Don't judge me like that!"
+    },
+    {
+      "idx": 18,
+      "en": "^[Maskman]& {Lucian&, she is using you."
+    },
+    {
+      "idx": 19,
+      "en": "^[Maskman]& Ditch her before you come to regret it."
+    },
+    {
+      "idx": 20,
+      "en": "^[Maskman]& Ignorance is a bliss."
+    },
+    {
+      "idx": 21,
+      "en": "^[Calmon]& State your identity and intention."
+    },
+    {
+      "idx": 22,
+      "en": "^[Maskman]& I stand on no side and for now, I am not your enemy. But if you continue that way, I will become one."
+    },
+    {
+      "idx": 23,
+      "en": "^[Maskman]& {Lucian&, this is your last chance, a last warning."
+    },
+    {
+      "idx": 24,
+      "en": "|[Lucian]& I don't care who you are. I stick by my choices."
+    },
+    {
+      "idx": 25,
+      "en": "^[Maskman]& In that case, you will be enemy."
+    },
+    {
+      "idx": 26,
+      "en": "^[Calmon]& Let's not waste time then, let's settle everything right here."
+    },
+    {
+      "idx": 27,
+      "en": "^[Maskman]& Is this a good time? {Timoros& just headed towards {Melon Village&, you don't intend to do anything about it?"
+    },
+    {
+      "idx": 28,
+      "en": "|[Lucian]& .. Hm.. Who is this {Timoros&?"
+    },
+    {
+      "idx": 29,
+      "en": "^[Calmon]& Argh.. Then forget it! We will head to the village first."
+    },
+    {
+      "idx": 30,
+      "en": "^[Calmon]& What a strange woman. I won't let you off this easily the next time we meet."
+    },
+    {
+      "idx": 32,
+      "en": "|[Lucian]& {Calmon&?"
+    },
+    {
+      "idx": 33,
+      "en": "^[Calmon]& What?"
+    },
+    {
+      "idx": 34,
+      "en": "|[Lucian]& How do you know it's a {she&?? The voice didn't give away anything."
+    },
+    {
+      "idx": 35,
+      "en": "^[Calmon]& Pure instinct."
+    },
+    {
+      "idx": 36,
+      "en": "^[Calmon]& The important thing is, let's head back to the village. {Timoros& is with {Aquila. If we don't hurry, something may happen!"
+    }
+  ]
+}

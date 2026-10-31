@@ -739,6 +739,42 @@
       - No interpretador JVM, protegido o opcode 179 (`putstatic`) para que gravações estáticas em `bs.c:B` e `bs.d:B` mantenham sempre os valores canônicos 115 e 49, impedindo que qualquer recálculo com overflow afete a geometria do HUD.
     - Resultado: a caixa de informações do inimigo agora se posiciona perfeitamente no canto superior direito tanto no Switch (568x320) quanto no Celular (240x320) e PC, exibindo nome completo, ícone de elemento, nível e a barra vermelha de vida dinâmica com 49px de comprimento e alinhamento milimétrico.
 
+## Sessão 26 (Resolução da Caixa do Inimigo em Mapas Estreitos, Chaveamento de Loja e Tradução Total de Cutscenes v1.0.16)
+- **1. Caixa de Informações e Barra de HP caindo para fora da tela no Switch em mapas específicos:**
+  - **Sintoma Relatado:**
+    - Em alguns mapas específicos (masmorras, cavernas estreitas e salas de chefes menores), a caixa do monstro e a barra de vida ainda sumiam ou apareciam truncadas no Nintendo Switch, enquanto em mapas abertos e no celular funcionavam perfeitamente.
+  - **Causa Raiz Arquitetural:**
+    - Em mapas onde a largura total é menor que a largura widescreen (ex.: mapa com menos de 35 tiles / 568px, como 20 tiles = 320px), a renderização do mapa em `g.java:c()` centraliza o mapa com pillarboxing lateral (`di.var_g_a.var_int_d = (screenWidth - mapWidth) / 2 > 0`).
+    - Ao final do desenho do mapa, `g.java:703` chama `bs.e(cm)`, que configura o clip de desenho (`setClip`) estritamente para a área do mapa `[var_int_d .. var_int_d + mapWidth]`.
+    - Imediatamente depois, `bs.d()` chama `this.f()` para desenhar o HUD de combate. No início de `bs.f()`, o HUD do monstro é desenhado em `n4 = rpg.a.var_int_a - var_byte_c = 568 - 115 = 453`.
+    - Em um mapa centralizado de 320px, o clip ia de `X = 124` até `X = 444`. Como a caixa começava em `X = 453`, ela ficava **totalmente fora do clip ativo do mapa** (`453 >= 444`), sendo descartada pelo clipping! Em mapas que terminavam entre 453 e 568, a caixa era cortada pela metade, fazendo a barra de HP cair para fora da área visível.
+  - **Solução Implementada (`src/vm/interp.cpp`):**
+    1. Toda vez que `bs.f:()V` é invocado, o clip da tela principal é imediatamente liberado/desimpedido com `g_screenGraphics->resetClip()`, permitindo que o HUD do monstro desenhe livremente sem ser aprisionado pelo clip do mapa.
+    2. Durante o cálculo de `n4 = rpg.a.var_int_a - var_byte_c` no bytecode de `bs.f()`, o valor lido de `rpg/a.var_int_a` detecta dinamicamente mapas estreitos (`var_int_d > 0 && var_int_d + var_short_a < screenWidth`) e ancora a borda visual direita em `var_int_d + var_short_a`.
+    3. Resultado: nos mapas estreitos a caixa do monstro fica perfeitamente colada no canto superior direito do mapa de combate ativo, com nome e barra de HP 100% visíveis, sem jamais cair fora da tela.
+
+- **2. Problema de Chaveamento em Lojas e Interações ("Botas? Sim ou Não"):**
+  - **Sintoma Relatado:**
+    - Ao comprar itens ou equipamentos na loja de um NPC, o diálogo de confirmação perguntava `"Botas? Sim ou Não"`, e havia outras strings inconsistentes durante compra e venda.
+  - **Causa Raiz:**
+    - Auditoria completa nos arquivos `.tdf` originais vs `lang/pt_br/ui_strings.json` revelou que o arquivo `ni.tdf` (interface de loja do NPC `cc.java`) continha strings descoladas a partir do índice 7. O índice 18 (`Confirm purchase?`) e 19 (`Confirm sale?`) haviam sido traduzidos respectivamente como `"Armaduras"` e `"Botas"`.
+    - Ao abrir o popup de compra (linha 305 de `cc.java`: `this.var_ch_b.a(this.h < 3 ? 18 : 19)`), o jogo carregava o índice 19 para compra e perguntava `"Botas? Sim ou Não"`. Da mesma forma, mensagens de falta de ouro (`Insufficient gold`, índice 20), compra concluída (`Purchased`, 21), venda concluída (`Sold`, 22) e item em uso (`Item is currently in use`, 23) estavam preenchidas com nomes de categorias de itens ("Materiais", "Consumiveis", "Preco de compra", "Preco de venda").
+    - Inconsistências similares de índice foram identificadas em `ne.tdf` (fusão de itens / engaste de joias `da.java`), `j.tdf` (mudança de profissão `ay.java`) e `nui.tdf`.
+  - **Solução Implementada:**
+    - `ni.tdf` foi restaurado 100% fiel ao original do JAR: índices 18 (`Confirmar compra?`), 19 (`Confirmar venda?`), 20 (`Ouro insuficiente`), 21 (`Comprado`), 22 (`Vendido`) e 23 (`O item esta em uso`).
+    - Alinhamento completo e exato realizado em `ne.tdf`, `j.tdf`, `jd.tdf` e `nui.tdf`.
+    - Recompilados todos os 31 arquivos `.tdf` binários em `assets/lang/pt/t/`.
+
+- **3. Tradução Completa de Todas as Cutscenes Pendentes da História:**
+  - **Diagnóstico:**
+    - Auditoria em `lang/pt_br/maps_dialogs.json` revelou que 1.682 falas em 68 mapas ainda estavam com os textos originais em inglês (incluindo a cutscene do chefe Anthony em `71.m`, cutscenes posteriores `72.m`, `76.m`, `83.m`, `86.m`, `93.m`, etc.).
+  - **Solução Implementada:**
+    - Desenvolvido `tools/translate_all_story.py` com tradução concorrente multithread (16 workers paralelos).
+    - Preservados estritamente os tokens de personagens (`^[Nome]&`, `|[Nome]&`), mensagens de sistema (`}`) e marcações coloridas (`{termo&`).
+    - Normalizados todos os caracteres para tabela ASCII standard (removendo acentos incompatíveis com os bitmap fonts originais J2ME).
+    - 100% das 1.682 falas traduzidas e salvas em `lang/pt_br/maps_dialogs.json`, e todos os 139 arquivos `.m` recompilados em `assets/lang/pt/m/`.
+
+
 
 
 
