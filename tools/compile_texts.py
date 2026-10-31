@@ -47,66 +47,99 @@ def compile_tdf(strings):
         out.extend(s_bytes)
     return bytes(out)
 
-def find_map_dialog_offset(data):
-    if not data or data[-1] != 0:
-        return None
-    for n3 in range(1, 255):
-        for off in range(len(data) - n3 - 2, 0, -1):
-            if data[off] == n3:
-                lengths = data[off+1 : off+1+n3]
-                expected_end = off + 1 + n3 + sum(lengths) + n3
-                if expected_end == len(data):
-                    cur = off + 1 + n3
-                    valid = True
-                    for l in lengths:
-                        if cur + l >= len(data) or data[cur + l] != 0:
-                            valid = False
-                            break
-                        cur += l + 1
-                    if valid:
-                        return off
-    return None
+def parse_m_exact(data):
+    pos = 0
+    b0 = data[pos]; pos += 1
+    o0 = data[pos]; pos += 1
+    o1 = data[pos]; pos += 1
+    
+    orig_names = []
+    for i in range(2):
+        b8 = data[pos]; pos += 1
+        name = data[pos : pos + b8] if b8 > 0 else b''
+        pos += b8
+        orig_names.append(name)
+        
+    body_start = pos
+    
+    by9 = data[pos]; pos += 1
+    objects = data[pos : pos + by9]; pos += by9
+    w = data[pos]; h = data[pos+1]; pos += 2
+    l1 = data[pos : pos + w * h]; pos += w * h
+    l2 = data[pos : pos + w * h]; pos += w * h
+    n8 = data[pos]; pos += 1 + n8 * 5
+    n3 = data[pos]; pos += 1 + n3 * 5
+    n2 = data[pos]; pos += 1 + n2 * 5
+    by6 = data[pos]; pos += 1 + by6
+    by7 = data[pos]; pos += 1
+    for i in range(by7):
+        n4 = data[pos+1]
+        pos += 4 if (n4 & 0x80) == 0x80 else 3
+    by3 = data[pos]; pos += 1 + by3
+    by2 = data[pos]; pos += 1
+    for i in range(by2):
+        n4 = data[pos+1]
+        pos += 4 if (n4 & 0x80) == 0x80 else 3
+        
+    cnt1 = data[pos]; pos += 1
+    lens1 = [data[pos+i] for i in range(cnt1)]
+    pos += cnt1 + sum(lens1)
+    
+    cnt2 = data[pos]; pos += 1
+    lens2 = [data[pos+2*i] | (data[pos+2*i+1] << 8) for i in range(cnt2)]
+    pos += cnt2 * 2 + sum(lens2)
+    
+    dialog_count_pos = pos
+    dialog_count = data[pos]; pos += 1
+    dialogs = []
+    if dialog_count > 0:
+        str_lens = [data[pos+i] for i in range(dialog_count)]
+        pos += dialog_count
+        for l in str_lens:
+            dialogs.append(data[pos : pos + l])
+            pos += l + 1
+            
+    trailer = data[pos:]
+    return {
+        'body_start': body_start,
+        'dialog_count_pos': dialog_count_pos,
+        'dialog_count': dialog_count,
+        'dialogs': dialogs,
+        'trailer': trailer,
+        'orig_names': orig_names
+    }
 
 def compile_map(orig_path, trans_info):
     with open(orig_path, 'rb') as f:
         data = f.read()
 
-    # Atualiza cabeçalho com nomes de área/região se fornecidos
+    info = parse_m_exact(data)
+
+    # 1. Atualiza cabeçalho com nomes de área/região se fornecidos
     area_name = clean_ascii(trans_info.get("area_name", ""))
     region_name = clean_ascii(trans_info.get("region_name", ""))
-    
-    # Reconstrói os primeiros bytes se houver nomes
-    n22 = 3
-    by8_0 = data[n22]; n22 += 1
-    orig_area = data[n22:n22+by8_0] if by8_0 > 0 else b""
-    n22 += by8_0
-    by8_1 = data[n22]; n22 += 1
-    orig_reg = data[n22:n22+by8_1] if by8_1 > 0 else b""
-    n22 += by8_1
 
     new_header = bytearray(data[:3])
-    area_bytes = (area_name.encode('latin1', errors='replace') if area_name else orig_area)[:255]
+    area_bytes = (area_name.encode('latin1', errors='replace') if area_name else info['orig_names'][0])[:255]
     new_header.append(len(area_bytes))
     new_header.extend(area_bytes)
 
-    reg_bytes = (region_name.encode('latin1', errors='replace') if region_name else orig_reg)[:255]
+    reg_bytes = (region_name.encode('latin1', errors='replace') if region_name else info['orig_names'][1])[:255]
     new_header.append(len(reg_bytes))
     new_header.extend(reg_bytes)
 
-    rest_start = n22
-    dialog_off = find_map_dialog_offset(data)
-    
-    if dialog_off is None:
-        # Mapa sem diálogos, só copia os bytes
-        return bytes(new_header) + data[rest_start:]
+    # 2. Corpo do mapa (tiles, objetos, colisões, monstros, npcs e triggers cb_a/cb_b intactos)
+    map_body = data[info['body_start'] : info['dialog_count_pos']]
 
-    # Bytes do mapa entre cabeçalho de nomes e a tabela de diálogos
-    map_body = data[rest_start:dialog_off]
-
+    # 3. Diálogos
     dialogs = trans_info.get("dialogs", [])
+    if info['dialog_count'] == 0:
+        # Mapa sem diálogos originais: mantém byte 0 e qualquer trailer
+        return bytes(new_header) + map_body + bytes([0]) + info['trailer']
+
     if not dialogs:
         # Mantém diálogos originais
-        return bytes(new_header) + map_body + data[dialog_off:]
+        return bytes(new_header) + map_body + data[info['dialog_count_pos']:]
 
     # Compila nova tabela de diálogos
     count = min(len(dialogs), 255)
@@ -124,6 +157,7 @@ def compile_map(orig_path, trans_info):
     for db in dialog_bytes_list:
         new_dialog_table.extend(db)
         new_dialog_table.append(0) # delimitador nulo
+    new_dialog_table.extend(info['trailer'])
 
     return bytes(new_header) + map_body + bytes(new_dialog_table)
 

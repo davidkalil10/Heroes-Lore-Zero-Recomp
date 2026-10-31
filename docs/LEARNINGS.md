@@ -774,8 +774,37 @@
     - Normalizados todos os caracteres para tabela ASCII standard (removendo acentos incompatíveis com os bitmap fonts originais J2ME).
     - 100% das 1.682 falas traduzidas e salvas em `lang/pt_br/maps_dialogs.json`, e todos os 139 arquivos `.m` recompilados em `assets/lang/pt/m/`.
 
-
-
-
-
-
+## Sessão 27 (Correção Definitiva do Carregamento Infinito nas Ruínas e Parser Estrutural Exato de Mapas v1.0.17)
+- **1. Carregamento Infinito ao Atravessar Porta no Mapa "Ruins Normal" (Mapa 48 -> Mapa 115):**
+  - **Sintoma Relatado:**
+    - O jogador avançou até o mapa Ruins (Normal, mapa 48 / `m/m/48.m`). Ao tentar passar por uma porta na coordenada (19, 4), a tela ficava permanentemente com o texto "Carregando..." e a música de fundo parava, sem avançar para o mapa seguinte.
+  - **Diagnóstico e Causa Raiz:**
+    - A porta em (19, 4) no mapa 48 possui um gatilho de teleporte: `case 23: di.b(115, 19, 1, 2)`. O destino é o Mapa 115 (`/m/m2/b5.m`, Templo Zona 1).
+    - O teleporte aciona a thread de carregamento em background (`bs.run()` -> `rpg.e.g()` -> `df.void_a()` -> `db.int_a()`).
+    - Durante o parsing do arquivo `.m` em `db.java`, o leitor consome os blocos de tiles, colisões, monstros, NPCs e finalmente os scripts de gatilhos:
+      - Tabela `cb_a`: 8-bit offsets.
+      - Tabela `cb_b`: 16-bit offsets (`short`).
+      - Em seguida lê `dialog_count` (`s_dialogCount = stream.readShort()`).
+      - E para cada diálogo lê a string terminada em zero (`\0`).
+    - No arquivo compilado original do JAR (`reference/extracted/m/m2/b5.m`), o arquivo tem 2.912 bytes. A tabela `cb_b` termina exatamente no byte 2.910, onde há `dialog_count = 0` (bytes `00 00`), perfazendo exatamente 2.912 bytes (sem diálogos).
+    - Contudo, as ferramentas de extração e compilação de localização (`tools/extract_texts.py` e `tools/compile_texts.py`) utilizavam uma rotina heurística reversa `find_map_dialog_offset` que começava no fim do arquivo procurando sequências de bytes de strings ASCII terminadas em `\x00`.
+    - No caso de `b5.m`, como não havia diálogos, a heurística caiu dentro dos bytes numéricos de scripts da tabela `cb_b` em que alguns valores coincidiam com caracteres ASCII válidos (`'0 t v 5 5 5'`).
+    - Isso fez com que o compilador de localização acreditasse que o bloco de scripts terminava no byte 2.888 e que os 24 bytes seguintes eram strings de diálogo corrompidas. Ao recompilar `b5.m`, o arquivo foi gerado com apenas 2.900 bytes, truncando os últimos 24 bytes de scripts da tabela `cb_b`.
+    - Ao tentar ler 36 bytes de gatilhos em um buffer truncado de apenas 24 bytes restantes, `db.java` disparou `java/lang/ArrayIndexOutOfBoundsException`. Como a thread secundária de carregamento não capturava a exceção, ela finalizava silenciosamente de forma anômala, deixando `di.var_byte_d == 1` ("Carregando...") travado para sempre!
+  - **Auditoria Geral e Solução Implementada:**
+    - Uma auditoria minuciosa em todos os 139 mapas revelou que `b5.m`, `b8.m` e `58.m` haviam sofrido truncamentos similares pela heurística reversa.
+    - Substituição completa da heurística falha: implementado o decodificador exato `parse_m_exact()` em `tools/compile_texts.py` e `tools/extract_texts.py`, modelando de forma canônica e 1:1 a máquina de estados binária do bytecode de `g.java:330-520` e `db.java:16-43`:
+      1. Cabeçalho: 2 strings terminadas em `\x00` (nomes de região).
+      2. Spritesets de objetos: lido contador e strings terminadas em `\x00`.
+      3. Dimensões e camadas de tiles: largura, altura, camadas compactadas de tiles.
+      4. Objetos animados e portais de colisão.
+      5. Monstros e spawners.
+      6. NPCs e waypoints.
+      7. Bloco de scripts (`df`): 8-bit table `cb_a` e 16-bit table `cb_b`.
+      8. `dialog_count`: leitor determinístico que para exatamente no offset exato de diálogos.
+    - Restaurado `b5.m` para seu formato original canônico com `dialog_count = 0` e 2.912 bytes inteiros.
+    - Corrigidos `b8.m` (Câmara do Chefe do Templo, 6 diálogos reais) e `58.m` (Fortaleza do Sul, 2 diálogos reais).
+    - Traduzidos integralmente todos os 148 diálogos e livros da Biblioteca Central de Humming City (`22.m`).
+    - Ajustado `Platform::getRmsDir` para priorizar saves em `rms/` ou `build/rms/` de forma dinâmica no ambiente de desenvolvimento Desktop.
+    - Recompilados todos os 139 mapas com `python tools/compile_texts.py pt`.
+    - Validada a transição do save do usuário para o Mapa 115 (`b5.m`): a transição ocorre instantaneamente, carrega os monstros, o mapa do Templo e inicia a música de fundo sem qualquer travamento.

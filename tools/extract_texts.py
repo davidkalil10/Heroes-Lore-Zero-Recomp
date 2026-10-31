@@ -36,43 +36,56 @@ def parse_map(path):
     if not data:
         return None
 
-    # Lê nomes de área/região no cabeçalho
+    pos = 0
+    b0 = data[pos]; pos += 1
+    o0 = data[pos]; pos += 1
+    o1 = data[pos]; pos += 1
+
     area_name = ""
     region_name = ""
-    n22 = 3 # pula var_byte_a, O[0], O[1]
-    by8_0 = data[n22]; n22 += 1
+    by8_0 = data[pos]; pos += 1
     if by8_0 > 0:
-        area_name = data[n22:n22+by8_0].decode('utf-8', errors='replace')
-        n22 += by8_0
-    by8_1 = data[n22]; n22 += 1
+        area_name = data[pos:pos+by8_0].decode('utf-8', errors='replace')
+        pos += by8_0
+    by8_1 = data[pos]; pos += 1
     if by8_1 > 0:
-        region_name = data[n22:n22+by8_1].decode('utf-8', errors='replace')
-        n22 += by8_1
+        region_name = data[pos:pos+by8_1].decode('utf-8', errors='replace')
+        pos += by8_1
 
-    # Localiza a tabela de diálogos no final
+    by9 = data[pos]; pos += 1
+    pos += by9
+    w = data[pos]; h = data[pos+1]; pos += 2
+    pos += w * h * 2
+    n8 = data[pos]; pos += 1 + n8 * 5
+    n3 = data[pos]; pos += 1 + n3 * 5
+    n2 = data[pos]; pos += 1 + n2 * 5
+    by6 = data[pos]; pos += 1 + by6
+    by7 = data[pos]; pos += 1
+    for i in range(by7):
+        n4 = data[pos+1]
+        pos += 4 if (n4 & 0x80) == 0x80 else 3
+    by3 = data[pos]; pos += 1 + by3
+    by2 = data[pos]; pos += 1
+    for i in range(by2):
+        n4 = data[pos+1]
+        pos += 4 if (n4 & 0x80) == 0x80 else 3
+
+    cnt1 = data[pos]; pos += 1
+    lens1 = [data[pos+i] for i in range(cnt1)]
+    pos += cnt1 + sum(lens1)
+    cnt2 = data[pos]; pos += 1
+    lens2 = [data[pos+2*i] | (data[pos+2*i+1] << 8) for i in range(cnt2)]
+    pos += cnt2 * 2 + sum(lens2)
+
+    dialog_count = data[pos]; pos += 1
     dialogs = []
-    if data[-1] == 0:
-        for n3 in range(1, 255):
-            for off in range(len(data) - n3 - 2, 0, -1):
-                if data[off] == n3:
-                    lengths = data[off+1 : off+1+n3]
-                    expected_end = off + 1 + n3 + sum(lengths) + n3
-                    if expected_end == len(data):
-                        cur = off + 1 + n3
-                        valid = True
-                        temp_strs = []
-                        for l in lengths:
-                            if cur + l >= len(data) or data[cur + l] != 0:
-                                valid = False
-                                break
-                            s = data[cur : cur+l].decode('utf-8', errors='replace')
-                            cur += l + 1
-                            temp_strs.append(s)
-                        if valid and len(temp_strs) == n3:
-                            dialogs = temp_strs
-                            break
-            if dialogs:
-                break
+    if dialog_count > 0:
+        str_lens = [data[pos+i] for i in range(dialog_count)]
+        pos += dialog_count
+        for l in str_lens:
+            s = data[pos:pos+l].decode('utf-8', errors='replace')
+            dialogs.append(s)
+            pos += l + 1
 
     return {
         "area_name": area_name,

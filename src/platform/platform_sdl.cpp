@@ -3142,14 +3142,6 @@ std::string Platform::getRmsDir(VM* vm) {
   }
 
   // No PC (Windows/Desktop onde getStorageDir() retorna ".")
-  if (vm && !vm->dataDir.empty()) {
-    std::string d = vm->dataDir + "/rms";
-    std::error_code ec;
-    std::filesystem::create_directories(d, ec);
-    s_cachedRmsDir = d;
-    return d;
-  }
-
   if (!s_cachedRmsDir.empty() && std::filesystem::exists(s_cachedRmsDir)) {
     return s_cachedRmsDir;
   }
@@ -3173,6 +3165,14 @@ std::string Platform::getRmsDir(VM* vm) {
       s_cachedRmsDir = c;
       return c;
     }
+  }
+
+  if (vm && !vm->dataDir.empty()) {
+    std::string d = vm->dataDir + "/rms";
+    std::error_code ec;
+    std::filesystem::create_directories(d, ec);
+    s_cachedRmsDir = d;
+    return d;
   }
 
   if (std::filesystem::exists("assets")) {

@@ -16,8 +16,8 @@
 
 namespace hl {
 
-#define HL_VERSION_TAG "v1.0.16"
-#define HL_VERSION_NUM "1.0.16"
+#define HL_VERSION_TAG "v1.0.17"
+#define HL_VERSION_NUM "1.0.17"
 
 enum class UpdateState {
   IDLE,

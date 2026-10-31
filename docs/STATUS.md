@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-31 (Versão v1.0.16 lançada oficialmente)_
+_Última atualização: 2026-10-31 (Versão v1.0.17 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -100,6 +100,16 @@ _Última atualização: 2026-10-31 (Versão v1.0.16 lançada oficialmente)_
     - Solução: restauração 100% fiel e canônica de todos os índices correspondendo perfeitamente ao inglês original do JAR, garantindo confirmações de compra ("Confirmar compra? Sim ou Não") e venda ("Confirmar venda? Sim ou Não").
   - **Tradução completa de 100% das cutscenes pendentes da história:**
     - Tradução das 1.682 falas pendentes em 68 mapas de maps_dialogs.json via pipeline concorrente multithread (tools/translate_all_story.py), com preservação de marcadores de sistema, tags de personagens e sanitização limpa para tabela ASCII compatível com as fontes bitmap originais J2ME. Todos os 139 mapas binários recompilados em assets/lang/pt/m/.
+
+- [x] Correções e refinamentos v1.0.17:
+  - **Correção definitiva do carregamento infinito nas Ruínas (Ruins Normal, Mapa 48 -> Mapa 115):**
+    - Causa raiz: na transição pela porta em (19, 4) do mapa 48 (`m/m/48.m`) rumo ao mapa 115 (`m/m2/b5.m`, Templo Zona 1), a thread em background de transição (`bs.run()` -> `df.void_a()` -> `db.int_a()`) travava com `ArrayIndexOutOfBoundsException` não tratada e o jogo ficava para sempre com "Carregando..." na tela.
+    - O mapa original `b5.m` tem 2.912 bytes e 0 diálogos (`dialog_count = 0`). O compilador e extrator de localização utilizavam uma rotina heurística reversa (`find_map_dialog_offset`) que encontrava falsos positivos de strings dentro da tabela binária de scripts `cb_b`, truncando 24 bytes de scripts executáveis da porta e injetando textos corrompidos fantasma.
+    - Solução: eliminação definitiva da heurística reversa e implementação do parser estrutural exato `parse_m_exact()` em `tools/compile_texts.py` e `tools/extract_texts.py` espelhando a gramática canônica de `g.java:330-520` e `db.java:16-43`.
+    - Recuperados 100% dos bytes de scripts e gatilhos de `b5.m` (2.912 bytes canônicos), `b8.m` (Câmara do Chefe do Templo) e `58.m` (Fortaleza do Sul).
+    - Tradução completa dos 148 livros e diálogos da Biblioteca Central de Humming City (`22.m`).
+    - Ajuste de prioridade em `Platform::getRmsDir` para detecção imediata de saves disponibilizados em `build/rms/` ou `rms/`.
+    - Recompilação de todos os 139 mapas de jogo (`assets/lang/pt/m/`). Transição testada e validada com carregamento instantâneo e áudio MIDI ativo.
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
 - [x] **Passo 0:** Boot nativo no PC da classe `rpg.RPGHeroEx` e renderização do primeiro frame (240x320 / Widescreen).
