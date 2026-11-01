@@ -1,6 +1,6 @@
 # STATUS — Heroes Lore: Zero
 
-_Última atualização: 2026-10-31 (Versão v1.0.17 lançada oficialmente)_
+_Última atualização: 2026-11-01 (Versão v1.0.18 lançada oficialmente)_
 
 ## Ambiente
 - Java 17/21, Python 3.13, Git: OK.
@@ -110,6 +110,14 @@ _Última atualização: 2026-10-31 (Versão v1.0.17 lançada oficialmente)_
     - Tradução completa dos 148 livros e diálogos da Biblioteca Central de Humming City (`22.m`).
     - Ajuste de prioridade em `Platform::getRmsDir` para detecção imediata de saves disponibilizados em `build/rms/` ou `rms/`.
     - Recompilação de todos os 139 mapas de jogo (`assets/lang/pt/m/`). Transição testada e validada com carregamento instantâneo e áudio MIDI ativo.
+
+- [x] Correções e refinamentos v1.0.18:
+  - **Renovação completa e temática das Molduras Laterais (Bezels) para Heroes Lore: Zero:**
+    - Causa: as texturas de bezel anteriores haviam sido importadas da base do primeiro jogo (*Wind of Soltia*), exibindo "WIND OF SOLTIA", "SOLTIA REBORN" e brasão antigo.
+    - Desenvolvido `tools/generate_bezel_textures.py` gerando arte nativa 1920x1080 pixel-perfect inspirada na estética gótica de Heroes Lore: Zero.
+    - Coluna esquerda: medalhão heráldico com as armas de Lucian (Espada e Gunblade cruzadas com gema rubi central), halo dourado, asas metálicas, runas nórdicas e gravação `• HEROES LORE • ZERO •`.
+    - Coluna direita: placa nobre com logotipo dourado e rubi `HEROES LORE: ZERO`, cartucho de preservação histórica (David Kalil Braga, EA Mobile 2008, 15/30 FPS, Proporção 3:4) e selo `— ZERO CHRONICLES REBORN 2026 —`.
+    - Em `src/platform/platform_sdl.cpp`, atualizado `BEZEL_ZERO`, carregamento de `bezel_zero` e notificação OSD `"Moldura: Heroes Lore Zero"`. Texturas sincronizadas em todas as plataformas (PC, Android e RomFS do Switch).
 
 ## Roadmap de Etapas (Seguindo o Blueprint)
 - [x] **Passo 0:** Boot nativo no PC da classe `rpg.RPGHeroEx` e renderização do primeiro frame (240x320 / Widescreen).

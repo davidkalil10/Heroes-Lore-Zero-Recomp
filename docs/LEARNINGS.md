@@ -808,3 +808,35 @@
     - Ajustado `Platform::getRmsDir` para priorizar saves em `rms/` ou `build/rms/` de forma dinâmica no ambiente de desenvolvimento Desktop.
     - Recompilados todos os 139 mapas com `python tools/compile_texts.py pt`.
     - Validada a transição do save do usuário para o Mapa 115 (`b5.m`): a transição ocorre instantaneamente, carrega os monstros, o mapa do Templo e inicia a música de fundo sem qualquer travamento.
+
+## Sessão 28 (Moldura Temática Exclusiva de Heroes Lore: Zero e Renovação dos Bezels v1.0.18)
+- **1. Customização da Moldura Lateral (Bezel) para Heroes Lore: Zero:**
+  - **Sintoma Relatado:**
+    - Ao ativar o modo de molduras temáticas (Bezels) no modo 3:4 (original) em telas panorâmicas (16:9 widescreen), as colunas laterais ainda exibiam textos e elementos heráldicos herdados do primeiro jogo *Heroes Lore: Wind of Soltia* (ex: "WIND OF SOLTIA", "SOLTIA REBORN", medalhão com espada de Soltia e ano 2007).
+  - **Diagnóstico:**
+    - As texturas binárias `bezel_soltia.rgba` e `bezel_slate.rgba` haviam sido trazidas da base inicial de código do port anterior sem terem sido regeneradas com a identidade visual e o lore próprios de Heroes Lore: Zero.
+    - O código em `src/platform/platform_sdl.cpp` referenciava `BEZEL_SOLTIA` ("Moldura: Soltia Ancestral") e tentava carregar apenas `bezel_soltia`.
+  - **Solução Implementada:**
+    - Criado o gerador paramétrico oficial de molduras em `tools/generate_bezel_textures.py` com resolução 1920x1080 (para telas Full HD, 2K, 4K e Nintendo Switch 720p/1080p).
+    - **Coluna Esquerda:**
+      - Base de mármore e basalto escuro talhado, pilares góticos com canaletas clássicas e capitéis com frisos em ouro e bronze.
+      - Medalhão heráldico circular esculpido com rebites de bronze e halo místico dourado.
+      - Emblema central: As armas lendárias de Lucian (Espada Larga e Gunblade cruzadas em ângulo de 45°, lâminas de aço escovado, mecanismo de tambor de disparos com entalhes dourados e gema rubi radiante lapidada no centro do cruzamento).
+      - Fileira de runas arcanas nórdicas entalhadas no mármore com iluminação dourada e azul.
+      - Inscrição mística oficial: `• HEROES LORE •` e `• ZERO •` em tipografia romana dourada em alto relevo.
+    - **Coluna Direita:**
+      - Placa superior nobre biselada com moldura em relevo, filete duplo em ouro polido e rebites de bronze.
+      - Título Nobre Oficial: `HEROES LORE` e `ZERO` em grande destaque com preenchimento rubi/dourado e losangos heráldicos.
+      - Sub-rótulo: `EDICAO DEFINITIVA RECOMPILADA`.
+      - Cartucho heráldico inferior de preservação histórica:
+        - `— ARQUIVO DE PRESERVACAO —`
+        - `DAVID KALIL BRAGA` (Recompilação C++17 • Engenharia)
+        - `EA MOBILE • HANDS-ON MOBILE` (Desenvolvedores Originais - 2008)
+        - `PROPORCAO: 3:4 ORIGINAL` (Taxa Fiel 15/30 FPS • Som MIDI SF2)
+        - `• FIDELIDADE PIXEL-PERFECT •`
+        - Rodapé sagrado: `— ZERO CHRONICLES REBORN 2026 —`
+    - **Código C++ (`src/platform/platform_sdl.cpp`):**
+      - `BEZEL_SOLTIA` renomeado para `BEZEL_ZERO` mantendo valor numérico `0` (retrocompatibilidade automática com `hl_settings.ini`).
+      - Carregamento de textura `bezel_zero` com fallback para `bezel_soltia`.
+      - Mensagem OSD atualizada para `"Moldura: Heroes Lore Zero"`.
+      - Texturas geradas e sincronizadas para todas as pastas de UI (`assets/ui/`, `build/assets/ui/`, `dist_windows/`, `android/` e `romfs/`).

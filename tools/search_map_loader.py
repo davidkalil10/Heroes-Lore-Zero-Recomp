@@ -1,9 +1,8 @@
-import os
+import glob
 
-for root, dirs, files in os.walk('reference/decompiled_cfr'):
-    for f in sorted(files):
-        path = os.path.join(root, f)
-        with open(path, 'r', encoding='utf-8', errors='ignore') as fp:
-            c = fp.read()
-            if '.m"' in c or '/m/' in c:
-                print(f)
+for p in glob.glob('reference/decompiled_cfr/**/*.java', recursive=True):
+    with open(p, 'r', encoding='utf-8', errors='ignore') as f:
+        lines = f.readlines()
+    for i, l in enumerate(lines):
+        if '.m"' in l or '"/m/' in l:
+            print(f'{p}:{i+1}: {l.strip()}')

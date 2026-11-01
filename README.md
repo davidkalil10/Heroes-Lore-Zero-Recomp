@@ -24,7 +24,7 @@ O projeto executa o **bytecode original diretamente no motor C++**, sem emulaç�
   - Alternância entre **Auto** (responsivo à orientação do dispositivo), **3:4 Original** (240x320) e **16:9 True Widescreen** (568x320 com expansão real da área visível do mapa e HUD rebalanceado).
   - **Menu In-Game Adaptativo:** O menu principal in-game (`ax.java`) se adapta dinamicamente à tela, expandindo-se para uma largura fluida de 558px em widescreen.
   - **Transição Thread-Safe:** Mudança instantânea de aspect ratio através do menu de configurações (`bd.class`) ou por atalho de controle/teclado sem congelamentos ou tela preta.
-  - **Molduras Temáticas (Bezels):** Molduras exclusivas inspiradas na estética de Soltia (Soltia Dourada, Slate e Preto) para preenchimento de telas panorâmicas no modo 3:4.
+  - **Molduras Temáticas (Bezels):** Molduras exclusivas inspiradas na estética de Heroes Lore: Zero (Zero Oficial, Ardósia Escura e Preto) para preenchimento de telas panorâmicas no modo 3:4.
 - ⚡ **Limitador de Quadros (15 FPS / 30 FPS):**
   - **30 FPS:** Modo fluido moderno de alta taxa de resposta.
   - **15 FPS:** Taxa de quadros autêntica do hardware móvel J2ME original de 2008 (modo nostalgia).
@@ -82,7 +82,7 @@ O projeto executa o **bytecode original diretamente no motor C++**, sem emulaç�
 | :--- | :--- | :--- |
 | **Alternar Idioma (PT-BR / English)** | <kbd>F2</kbd> | Menu Options in-game |
 | **Abrir Modal de Cloud Save (Google Drive)** | <kbd>F4</kbd> | Menu Options in-game |
-| **Alternar Molduras (Soltia / Slate / Preto)** | <kbd>F5</kbd> | <kbd>SELECT</kbd> + <kbd>LB</kbd> |
+| **Alternar Molduras (Zero / Ardósia / Preto)** | <kbd>F5</kbd> | <kbd>SELECT</kbd> + <kbd>LB</kbd> |
 | **Alternar FPS (30 FPS Fluido / 15 FPS Original)** | <kbd>F6</kbd> ou <kbd>F8</kbd> | <kbd>SELECT</kbd> + <kbd>RB</kbd> |
 | **Alternar Aspect Ratio (Auto / 3:4 / 16:9 Wide)** | <kbd>F7</kbd> ou <kbd>F10</kbd> | <kbd>SELECT</kbd> + <kbd>START</kbd> ou Botão <kbd>Guide</kbd> |
 | **Verificar Atualizações OTA** | <kbd>F9</kbd> | Menu Options in-game |

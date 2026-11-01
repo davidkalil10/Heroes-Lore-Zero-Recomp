@@ -196,20 +196,21 @@ static int mapControllerButton(Uint8 btn) {
 // Passo 7: Molduras Temáticas (Bezels), Aspect Ratio e FPS Limiter
 // =============================================================
 enum BezelMode {
-  BEZEL_SOLTIA = 0,
+  BEZEL_ZERO = 0,
   BEZEL_SLATE = 1,
   BEZEL_BLACK = 2,
   BEZEL_COUNT = 3
 };
+constexpr BezelMode BEZEL_SOLTIA = BEZEL_ZERO;
 
 enum AspectMode {
   ASPECT_AUTO = 0,       // Auto: dinâmico pela orientação da tela (Horizontal -> 16:9, Vertical -> 3:4)
-  ASPECT_ORIGINAL = 1,   // 3:4 Original com Molduras de Soltia
+  ASPECT_ORIGINAL = 1,   // 3:4 Original com Molduras de Heroes Lore: Zero
   ASPECT_WIDESCREEN = 2, // 16:9 True Widescreen (Expansão Real de Viewport)
   ASPECT_COUNT = 3
 };
 
-static BezelMode s_bezelMode = BEZEL_SOLTIA;
+static BezelMode s_bezelMode = BEZEL_ZERO;
 static int s_targetFps = 30; // 30 (padrão fluido) ou 15 (nostalgia J2ME original)
 static AspectMode s_aspectMode = ASPECT_AUTO;
 static bool s_isFullscreen = false;
@@ -837,7 +838,8 @@ void Platform::updateViewport(VM& vm) {
   forceRepaintImmediate(vm);
 }
 
-static SDL_Texture* s_texBezelSoltia = nullptr;
+static SDL_Texture* s_texBezelZero = nullptr;
+#define s_texBezelSoltia s_texBezelZero
 static SDL_Texture* s_texBezelSlate = nullptr;
 static SDL_Texture* s_texFontOsd = nullptr;
 
@@ -1295,8 +1297,11 @@ static void loadBezelTextures() {
   if (!s_texFontOsd) {
     s_texFontOsd = loadRgbaTexture("font_osd");
   }
-  if (s_bezelMode == BEZEL_SOLTIA && !s_texBezelSoltia) {
-    s_texBezelSoltia = loadRgbaTexture("bezel_soltia");
+  if (s_bezelMode == BEZEL_ZERO && !s_texBezelZero) {
+    s_texBezelZero = loadRgbaTexture("bezel_zero");
+    if (!s_texBezelZero) {
+      s_texBezelZero = loadRgbaTexture("bezel_soltia");
+    }
   } else if (s_bezelMode == BEZEL_SLATE && !s_texBezelSlate) {
     s_texBezelSlate = loadRgbaTexture("bezel_slate");
   }
@@ -2121,7 +2126,7 @@ bool Platform::pollEvents(VM& vm) {
         }
         s_startUsedInCombo = false;
       } else if (ev.cbutton.button == SDL_CONTROLLER_BUTTON_RIGHTSTICK) {
-        // Combo SELECT + R3 -> Alterna Moldura (Bezel: Soltia <-> Ardósia <-> Preto)
+        // Combo SELECT + R3 -> Alterna Moldura (Bezel: Zero <-> Ardósia <-> Preto)
         // R3 isolado -> Alterna Velocidade (15 FPS Padrão <-> 30 FPS Turbo)
         if (s_selectButtonHeld) {
           s_selectUsedInCombo = true;
@@ -2697,7 +2702,7 @@ void Platform::present() {
   // Renderiza moldura temática nas laterais (pillarbox) se houver espaço
   if (g_screenWidth == SCREEN_W_ORIGINAL && dstGame.x > 0) {
     SDL_Texture* activeBezel = nullptr;
-    if (s_bezelMode == BEZEL_SOLTIA) activeBezel = s_texBezelSoltia;
+    if (s_bezelMode == BEZEL_ZERO) activeBezel = s_texBezelZero;
     else if (s_bezelMode == BEZEL_SLATE) activeBezel = s_texBezelSlate;
 
     if (activeBezel) {
@@ -2769,7 +2774,7 @@ void Platform::shutdown() {
   if (s_texBtnAspect) { SDL_DestroyTexture(s_texBtnAspect); s_texBtnAspect = nullptr; }
   if (s_texBtnFps) { SDL_DestroyTexture(s_texBtnFps); s_texBtnFps = nullptr; }
   if (s_texBtnGlow) { SDL_DestroyTexture(s_texBtnGlow); s_texBtnGlow = nullptr; }
-  if (s_texBezelSoltia) { SDL_DestroyTexture(s_texBezelSoltia); s_texBezelSoltia = nullptr; }
+  if (s_texBezelZero) { SDL_DestroyTexture(s_texBezelZero); s_texBezelZero = nullptr; }
   if (s_texBezelSlate) { SDL_DestroyTexture(s_texBezelSlate); s_texBezelSlate = nullptr; }
   if (s_texFontOsd) { SDL_DestroyTexture(s_texFontOsd); s_texFontOsd = nullptr; }
   if (s_ttf.texture) {
@@ -2801,7 +2806,7 @@ void Platform::toggleBezel() {
   saveSettings();
   loadBezelTextures();
   const char* names[] = {
-    "Moldura: Soltia Ancestral",
+    "Moldura: Heroes Lore Zero",
     "Moldura: Ardosia Escura",
     "Moldura: Preto Classico"
   };
