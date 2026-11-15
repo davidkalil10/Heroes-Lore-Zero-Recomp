@@ -57,7 +57,12 @@ jobs:
           test -f "$DEVKITPRO/portlibs/switch/lib/libSDL2_mixer.a"
           test -f "$DEVKITPRO/portlibs/switch/lib/libcurl.a"
           cat "$DEVKITPRO/ounce-devkit-version.txt"
-          pacman -Q > switch2-packages.txt
+          "$DEVKITA64/bin/aarch64-none-elf-g++" --version > switch2-packages.txt
+          if command -v dkp-pacman >/dev/null 2>&1; then
+            dkp-pacman -Q >> switch2-packages.txt
+          elif command -v pacman >/dev/null 2>&1; then
+            pacman -Q >> switch2-packages.txt
+          fi
 
       - name: Prepare embedded assets
         run: |
