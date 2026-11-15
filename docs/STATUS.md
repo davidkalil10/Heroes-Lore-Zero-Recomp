@@ -132,10 +132,10 @@ _Última atualização: 2026-11-01 (Versão v1.0.18 lançada oficialmente)_
 
 
 
-## Switch 2 — compilação experimental em preparação (15/11/2026)
+## Switch 2 — primeira execução no console aprovada (15/11/2026)
 
 - Workflow separado com SDK ounce-devkit fixado e Makefile.switch2, sem alterações no build multiplataforma existente.
 - Saída heroes_lore_zero_switch2.nro com RomFS, metadados, SHA-256 e relatório.
 - Formato RMS e backup/restauração Google Drive preservados; atualizador diferencia o artefato de Switch 2.
-- Compilação GitHub Actions aprovada em 15/11/2026, revisão `85213ea50bebe5c7658aa069f633d0a0601c1469`; NRO/ícone/NACP/RomFS verificados. Testes no console pendentes: não declarar save/rede/áudio compatíveis antes dos testes.
+- Compilação GitHub Actions aprovada em 15/11/2026, revisão `85213ea50bebe5c7658aa069f633d0a0601c1469`; NRO/ícone/NACP/RomFS verificados. NRO enviado por Netloader e execução aprovada no console, com funcionamento geral confirmado. A confirmação recebida não discrimina os testes individuais de backup/restauração Google Drive.
 - Instruções e limites em docs/SWITCH2.md. Nenhuma release nova preparada.

@@ -33,3 +33,9 @@ Créditos: [ounce-devkit](https://github.com/ouncebrew/ounce-devkit), [libounce]
 ## Compilação de referência
 
 A execução [43687510808](https://github.com/davidkalil10/Heroes-Lore-Zero-Recomp/actions/runs/43687510808) concluiu com sucesso na revisão `85213ea50bebe5c7658aa069f633d0a0601c1469`. NRO: 99.217.219 bytes; SHA-256 `40a327fcfcc31a91df35f4180ea7dc181faac15e51e2f7fa59a35f5ff2177b5f`. Ícone, NACP e RomFS presentes e dentro dos limites do arquivo. Não houve teste no console neste checkpoint.
+
+## Teste no console — 15/11/2026
+
+O NRO da revisão `85213ea50bebe5c7658aa069f633d0a0601c1469` foi enviado para o hbmenu já ativo pelo protocolo Netloader/nxlink. O receptor confirmou a transferência de 99.217.219 bytes (25.846.034 bytes comprimidos). Nome recebido: `heroes_lore_zero_switch2_85213ea.nro`. A execução do Heroes Lore Zero e o funcionamento geral foram confirmados no console. Este é o primeiro checkpoint jogável de Switch 2. O arquivo testado mantém SHA-256 `40a327fcfcc31a91df35f4180ea7dc181faac15e51e2f7fa59a35f5ff2177b5f`.
+
+A confirmação foi geral; os passos específicos de backup/restauração Google Drive ainda não foram discriminados no registro. Preservar essa distinção ao apresentar a cobertura de testes. Não foi necessário repetir SmileBASIC ou reiniciar entre o hbmenu aberto e o envio. O envio não modificou os arquivos RMS ou backups. A pasta local original e a main permaneceram intactas; o desenvolvimento continua na branch experimental.

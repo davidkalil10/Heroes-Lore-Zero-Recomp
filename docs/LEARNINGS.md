@@ -850,3 +850,9 @@
 - A receita experimental fica em branch separada e usa push específico ou disparo manual; não publica releases nem dispara alterações na main. Ver docs/SWITCH2.md.
 
 - Primeira compilação Switch 2 concluída com sucesso: [Actions 43687510808](https://github.com/davidkalil10/Heroes-Lore-Zero-Recomp/actions/runs/43687510808), revisão `85213ea50bebe5c7658aa069f633d0a0601c1469`. SDK e dependências SDL2/mixer/curl já presentes na imagem; registro de pacotes precisa aceitar `dkp-pacman`, não pressupor `pacman`. NRO de 99.217.219 bytes, SHA-256 `40a327fcfcc31a91df35f4180ea7dc181faac15e51e2f7fa59a35f5ff2177b5f`. A validação estrutural e o hash não substituem testes de console e restauração de saves.
+
+## Teste no console — 15/11/2026
+
+O NRO da revisão `85213ea50bebe5c7658aa069f633d0a0601c1469` foi enviado para o hbmenu já ativo pelo protocolo Netloader/nxlink. O receptor confirmou a transferência de 99.217.219 bytes (25.846.034 bytes comprimidos). Nome recebido: `heroes_lore_zero_switch2_85213ea.nro`. A execução do Heroes Lore Zero e o funcionamento geral foram confirmados no console. Este é o primeiro checkpoint jogável de Switch 2. O arquivo testado mantém SHA-256 `40a327fcfcc31a91df35f4180ea7dc181faac15e51e2f7fa59a35f5ff2177b5f`.
+
+A confirmação foi geral; os passos específicos de backup/restauração Google Drive ainda não foram discriminados no registro. Preservar essa distinção ao apresentar a cobertura de testes. Não foi necessário repetir SmileBASIC ou reiniciar entre o hbmenu aberto e o envio. O envio não modificou os arquivos RMS ou backups. A pasta local original e a main permaneceram intactas; o desenvolvimento continua na branch experimental.
