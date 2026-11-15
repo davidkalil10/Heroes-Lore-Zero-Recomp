@@ -840,3 +840,11 @@
       - Carregamento de textura `bezel_zero` com fallback para `bezel_soltia`.
       - Mensagem OSD atualizada para `"Moldura: Heroes Lore Zero"`.
       - Texturas geradas e sincronizadas para todas as pastas de UI (`assets/ui/`, `build/assets/ui/`, `dist_windows/`, `android/` e `romfs/`).
+
+## 15/11/2026 — base de compilação Switch 2
+
+- ounce-devkit 20261115 oferece libounce/switch2_rules, a macro __SWITCH2__ e SWITCH2_CPU. As regras priorizam as bibliotecas Switch 2/OunceVK e mantêm as portlibs compatíveis.
+- O projeto usa C++17/SDL2 e RomFS, permitindo preparar uma compilação própria sem alterar a lógica do jogo. A compatibilidade real ainda depende de teste.
+- CloudSave usa HOL.*.rms e heroes_lore_zero_save.json. Preservar formatos, caminhos e funções. A rede é inicializada pelo Updater::init; não desativar essa inicialização para remover o atualizador, pois isso afetaria a nuvem.
+- O atualizador antigo seleciona heroes_lore_zero.nro para qualquer __SWITCH__. Uma condição específica __SWITCH2__ precisa vir antes para selecionar apenas heroes_lore_zero_switch2.nro.
+- A receita experimental fica em branch separada e usa push específico ou disparo manual; não publica releases nem dispara alterações na main. Ver docs/SWITCH2.md.

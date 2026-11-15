@@ -131,3 +131,11 @@ _Última atualização: 2026-11-01 (Versão v1.0.18 lançada oficialmente)_
 - [x] **Passo 8:** Release v1.0.1 com refinamentos de controles, touch HL2, nuvem Zero e OTA update.
 
 
+
+## Switch 2 — compilação experimental em preparação (15/11/2026)
+
+- Workflow separado com SDK ounce-devkit fixado e Makefile.switch2, sem alterações no build multiplataforma existente.
+- Saída heroes_lore_zero_switch2.nro com RomFS, metadados, SHA-256 e relatório.
+- Formato RMS e backup/restauração Google Drive preservados; atualizador diferencia o artefato de Switch 2.
+- Compilação e testes no console pendentes neste checkpoint. Não declarar save/rede/áudio compatíveis antes dos testes.
+- Instruções e limites em docs/SWITCH2.md. Nenhuma release nova preparada.
