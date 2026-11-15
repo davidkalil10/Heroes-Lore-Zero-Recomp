@@ -137,5 +137,5 @@ _Última atualização: 2026-11-01 (Versão v1.0.18 lançada oficialmente)_
 - Workflow separado com SDK ounce-devkit fixado e Makefile.switch2, sem alterações no build multiplataforma existente.
 - Saída heroes_lore_zero_switch2.nro com RomFS, metadados, SHA-256 e relatório.
 - Formato RMS e backup/restauração Google Drive preservados; atualizador diferencia o artefato de Switch 2.
-- Compilação e testes no console pendentes neste checkpoint. Não declarar save/rede/áudio compatíveis antes dos testes.
+- Compilação GitHub Actions aprovada em 15/11/2026, revisão `85213ea50bebe5c7658aa069f633d0a0601c1469`; NRO/ícone/NACP/RomFS verificados. Testes no console pendentes: não declarar save/rede/áudio compatíveis antes dos testes.
 - Instruções e limites em docs/SWITCH2.md. Nenhuma release nova preparada.

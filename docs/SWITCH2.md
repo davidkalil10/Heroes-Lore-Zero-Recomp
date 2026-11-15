@@ -29,3 +29,7 @@ Com hbmenu já aberto, ative Netloader e envie o NRO com nxlink no PC, usando o 
 Validação da compilação confirma formato e presença dos recursos, não jogabilidade ou compatibilidade completa. Verificar abertura, imagem, controles, áudio, saves, backup/restauração Google Drive e retorno ao hbmenu.
 
 Créditos: [ounce-devkit](https://github.com/ouncebrew/ounce-devkit), [libounce](https://github.com/ouncebrew/libounce), [OunceVK](https://github.com/ouncebrew/ouncevk), [kaiHEN](https://github.com/ouncebrew/kaihen), devkitPro e contribuidores.
+
+## Compilação de referência
+
+A execução [43687510808](https://github.com/davidkalil10/Heroes-Lore-Zero-Recomp/actions/runs/43687510808) concluiu com sucesso na revisão `85213ea50bebe5c7658aa069f633d0a0601c1469`. NRO: 99.217.219 bytes; SHA-256 `40a327fcfcc31a91df35f4180ea7dc181faac15e51e2f7fa59a35f5ff2177b5f`. Ícone, NACP e RomFS presentes e dentro dos limites do arquivo. Não houve teste no console neste checkpoint.

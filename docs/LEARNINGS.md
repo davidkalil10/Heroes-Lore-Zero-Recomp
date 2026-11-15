@@ -848,3 +848,5 @@
 - CloudSave usa HOL.*.rms e heroes_lore_zero_save.json. Preservar formatos, caminhos e funções. A rede é inicializada pelo Updater::init; não desativar essa inicialização para remover o atualizador, pois isso afetaria a nuvem.
 - O atualizador antigo seleciona heroes_lore_zero.nro para qualquer __SWITCH__. Uma condição específica __SWITCH2__ precisa vir antes para selecionar apenas heroes_lore_zero_switch2.nro.
 - A receita experimental fica em branch separada e usa push específico ou disparo manual; não publica releases nem dispara alterações na main. Ver docs/SWITCH2.md.
+
+- Primeira compilação Switch 2 concluída com sucesso: [Actions 43687510808](https://github.com/davidkalil10/Heroes-Lore-Zero-Recomp/actions/runs/43687510808), revisão `85213ea50bebe5c7658aa069f633d0a0601c1469`. SDK e dependências SDL2/mixer/curl já presentes na imagem; registro de pacotes precisa aceitar `dkp-pacman`, não pressupor `pacman`. NRO de 99.217.219 bytes, SHA-256 `40a327fcfcc31a91df35f4180ea7dc181faac15e51e2f7fa59a35f5ff2177b5f`. A validação estrutural e o hash não substituem testes de console e restauração de saves.
