@@ -139,3 +139,11 @@ _Última atualização: 2026-11-01 (Versão v1.0.18 lançada oficialmente)_
 - Formato RMS e backup/restauração Google Drive preservados; atualizador diferencia o artefato de Switch 2.
 - Compilação GitHub Actions aprovada em 15/11/2026, revisão `85213ea50bebe5c7658aa069f633d0a0601c1469`; NRO/ícone/NACP/RomFS verificados. NRO enviado por Netloader e execução aprovada no console, com funcionamento geral confirmado. Backup e restauração pelo Google Drive também foram confirmados no console.
 - Instruções e limites em docs/SWITCH2.md. Nenhuma release nova preparada.
+
+## 15/11/2026 — integração e publicação Switch 2
+
+- Execução desta build aprovada no console após envio pelo Netloader.
+- Build Switch 2 incorporada ao workflow multiplataforma por workflow_call: main/PR geram artefatos e tags publicam NRO e SHA-256.
+- Versão do NACP deriva de Makefile.switch, acompanhando as ferramentas de atualização existentes.
+- Publicação manual usa inputs.release_tag; a expressão antiga priorizava github.ref_name e poderia selecionar a branch.
+- Saves e nuvem permanecem com o código, os nomes e a identidade específicos do jogo. NRO testado preservado para a release atual.
